@@ -4,7 +4,7 @@
   <title><![CDATA[Something Witty]]></title>
   <link href="http://ElPiloto.github.io/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2013-07-03T23:45:18-04:00</updated>
+  <updated>2013-07-04T00:17:19-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,5 +12,503 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Tmux command-completion at bash prompt!]]></title>
+    <link href="http://ElPiloto.github.io/blog/2013/05/16/tmux-command-completion-at-bash-prompt/"/>
+    <updated>2013-05-16T00:00:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2013/05/16/tmux-command-completion-at-bash-prompt</id>
+    <content type="html"><![CDATA[<p>After checking out git’s amazing git command-completion and my recent_discovery
+of how to implement your own command-completion for bash scripts, I began to
+wonder why tmux didn’t have this feature. Â After some searching, I found that
+the tmux installation includes a script file for command-completion in bash!
+Â In the tmux-1.8 distribution, you should find a folder titled “examples&#8221;
+which contains a file “bash_completion_tmux.sh&#8221;. Â Just source this file in
+your .bashrc and you’re done!!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[VIM Tips: Editing macros, sessions, command-line registers, & a new register!]]></title>
+    <link href="http://ElPiloto.github.io/blog/2013/04/30/vim-tips-editing-macros-sessions-command-line-registers--a-new-register/"/>
+    <updated>2013-04-30T00:00:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2013/04/30/vim-tips-editing-macros-sessions-command-line-registers&#8211;a-new-register</id>
+    <content type="html"><![CDATA[<ol>
+<li>Edit macro:
+Record macro to register f: qf to start recording macro to register f
+Specify macro:Â <Random macro commands of your choosing>
+Stop recording macro:Â q
+Open new area to modify macro and paste it:
+
+<ul>
+<li>:sp new</li>
+<li>&ldquo;f (this is the magic here &ndash; I didn’t realize macros were just stored as
+characters in a register!)
+Edit macro: <Random macro modifications>
+Select macro: <Your favorite method for selecting the edited macro>
+Yank macro back to register f: “fy
+Use updated macro: @f
+TADA!</li>
+</ul>
+</li>
+<li>Vim Sessions:Â 
+You can use the :mksession command to create a vim script that will restore
+your current editing session. Â By default, :mksession will save your currently
+opened buffers, the current directory, tabs, splits, and folds you have open,
+but you can add more things by modifying the “sessionoptions&#8221; variable. Â You
+can save multiple sessions by calling the :mksession command with an argument
+specifying the session name, which you can later invoke to load a particular
+session.
+Example 1: Using the generic session specifier
+Open up vim and open up a few tabs or splits or whatever you normally do when
+your coding.
+Save the session:Â :mksession &ndash; this will save our session to a file named
+Session.vim, which is the default session name.
+Quit vim: :qa
+Start vim with the default session name: vim -S
+TADA!
+Example 2: Saving and loading a specific session:
+Just like before, open up vim normally and open up random tabs and files and
+splits and whatchamajiggers.
+Save the session with the name your_splits_give_them_to_me: :mks
+your_splits_give_them_to_me (Notice that we can specify a file name that
+doesn’t end in .vim and also that we can abbreviate :mksession to :mks)
+Quit vim: :qa
+Start vim with the session name your_splits_give_them_to_me: vim &ndash;
+S your_splits_give_them_to_me
+TADA!</li>
+<li>COMBO SECTION: Paste register into the command line and the new register I
+learned!
+Sometimes it’s useful to use the contents of a register in a command. Â For
+instance, let’s say you’re editing a bash script, bludgeon.sh, and you want to
+actually test it before you continue adding functionality to the script.
+
+<ul>
+<li>How a naive user might do this:
+Â  Â  Â  Â  Â  Â Exit vim
+Â  Â  Â  Â  Â  Â Execute the script: bash bludgeon.sh
+Â  Â  Â  Â  Â  Â Open the file in vim again: vim bludgeon.sh</li>
+<li>How a less naive user might do this:
+Â  Â  Â  Â  Â  Â Execute a command from the terminal using vim’s filter (!) by
+typing: &ldquo;:! bash bludgeon.sh&rdquo;</li>
+<li>How I would do this:
+Â  Â  Â  Â  Â  Â Instead of typing out bludgeon.sh, use the special % register
+to paste the filename into vim’s command line:
+Â  Â  Â  Â  Â  Â &#8221;:! bash &lt;Ctrl-r>%&ldquo;
+That explains two tips:
+The % register which contains the name of the file you’re currently editing.
+Pasting a register into vim’s command-line: &lt;Ctrl-r> register
+TADA! Â Happy VIM’ing!</li>
+</ul>
+</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Adding tab completion for your bash scripts]]></title>
+    <link href="http://ElPiloto.github.io/blog/2013/04/26/adding-tab-completion-for-your-bash-scripts/"/>
+    <updated>2013-04-26T00:00:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2013/04/26/adding-tab-completion-for-your-bash-scripts</id>
+    <content type="html"><![CDATA[<p>Adding_tab_completion_for_your_bash_scripts
+Just this morning I was wondering how git tab-completes it’s subcommands and
+then today I see this link on reddit!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[15 Linux Bash History Expansion Examples You Should Know]]></title>
+    <link href="http://ElPiloto.github.io/blog/2013/04/22/15-linux-bash-history-expansion-examples-you-should-know/"/>
+    <updated>2013-04-22T00:00:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2013/04/22/15-linux-bash-history-expansion-examples-you-should-know</id>
+    <content type="html"><![CDATA[<p>15_Linux_Bash_History_Expansion_Examples_You_Should_Know</p>
+
+<pre><code> Bash history is very powerful. Understanding how to effectively use
+ the bash history expansions will make you extremely productive on the
+ Linux command
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[VIM: Substitute Teacher]]></title>
+    <link href="http://ElPiloto.github.io/blog/2013/03/01/vim-substitute-teacher/"/>
+    <updated>2013-03-01T00:00:00-05:00</updated>
+    <id>http://ElPiloto.github.io/blog/2013/03/01/vim-substitute-teacher</id>
+    <content type="html"><![CDATA[<p>When people learn vim it’s pretty common to learn search and replace, typically
+taught in this form:
+:%s/food/ramen noodles, again/g
+This will search through the entire file and replace the phrase food with ramen
+noodles, again. Â People even go as far as to learn the following variant which
+asks for confirmation before replacing each instance:
+:%s/food/ramen noodles, again/gc
+Some people might even know that the g at the end tells vim to replace every
+instance on a line (omitting the g tells vim to replace only the first
+occurrence on each line). However,Â what people often don’t learn is how truly
+customizable this command is.</p>
+
+<h1>1 Crouching Tiger, Hidden Feature:Â You can use (almost) any character as a</h1>
+
+<p>delimiter.
+I always thought you had to use / as the delimiter, but it turns out you can
+use any character (except for space and alphanumeric characters). Â So we could
+do the following in place of the above: Â  Â Â </p>
+
+<pre><code>* :%s+food+ramen noodles, again+g
+  Â  Â  Â  Â  Â  Â  Â  Â  Â OR
+* :%s|food|ramen noodles, again|g
+</code></pre>
+
+<p>Why would we want to use this? Â Well, if you ever wanted to use / as part of
+your search or replace expressions, you would have to escape it using vim’s
+escape character (backslash) . Â Let’s assume we want to replace each instance
+of / with ./ To accomplish that, we’d have to do the following if we stuck with
+the default delimiter:</p>
+
+<pre><code>* :%s/\//.\//g
+</code></pre>
+
+<p>However, if we used an alternative delimiter, such asÂ @ we would have an
+expression which is much easier to use, read, and type:</p>
+
+<pre><code>* :%s@/@./@g
+</code></pre>
+
+<p>No escaping needed, tada!</p>
+
+<h1>2 That’s Not a Bug, That’s a Feature: You don’t always have to include a</h1>
+
+<p>search pattern!
+Let’s say you previously looked for &ldquo;a_good_time&rdquo; using this command:</p>
+
+<pre><code>* /a_good_time
+</code></pre>
+
+<p>And after some time you decide you want to replace it with something more
+specific, you could use the following command:</p>
+
+<pre><code>* :%s//coke_and_hookers/g
+  Â  Â  Â  Â  Â  Â  Â  Â  Â OR equivalently
+* :%s^^coke_and_hookers^g
+</code></pre>
+
+<p>When you don’t specify a search expression in the substitute command, vim
+automatically uses the last value you searched (or substituted for) as the
+search expression!</p>
+
+<h1>3_The_Feature_Is_In_Your_Hands:Â You can manipulate the range on which</h1>
+
+<p>substitutions take place!
+The generic version of substitute uses % as the range, which means the entire
+file, but vim allows much more flexibity in specifying the range. Â How do we
+specify ranges? Â Quite intuitively! Ranges can be specified from a starting
+point to an ending point, thus the only thing to really learn is to specify
+these points. Â They are as follows:</p>
+
+<pre><code>* . Â the current line number
+* $ the last line in the file
+* % the entire file
+* any number specifies that line number in the file
+* ‘t would specify the location of marker t (markers are a way of marking
+  locations in the file so you can return to them later)
+* /some_pattern would go to the next line where we find the string
+  “some_pattern"
+* ?some_pattern would go to the previous line where we find the string
+  “some_pattern"
+</code></pre>
+
+<p>You specify ranges as points separated by a comma. Â Here are some example
+ranges as used in a substitution command:</p>
+
+<pre><code>* :1,3s/hello/goodbye/g - this would replace all instances of hello with
+  goodbye on lines 1-3 of our file
+* :1,$s/hello/goodbye/g - this would search through the entire file Note
+  that 1,$ is equivalent to %
+* :1,.s/hello/goodbye/g - this would search from the beginning of our file
+  to the current line
+* :.,/aloha/s/hello/goodbye/g - this would search from the current line to
+  the first line after the current line containingÂ alohaÂ in it and
+  replace hello with goodbye
+</code></pre>
+
+<p>Note: If you specify a range that goes backwards, vim will prompt you to
+reverse the order.
+And there you have it! Now you can be pickier with your substitutions than a
+vegan on an airplane. Â Next on your to do list should be learning vim regular
+expressions, specifically escape characters and quantifiers (for advanced
+searching) and grouping and backreferences (for advanced replacing).</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[VIM Tips: DiffOrig a.k.a. What the crap changes did I make?]]></title>
+    <link href="http://ElPiloto.github.io/blog/2013/01/09/vim-tips-difforig-aka-what-the-crap-changes-did-i-make/"/>
+    <updated>2013-01-09T00:00:00-05:00</updated>
+    <id>http://ElPiloto.github.io/blog/2013/01/09/vim-tips-difforig-aka-what-the-crap-changes-did-i-make</id>
+    <content type="html"><![CDATA[<p>Sometimes I’ll come back to my computer (usually from getting coffee or a
+pensive pacing session) and see that I’ve made changes to a file in vim without
+actually saving those changes. Â Did I forget to save actual edits to the file
+or did I happen to mash on my keyboard accidentally while vim was in the
+foreground? Â 
+To check what you’ve changed since the last time you saved a file, you can use
+the following command to pull up a diff of the file contents on disk against
+the file contents open in your vim buffer:</p>
+
+<pre><code> :DiffOrig
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Where’s the bus? Oh, it’s not coming yet. But what the hell, that guy looking down the street totally looked like he saw the bus coming.  What’s wrong with him, does he not know how to wait for the bus?]]></title>
+    <link href="http://ElPiloto.github.io/blog/2012/12/12/wheres-the-bus-oh-its-not-coming-yet-but-what-the-hell-that-guy-looking-down-the-street-totally-looked-like-he-saw-the-bus-coming--whats-wrong-with-him-does-he-not-know-how-to-wait-for-the-bus/"/>
+    <updated>2012-12-12T00:00:00-05:00</updated>
+    <id>http://ElPiloto.github.io/blog/2012/12/12/wheres-the-bus-oh-its-not-coming-yet-but-what-the-hell-that-guy-looking-down-the-street-totally-looked-like-he-saw-the-bus-coming&#8211;whats-wrong-with-him-does-he-not-know-how-to-wait-for-the-bus</id>
+    <content type="html"><![CDATA[<pre><code> Where’s the bus? Oh, it’s not coming yet. But what the hell, that guy
+ looking down the street totally looked like he saw the bus coming.
+ What’s wrong with him, does he not know how to wait for the bus?
+</code></pre>
+
+<p>—my train of thought while waiting for the bus this morning…the human condition
+is cruelly volatile and arbitrary, and in being so, also hilarious.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Whoring the Matlab File Exchange Pick of the Week Blog]]></title>
+    <link href="http://ElPiloto.github.io/blog/2012/10/21/whoring-the-matlab-file-exchange-pick-of-the-week-blog/"/>
+    <updated>2012-10-21T00:00:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2012/10/21/whoring-the-matlab-file-exchange-pick-of-the-week-blog</id>
+    <content type="html"><![CDATA[<p>As an avid Matlab user, I frequently supplement the built-in functionality with
+source code from Matlab’s_File_Exchange. Â Sometimes it’s simple, but extremely
+convenient functionality I’d rather not code myself, such as mtit. Â Sometimes
+it’s more esoteric code specific to a domain or file standard that I’d never
+code myself such as plot2svg. Â All in all, Matlab’s File Exchange has proven
+to be a real resource. Â However, for the longest time, I only acquired new
+File Exchange code when I explicitly needed functionality unavailable in
+Matlab. Â 
+But that’s only half the benefit of the File Exchange. Â There are libraries
+upon libraries of code on the internet aimed at providing functionality users
+wouldn’t ever imagine (think jQuery or any of a million web frameworks aimed at
+adding radically simplified interfaces to a unified combination of programming
+elements). Â Given that I might benefit from code I didn’t even know existed,
+how could these unsung ones-and-zeroes be brought to my attention? Â 
+Enter Matlab’s_File_Exchange_Pick_of_the_Week_blog. Â Each Friday, one of two
+Matlab employees ( Brett &amp; Jiro ) posts about his “favorite user-
+contributed submissions from the File Exchange.&ldquo; Â Once I found this blog, I
+subscribed to its feed and now every Friday I eagerly await what goodie will be
+bestowed upon me next.
+Unfortunately, the last few blog posts have garnered my disdain. Â Instead of
+the usually useful picks, Brett and Jiro have chosen poorly veiled “picks&rdquo; that
+promote Matlab’s new Apps feature. Â </p>
+
+<pre><code>* Oh hey all you scientific programmers, check out this arcade-style
+  shooter written in Matlab - did we mention it’s the first user-
+  contributed App?
+  Â 
+* Matlab users: if you found galaga useful for analyzing data, look at this
+  map-of-the-stars file exchange submission written by one of the Matlab
+  employees that’s actually an App, a new feature in Matlab!!
+  Â 
+* Check out this, user-submitted content: it’s an App centered on two e-
+  books written by one of Matlab’s original authors, Cleve. Â Don’t worry,
+  the App itself is also written by Cleve so you know it’s user-submitted.
+</code></pre>
+
+<p>It’s their company and their blog, they can do what they want with it, but I
+can’t help but feel slightly wronged. Â I can’t really speculate on possible
+repercussions this not so subtle corporate whoring might have &ndash; Matlab has
+entrenched itself as a mission critical part of so many getups &ndash; but I hope
+maybe this post will make the point to the folks at Mathworks that they should
+consider treating us with respect instead of somehow believing that they can
+covertly advertise through a medium we choose to subscribe to under the
+pretenses that it will contain actual utility. Â I’m not calling anyone a bad
+person or particularly furious about the situation, it’s more of a “shame on
+you&#8221; kinda thing. Â Did I mention Matlab has a new Apps feature?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[MATLAB: Unpack cell array to function arguments]]></title>
+    <link href="http://ElPiloto.github.io/blog/2012/09/01/matlab-unpack-cell-array-to-function-arguments/"/>
+    <updated>2012-09-01T00:00:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2012/09/01/matlab-unpack-cell-array-to-function-arguments</id>
+    <content type="html"><![CDATA[<p>I recently found myself needing to pass the contents of a variable length cell
+array as arguments to a function that accepted a variable number of arguments
+(via Matlab’s varargin functionality). Â I thought this would be a real
+problem, but was astonished at how easy it was.
+Assuming we have a cell array defined as follows:</p>
+
+<pre><code> my_cell_array = {‘You’, ‘Say’, ‘Aloha’, ‘I’, ‘Say’, ‘Aloha’};
+</code></pre>
+
+<p>And that we’re trying to call Matlab’s load() function with the following form:</p>
+
+<pre><code> load(filename, varargin)
+</code></pre>
+
+<p>All we have to do is the following:</p>
+
+<pre><code> load(‘some_random_matlab_file.mat’, my_cell_array{:})
+</code></pre>
+
+<p>And that’s all it takes. Â Just in case you’re curious, the particular use case
+that led me to need this functionality was that I needed to load a list of user
+specified variables from a .mat file in a toolbox I’m working on.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[VIM Plugin of the week: NERDtree]]></title>
+    <link href="http://ElPiloto.github.io/blog/2012/06/28/vim-plugin-of-the-week-nerdtree/"/>
+    <updated>2012-06-28T00:00:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2012/06/28/vim-plugin-of-the-week-nerdtree</id>
+    <content type="html"><![CDATA[<p>VIM_Plugin_of_the_week:_NERDtree
+I was at Hack n’ Jill last week and a friend told me about NERDtree, a VIM
+plugin for easily exploring any project hierarchy in vim. Â It’s super easy to
+install, there’s no reason not to try this out. Â Definitely take advantage of
+the bookmark feature which acts like shortcuts to your favorite project files/
+directories.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[MATLAB Programming/Struct Arrays - Wikibooks, open books for an open world]]></title>
+    <link href="http://ElPiloto.github.io/blog/2012/06/28/matlab-programmingstruct-arrays---wikibooks-open-books-for-an-open-world/"/>
+    <updated>2012-06-28T00:00:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2012/06/28/matlab-programmingstruct-arrays&#8212;wikibooks-open-books-for-an-open-world</id>
+    <content type="html"><![CDATA[<p>MATLAB_Programming/Struct_Arrays<em>&ndash;</em>Wikibooks,_open_books_for_an_open_world
+In Matlab, working with arrays of structs can be quite unintuitive &ndash; this page
+had some very helpful tips.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Solarized: A Must Have Color Scheme For Gnome Terminal, Vim, Gedit And Lots More ~ Web Upd8: Ubuntu / Linux blog]]></title>
+    <link href="http://ElPiloto.github.io/blog/2012/06/26/solarized-a-must-have-color-scheme-for-gnome-terminal-vim-gedit-and-lots-more--web-upd8-ubuntu--linux-blog/"/>
+    <updated>2012-06-26T00:00:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2012/06/26/solarized-a-must-have-color-scheme-for-gnome-terminal-vim-gedit-and-lots-more&#8211;web-upd8-ubuntu&#8211;linux-blog</id>
+    <content type="html"><![CDATA[<p>Solarized:<em>A_Must_Have_Color_Scheme_For_Gnome_Terminal,</em>Vim,<em>Gedit_And_Lots
+More</em>~<em>Web_Upd8:</em>Ubuntu<em>/</em>Linux_blog
+How to get Solarized Color Scheme Working With Gnome-Terminal and Vim</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Remove A Software Repo From Yum:]]></title>
+    <link href="http://ElPiloto.github.io/blog/2012/06/26/remove-a-software-repo-from-yum/"/>
+    <updated>2012-06-26T00:00:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2012/06/26/remove-a-software-repo-from-yum</id>
+    <content type="html"><![CDATA[<p>I recently had to remove the Livna repo from yum because I found it was
+unresponsive and, more importantly, had been fused into rpmfusion. Â Thus, to
+remove a repo, get use sudo (or su) to remove the file:</p>
+
+<pre><code> rmÂ /etc/yum.repos.d/REPONAMEHERE.repo
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[VIM Tips: Jump between cursor positions]]></title>
+    <link href="http://ElPiloto.github.io/blog/2012/06/21/vim-tips-jump-between-cursor-positions/"/>
+    <updated>2012-06-21T00:00:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2012/06/21/vim-tips-jump-between-cursor-positions</id>
+    <content type="html"><![CDATA[<p>Just recently had to look up how to return to my cursor position after jumping
+to the beginning of my file.</p>
+
+<pre><code> Jump to old/prev cursor position: Ctrl + oÂ 
+ Jump to new/next cursor position: Ctrl + iÂ 
+</code></pre>
+
+<p>Sample usage scenario: You need to look up a variable definition at the top of
+your file.
+   1. Type “gg&#8221; to jump to the beginning of your file
+   2. Once you’ve seen your variable name, simply type “Ctrl + o&#8221; to jump back</p>
+
+<pre><code>  to where you were.
+</code></pre>
+
+<ol>
+<li>. Someone in your office farted and in your laughter you forgot the
+  variable name again! Hit “Ctrl + i&#8221; to jump back to the top of the file
+  and then hit “Ctrl + o&#8221; to go back to your position further down into the
+  file.</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Check hard drive specs on linux:]]></title>
+    <link href="http://ElPiloto.github.io/blog/2012/06/20/check-hard-drive-specs-on-linux/"/>
+    <updated>2012-06-20T00:00:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2012/06/20/check-hard-drive-specs-on-linux</id>
+    <content type="html"><![CDATA[<p>I recently needed to check whether or not my computer’s hard drive was IDE or
+SATA. Â Some googling and poking around led me to this. Â </p>
+
+<pre><code> sudo hdparm -I /dev/sda
+</code></pre>
+
+<p>You can replace /dev/sda with any other hard drives you may have (e.g. /dev/
+sdb). Â This output will give you the devices model number, which allows you to
+look up the specifics online. Â If anyone knows a shorter way of checking for
+IDE vs. SATA, let me know.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Solarized Color Scheme For Matlab]]></title>
+    <link href="http://ElPiloto.github.io/blog/2012/06/19/solarized-color-scheme-for-matlab/"/>
+    <updated>2012-06-19T00:00:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2012/06/19/solarized-color-scheme-for-matlab</id>
+    <content type="html"><![CDATA[<p>Solarized_Color_Scheme_For_Matlab</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Checking vim runtime]]></title>
+    <link href="http://ElPiloto.github.io/blog/2012/06/19/checking-vim-runtime/"/>
+    <updated>2012-06-19T00:00:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2012/06/19/checking-vim-runtime</id>
+    <content type="html"><![CDATA[<p>How to check vim runtime:</p>
+
+<pre><code> :set runtimepath?
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[tcsh color prompt example]]></title>
+    <link href="http://ElPiloto.github.io/blog/2012/06/18/tcsh-color-prompt-example/"/>
+    <updated>2012-06-18T00:00:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2012/06/18/tcsh-color-prompt-example</id>
+    <content type="html"><![CDATA[<pre><code>  set prompt = "%{[32m%}${USER}%{[0m%}@%m %{[35m%}(%~)%{[0m%} &gt; "
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Change Bash Color Prompt]]></title>
+    <link href="http://ElPiloto.github.io/blog/2012/06/18/change-bash-color-prompt/"/>
+    <updated>2012-06-18T00:00:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2012/06/18/change-bash-color-prompt</id>
+    <content type="html"><![CDATA[<p>Change_Bash_Color_Prompt</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to check which terminals are supported in *nix?]]></title>
+    <link href="http://ElPiloto.github.io/blog/2012/06/08/how-to-check-which-terminals-are-supported-in-nix/"/>
+    <updated>2012-06-08T00:00:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2012/06/08/how-to-check-which-terminals-are-supported-in-nix</id>
+    <content type="html"><![CDATA[<p>Recently I needed to know which terminal I could set my $TERM variable to in
+tmux’s configuration file so I stumbled across this little nugget o’
+knowledge.Â </p>
+
+<pre><code> grep ‘^[a-zA-Z]’ /etc/termcap | more
+</code></pre>
+]]></content>
+  </entry>
   
 </feed>

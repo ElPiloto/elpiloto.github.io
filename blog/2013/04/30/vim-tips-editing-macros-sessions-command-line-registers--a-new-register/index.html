@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>VIM Tips: Editing macros, sessions, command-line registers, & a new register! - Something Witty</title>
+  <meta name="author" content="Luis R. Piloto">
+
+  
+  <meta name="description" content="Edit macro:
+Record macro to register f: qf to start recording macro to register f
+Specify macro:Â 
+Stop recording macro:Â q
+Open new area to modify &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ElPiloto.github.io/blog/2013/04/30/vim-tips-editing-macros-sessions-command-line-registers--a-new-register/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Something Witty" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Dosis:400,500,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Something Witty</a></h1>
+  
+    <h2>Throwin' down more codes than Hammurabi</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ElPiloto.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">VIM Tips: Editing Macros, Sessions, Command-line Registers, & a New Register!</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-30T00:00:00-04:00" pubdate data-updated="true">Apr 30<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><ol>
+<li>Edit macro:
+Record macro to register f: qf to start recording macro to register f
+Specify macro:Â <Random macro commands of your choosing>
+Stop recording macro:Â q
+Open new area to modify macro and paste it:
+
+<ul>
+<li>:sp new</li>
+<li>&ldquo;f (this is the magic here &ndash; I didn’t realize macros were just stored as
+characters in a register!)
+Edit macro: <Random macro modifications>
+Select macro: <Your favorite method for selecting the edited macro>
+Yank macro back to register f: “fy
+Use updated macro: @f
+TADA!</li>
+</ul>
+</li>
+<li>Vim Sessions:Â 
+You can use the :mksession command to create a vim script that will restore
+your current editing session. Â By default, :mksession will save your currently
+opened buffers, the current directory, tabs, splits, and folds you have open,
+but you can add more things by modifying the “sessionoptions&#8221; variable. Â You
+can save multiple sessions by calling the :mksession command with an argument
+specifying the session name, which you can later invoke to load a particular
+session.
+Example 1: Using the generic session specifier
+Open up vim and open up a few tabs or splits or whatever you normally do when
+your coding.
+Save the session:Â :mksession &ndash; this will save our session to a file named
+Session.vim, which is the default session name.
+Quit vim: :qa
+Start vim with the default session name: vim -S
+TADA!
+Example 2: Saving and loading a specific session:
+Just like before, open up vim normally and open up random tabs and files and
+splits and whatchamajiggers.
+Save the session with the name your_splits_give_them_to_me: :mks
+your_splits_give_them_to_me (Notice that we can specify a file name that
+doesn’t end in .vim and also that we can abbreviate :mksession to :mks)
+Quit vim: :qa
+Start vim with the session name your_splits_give_them_to_me: vim &ndash;
+S your_splits_give_them_to_me
+TADA!</li>
+<li>COMBO SECTION: Paste register into the command line and the new register I
+learned!
+Sometimes it’s useful to use the contents of a register in a command. Â For
+instance, let’s say you’re editing a bash script, bludgeon.sh, and you want to
+actually test it before you continue adding functionality to the script.
+
+<ul>
+<li>How a naive user might do this:
+Â  Â  Â  Â  Â  Â Exit vim
+Â  Â  Â  Â  Â  Â Execute the script: bash bludgeon.sh
+Â  Â  Â  Â  Â  Â Open the file in vim again: vim bludgeon.sh</li>
+<li>How a less naive user might do this:
+Â  Â  Â  Â  Â  Â Execute a command from the terminal using vim’s filter (!) by
+typing: &ldquo;:! bash bludgeon.sh&rdquo;</li>
+<li>How I would do this:
+Â  Â  Â  Â  Â  Â Instead of typing out bludgeon.sh, use the special % register
+to paste the filename into vim’s command line:
+Â  Â  Â  Â  Â  Â &#8221;:! bash &lt;Ctrl-r>%&ldquo;
+That explains two tips:
+The % register which contains the name of the file you’re currently editing.
+Pasting a register into vim’s command-line: &lt;Ctrl-r> register
+TADA! Â Happy VIM’ing!</li>
+</ul>
+</li>
+</ol>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Luis R. Piloto</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-30T00:00:00-04:00" pubdate data-updated="true">Apr 30<span>th</span>, 2013</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ElPiloto.github.io/blog/2013/04/30/vim-tips-editing-macros-sessions-command-line-registers--a-new-register/" data-via="_elpiloto" data-counturl="http://ElPiloto.github.io/blog/2013/04/30/vim-tips-editing-macros-sessions-command-line-registers--a-new-register/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/04/26/adding-tab-completion-for-your-bash-scripts/" title="Previous Post: Adding tab completion for your bash scripts">&laquo; Adding tab completion for your bash scripts</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/05/16/tmux-command-completion-at-bash-prompt/" title="Next Post: Tmux command-completion at bash prompt!">Tmux command-completion at bash prompt! &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/05/16/tmux-command-completion-at-bash-prompt/">Tmux command-completion at bash prompt!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/30/vim-tips-editing-macros-sessions-command-line-registers--a-new-register/">VIM Tips: Editing macros, sessions, command-line registers, & a new register!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/26/adding-tab-completion-for-your-bash-scripts/">Adding tab completion for your bash scripts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/22/15-linux-bash-history-expansion-examples-you-should-know/">15 Linux Bash History Expansion Examples You Should Know</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/03/01/vim-substitute-teacher/">VIM: Substitute Teacher</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/ElPiloto">@ElPiloto</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'ElPiloto',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/Luis.r.piloto@gmail.com?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Luis R. Piloto -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
