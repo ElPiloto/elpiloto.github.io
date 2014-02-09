@@ -9,7 +9,7 @@
   <meta name="author" content="Luis R. Piloto">
 
   
-  <meta name="description" content="Recently I needed to know which terminal I could set my $TERM variable to in tmux&#8217;s configuration file so I stumbled across this little nugget &hellip;">
+  <meta name="description" content="How to Check Which Terminals Are Supported in *nix? Recently I needed to know which terminal I could set my $TERM variable to in tmux&#8217;s &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,19 +20,21 @@
   
   <link rel="canonical" href="http://ElPiloto.github.io/blog/page/3">
   <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/styles.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Something Witty" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/jquery.sidr.min.js"></script>
+  <script src="/javascripts/ah-blue.js"></script>
   
   
 
-</head>
+</head> 
 
 <body   >
-  <header role="banner"><div class="aux-container">
+  <div class="aux-container">
     <a id="nav-toggle" href="#sidr"></a>
     <a id="search-toggle"></a>
 </div>
@@ -40,50 +42,51 @@
 <header class="header-container clearfix">
         <a href="/"><img src="/images/ah-frame.svg" onerror="this.onerror=null; this.src='ah-frame.png'"></a>
 </header>
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:ElPiloto.github.io" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<div id="main-nav">
+
+  <div class="main-container">
+    <div class="main wrapper clearfix">
+    	
+    	<aside>
+			
+			  	<div class="search-container">
+					<form action="http://google.com/search" method="get">
+						<fieldset role="search">
+							<input type="hidden" name="q" value="site:blog.alexharr.is" />
+							<input class="search-field" type="text" name="q" results="0" placeholder=""/>
+							<input class="submit" type="submit" value=""/>
+						</fieldset>
+					</form>
+				</div>
+			
+		  <div id="main-nav">
     <nav>
         <ul>
         	<li>
         		
-					<section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
+					<h3>Recent Posts</h3>
+<ul>
+	
+    <li>
+    	<a href="/blog/2013/05/16/tmux-command-completion-at-bash-prompt/">Tmux Command-completion at Bash Prompt!</a>
+    </li>
     
-      <li class="post">
-        <a href="/blog/2013/05/16/tmux-command-completion-at-bash-prompt/">Tmux Command-completion at Bash Prompt!</a>
-      </li>
+    <li>
+    	<a href="/blog/2013/05/16/tmux-command-completion-at-bash-prompt/">Tmux Command Completion at Bash Prompt</a>
+    </li>
     
-      <li class="post">
-        <a href="/blog/2013/05/16/tmux-command-completion-at-bash-prompt/">Tmux Command Completion at Bash Prompt</a>
-      </li>
+    <li>
+    	<a href="/blog/2013/04/30/vim-tips-editing-macros-sessions-command-line-registers--a-new-register/">VIM Tips: Editing Macros, Sessions, Command-line Registers, & a New Register!</a>
+    </li>
     
-      <li class="post">
-        <a href="/blog/2013/04/30/vim-tips-editing-macros-sessions-command-line-registers--a-new-register/">VIM Tips: Editing Macros, Sessions, Command-line Registers, & a New Register!</a>
-      </li>
+    <li>
+    	<a href="/blog/2013/04/26/adding-tab-completion-for-your-bash-scripts/">Adding Tab Completion for Your Bash Scripts</a>
+    </li>
     
-      <li class="post">
-        <a href="/blog/2013/04/26/adding-tab-completion-for-your-bash-scripts/">Adding Tab Completion for Your Bash Scripts</a>
-      </li>
+    <li>
+    	<a href="/blog/2013/04/22/15-linux-bash-history-expansion-examples-you-should-know/">15 Linux Bash History Expansion Examples You Should Know</a>
+    </li>
     
-      <li class="post">
-        <a href="/blog/2013/04/22/15-linux-bash-history-expansion-examples-you-should-know/">15 Linux Bash History Expansion Examples You Should Know</a>
-      </li>
-    
-  </ul>
-</section>
+</ul>
 
 <section>
   <h1>GitHub Repos</h1>
@@ -131,31 +134,43 @@
         	</li>
         	<li>
         		<ul>
-                    <li>Projects - <a href="http://www.alexharr.is" target="_blank">alexharr.is</a>
-        			<li>Github - <a href="http://www.github.com/alexharris" target="_blank">github.com/alexharris</a></li>
-                    <li>Twitter - <a href="http://www.twitter.com/alexharris6" target="_blank">@alexharris6</a></li>
-                    <li>Email - <a href="mailto:alexharris6@gmail.com" target="_blank">alexharris6 at gmail</a></li>
+        			<li>Github - <a href="http://www.github.com/elpiloto" target="_blank">github.com/alexharris</a></li>
+                    <li>Twitter - <a href="http://www.twitter.com/_elpiloto" target="_blank">@alexharris6</a></li>
+                    <li>Email - <a href="mailto:luis.r.piloto@gmail.com" target="_blank">alexharris6 at gmail</a></li>
         		</ul>
         	</li>
         </ul>
     </nav>
 </div>
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
+
+		</aside>
+		
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/06/08/how-to-check-which-terminals-are-supported-in-nix/">How to Check Which Terminals Are Supported in *nix?</a></h1>
-    
-    
-      <p class="meta">
-        
+
+
+<article>
+	<header>
+  <div class="article-tags">
+      
+
+
+  </div>
+  
+    <h1><a href="/blog/2012/06/08/how-to-check-which-terminals-are-supported-in-nix/">
+      How to Check Which Terminals Are Supported in *nix?
+    </a></h1>
+  
+</header>
+<section>
+  <p>Recently I needed to know which terminal I could set my $TERM variable to in tmux&#8217;s configuration file so I stumbled across this little nugget o&#8217; knowledge. </p>
+<blockquote>
+<p>grep &#8216;^[a-zA-Z]&#8217; /etc/termcap | more</p>
+</blockquote>
+
+</section>
+<footer>
+  <div class="article-date">
+      
 
 
 
@@ -168,33 +183,32 @@
 
 
 <time datetime="2012-06-08T00:00:00-04:00" pubdate data-updated="true">Jun 8<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
+  </div>
+</footer>
+
+</article>
 
 
-  <div class="entry-content"><p>Recently I needed to know which terminal I could set my $TERM variable to in tmux&#8217;s configuration file so I stumbled across this little nugget o&#8217; knowledge. </p>
-<blockquote>
-<p>grep &#8216;^[a-zA-Z]&#8217; /etc/termcap | more</p>
-</blockquote>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+<article>
+	<header>
+  <div class="article-tags">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/01/nature-publishing-group-releases-linked-data-platform-for-articles-dating-back-to-1869/">Nature Publishing Group Releases Linked Data Platform for Articles Dating Back to 1869!</a></h1>
-    
-    
-      <p class="meta">
-        
+
+
+  </div>
+  
+    <h1><a href="/blog/2012/05/01/nature-publishing-group-releases-linked-data-platform-for-articles-dating-back-to-1869/">
+      Nature Publishing Group Releases Linked Data Platform for Articles Dating Back to 1869!
+    </a></h1>
+  
+</header>
+<section>
+  <a href="http://data.nature.com">Nature Publishing Group Releases Linked Data Platform for Articles Dating Back to 1869!</a><br/><p>Nature is releasing primary metadata on all of its articles since 1869 - official announcement <a href="http://www.nature.com/press_releases/linkeddata.html">here</a>.  There&#8217;s been a ton of work on analyzing article citation patterns in research journal corpora (for example, check out <a href="http://people.cs.umass.edu/~mimno/publications.html">David Mimno</a>) and the release of this information will greatly expedite efforts in this subfield.  They even add a handy way to <a href="http://data.nature.com/query">explore the data</a> through your browser!</p>
+
+</section>
+<footer>
+  <div class="article-date">
+      
 
 
 
@@ -207,30 +221,33 @@
 
 
 <time datetime="2012-05-01T00:00:00-04:00" pubdate data-updated="true">May 1<span>st</span>, 2012</time>
-        
-      </p>
-    
-  </header>
+  </div>
+</footer>
+
+</article>
 
 
-  <div class="entry-content"><a href="http://data.nature.com">Nature Publishing Group Releases Linked Data Platform for Articles Dating Back to 1869!</a><br/><p>Nature is releasing primary metadata on all of its articles since 1869 - official announcement <a href="http://www.nature.com/press_releases/linkeddata.html">here</a>.  There&#8217;s been a ton of work on analyzing article citation patterns in research journal corpora (for example, check out <a href="http://people.cs.umass.edu/~mimno/publications.html">David Mimno</a>) and the release of this information will greatly expedite efforts in this subfield.  They even add a handy way to <a href="http://data.nature.com/query">explore the data</a> through your browser!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+<article>
+	<header>
+  <div class="article-tags">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/04/10/"></a></h1>
-    
-    
-      <p class="meta">
-        
+
+
+  </div>
+  
+    <h1><a href="/blog/2012/04/10/">
+      
+    </a></h1>
+  
+</header>
+<section>
+  <iframe width="400" height="225" src="http://www.youtube.com/embed/JEYLfIVvR9I?wmode=transparent&autohide=1&egm=0&hd=1&iv_load_policy=3&modestbranding=1&rel=0&showinfo=0&showsearch=0" frameborder="0" allowfullscreen></iframe><br/><p>The best song I&#8217;ve ever had stuck in my head is on Singular Value Decomposition.</p>
+<p>&#8220;It had to be U&#8221; - the SVD song (by <a href="http://www.youtube.com/watch?v=JEYLfIVvR9I">StatisticalSongs</a>)</p>
+
+</section>
+<footer>
+  <div class="article-date">
+      
 
 
 
@@ -243,31 +260,38 @@
 
 
 <time datetime="2012-04-10T00:00:00-04:00" pubdate data-updated="true">Apr 10<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
+  </div>
+</footer>
+
+</article>
 
 
-  <div class="entry-content"><iframe width="400" height="225" src="http://www.youtube.com/embed/JEYLfIVvR9I?wmode=transparent&autohide=1&egm=0&hd=1&iv_load_policy=3&modestbranding=1&rel=0&showinfo=0&showsearch=0" frameborder="0" allowfullscreen></iframe><br/><p>The best song I&#8217;ve ever had stuck in my head is on Singular Value Decomposition.</p>
-<p>&#8220;It had to be U&#8221; - the SVD song (by <a href="http://www.youtube.com/watch?v=JEYLfIVvR9I">StatisticalSongs</a>)</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+<article>
+	<header>
+  <div class="article-tags">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/07/18/"></a></h1>
-    
-    
-      <p class="meta">
-        
+
+
+  </div>
+  
+    <h1><a href="/blog/2011/07/18/">
+      
+    </a></h1>
+  
+</header>
+<section>
+  <iframe width="400" height="300" src="http://www.youtube.com/embed/FkCT_LV9Syk?wmode=transparent&autohide=1&egm=0&hd=1&iv_load_policy=3&modestbranding=1&rel=0&showinfo=0&showsearch=0" frameborder="0" allowfullscreen></iframe><br/><p><span>
+<h1 id="watch-headline-title"><strong><span title="Tutorial: Kalman Filter with MATLAB example part1" dir="ltr" id="eow-title">Tutorial: Kalman Filter with MATLAB example part1</span></strong></h1>
+</span></p>
+
+<p>This 3 part video tutorial series provides an intuitive (and quirky) explanation of the Kalman Filter.  Although it lacks a derivation, it will get you up and running with the Kalman Filter in no time.</p>
+<p>Part 2: <a href="http://www.youtube.com/watch?v=NT7nYv9Ri2Y&amp;NR=1"><a href="http://www.youtube.com/watch?v=NT7nYv9Ri2Y&amp;NR=1">http://www.youtube.com/watch?v=NT7nYv9Ri2Y&amp;NR=1</a></a> </p>
+<p>Part 3: <a href="http://www.youtube.com/watch?v=rUgKnoiRoY0&amp;feature=related"><a href="http://www.youtube.com/watch?v=rUgKnoiRoY0&amp;feature=related">http://www.youtube.com/watch?v=rUgKnoiRoY0&amp;feature=related</a></a></p>
+
+</section>
+<footer>
+  <div class="article-date">
+      
 
 
 
@@ -280,36 +304,32 @@
 
 
 <time datetime="2011-07-18T00:00:00-04:00" pubdate data-updated="true">Jul 18<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
+  </div>
+</footer>
+
+</article>
 
 
-  <div class="entry-content"><iframe width="400" height="300" src="http://www.youtube.com/embed/FkCT_LV9Syk?wmode=transparent&autohide=1&egm=0&hd=1&iv_load_policy=3&modestbranding=1&rel=0&showinfo=0&showsearch=0" frameborder="0" allowfullscreen></iframe><br/><p><span>
-<h1 id="watch-headline-title"><strong><span title="Tutorial: Kalman Filter with MATLAB example part1" dir="ltr" id="eow-title">Tutorial: Kalman Filter with MATLAB example part1</span></strong></h1>
-</span></p>
-
-<p>This 3 part video tutorial series provides an intuitive (and quirky) explanation of the Kalman Filter.  Although it lacks a derivation, it will get you up and running with the Kalman Filter in no time.</p>
-<p>Part 2: <a href="http://www.youtube.com/watch?v=NT7nYv9Ri2Y&amp;NR=1"><a href="http://www.youtube.com/watch?v=NT7nYv9Ri2Y&amp;NR=1">http://www.youtube.com/watch?v=NT7nYv9Ri2Y&amp;NR=1</a></a> </p>
-<p>Part 3: <a href="http://www.youtube.com/watch?v=rUgKnoiRoY0&amp;feature=related"><a href="http://www.youtube.com/watch?v=rUgKnoiRoY0&amp;feature=related">http://www.youtube.com/watch?v=rUgKnoiRoY0&amp;feature=related</a></a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+<article>
+	<header>
+  <div class="article-tags">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/06/30/the-learning-brain-gets-bigger--then-smaller-scientific-american/">The Learning Brain Gets Bigger&#8211;Then Smaller: Scientific American</a></h1>
-    
-    
-      <p class="meta">
-        
+
+
+  </div>
+  
+    <h1><a href="/blog/2011/06/30/the-learning-brain-gets-bigger--then-smaller-scientific-american/">
+      The Learning Brain Gets Bigger&#8211;Then Smaller: Scientific American
+    </a></h1>
+  
+</header>
+<section>
+  <a href="http://www.scientificamerican.com/article.cfm?id=the-learning-brain-gets-bigger-then-smaller">The Learning Brain Gets Bigger&#8211;Then Smaller: Scientific American</a><br/>
+
+</section>
+<footer>
+  <div class="article-date">
+      
 
 
 
@@ -322,30 +342,32 @@
 
 
 <time datetime="2011-06-30T00:00:00-04:00" pubdate data-updated="true">Jun 30<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
+  </div>
+</footer>
+
+</article>
 
 
-  <div class="entry-content"><a href="http://www.scientificamerican.com/article.cfm?id=the-learning-brain-gets-bigger-then-smaller">The Learning Brain Gets Bigger&#8211;Then Smaller: Scientific American</a><br/>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+<article>
+	<header>
+  <div class="article-tags">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/06/30/data-without-borders-why-i-want-to-change-the-world--jake-porway--news--guardiancouk/">Data Without Borders: Why I Want to Change the World | Jake Porway | News | guardian.co.uk</a></h1>
-    
-    
-      <p class="meta">
-        
+
+
+  </div>
+  
+    <h1><a href="/blog/2011/06/30/data-without-borders-why-i-want-to-change-the-world--jake-porway--news--guardiancouk/">
+      Data Without Borders: Why I Want to Change the World | Jake Porway | News | guardian.co.uk
+    </a></h1>
+  
+</header>
+<section>
+  <a href="http://www.guardian.co.uk/news/datablog/2011/jun/23/data-without-borders-jake-porway">Data without borders: why I want to change the world | Jake Porway | News | guardian.co.uk</a><br/>
+
+</section>
+<footer>
+  <div class="article-date">
+      
 
 
 
@@ -358,30 +380,32 @@
 
 
 <time datetime="2011-06-30T00:00:00-04:00" pubdate data-updated="true">Jun 30<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
+  </div>
+</footer>
+
+</article>
 
 
-  <div class="entry-content"><a href="http://www.guardian.co.uk/news/datablog/2011/jun/23/data-without-borders-jake-porway">Data without borders: why I want to change the world | Jake Porway | News | guardian.co.uk</a><br/>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+<article>
+	<header>
+  <div class="article-tags">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/06/30/"></a></h1>
-    
-    
-      <p class="meta">
-        
+
+
+  </div>
+  
+    <h1><a href="/blog/2011/06/30/">
+      
+    </a></h1>
+  
+</header>
+<section>
+  <iframe width="400" height="245" src="http://www.youtube.com/embed/ZmNOAtZIgIk?wmode=transparent&autohide=1&egm=0&hd=1&iv_load_policy=3&modestbranding=1&rel=0&showinfo=0&showsearch=0" frameborder="0" allowfullscreen></iframe><br/><p>Bay Area Vision Meeting: Unsupervised Feature Learning and Deep Learning </p>
+
+</section>
+<footer>
+  <div class="article-date">
+      
 
 
 
@@ -394,30 +418,32 @@
 
 
 <time datetime="2011-06-30T00:00:00-04:00" pubdate data-updated="true">Jun 30<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
+  </div>
+</footer>
+
+</article>
 
 
-  <div class="entry-content"><iframe width="400" height="245" src="http://www.youtube.com/embed/ZmNOAtZIgIk?wmode=transparent&autohide=1&egm=0&hd=1&iv_load_policy=3&modestbranding=1&rel=0&showinfo=0&showsearch=0" frameborder="0" allowfullscreen></iframe><br/><p>Bay Area Vision Meeting: Unsupervised Feature Learning and Deep Learning </p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+<article>
+	<header>
+  <div class="article-tags">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/04/04/bot-shows-signs-of-consciousness---tech---01-april-2011---new-scientist/">Bot Shows Signs of Consciousness - Tech - 01 April 2011 - New Scientist</a></h1>
-    
-    
-      <p class="meta">
-        
+
+
+  </div>
+  
+    <h1><a href="/blog/2011/04/04/bot-shows-signs-of-consciousness---tech---01-april-2011---new-scientist/">
+      Bot Shows Signs of Consciousness - Tech - 01 April 2011 - New Scientist
+    </a></h1>
+  
+</header>
+<section>
+  <a href="http://www.newscientist.com/article/mg21028063.400-bot-shows-signs-of-consciousness.html?page=1">Bot shows signs of consciousness - tech - 01 April 2011 - New Scientist</a><br/>
+
+</section>
+<footer>
+  <div class="article-date">
+      
 
 
 
@@ -430,30 +456,32 @@
 
 
 <time datetime="2011-04-04T00:00:00-04:00" pubdate data-updated="true">Apr 4<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
+  </div>
+</footer>
+
+</article>
 
 
-  <div class="entry-content"><a href="http://www.newscientist.com/article/mg21028063.400-bot-shows-signs-of-consciousness.html?page=1">Bot shows signs of consciousness - tech - 01 April 2011 - New Scientist</a><br/>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+<article>
+	<header>
+  <div class="article-tags">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/12/19/xkcd-treerollover-captionnot-only-is-that-terrible-in-general-but-you-just-know-billys-going-to-open-the-root-present-first-and-then-everyone-will-have-to-wait-while-the-heap-is-rebuilt/">Xkcd: Tree Rollover Caption: &#8220;Not Only Is That Terrible in General, but You Just KNOW Billy’s Going to Open the Root Present First and Then Everyone Will Have to Wait While the Heap Is Rebuilt.&#8221;</a></h1>
-    
-    
-      <p class="meta">
-        
+
+
+  </div>
+  
+    <h1><a href="/blog/2010/12/19/xkcd-treerollover-captionnot-only-is-that-terrible-in-general-but-you-just-know-billys-going-to-open-the-root-present-first-and-then-everyone-will-have-to-wait-while-the-heap-is-rebuilt/">
+      Xkcd: Tree Rollover Caption: &#8220;Not Only Is That Terrible in General, but You Just KNOW Billy’s Going to Open the Root Present First and Then Everyone Will Have to Wait While the Heap Is Rebuilt.&#8221;
+    </a></h1>
+  
+</header>
+<section>
+  <img src="http://www.tumblr.com/photo/1280/sageagainstthemachine/2381483037/1/tumblr_ldpeq2KIIW1qf7sc4"/>
+
+</section>
+<footer>
+  <div class="article-date">
+      
 
 
 
@@ -466,30 +494,32 @@
 
 
 <time datetime="2010-12-19T00:00:00-05:00" pubdate data-updated="true">Dec 19<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
+  </div>
+</footer>
+
+</article>
 
 
-  <div class="entry-content"><img src="http://www.tumblr.com/photo/1280/sageagainstthemachine/2381483037/1/tumblr_ldpeq2KIIW1qf7sc4"/>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+<article>
+	<header>
+  <div class="article-tags">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/12/14/jeopardy-to-pit-humans-against-ibm-machine---yahoo-news/">&#8216;Jeopardy!&#8217; to Pit Humans Against IBM Machine - Yahoo! News</a></h1>
-    
-    
-      <p class="meta">
-        
+
+
+  </div>
+  
+    <h1><a href="/blog/2010/12/14/jeopardy-to-pit-humans-against-ibm-machine---yahoo-news/">
+      &#8216;Jeopardy!&#8217; to Pit Humans Against IBM Machine - Yahoo! News
+    </a></h1>
+  
+</header>
+<section>
+  <a href="http://news.yahoo.com/s/ap/20101214/ap_en_tv/us_tv_man_vs_machine">&#8216;Jeopardy!&#8217; to pit humans against IBM machine - Yahoo! News</a><br/><p>Watson will finally make his television debut.</p>
+
+</section>
+<footer>
+  <div class="article-date">
+      
 
 
 
@@ -502,133 +532,32 @@
 
 
 <time datetime="2010-12-14T00:00:00-05:00" pubdate data-updated="true">Dec 14<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><a href="http://news.yahoo.com/s/ap/20101214/ap_en_tv/us_tv_man_vs_machine">&#8216;Jeopardy!&#8217; to pit humans against IBM machine - Yahoo! News</a><br/><p>Watson will finally make his television debut.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-      <a class="prev" href="/blog/page/4/">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-    <a class="next" href="/blog/page/2/">Newer &rarr;</a>
-    
   </div>
+</footer>
+
+</article>
+
+<div class="pagination">
+
+  <a class="prev" href="/blog/page/4/">&larr; Older</a>
+
+
+
+<a class="next" href="/blog/page/2/">Newer &rarr;</a>
+
 </div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2013/05/16/tmux-command-completion-at-bash-prompt/">Tmux Command-completion at Bash Prompt!</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/05/16/tmux-command-completion-at-bash-prompt/">Tmux Command Completion at Bash Prompt</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/04/30/vim-tips-editing-macros-sessions-command-line-registers--a-new-register/">VIM Tips: Editing Macros, Sessions, Command-line Registers, & a New Register!</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/04/26/adding-tab-completion-for-your-bash-scripts/">Adding Tab Completion for Your Bash Scripts</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/04/22/15-linux-bash-history-expansion-examples-you-should-know/">15 Linux Bash History Expansion Examples You Should Know</a>
-      </li>
-    
-  </ul>
-</section>
 
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/ElPiloto">@ElPiloto</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'ElPiloto',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
-
-
-<section class="googleplus">
-  <h1>
-    <a href="https://plus.google.com/Luis.r.piloto@gmail.com?rel=author">
-      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
-      Google+
-    </a>
-  </h1>
-</section>
-
-
-
-  
-</aside>
 
     </div>
   </div>
-  <footer role="contentinfo"><footer class="main-footer">
+  <footer class="main-footer">
 	<section class="interior-footer">
 		<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 	</section>
 </footer>
 
-</footer>
+
   
-
-
-
-
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = '//platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
 
 
 
