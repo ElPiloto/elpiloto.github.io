@@ -9,8 +9,7 @@
   <meta name="author" content="Luis R. Piloto">
 
   
-  <meta name="description" content="After checking out git’s amazing git command-completion and my recent_discovery
-of how to implement your own command-completion for bash scripts, I &hellip;">
+  <meta name="description" content="Tmux Command-completion at Bash Prompt! After checking out git&#8217;s amazing git command-completion and my recent discovery of how to implement &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,732 +18,86 @@ of how to implement your own command-completion for bash scripts, I &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ElPiloto.github.io/">
+  <link rel="canonical" href="http://ElPiloto.github.io">
   <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/stylesheets/styles.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Something Witty" type="application/atom+xml">
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href='http://fonts.googleapis.com/css?family=Dosis:400,500,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/jquery.sidr.min.js"></script>
+  <script src="/javascripts/ah-blue.js"></script>
+  
   
 
-</head>
+</head> 
 
 <body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Something Witty</a></h1>
-  
-    <h2>Throwin' down more codes than Hammurabi</h2>
-  
-</hgroup>
+  <div class="aux-container">
+    <a id="nav-toggle" href="#sidr"></a>
+    <a id="search-toggle"></a>
+</div>
 
+<header class="header-container clearfix">
+        <a href="/"><img src="/images/ah-frame.svg" onerror="this.onerror=null; this.src='ah-frame.png'"></a>
 </header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:ElPiloto.github.io" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
 
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/05/16/tmux-command-completion-at-bash-prompt.md/">Tmux Command-completion at Bash Prompt!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-16T00:00:00-04:00" pubdate data-updated="true">May 16<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content">After checking out git’s amazing git command-completion and my recent_discovery
-of how to implement your own command-completion for bash scripts, I began to
-wonder why tmux didn’t have this feature. Â After some searching, I found that
-the tmux installation includes a script file for command-completion in bash!
-Â In the tmux-1.8 distribution, you should find a folder titled “examples&#8221;
-which contains a file “bash_completion_tmux.sh&#8221;. Â Just source this file in
-your .bashrc and you’re done!!
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/05/16/tmux-command-completion-at-bash-prompt/">Tmux Command-completion at Bash Prompt!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-16T00:00:00-04:00" pubdate data-updated="true">May 16<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>After checking out git’s amazing git command-completion and my recent_discovery
-of how to implement your own command-completion for bash scripts, I began to
-wonder why tmux didn’t have this feature.  After some searching, I found that
-the tmux installation includes a script file for command-completion in bash!
- In the tmux-1.8 distribution, you should find a folder titled “examples&#8221;
-which contains a file “bash_completion_tmux.sh&#8221;.  Just source this file in
-your .bashrc and you’re done!!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/04/30/vim-tips-editing-macros-sessions-command-line-registers--a-new-register/">VIM Tips: Editing Macros, Sessions, Command-line Registers, & a New Register!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-04-30T00:00:00-04:00" pubdate data-updated="true">Apr 30<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><ol>
-<li>Edit macro:
-Record macro to register f: qf to start recording macro to register f
-Specify macro:Â <Random macro commands of your choosing>
-Stop recording macro:Â q
-Open new area to modify macro and paste it:
-
+  <div class="main-container">
+    <div class="main wrapper clearfix">
+    	
+    	<aside>
+			
+			  	<div class="search-container">
+					<form action="http://google.com/search" method="get">
+						<fieldset role="search">
+							<input type="hidden" name="q" value="site:blog.alexharr.is" />
+							<input class="search-field" type="text" name="q" results="0" placeholder=""/>
+							<input class="submit" type="submit" value=""/>
+						</fieldset>
+					</form>
+				</div>
+			
+		  <div id="main-nav">
+    <nav>
+        <ul>
+        	<li>
+        		
+					<h3>Recent Posts</h3>
 <ul>
-<li>:sp new</li>
-<li>&ldquo;f (this is the magic here &ndash; I didn’t realize macros were just stored as
-characters in a register!)
-Edit macro: <Random macro modifications>
-Select macro: <Your favorite method for selecting the edited macro>
-Yank macro back to register f: “fy
-Use updated macro: @f
-TADA!</li>
+	
+    <li>
+    	<a href="/blog/2013/05/16/tmux-command-completion-at-bash-prompt/">Tmux Command-completion at Bash Prompt!</a>
+    </li>
+    
+    <li>
+    	<a href="/blog/2013/05/16/tmux-command-completion-at-bash-prompt/">Tmux Command Completion at Bash Prompt</a>
+    </li>
+    
+    <li>
+    	<a href="/blog/2013/04/30/vim-tips-editing-macros-sessions-command-line-registers--a-new-register/">VIM Tips: Editing Macros, Sessions, Command-line Registers, & a New Register!</a>
+    </li>
+    
+    <li>
+    	<a href="/blog/2013/04/26/adding-tab-completion-for-your-bash-scripts/">Adding Tab Completion for Your Bash Scripts</a>
+    </li>
+    
+    <li>
+    	<a href="/blog/2013/04/22/15-linux-bash-history-expansion-examples-you-should-know/">15 Linux Bash History Expansion Examples You Should Know</a>
+    </li>
+    
 </ul>
-</li>
-<li>Vim Sessions:Â 
-You can use the :mksession command to create a vim script that will restore
-your current editing session. Â By default, :mksession will save your currently
-opened buffers, the current directory, tabs, splits, and folds you have open,
-but you can add more things by modifying the “sessionoptions&#8221; variable. Â You
-can save multiple sessions by calling the :mksession command with an argument
-specifying the session name, which you can later invoke to load a particular
-session.
-Example 1: Using the generic session specifier
-Open up vim and open up a few tabs or splits or whatever you normally do when
-your coding.
-Save the session:Â :mksession &ndash; this will save our session to a file named
-Session.vim, which is the default session name.
-Quit vim: :qa
-Start vim with the default session name: vim -S
-TADA!
-Example 2: Saving and loading a specific session:
-Just like before, open up vim normally and open up random tabs and files and
-splits and whatchamajiggers.
-Save the session with the name your_splits_give_them_to_me: :mks
-your_splits_give_them_to_me (Notice that we can specify a file name that
-doesn’t end in .vim and also that we can abbreviate :mksession to :mks)
-Quit vim: :qa
-Start vim with the session name your_splits_give_them_to_me: vim &ndash;
-S your_splits_give_them_to_me
-TADA!</li>
-<li>COMBO SECTION: Paste register into the command line and the new register I
-learned!
-Sometimes it’s useful to use the contents of a register in a command. Â For
-instance, let’s say you’re editing a bash script, bludgeon.sh, and you want to
-actually test it before you continue adding functionality to the script.
-
-<ul>
-<li>How a naive user might do this:
-Â  Â  Â  Â  Â  Â Exit vim
-Â  Â  Â  Â  Â  Â Execute the script: bash bludgeon.sh
-Â  Â  Â  Â  Â  Â Open the file in vim again: vim bludgeon.sh</li>
-<li>How a less naive user might do this:
-Â  Â  Â  Â  Â  Â Execute a command from the terminal using vim’s filter (!) by
-typing: &ldquo;:! bash bludgeon.sh&rdquo;</li>
-<li>How I would do this:
-Â  Â  Â  Â  Â  Â Instead of typing out bludgeon.sh, use the special % register
-to paste the filename into vim’s command line:
-Â  Â  Â  Â  Â  Â &#8221;:! bash &lt;Ctrl-r>%&ldquo;
-That explains two tips:
-The % register which contains the name of the file you’re currently editing.
-Pasting a register into vim’s command-line: &lt;Ctrl-r> register
-TADA! Â Happy VIM’ing!</li>
-</ul>
-</li>
-</ol>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/04/26/adding-tab-completion-for-your-bash-scripts/">Adding Tab Completion for Your Bash Scripts</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-04-26T00:00:00-04:00" pubdate data-updated="true">Apr 26<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Adding_tab_completion_for_your_bash_scripts
-Just this morning I was wondering how git tab-completes it’s subcommands and
-then today I see this link on reddit!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/04/22/15-linux-bash-history-expansion-examples-you-should-know/">15 Linux Bash History Expansion Examples You Should Know</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-04-22T00:00:00-04:00" pubdate data-updated="true">Apr 22<span>nd</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>15_Linux_Bash_History_Expansion_Examples_You_Should_Know</p>
-
-<pre><code> Bash history is very powerful. Understanding how to effectively use
- the bash history expansions will make you extremely productive on the
- Linux command
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/03/01/vim-substitute-teacher/">VIM: Substitute Teacher</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-03-01T00:00:00-05:00" pubdate data-updated="true">Mar 1<span>st</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>When people learn vim it’s pretty common to learn search and replace, typically
-taught in this form:
-:%s/food/ramen noodles, again/g
-This will search through the entire file and replace the phrase food with ramen
-noodles, again. Â People even go as far as to learn the following variant which
-asks for confirmation before replacing each instance:
-:%s/food/ramen noodles, again/gc
-Some people might even know that the g at the end tells vim to replace every
-instance on a line (omitting the g tells vim to replace only the first
-occurrence on each line). However,Â what people often don’t learn is how truly
-customizable this command is.</p>
-
-<h1>1 Crouching Tiger, Hidden Feature:Â You can use (almost) any character as a</h1>
-
-<p>delimiter.
-I always thought you had to use / as the delimiter, but it turns out you can
-use any character (except for space and alphanumeric characters). Â So we could
-do the following in place of the above: Â  Â Â </p>
-
-<pre><code>* :%s+food+ramen noodles, again+g
-  Â  Â  Â  Â  Â  Â  Â  Â  Â OR
-* :%s|food|ramen noodles, again|g
-</code></pre>
-
-<p>Why would we want to use this? Â Well, if you ever wanted to use / as part of
-your search or replace expressions, you would have to escape it using vim’s
-escape character (backslash) . Â Let’s assume we want to replace each instance
-of / with ./ To accomplish that, we’d have to do the following if we stuck with
-the default delimiter:</p>
-
-<pre><code>* :%s/\//.\//g
-</code></pre>
-
-<p>However, if we used an alternative delimiter, such asÂ @ we would have an
-expression which is much easier to use, read, and type:</p>
-
-<pre><code>* :%s@/@./@g
-</code></pre>
-
-<p>No escaping needed, tada!</p>
-
-<h1>2 That’s Not a Bug, That’s a Feature: You don’t always have to include a</h1>
-
-<p>search pattern!
-Let’s say you previously looked for &ldquo;a_good_time&rdquo; using this command:</p>
-
-<pre><code>* /a_good_time
-</code></pre>
-
-<p>And after some time you decide you want to replace it with something more
-specific, you could use the following command:</p>
-
-<pre><code>* :%s//coke_and_hookers/g
-  Â  Â  Â  Â  Â  Â  Â  Â  Â OR equivalently
-* :%s^^coke_and_hookers^g
-</code></pre>
-
-<p>When you don’t specify a search expression in the substitute command, vim
-automatically uses the last value you searched (or substituted for) as the
-search expression!</p>
-
-<h1>3_The_Feature_Is_In_Your_Hands:Â You can manipulate the range on which</h1>
-
-<p>substitutions take place!
-The generic version of substitute uses % as the range, which means the entire
-file, but vim allows much more flexibity in specifying the range. Â How do we
-specify ranges? Â Quite intuitively! Ranges can be specified from a starting
-point to an ending point, thus the only thing to really learn is to specify
-these points. Â They are as follows:</p>
-
-<pre><code>* . Â the current line number
-* $ the last line in the file
-* % the entire file
-* any number specifies that line number in the file
-* ‘t would specify the location of marker t (markers are a way of marking
-  locations in the file so you can return to them later)
-* /some_pattern would go to the next line where we find the string
-  “some_pattern"
-* ?some_pattern would go to the previous line where we find the string
-  “some_pattern"
-</code></pre>
-
-<p>You specify ranges as points separated by a comma. Â Here are some example
-ranges as used in a substitution command:</p>
-
-<pre><code>* :1,3s/hello/goodbye/g - this would replace all instances of hello with
-  goodbye on lines 1-3 of our file
-* :1,$s/hello/goodbye/g - this would search through the entire file Note
-  that 1,$ is equivalent to %
-* :1,.s/hello/goodbye/g - this would search from the beginning of our file
-  to the current line
-* :.,/aloha/s/hello/goodbye/g - this would search from the current line to
-  the first line after the current line containingÂ alohaÂ in it and
-  replace hello with goodbye
-</code></pre>
-
-<p>Note: If you specify a range that goes backwards, vim will prompt you to
-reverse the order.
-And there you have it! Now you can be pickier with your substitutions than a
-vegan on an airplane. Â Next on your to do list should be learning vim regular
-expressions, specifically escape characters and quantifiers (for advanced
-searching) and grouping and backreferences (for advanced replacing).</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/01/09/vim-tips-difforig-aka-what-the-crap-changes-did-i-make/">VIM Tips: DiffOrig a.k.a. What the Crap Changes Did I Make?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-09T00:00:00-05:00" pubdate data-updated="true">Jan 9<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Sometimes I’ll come back to my computer (usually from getting coffee or a
-pensive pacing session) and see that I’ve made changes to a file in vim without
-actually saving those changes. Â Did I forget to save actual edits to the file
-or did I happen to mash on my keyboard accidentally while vim was in the
-foreground? Â 
-To check what you’ve changed since the last time you saved a file, you can use
-the following command to pull up a diff of the file contents on disk against
-the file contents open in your vim buffer:</p>
-
-<pre><code> :DiffOrig
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/12/12/wheres-the-bus-oh-its-not-coming-yet-but-what-the-hell-that-guy-looking-down-the-street-totally-looked-like-he-saw-the-bus-coming--whats-wrong-with-him-does-he-not-know-how-to-wait-for-the-bus/">Where’s the Bus? Oh, It’s Not Coming Yet. But What the Hell, That Guy Looking Down the Street Totally Looked Like He Saw the Bus Coming. What’s Wrong With Him, Does He Not Know How to Wait for the Bus?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-12-12T00:00:00-05:00" pubdate data-updated="true">Dec 12<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><pre><code> Where’s the bus? Oh, it’s not coming yet. But what the hell, that guy
- looking down the street totally looked like he saw the bus coming.
- What’s wrong with him, does he not know how to wait for the bus?
-</code></pre>
-
-<p>—my train of thought while waiting for the bus this morning…the human condition
-is cruelly volatile and arbitrary, and in being so, also hilarious.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/21/whoring-the-matlab-file-exchange-pick-of-the-week-blog/">Whoring the Matlab File Exchange Pick of the Week Blog</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-21T00:00:00-04:00" pubdate data-updated="true">Oct 21<span>st</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>As an avid Matlab user, I frequently supplement the built-in functionality with
-source code from Matlab’s_File_Exchange. Â Sometimes it’s simple, but extremely
-convenient functionality I’d rather not code myself, such as mtit. Â Sometimes
-it’s more esoteric code specific to a domain or file standard that I’d never
-code myself such as plot2svg. Â All in all, Matlab’s File Exchange has proven
-to be a real resource. Â However, for the longest time, I only acquired new
-File Exchange code when I explicitly needed functionality unavailable in
-Matlab. Â 
-But that’s only half the benefit of the File Exchange. Â There are libraries
-upon libraries of code on the internet aimed at providing functionality users
-wouldn’t ever imagine (think jQuery or any of a million web frameworks aimed at
-adding radically simplified interfaces to a unified combination of programming
-elements). Â Given that I might benefit from code I didn’t even know existed,
-how could these unsung ones-and-zeroes be brought to my attention? Â 
-Enter Matlab’s_File_Exchange_Pick_of_the_Week_blog. Â Each Friday, one of two
-Matlab employees ( Brett &amp; Jiro ) posts about his “favorite user-
-contributed submissions from the File Exchange.&ldquo; Â Once I found this blog, I
-subscribed to its feed and now every Friday I eagerly await what goodie will be
-bestowed upon me next.
-Unfortunately, the last few blog posts have garnered my disdain. Â Instead of
-the usually useful picks, Brett and Jiro have chosen poorly veiled “picks&rdquo; that
-promote Matlab’s new Apps feature. Â </p>
-
-<pre><code>* Oh hey all you scientific programmers, check out this arcade-style
-  shooter written in Matlab - did we mention it’s the first user-
-  contributed App?
-  Â 
-* Matlab users: if you found galaga useful for analyzing data, look at this
-  map-of-the-stars file exchange submission written by one of the Matlab
-  employees that’s actually an App, a new feature in Matlab!!
-  Â 
-* Check out this, user-submitted content: it’s an App centered on two e-
-  books written by one of Matlab’s original authors, Cleve. Â Don’t worry,
-  the App itself is also written by Cleve so you know it’s user-submitted.
-</code></pre>
-
-<p>It’s their company and their blog, they can do what they want with it, but I
-can’t help but feel slightly wronged. Â I can’t really speculate on possible
-repercussions this not so subtle corporate whoring might have &ndash; Matlab has
-entrenched itself as a mission critical part of so many getups &ndash; but I hope
-maybe this post will make the point to the folks at Mathworks that they should
-consider treating us with respect instead of somehow believing that they can
-covertly advertise through a medium we choose to subscribe to under the
-pretenses that it will contain actual utility. Â I’m not calling anyone a bad
-person or particularly furious about the situation, it’s more of a “shame on
-you&#8221; kinda thing. Â Did I mention Matlab has a new Apps feature?</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/09/01/matlab-unpack-cell-array-to-function-arguments/">MATLAB: Unpack Cell Array to Function Arguments</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-01T00:00:00-04:00" pubdate data-updated="true">Sep 1<span>st</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I recently found myself needing to pass the contents of a variable length cell
-array as arguments to a function that accepted a variable number of arguments
-(via Matlab’s varargin functionality). Â I thought this would be a real
-problem, but was astonished at how easy it was.
-Assuming we have a cell array defined as follows:</p>
-
-<pre><code> my_cell_array = {‘You’, ‘Say’, ‘Aloha’, ‘I’, ‘Say’, ‘Aloha’};
-</code></pre>
-
-<p>And that we’re trying to call Matlab’s load() function with the following form:</p>
-
-<pre><code> load(filename, varargin)
-</code></pre>
-
-<p>All we have to do is the following:</p>
-
-<pre><code> load(‘some_random_matlab_file.mat’, my_cell_array{:})
-</code></pre>
-
-<p>And that’s all it takes. Â Just in case you’re curious, the particular use case
-that led me to need this functionality was that I needed to load a list of user
-specified variables from a .mat file in a toolbox I’m working on.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2013/05/16/tmux-command-completion-at-bash-prompt.md/">Tmux command-completion at bash prompt!</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/05/16/tmux-command-completion-at-bash-prompt/">Tmux command-completion at bash prompt!</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/04/30/vim-tips-editing-macros-sessions-command-line-registers--a-new-register/">VIM Tips: Editing macros, sessions, command-line registers, & a new register!</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/04/26/adding-tab-completion-for-your-bash-scripts/">Adding tab completion for your bash scripts</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/04/22/15-linux-bash-history-expansion-examples-you-should-know/">15 Linux Bash History Expansion Examples You Should Know</a>
-      </li>
-    
-  </ul>
-</section>
 
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/ElPiloto">@ElPiloto</a> on GitHub
   
   <script type="text/javascript">
-    $.domReady(function(){
+    $(document).ready(function(){
         if (!window.jXHR){
             var jxhr = document.createElement('script');
             jxhr.type = 'text/javascript';
@@ -777,18 +130,518 @@ specified variables from a .mat file in a toolbox I’m working on.</p>
 
 
 
+				
+        	</li>
+        	<li>
+        		<ul>
+                    <li>Projects - <a href="http://www.alexharr.is" target="_blank">alexharr.is</a>
+        			<li>Github - <a href="http://www.github.com/alexharris" target="_blank">github.com/alexharris</a></li>
+                    <li>Twitter - <a href="http://www.twitter.com/alexharris6" target="_blank">@alexharris6</a></li>
+                    <li>Email - <a href="mailto:alexharris6@gmail.com" target="_blank">alexharris6 at gmail</a></li>
+        		</ul>
+        	</li>
+        </ul>
+    </nav>
+</div>
+		</aside>
+		
+      
+
+
+<article>
+	<header>
+  <div class="article-tags">
+      
+
+
+  </div>
   
-</aside>
+    <h1><a href="/blog/2013/05/16/tmux-command-completion-at-bash-prompt/">
+      Tmux Command-completion at Bash Prompt!
+    </a></h1>
+  
+</header>
+<section>
+  <p>After checking out git&#8217;s amazing git command-completion and my <a href="http://sageagainstthemachine.us/blog/2013/04/26/adding-tab-completion-for-your-bash-scripts/">recent discovery</a> of how to implement your own command-completion for bash scripts, I began to wonder why tmux didn&#8217;t have this feature.  After some searching, I found that the tmux installation includes a script file for command-completion in bash!  In the tmux-1.8 distribution, you should find a folder titled &#8220;examples&#8221; which contains a file &#8220;bash_completion_tmux.sh&#8221;.  Just source this file in your .bashrc and you&#8217;re done!!</p>
+
+</section>
+<footer>
+  <div class="article-date">
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-16T00:00:00-04:00" pubdate data-updated="true">May 16<span>th</span>, 2013</time>
+  </div>
+</footer>
+
+</article>
+
+
+<article>
+	<header>
+  <div class="article-tags">
+      
+
+
+  </div>
+  
+    <h1><a href="/blog/2013/05/16/tmux-command-completion-at-bash-prompt/">
+      Tmux Command Completion at Bash Prompt
+    </a></h1>
+  
+</header>
+<section>
+  
+
+</section>
+<footer>
+  <div class="article-date">
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-16T00:00:00-04:00" pubdate data-updated="true">May 16<span>th</span>, 2013</time>
+  </div>
+</footer>
+
+</article>
+
+
+<article>
+	<header>
+  <div class="article-tags">
+      
+
+
+  </div>
+  
+    <h1><a href="/blog/2013/04/30/vim-tips-editing-macros-sessions-command-line-registers--a-new-register/">
+      VIM Tips: Editing Macros, Sessions, Command-line Registers, & a New Register!
+    </a></h1>
+  
+</header>
+<section>
+  <p><strong>1. Edit macro:</strong></p>
+<p><span>Record macro to register f:</span> qf to start recording macro to register f</p>
+<p><span>Specify macro:</span> &lt;Random macro commands of your choosing&gt;</p>
+<p><span>Stop recording macro:</span> q</p>
+<p><span>Open new area to modify macro and paste it:</span></p>
+<ul><li>:sp new</li>
+<li>&#8220;f (this is the magic here - I didn&#8217;t realize macros were just stored as characters in a register!)</li>
+</ul><p><span>Edit macro:</span> &lt;Random macro modifications&gt;<br/><span>Select macro:</span> &lt;Your favorite method for selecting the edited macro&gt;<br/><span>Yank macro back to register f:</span> &#8220;fy<br/><span>Use updated macro:</span> @f</p>
+<p>TADA!</p>
+<p><strong>2. Vim Sessions: </strong></p>
+<p>You can use the :mksession command to create a vim script that will restore your current editing session.  By default, :mksession will save your currently opened buffers, the current directory, tabs, splits, and folds you have open, but you can add more things by modifying the &#8220;sessionoptions&#8221; variable.  You can save multiple sessions by calling the :mksession command with an argument specifying the session name, which you can later invoke to load a particular session.</p>
+<p><span>Example 1: Using the generic session specifier</span></p>
+<p>Open up vim and open up a few tabs or splits or whatever you normally do when your coding.</p>
+<p>Save the session: :mksession - this will save our session to a file named Session.vim, which is the default session name.</p>
+<p>Quit vim: :qa</p>
+<p>Start vim with the default session name: vim -S</p>
+<p>TADA!</p>
+<p>Example 2: Saving and loading a specific session:</p>
+<p>Just like before, open up vim normally and open up random tabs and files and splits and whatchamajiggers.</p>
+<p>Save the session with the name your_splits_give_them_to_me: :mks your_splits_give_them_to_me (Notice that we can specify a file name that doesn&#8217;t end in .vim and also that we can abbreviate :mksession to :mks)</p>
+<p>Quit vim: :qa</p>
+<p>Start vim with the session name your_splits_give_them_to_me: vim -S your_splits_give_them_to_me</p>
+<p>TADA!<strong><br/></strong></p>
+<p><strong>3. COMBO SECTION: Paste register into the command line and the new register I learned!</strong></p>
+<p>Sometimes it&#8217;s useful to use the contents of a register in a command.  For instance, let&#8217;s say you&#8217;re editing a bash script, <em>bludgeon.sh</em>, and you want to actually test it before you continue adding functionality to the script.</p>
+<ul><li>How a naive user might do this:</li>
+</ul><p>           Exit vim<br/>           Execute the script: bash bludgeon.sh<br/>           Open the file in vim again: vim bludgeon.sh</p>
+<ul><li>How a less naive user might do this:</li>
+</ul><p>           Execute a command from the terminal using vim&#8217;s filter (!) by typing: &#8220;:! bash bludgeon.sh&#8221;</p>
+<ul><li>How I would do this:</li>
+</ul><p>           Instead of typing out bludgeon.sh, use the special % register to paste the filename into vim&#8217;s command line:</p>
+<p>           &#8221;:! bash &lt;Ctrl-r&gt;%&#8221;</p>
+<p>That explains two tips:</p>
+<p>The % register which contains the name of the file you&#8217;re currently editing.</p>
+<p>Pasting a register into vim&#8217;s command-line: &lt;Ctrl-r&gt; register</p>
+<p>TADA!  Happy VIM&#8217;ing!</p>
+
+</section>
+<footer>
+  <div class="article-date">
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-30T00:00:00-04:00" pubdate data-updated="true">Apr 30<span>th</span>, 2013</time>
+  </div>
+</footer>
+
+</article>
+
+
+<article>
+	<header>
+  <div class="article-tags">
+      
+
+
+  </div>
+  
+    <h1><a href="/blog/2013/04/26/adding-tab-completion-for-your-bash-scripts/">
+      Adding Tab Completion for Your Bash Scripts
+    </a></h1>
+  
+</header>
+<section>
+  <a href="http://tldp.org/LDP/abs/html/tabexpansion.html">Adding tab completion for your bash scripts</a><br/><p>Just this morning I was wondering how git tab-completes it&#8217;s subcommands and then today I see this link on reddit!</p>
+
+</section>
+<footer>
+  <div class="article-date">
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-26T00:00:00-04:00" pubdate data-updated="true">Apr 26<span>th</span>, 2013</time>
+  </div>
+</footer>
+
+</article>
+
+
+<article>
+	<header>
+  <div class="article-tags">
+      
+
+
+  </div>
+  
+    <h1><a href="/blog/2013/04/22/15-linux-bash-history-expansion-examples-you-should-know/">
+      15 Linux Bash History Expansion Examples You Should Know
+    </a></h1>
+  
+</header>
+<section>
+  <a href="http://www.thegeekstuff.com/2011/08/bash-history-expansion/">15 Linux Bash History Expansion Examples You Should Know</a><br/><p><blockquote class="link_og_blockquote">Bash history is very powerful. Understanding how to effectively use the bash history expansions will make you extremely productive on the Linux command</blockquote></p>
+
+</section>
+<footer>
+  <div class="article-date">
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-22T00:00:00-04:00" pubdate data-updated="true">Apr 22<span>nd</span>, 2013</time>
+  </div>
+</footer>
+
+</article>
+
+
+<article>
+	<header>
+  <div class="article-tags">
+      
+
+
+  </div>
+  
+    <h1><a href="/blog/2013/03/01/vim-substitute-teacher/">
+      VIM: Substitute Teacher
+    </a></h1>
+  
+</header>
+<section>
+  <p>When people learn vim it&#8217;s pretty common to learn search and replace, typically taught in this form:</p>
+<p><em>:%s/food/ramen noodles, again/g</em></p>
+<p>This will search through the entire file and replace the phrase <em>food</em> with <em>ramen noodles, again</em>.  People even go as far as to learn the following variant which asks for confirmation before replacing each instance:</p>
+<p><em>:%s/food/ramen noodles, again/gc</em></p>
+<p>Some people might even know that the g at the end tells vim to replace every instance on a line (omitting the g tells vim to replace only the first occurrence on each line). However, what people often don&#8217;t learn is how truly customizable this command is.</p>
+<p><span><strong>#1 Crouching Tiger, Hidden Feature:</strong> </span>You can use (almost) any character as a delimiter.</p>
+<p>I always thought you had to use <em>/</em> as the delimiter, but it turns out you can use any character (except for space and alphanumeric characters).  So we could do the following in place of the above:     </p>
+<ul><li><em>:%s+food+ramen noodles, again+g</em><br/>                 OR</li>
+<li><em>:%s|food|ramen noodles, again|g</em></li>
+</ul><p>Why would we want to use this?  Well, if you ever wanted to use <em>/</em> as part of your search or replace expressions, you would have to escape it using vim&#8217;s escape character (backslash) .  Let&#8217;s assume we want to replace each instance of / with ./ To accomplish that, we&#8217;d have to do the following if we stuck with the default delimiter:</p>
+<ul><li><em>:%s/\//.\//g</em></li>
+</ul><p>However, if we used an alternative delimiter, such as <em>@</em> we would have an expression which is much easier to use, read, and type:</p>
+<ul><li><em>:%s@/@./@g</em></li>
+</ul><p>No escaping needed, tada!</p>
+<p><span><strong>#2 That&#8217;s Not a Bug, That&#8217;s a Feature:</strong></span> You don&#8217;t always have to include a search pattern!</p>
+<p>Let&#8217;s say you previously looked for <em>&#8220;a_good_time&#8221;</em> using this command:</p>
+<ul><li><em>/a_good_time</em></li>
+</ul><p>And after some time you decide you want to replace it with something more specific, you could use the following command:</p>
+<ul><li><em>:%s//coke_and_hookers/g</em><br/>                 OR equivalently</li>
+<li><em>:%s^^coke_and_hookers^g</em></li>
+</ul><p>When you don&#8217;t specify a search expression in the substitute command, vim automatically uses the last value you searched (or substituted for) as the search expression!</p>
+<p><strong><u>#3 The Feature Is In Your Hands:</u> </strong>You can manipulate the range on which substitutions take place!</p>
+<p>The generic version of substitute uses % as the range, which means the entire file, but vim allows much more flexibity in specifying the range.  How do we specify ranges?  Quite intuitively! Ranges can be specified from a starting point to an ending point, thus the only thing to really learn is to specify these points.  They are as follows:</p>
+<ul><li>.  the current line number</li>
+<li><em>$</em> the last line in the file</li>
+<li><em>%</em> the entire file</li>
+<li>any number specifies that line number in the file</li>
+<li><em>&#8216;t</em> would specify the location of marker t (markers are a way of marking locations in the file so you can return to them later)</li>
+<li><em>/some_pattern</em> would go to the next line where we find the string &#8220;some_pattern&#8221;</li>
+<li><em>?some_pattern</em> would go to the previous line where we find the string &#8220;some_pattern&#8221;</li>
+</ul><p>You specify ranges as points separated by a comma.  Here are some example ranges as used in a substitution command:</p>
+<ul><li><em>:1,3s/hello/goodbye/g</em> - this would replace all instances of hello with goodbye on lines 1-3 of our file</li>
+<li><em>:1,$s/hello/goodbye/g</em> - this would search through the entire file <strong>Note</strong> that <em>1,$</em> is equivalent to <em>%</em></li>
+<li><em>:1,.s/hello/goodbye/g</em> - this would search from the beginning of our file to the current line</li>
+<li><em>:.,/aloha/s/hello/goodbye/g</em> - this would search from the current line to the first line after the current line containing <em>aloha </em>in it and replace hello with goodbye</li>
+</ul><p><strong>Note</strong>: If you specify a range that goes backwards, vim will prompt you to reverse the order.</p>
+<p>And there you have it! Now you can be pickier with your substitutions than a vegan on an airplane.  Next on your to do list should be learning vim regular expressions, specifically escape characters and quantifiers (for advanced searching) and grouping and backreferences (for advanced replacing).</p>
+
+</section>
+<footer>
+  <div class="article-date">
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-01T00:00:00-05:00" pubdate data-updated="true">Mar 1<span>st</span>, 2013</time>
+  </div>
+</footer>
+
+</article>
+
+
+<article>
+	<header>
+  <div class="article-tags">
+      
+
+
+  </div>
+  
+    <h1><a href="/blog/2013/01/09/vim-tips-difforig-aka-what-the-crap-changes-did-i-make/">
+      VIM Tips: DiffOrig a.k.a. What the Crap Changes Did I Make?
+    </a></h1>
+  
+</header>
+<section>
+  <p>Sometimes I&#8217;ll come back to my computer (usually from getting coffee or a pensive pacing session) and see that I&#8217;ve made changes to a file in vim without actually saving those changes.  Did I forget to save actual edits to the file or did I happen to mash on my keyboard accidentally while vim was in the foreground?  </p>
+<p>To check what you&#8217;ve changed since the last time you saved a file, you can use the following command to pull up a diff of the file contents on disk against the file contents open in your vim buffer:</p>
+<blockquote>
+<p>:DiffOrig</p>
+</blockquote>
+
+</section>
+<footer>
+  <div class="article-date">
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-09T00:00:00-05:00" pubdate data-updated="true">Jan 9<span>th</span>, 2013</time>
+  </div>
+</footer>
+
+</article>
+
+
+<article>
+	<header>
+  <div class="article-tags">
+      
+
+
+  </div>
+  
+    <h1><a href="/blog/2012/12/12/wheres-the-bus-oh-its-not-coming-yet-but-what-the-hell-that-guy-looking-down-the-street-totally-looked-like-he-saw-the-bus-coming--whats-wrong-with-him-does-he-not-know-how-to-wait-for-the-bus/">
+      Where’s the Bus? Oh, It’s Not Coming Yet. But What the Hell, That Guy Looking Down the Street Totally Looked Like He Saw the Bus Coming. What’s Wrong With Him, Does He Not Know How to Wait for the Bus?
+    </a></h1>
+  
+</header>
+<section>
+  <blockquote>Where&#8217;s the bus? Oh, it&#8217;s not coming yet. But what the hell, that guy looking down the street totally looked like he saw the bus coming.  What&#8217;s wrong with him, does he not know how to wait for the bus?</blockquote>&#8212;my train of thought while waiting for the bus this morning&#8230;the human condition is cruelly volatile and arbitrary, and in being so, also hilarious.
+
+</section>
+<footer>
+  <div class="article-date">
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-12T00:00:00-05:00" pubdate data-updated="true">Dec 12<span>th</span>, 2012</time>
+  </div>
+</footer>
+
+</article>
+
+
+<article>
+	<header>
+  <div class="article-tags">
+      
+
+
+  </div>
+  
+    <h1><a href="/blog/2012/10/21/whoring-the-matlab-file-exchange-pick-of-the-week-blog/">
+      Whoring the Matlab File Exchange Pick of the Week Blog
+    </a></h1>
+  
+</header>
+<section>
+  <p>As an avid Matlab user, I frequently supplement the built-in functionality with source code from <a href="http://www.mathworks.com/matlabcentral/fileexchange/">Matlab&#8217;s File Exchange</a>.  Sometimes it&#8217;s simple, but extremely convenient functionality I&#8217;d rather not code myself, such as <a href="http://www.mathworks.com/matlabcentral/fileexchange/3218-mtit-a-pedestrian-major-title-creator">mtit</a>.  Sometimes it&#8217;s more esoteric code specific to a domain or file standard that I&#8217;d never code myself such as <a href="http://www.mathworks.com/matlabcentral/fileexchange/7401-scalable-vector-graphics-svg-export-of-figures">plot2svg</a>.  All in all, Matlab&#8217;s File Exchange has proven to be a real resource.  However, for the longest time, I only acquired new File Exchange code when I explicitly needed functionality unavailable in Matlab.  </p>
+<p>But that&#8217;s only half the benefit of the File Exchange.  There are libraries upon libraries of code on the internet aimed at providing functionality users wouldn&#8217;t ever imagine (think jQuery or any of a million web frameworks aimed at adding radically simplified interfaces to a unified combination of programming elements).  Given that I might benefit from code I didn&#8217;t even know existed, how could these unsung ones-and-zeroes be brought to my attention?  </p>
+<p>Enter <a href="http://blogs.mathworks.com/pick/">Matlab&#8217;s File Exchange Pick of the Week blog</a>.  Each Friday, one of two Matlab employees ( Brett &amp; Jiro ) posts about his &#8220;favorite user-contributed submissions from the File Exchange.&#8221;  Once I found this blog, I subscribed to its feed and now every Friday I eagerly await what goodie will be bestowed upon me next.</p>
+<p>Unfortunately, the last few blog posts have garnered my disdain.  Instead of the usually useful picks, Brett and Jiro have chosen poorly veiled &#8220;picks&#8221; that promote Matlab&#8217;s new Apps feature.  </p>
+<ul><li>Oh hey all you scientific programmers, check out this arcade-style shooter written in Matlab - did we mention it&#8217;s the first user-contributed App?<br/> </li>
+<li>Matlab users: if you found galaga useful for analyzing data, look at this map-of-the-stars file exchange submission written by one of the Matlab employees that&#8217;s actually an App, a new feature in Matlab!!<br/> </li>
+<li>Check out this, user-submitted content: it&#8217;s an App centered on two e-books written by one of Matlab&#8217;s original authors, Cleve.  Don&#8217;t worry, the App itself is also written by Cleve so you know it&#8217;s user-submitted.</li>
+</ul><p>It&#8217;s their company and their blog, they can do what they want with it, but I can&#8217;t help but feel slightly wronged.  I can&#8217;t really speculate on possible repercussions this not so subtle corporate whoring might have - Matlab has entrenched itself as a mission critical part of so many getups - but I hope maybe this post will make the point to the folks at Mathworks that they should consider treating us with respect instead of somehow believing that they can covertly advertise through a medium we <strong>choose</strong> to subscribe to under the pretenses that it will contain <em>actual</em> utility.  I&#8217;m not calling anyone a bad person or particularly furious about the situation, it&#8217;s more of a &#8220;shame on you&#8221; kinda thing.  Did I mention Matlab has a new Apps feature?</p>
+
+</section>
+<footer>
+  <div class="article-date">
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-21T00:00:00-04:00" pubdate data-updated="true">Oct 21<span>st</span>, 2012</time>
+  </div>
+</footer>
+
+</article>
+
+
+<article>
+	<header>
+  <div class="article-tags">
+      
+
+
+  </div>
+  
+    <h1><a href="/blog/2012/09/01/matlab-unpack-cell-array-to-function-arguments/">
+      MATLAB: Unpack Cell Array to Function Arguments
+    </a></h1>
+  
+</header>
+<section>
+  <p>I recently found myself needing to pass the contents of a variable length cell array as arguments to a function that accepted a variable number of arguments (via Matlab&#8217;s <a href="http://www.mathworks.com/help/techdoc/ref/varargin.html" target="_blank">varargin</a> functionality).  I thought this would be a real problem, but was astonished at how easy it was.</p>
+<p>Assuming we have a cell array defined as follows:</p>
+<blockquote>
+<p>my_cell_array = {&#8216;You&#8217;, &#8216;Say&#8217;, &#8216;Aloha&#8217;, &#8216;I&#8217;, &#8216;Say&#8217;, &#8216;Aloha&#8217;};</p>
+</blockquote>
+<p>And that we&#8217;re trying to call Matlab&#8217;s <a href="http://www.mathworks.com/help/techdoc/ref/load.html" target="_blank">load()</a> function with the following form:</p>
+<blockquote>
+<p>load(filename, varargin)</p>
+</blockquote>
+<p>All we have to do is the following:</p>
+<blockquote>
+<p>load(&#8216;some_random_matlab_file.mat&#8217;, my_cell_array{:})</p>
+</blockquote>
+<p>And that&#8217;s all it takes.  Just in case you&#8217;re curious, the particular use case that led me to need this functionality was that I needed to load a list of user specified variables from a .mat file in a toolbox I&#8217;m working on.</p>
+
+</section>
+<footer>
+  <div class="article-date">
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-01T00:00:00-04:00" pubdate data-updated="true">Sep 1<span>st</span>, 2012</time>
+  </div>
+</footer>
+
+</article>
+
+<div class="pagination">
+
+  <a class="prev" href="/blog/page/2/">&larr; Older</a>
+
+
+
+</div>
+
 
     </div>
   </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Luis R. Piloto -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
+  <footer class="main-footer">
+	<section class="interior-footer">
+		<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+	</section>
 </footer>
+
+
   
+
 
 
 
@@ -801,11 +654,10 @@ specified variables from a .mat file in a toolbox I’m working on.</p>
       var twitterWidgets = document.createElement('script');
       twitterWidgets.type = 'text/javascript';
       twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
       document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
     })();
   </script>
-
 
 
 
