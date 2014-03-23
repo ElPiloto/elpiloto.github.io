@@ -4,7 +4,7 @@
   <title><![CDATA[Something Witty]]></title>
   <link href="http://ElPiloto.github.io/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-03-23T03:38:04-04:00</updated>
+  <updated>2014-03-23T04:07:12-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -63,6 +63,7 @@
 <p>The % register which contains the name of the file you&#8217;re currently editing.</p>
 <p>Pasting a register into vim&#8217;s command-line: &lt;Ctrl-r&gt; register</p>
 <p>TADA!  Happy VIM&#8217;ing!</p>
+
 ]]></content>
   </entry>
   

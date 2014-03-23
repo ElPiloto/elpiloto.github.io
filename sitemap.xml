@@ -136,7 +136,7 @@
         <loc>
             http://ElPiloto.github.io/blog/2013/04/30/vim-tips-editing-macros-sessions-command-line-registers--a-new-register/
         </loc>
-        <lastmod>2014-03-23T03:00:07-04:00</lastmod>
+        <lastmod>2014-03-23T03:46:43-04:00</lastmod>
     </url>
     <url>
         <loc>
@@ -145,8 +145,12 @@
         <lastmod>2014-03-23T03:35:11-04:00</lastmod>
     </url>
     <url>
+        <loc>http://ElPiloto.github.io/about/</loc>
+        <lastmod>2014-03-23T03:55:38-04:00</lastmod>
+    </url>
+    <url>
         <loc>http://ElPiloto.github.io/</loc>
-        <lastmod>2014-03-23T03:35:11-04:00</lastmod>
+        <lastmod>2014-03-23T03:46:43-04:00</lastmod>
     </url>
     <url>
         <loc>http://ElPiloto.github.io/robots.txt</loc>
@@ -154,6 +158,6 @@
     </url>
     <url>
         <loc>http://ElPiloto.github.io/blog/archives/</loc>
-        <lastmod>2014-03-23T03:35:11-04:00</lastmod>
+        <lastmod>2014-03-23T03:46:43-04:00</lastmod>
     </url>
 </urlset>
