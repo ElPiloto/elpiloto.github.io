@@ -1,0 +1,12 @@
+---
+layout: post
+title: How to check which terminals are supported in *nix?
+tags:
+- unix
+- terminals
+- linux
+---
+<p>Recently I needed to know which terminal I could set my $TERM variable to in tmux&#8217;s configuration file so I stumbled across this little nugget o&#8217; knowledge. </p>
+<blockquote>
+<p>grep &#8216;^[a-zA-Z]&#8217; /etc/termcap | more</p>
+</blockquote>

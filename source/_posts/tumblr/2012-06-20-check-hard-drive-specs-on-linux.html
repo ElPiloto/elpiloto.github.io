@@ -1,0 +1,16 @@
+---
+layout: post
+title: ! 'Check hard drive specs on linux:'
+tags:
+- linux
+- hard drives
+- hdparm
+- sata
+- ide
+- /dev/sda
+---
+<p>I recently needed to check whether or not my computer&#8217;s hard drive was IDE or SATA.  Some googling and poking around led me to this.  </p>
+<blockquote>
+<p>sudo hdparm -I /dev/sda</p>
+</blockquote>
+<p>You can replace /dev/sda with any other hard drives you may have (e.g. /dev/sdb).  This output will give you the devices model number, which allows you to look up the specifics online.  If anyone knows a shorter way of checking for IDE vs. SATA, let me know.</p>

@@ -1,0 +1,13 @@
+---
+layout: post
+title: ! 'Remove A Software Repo From Yum:'
+tags:
+- rpm
+- fedora
+- yum
+- repos
+---
+<p>I recently had to remove the Livna repo from yum because I found it was unresponsive and, more importantly, had been fused into rpmfusion.  Thus, to remove a repo, get use sudo (or su) to remove the file:</p>
+<blockquote>
+<p>rm <span>/etc/yum.repos.d/REPONAMEHERE.repo</span></p>
+</blockquote>

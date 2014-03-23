@@ -1,0 +1,49 @@
+---
+layout: post
+title: ! 'VIM: Substitute Teacher'
+tags:
+- vim
+- sed
+- replace
+- search and replace
+- find and replace
+- substitute
+- substitution
+---
+<p>When people learn vim it&#8217;s pretty common to learn search and replace, typically taught in this form:</p>
+<p><em>:%s/food/ramen noodles, again/g</em></p>
+<p>This will search through the entire file and replace the phrase <em>food</em> with <em>ramen noodles, again</em>.  People even go as far as to learn the following variant which asks for confirmation before replacing each instance:</p>
+<p><em>:%s/food/ramen noodles, again/gc</em></p>
+<p>Some people might even know that the g at the end tells vim to replace every instance on a line (omitting the g tells vim to replace only the first occurrence on each line). However, what people often don&#8217;t learn is how truly customizable this command is.</p>
+<p><span><strong>#1 Crouching Tiger, Hidden Feature:</strong> </span>You can use (almost) any character as a delimiter.</p>
+<p>I always thought you had to use <em>/</em> as the delimiter, but it turns out you can use any character (except for space and alphanumeric characters).  So we could do the following in place of the above:     </p>
+<ul><li><em>:%s+food+ramen noodles, again+g</em><br/>                 OR</li>
+<li><em>:%s|food|ramen noodles, again|g</em></li>
+</ul><p>Why would we want to use this?  Well, if you ever wanted to use <em>/</em> as part of your search or replace expressions, you would have to escape it using vim&#8217;s escape character (backslash) .  Let&#8217;s assume we want to replace each instance of / with ./ To accomplish that, we&#8217;d have to do the following if we stuck with the default delimiter:</p>
+<ul><li><em>:%s/\//.\//g</em></li>
+</ul><p>However, if we used an alternative delimiter, such as <em>@</em> we would have an expression which is much easier to use, read, and type:</p>
+<ul><li><em>:%s@/@./@g</em></li>
+</ul><p>No escaping needed, tada!</p>
+<p><span><strong>#2 That&#8217;s Not a Bug, That&#8217;s a Feature:</strong></span> You don&#8217;t always have to include a search pattern!</p>
+<p>Let&#8217;s say you previously looked for <em>"a_good_time"</em> using this command:</p>
+<ul><li><em>/a_good_time</em></li>
+</ul><p>And after some time you decide you want to replace it with something more specific, you could use the following command:</p>
+<ul><li><em>:%s//coke_and_hookers/g</em><br/>                 OR equivalently</li>
+<li><em>:%s^^coke_and_hookers^g</em></li>
+</ul><p>When you don&#8217;t specify a search expression in the substitute command, vim automatically uses the last value you searched (or substituted for) as the search expression!</p>
+<p><strong><u>#3 The Feature Is In Your Hands:</u> </strong>You can manipulate the range on which substitutions take place!</p>
+<p>The generic version of substitute uses % as the range, which means the entire file, but vim allows much more flexibity in specifying the range.  How do we specify ranges?  Quite intuitively! Ranges can be specified from a starting point to an ending point, thus the only thing to really learn is to specify these points.  They are as follows:</p>
+<ul><li>.  the current line number</li>
+<li><em>$</em> the last line in the file</li>
+<li><em>%</em> the entire file</li>
+<li>any number specifies that line number in the file</li>
+<li><em>&#8216;t</em> would specify the location of marker t (markers are a way of marking locations in the file so you can return to them later)</li>
+<li><em>/some_pattern</em> would go to the next line where we find the string &#8220;some_pattern"</li>
+<li><em>?some_pattern</em> would go to the previous line where we find the string &#8220;some_pattern"</li>
+</ul><p>You specify ranges as points separated by a comma.  Here are some example ranges as used in a substitution command:</p>
+<ul><li><em>:1,3s/hello/goodbye/g</em> - this would replace all instances of hello with goodbye on lines 1-3 of our file</li>
+<li><em>:1,$s/hello/goodbye/g</em> - this would search through the entire file <strong>Note</strong> that <em>1,$</em> is equivalent to <em>%</em></li>
+<li><em>:1,.s/hello/goodbye/g</em> - this would search from the beginning of our file to the current line</li>
+<li><em>:.,/aloha/s/hello/goodbye/g</em> - this would search from the current line to the first line after the current line containing <em>aloha </em>in it and replace hello with goodbye</li>
+</ul><p><strong>Note</strong>: If you specify a range that goes backwards, vim will prompt you to reverse the order.</p>
+<p>And there you have it! Now you can be pickier with your substitutions than a vegan on an airplane.  Next on your to do list should be learning vim regular expressions, specifically escape characters and quantifiers (for advanced searching) and grouping and backreferences (for advanced replacing).</p>

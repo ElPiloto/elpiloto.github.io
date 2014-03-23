@@ -1,0 +1,27 @@
+---
+layout: post
+title: ! 'MATLAB: Unpack cell array to function arguments'
+tags:
+- matlab
+- cell array
+- unpack
+- function arguments
+- varargin
+---
+<p>I recently found myself needing to pass the contents of a variable length cell array as arguments to a function that accepted a variable number of arguments (via Matlab&#8217;s <a href="http://www.mathworks.com/help/techdoc/ref/varargin.html" target="_blank">varargin</a> functionality).  I thought this would be a real problem, but was astonished at how easy it was.</p>
+<p>Assuming we have a cell array defined as follows:</p>
+<blockquote>
+<p>my_cell_array_THIS_IS_SHIT = {&#8216;You&#8217;, &#8216;Say&#8217;, &#8216;Aloha&#8217;, &#8216;I&#8217;, &#8216;Say&#8217;, &#8216;Aloha&#8217;};</p>
+</blockquote>
+{% codeblock %}
+[my_cell_array2 = {&#8216;You&#8217;, &#8216;Say&#8217;, &#8216;Aloha&#8217;, &#8216;I&#8217;, &#8216;Say&#8217;, &#8216;Aloha&#8217;};
+{% endcodeblock %}
+<p>And that we&#8217;re trying to call Matlab&#8217;s <a href="http://www.mathworks.com/help/techdoc/ref/load.html" target="_blank">load()</a> function with the following form:</p>
+<blockquote>
+<p>load(filename, varargin)</p>
+</blockquote>
+<p>All we have to do is the following:</p>
+<blockquote>
+<p>load(&#8216;some_random_matlab_file.mat&#8217;, my_cell_array{:})</p>
+</blockquote>
+<p>And that&#8217;s all it takes.  Just in case you&#8217;re curious, the particular use case that led me to need this functionality was that I needed to load a list of user specified variables from a .mat file in a toolbox I&#8217;m working on.</p>
