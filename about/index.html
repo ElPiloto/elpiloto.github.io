@@ -9,7 +9,7 @@
   <meta name="author" content="Luis R. Piloto">
 
   
-  <meta name="description" content=" About i am luis! ">
+  <meta name="description" content="About I’m luis piloto, neuroscience phd student. I consider myself an expert at being happy. I live to learn. My claim to fame is that I’ve never &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -28,7 +28,36 @@
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <script src="/javascripts/jquery.sidr.min.js"></script>
   <script src="/javascripts/ah-blue.js"></script>
-  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- MathJax -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+  </script>
+
+  <script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
   
   
 
@@ -91,64 +120,23 @@
     
 </ul>
 
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
-  </ul>
-  
-  <a href="https://github.com/ElPiloto">@ElPiloto</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'ElPiloto',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
-
-<section>
-  <h1>Twitter</h1>
-  
-    <p>Follow <a href="http://twitter.com/_elpiloto">@_elpiloto</a></p>
-  
-</section>
-
-
-<section class="googleplus">
-  <h1>
-    <a href="https://plus.google.com/Luis.r.piloto@gmail.com?rel=author">
-      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
-      Google+
-    </a>
-  </h1>
-</section>
-
-
-
 				
         	</li>
-        	<li>
-        		<ul>
-					<li><a href="/about">about</a></li>
-                    <li>Twitter - <a href="http://www.twitter.com/_elpiloto" target="_blank">@_elpiloto</a></li>
-        		</ul>
-        	</li>
         </ul>
+		<ul>
+			<li>
+				<section>
+	<h1>Other Links</h1>
+	<ul>
+		<li><a href="/about"> about luis piloto</a></li>
+		<li><a href="https://github.com/Elpiloto"</a>github</li>
+		<li><a href="http://compmem.princeton.edu">compmem lab</a></li>
+		<li><a href="http://princeton.edu/~piet">apiet</a></li>
+	</ul>
+</section>
+
+			</li>
+		</ul>
     </nav>
 </div>
 
@@ -161,7 +149,13 @@
     <h1 class="entry-title">About</h1>
   </header>
   
-  <p>i am luis!</p>
+  <p>I’m luis piloto, neuroscience phd student. I consider myself an expert at being happy. I live to learn. My claim to fame is that I’ve never been bored a moment in my life. I dream of finding a way to circumvent sleep so I can learn and tinker and program forever. As someone once said at the end of this sentence, “I’ll sleep when I’m dead from sleep deprivation.” I think I’m unique in the way that everyone else is unique, which is like the way oranges are apples: they’re not.  </p>
+
+<p>On any given day I am one or more of the following:  </p>
+
+<p>a machine learning learner, a practitioner of the peculiar, a horror and sci-fi cinephile, a bocce jock, a neuroscientist, a vim fanatic, a maker of mischief, and many more things.</p>
+
+<p><strong>My advice to the world?</strong> Embrace the notion that you can learn something new from anyone at any time in any place.</p>
 
   
 </article>
