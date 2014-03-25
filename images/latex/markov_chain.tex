@@ -1,0 +1,22 @@
+% simple cycle
+% Author : Jerome Tremblay
+\documentclass{standalone}
+\usepackage{amsfonts,graphicx,amsmath,amssymb,hyperref,color}
+\usepackage[english]{babel}
+\makeindex
+\frenchspacing
+\sloppy
+\usepackage{times}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\begin{document}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,semithick]
+\tikzstyle{every state}=[fill=white,draw=black,thick,text=black,scale=1]
+\node[state]         (A)              {$reddit$};
+\node[state]         (B) [right of=A] {$facebook$};
+\path (B) edge  [bend right] node[above] { 0.75} (A);
+\path (A) edge  [bend right] node[below] {0.2} (B);
+\path (A) edge  [loop above] node {0.8} (A);
+\path (B) edge  [loop above] node {0.25} (B);
+\end{tikzpicture}
+\end{document}
