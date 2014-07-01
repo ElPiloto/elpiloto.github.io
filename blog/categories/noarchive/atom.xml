@@ -4,7 +4,7 @@
   <title><![CDATA[Category: noarchive | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/noarchive/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-07-01T17:38:02-04:00</updated>
+  <updated>2014-07-01T17:54:42-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -159,7 +159,7 @@
 <h3 id="sleep-cross-validation-transform-sleep-pattern-by-mcduff-importance-map">Sleep Cross-Validation: Transform Sleep Pattern By McDuff Importance Map</h3>
 <p><a href="/blog/2014/07/01/sleep-eeg-mcduff-transform/"> dump of plots </a>   </p>
 
-<p>We have 4 x 3 plots per subject (4 plots (AUC, accuracy, and p-val map for both of those) for each result, 3 different results: one for transforming the sleep data with the average face pattern, one for transforming with the average scene pattern, and one for transforming with the difference between the average face and average scene)</p>
+<p>We have 4 x 3 plots per subject (4 plots (AUC, accuracy, and p-val map for both of those) for each result, 3 different results: one for transforming the sleep data with the face mcduff importance map, one for transforming with the scene mcduff importance map, and one for transforming with the difference between the face and scene importance maps)</p>
 ]]></content>
   </entry>
   
