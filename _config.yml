@@ -63,6 +63,10 @@ extra_asides: [asides/other_links.html]
 #   3rd Party Settings    #
 # ----------------------- #
 
+# Hiding Posts
+front_page_categories: [hide] # A list of categories for the front page
+front_page_categories_op : 'hide' # Whether to show or hide the list of categories from front_page_categories
+
 # Github repositories
 github_user: ElPiloto
 github_repo_count: 0
