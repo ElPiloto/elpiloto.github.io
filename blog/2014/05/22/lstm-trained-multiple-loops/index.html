@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>LSTM trained multiple loops - Something Witty</title>
+  <meta name="author" content="Luis R. Piloto">
+
+  
+  <meta name="description" content="botvinick, hide, lstm, noarchive, nonmarkov, sfa LSTM Trained Multiple Loops Status: Rudimentary system for importing rnnlib log information to &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ElPiloto.github.io/blog/2014/05/22/lstm-trained-multiple-loops">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/styles.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Something Witty" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/jquery.sidr.min.js"></script>
+  <script src="/javascripts/ah-blue.js"></script>
+  <!-- MathJax -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+  </script>
+
+  <script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-49251088-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head> 
+
+<body   >
+  <div class="aux-container">
+    <a id="nav-toggle" href="#sidr"></a>
+    <a id="search-toggle"></a>
+	<h1 style="margin-left: 30px">the blog of luis piloto</h1>
+</div>
+
+<header class="header-container clearfix" id="the_header_container">
+        <a href="/" align="left"><img src="/images/brain.svg" onerror="this.onerror=null; this.src='brain.png'"></a>
+</header>
+
+
+  <div class="main-container add-top-margin" id="the_main_container">
+    <div class="main wrapper clearfix">
+    	
+    	<aside>
+			
+			  	<div class="search-container">
+					<form action="http://google.com/search" method="get">
+						<fieldset role="search">
+							<input type="hidden" name="q" value="site:elpiloto.github.io" />
+							<input class="search-field" type="text" name="q" results="0" placeholder=""/>
+							<input class="submit" type="submit" value=""/>
+						</fieldset>
+					</form>
+				</div>
+			
+		  <div id="main-nav">
+    <nav>
+        <ul>
+        	<li>
+        		
+					<h3>Recent Posts</h3>
+<ul>
+	
+	
+	
+    
+	
+	
+    
+	
+	
+    
+	
+	
+    
+	
+	
+    
+</ul>
+
+				
+        	</li>
+        </ul>
+		<ul>
+			<li>
+				<section>
+	<h1>Other Links</h1>
+	<ul>
+		<li><a href="/about"> about luis piloto</a></li>
+		<li><a href="/see"> look </a></li>
+		<li><a href="https://github.com/Elpiloto"</a>github</li>
+		<li><a href="http://compmem.princeton.edu">compmem lab</a></li>
+		<li><a href="http://princeton.edu/~piet">apiet</a></li>
+		<li><a href="http://bensondaled.github.io/homepage/">ben deverett</a></li>
+	</ul>
+</section>
+
+			</li>
+		</ul>
+    </nav>
+</div>
+
+		</aside>
+		
+      <div>
+<article>
+	<header>
+  <div class="article-tags">
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/botvinick/'>botvinick</a>, <a class='category' href='/blog/categories/hide/'>hide</a>, <a class='category' href='/blog/categories/lstm/'>lstm</a>, <a class='category' href='/blog/categories/noarchive/'>noarchive</a>, <a class='category' href='/blog/categories/nonmarkov/'>nonmarkov</a>, <a class='category' href='/blog/categories/sfa/'>sfa</a>
+  
+</span>
+
+
+  </div>
+  
+    <h1>
+      LSTM Trained Multiple Loops
+    </h1>
+  
+</header>
+<section>
+  <h3 id="status">Status:</h3>
+
+<ul>
+  <li>Rudimentary system for importing rnnlib log information to matlab for performing SFA</li>
+  <li><strong>Successfully trained LSTM on 20 loops through an eightball maze (same dimensions as last time): 0% misclassification</strong></li>
+</ul>
+
+<p><img src="/images/research/hidden_state_activations_width3_loops20.png" width="700" height="350" /></p>
+
+<h3 id="questions-for-meeting">Questions for meeting</h3>
+<ul>
+  <li>What should we perform the SFA on?</li>
+  <li>How many loops around the maze do we need?</li>
+</ul>
+
+<h3 id="next-steps">Next steps</h3>
+<p>Look at similarity metric for each timestep using correlation matrix - send to Matt
+Be wary of SFA on multidimensional data and throwing away certain features
+Send SFA
+Waldo task: Ari did SFA on the task (using sparse representation, 8 units
+perhaps LSTM’ing Waldo task
+generate figures for a week from now</p>
+
+<p>short term memory for serial order - matt bot paper, network needs to remember things that aren’t relevant to current output, 
+single unit recording analysis paper by bill newsome, analyzed by valerio monte, nature 2013 “context-dependent computations by recurrent dynamics in prefrontal cortex”</p>
+
+<p>LSTM seems different than orthogonal</p>
+
+
+</section>
+<footer>
+  <div class="article-date">
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-22T15:46:00-04:00" pubdate data-updated="true">May 22<span>nd</span>, 2014</time>
+  </div>
+</footer>
+
+	
+</article>
+</div>
+
+    </div>
+  </div>
+  <footer class="main-footer">
+	<section class="interior-footer">
+		<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+	</section>
+</footer>
+
+
+  
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Markov Chain Monte Carlo: A babytown easy introduction Pt. 1: Markov Chains - Something Witty</title>
+  <meta name="author" content="Luis R. Piloto">
+
+  
+  <meta name="description" content="approximate inference, mcmc Markov Chain Monte Carlo: A Babytown Easy Introduction Pt. 1: Markov Chains You know what’s great? Ice cream, bourbon, &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ElPiloto.github.io/blog/2014/03/23/markov-chain-monte-carlo-a-babytown-easy-introduction">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/styles.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Something Witty" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/jquery.sidr.min.js"></script>
+  <script src="/javascripts/ah-blue.js"></script>
+  <!-- MathJax -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+  </script>
+
+  <script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-49251088-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head> 
+
+<body   >
+  <div class="aux-container">
+    <a id="nav-toggle" href="#sidr"></a>
+    <a id="search-toggle"></a>
+	<h1 style="margin-left: 30px">the blog of luis piloto</h1>
+</div>
+
+<header class="header-container clearfix" id="the_header_container">
+        <a href="/" align="left"><img src="/images/brain.svg" onerror="this.onerror=null; this.src='brain.png'"></a>
+</header>
+
+
+  <div class="main-container add-top-margin" id="the_main_container">
+    <div class="main wrapper clearfix">
+    	
+    	<aside>
+			
+			  	<div class="search-container">
+					<form action="http://google.com/search" method="get">
+						<fieldset role="search">
+							<input type="hidden" name="q" value="site:elpiloto.github.io" />
+							<input class="search-field" type="text" name="q" results="0" placeholder=""/>
+							<input class="submit" type="submit" value=""/>
+						</fieldset>
+					</form>
+				</div>
+			
+		  <div id="main-nav">
+    <nav>
+        <ul>
+        	<li>
+        		
+					<h3>Recent Posts</h3>
+<ul>
+	
+	
+	
+    
+	
+	
+    
+	
+	
+    
+	
+	
+    
+	
+	
+    
+</ul>
+
+				
+        	</li>
+        </ul>
+		<ul>
+			<li>
+				<section>
+	<h1>Other Links</h1>
+	<ul>
+		<li><a href="/about"> about luis piloto</a></li>
+		<li><a href="/see"> look </a></li>
+		<li><a href="https://github.com/Elpiloto"</a>github</li>
+		<li><a href="http://compmem.princeton.edu">compmem lab</a></li>
+		<li><a href="http://princeton.edu/~piet">apiet</a></li>
+		<li><a href="http://bensondaled.github.io/homepage/">ben deverett</a></li>
+	</ul>
+</section>
+
+			</li>
+		</ul>
+    </nav>
+</div>
+
+		</aside>
+		
+      <div>
+<article>
+	<header>
+  <div class="article-tags">
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/approximate-inference/'>approximate inference</a>, <a class='category' href='/blog/categories/mcmc/'>mcmc</a>
+  
+</span>
+
+
+  </div>
+  
+    <h1>
+      Markov Chain Monte Carlo: A Babytown Easy Introduction Pt. 1: Markov Chains
+    </h1>
+  
+</header>
+<section>
+  <p>You know what’s great? Ice cream, bourbon, and babies riding (safely) on the backs of puppies are some obvious answers.  Here’s a subtler one: <em>Markov chains</em>! </p>
+
+<p>They serve as the basis of many approximate inference techniques and today we’re going to take a preparatory step towards learning about Markov Chain Monte Carlo methods. </p>
+
+<p><ins>Expository note:</ins> sometimes I find it beneficial to motivate and situate terms and objects after introducting them, so if something comes out of the blue, just trust me that it will get explained.  And if it doesn’t get explained, feel free to email me and I will provide you with my address with which you can setup a fiery protest outside of my residence with signs like “We trusted you” and “Betrayal is a four-letter word: luis”</p>
+
+<hr />
+
+<h5 id="markov-chain-definition">Markov Chain Definition</h5>
+<p>A Markov chain can be defined via the following:<br /><br />
+1. <script type="math/tex">t</script>, a set of <script type="math/tex">N</script> <strong>indices</strong> (you can think of this as time for the …time being)<br />
+2. <script type="math/tex">S</script>, a set of <script type="math/tex">K</script> <strong>states</strong>: <script type="math/tex">s_1, s_2 ... s_K</script><br />
+3. <script type="math/tex">T</script>, a <strong>transition matrix</strong> specifying the probability of transitioning from state <script type="math/tex">s_i</script> to <script type="math/tex">s_j</script>, for all possible pairs of states.<br />
+4. <script type="math/tex">P_0</script>, a <strong>probability distribution</strong> over starting states</p>
+
+<p>Let’s unpack this by using a toy example.  We can define a Markov chain over the sites I visit at any point in time.  For simplicity’s sake, let’s keep it to two sites I use: reddit and facebook.  </p>
+
+<div align="center"><img src="/images/latex/mc.svg" /></div>
+
+<p>In this scenario, <script type="math/tex">S</script>, our state space, contains only two states ( i.e. <script type="math/tex">K = 2</script>): <script type="math/tex">s_1 = reddit</script>, <script type="math/tex">s_2 = facebook</script>, depicted as the vertices in the graph above.  </p>
+
+<p>You’ll also notice that our graph has some directed edges with numbers on them.  This is one way of representing our transition matrix: the number on each edge indicates the transition probability of going from one state to the next.  For instance, the probability of going from reddit to facebook is <script type="math/tex">0.2</script>  Below we explicitly show the transition matrix <script type="math/tex">T</script>, where <script type="math/tex">T_{ij}</script> indicates the probability of transitioning to <script type="math/tex">s_i</script> from <script type="math/tex">s_j</script>:  </p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+T = \begin{bmatrix} 0.8 & 0.75\\0.2 & 0.25\end{bmatrix} %]]></script>
+
+<p>Alright, let’s give ourselves a round of applause: we defined two out of the four components of a Markov chain.  </p>
+
+<p><strong>Now what are these indices I was talking about?</strong>  Indices tell us when we are observing our state. At 8:02 PM, I could either be on reddit or facebook, at 8:03 PM might be on either reddit or facebook, etc.  My example is slightly encumbered by the fact that we usually think of time as continuous, but let’s pretend that we live in a world of discrete time, where I can only change webpages on the change of the minute.  Futhermore, just to make it easy, let’s say we’re going to start at 8:00 PM exactly and continue up until 8:59 PM.  </p>
+
+<p>With these assumptions, we can observe our state (reddit or facebook) exactly 60 times: at time <script type="math/tex">t_1 = 8:00 PM </script> I can be on either reddit or facebook, at time <script type="math/tex">t_2 = 8:01 PM</script>, I can be on either reddit or facebook, etc. all the way up to our last index, time <script type="math/tex">t_{60} = 8:59 PM</script>  </p>
+
+<p>So for this weird, chop-suey-time-into-discrete-chunks-and-the-universe-only-exists-for-60-minutes example, our set of indices would have 60 ordered values ( <script type="math/tex"> N = 60 </script>) because we started this section by saying that our indices tell us when we are observing out state and we only have 60 time points.  </p>
+
+<p>Now let’s bust out the old google translate on this to make it a bit more rigorous.  </p>
+
+<p>Let’s consider some arbitrary time <script type="math/tex">t_{n}</script> a.k.a. our <script type="math/tex">n^{th}</script> index, we observe one of two possible values from our state space (reddit or facebook) with some as yet undefined probability (recall: our transition matrix <script type="math/tex">T</script> defines the probability of transitioning from one state to another, but this is not the same as the probability of being in that state).  If this sounds like a random variable, that’s because it is a random variable.</p>
+
+<p><code>Informal proof: if it looks like a random variable, swims like a random variable,<br />and quacks like a random variable, then it's probably a duck.</code></p>
+
+<p>So, we can use the notation <script type="math/tex">X_{t_n}</script> to denote the random variable over states at index <script type="math/tex">n</script>.  Considering that we have <script type="math/tex">N</script> time points or indices, then we actually have <script type="math/tex">N</script> random variables - each of which operate over the same state space.  Let’s call these random variables <script type="math/tex">X_{t_n}</script> for <script type="math/tex">{t_n} = 1 ... N</script>, remembering that our indices or times are a sequence - that is they are ordered.  </p>
+
+<p>Finally! We have some sense of what these indices are: our Markov chain defines <script type="math/tex">N</script> copies of a random variable <script type="math/tex">X</script> - our index tells us which copy.  </p>
+
+<p>I found this concept of indices to be slightly tricky when looking at other types of random processes.  It’s tempting to think of the index as time and quite appropriate in this context of Markov chains, but I find the much more useful interpretation is that of having a bunch of copies of a random variable and the index telling you to which copy you are referring.  I will continue to use time and index interchangeably to reinforce this.</p>
+
+<p><strong>Status:</strong> we’ve acquired knowledge of three out of the four components of a Markov chain and still have a ways to go to really understand what a Markov chain is.  </p>
+
+<hr />
+
+<p>So let’s backtrack a little bit to the transition matrix now that we’re viewing our Markov chain as a sequence of random variables..  Our transition matrix <script type="math/tex">T</script>, specifically <script type="math/tex">T_{i,j}</script>, tells us the probability of transitioning to some state <script type="math/tex">s_i</script> given that we’re at some state <script type="math/tex">s_j</script>.  That last bit implies that at some time, let’s call it <script type="math/tex">t_n</script>, we’re at <script type="math/tex">s_j</script> and the transition matrix gives us the probability over states for the next time, <script type="math/tex">t_{n+1}</script>:   </p>
+<center> $$P(X_{t_{n+1}} = s_i | X_{t_n} = s_j) = T_{i,j}$$ </center>
+
+<p>Well that’s convenient: if I know which state I’m currently in, then all I need to do to predict the next state is look at this transition matrix.  </p>
+
+<p>Let’s consider the inconvenient alternative.  The inconvenient alternative would be a case where to figure out the next state, I have to consider not just the state at time <script type="math/tex">t_n</script>, but the one before that <script type="math/tex">t_{n-1}</script>, and the one before that, and the one before that, all the way to some initial state.  Well that would be a serious pain in the ass.</p>
+
+<p>Let’s get a better feeling for why.  I want to learn the probability of being on reddit at <script type="math/tex">t_3</script>, <script type="math/tex">X_{t_3} = reddit</script>  If we lived in inconvenient land, we would have to consider all possible histories, <script type="math/tex">X_{n-1} ... X_{1}</script>, of length 2:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+
+\begin{align}
+P(X_{t_3} = reddit &|\ X_2 = reddit, X_1 = reddit)  \\
+P(X_{t_3} = reddit &|\ X_2 = reddit, X_1 = facebook)  \\
+P(X_{t_3} = reddit &|\ X_2 = facebook, X_1 = reddit)  \\
+P(X_{t_3} = reddit &|\ X_2 = facebook, X_1 = facebook) 
+\end{align}
+ %]]></script>
+
+<p>You could see how this blows up if we wanted to look at <script type="math/tex">X_4</script> or <script type="math/tex">X_40</script>.  For <script type="math/tex">X_n</script>, we’d have <script type="math/tex">K^{n-1}</script> possible histories we’d have to consider (recall <script type="math/tex">K</script> is the number of states).  So in our toy case, for <script type="math/tex">n = 3</script> and <script type="math/tex">K = 2</script> possible states, we have <script type="math/tex">2^{2} = 4 </script> possible histories, which is exactly what we see above.   </p>
+
+<p>So I have an idea: let’s <em>not</em> do the inconvenient thing (go America), let’s embrace the Markov property. Markov chains restrict the set of all possible probabilities over sequences to only those which can be explained in terms of “local dynamics”.  Essentially, they say, “the past doesn’t matter, the only thing that affects my future is the present” - it sounds like some new-age, positive-thinking, crispy-hippie mantra like “the past is in the past” (except that Markov chains are actually useful to society :P).   More formally, the <strong>Markov property</strong> says:  </p>
+<center>$$ P(X_{t+1} | X_{t}) = P(X_{t+1} | X_t, X_{t-1}, X_{t-2}&#8230; X_{1}) $$ </center>
+
+<p>Now we can get to the last component.  We have our convenient transition matrix (thanks Markov - you da man) which tells us the probability of a next state given our current state, but what about the first state i.e. <script type="math/tex">X_{t_1}</script>?  By definition the first state never comes after another state, thus we can’t use our transition matrix for <script type="math/tex">X_{t_1}</script>.  That’s where <script type="math/tex">P_0</script> comes in - all it does is provide a probability over starting states!  For instance, we can define <script type="math/tex">P_0</script> for our starting state as:  </p>
+
+<center>$$P_0(X_{t_1} = reddit) = 0.5, P_0(X_{t_1} = facebook) $$ </center>
+
+<p><strong>Congratulations:</strong> we’ve just defined the last component of the Markov chain.  Celebrate in your preferred fashion, but please don’t get too rowdy - Markov chain riots are predictably bad.  Personally, I’d like to celebrate with a nice recap.</p>
+
+<p>A Markov chain is a probability distribution over a sequence of outcomes indexed by a discrete set <script type="math/tex">t</script>.  We can think of the outcome for index <script type="math/tex">t_{n}</script> as a random variable: <script type="math/tex">X_{t_n}</script>.  Thus, given <script type="math/tex">N</script> indices, we have <script type="math/tex">N</script> random variables:  <script type="math/tex">X_{t_1}, X_{t_2} ... X_{t_N}</script>.  The Markov assumptiom allows us to represent this distribution over sequence using just the transition matrix <script type="math/tex">T</script>, where <script type="math/tex">T_{i,j}</script> represents the probability of transitioning from state <script type="math/tex">s_j</script> at time <script type="math/tex">t_n</script> to state <script type="math/tex">s_i</script> at time <script type="math/tex">t_{n+1}</script> and a probability distribution over starting states, <script type="math/tex">P_0</script>.</p>
+
+<p>For our toy example, we had N = 60, but <strong>you need to know</strong> that the index set, <script type="math/tex">t</script> could be infinite i.e. <script type="math/tex"> N = \infty </script>  We’ll use this later. As a bonus, it’s worth mentioning we can even have an index set which is continuous, these are called continuous-time Markov chains.</p>
+
+<!--
+Now we need some way to actually specify the probability of websites I'll be on over the course of the hour - sounds like a [nightmare](http://www.youtube.com/watch?v=sok_KbPG6iw).  This is where the *Markov property* comes in saying that the probability over next states only depends on my current state: $$ P(X_{t+1} | P(X_{t}) = P(X_{t+1} | P(X_{0}, X_{1}, X_{2} ... X_{t}) $$
+-->
+
+</section>
+<footer>
+  <div class="article-date">
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-23T14:23:00-04:00" pubdate data-updated="true">Mar 23<span>rd</span>, 2014</time>
+  </div>
+</footer>
+
+	
+</article>
+</div>
+
+    </div>
+  </div>
+  <footer class="main-footer">
+	<section class="interior-footer">
+		<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+	</section>
+</footer>
+
+
+  
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+</body>
+</html>

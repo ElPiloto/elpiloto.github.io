@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: neural networks | Something Witty]]></title>
+  <link href="http://ElPiloto.github.io/blog/categories/neural-networks/atom.xml" rel="self"/>
+  <link href="http://ElPiloto.github.io/"/>
+  <updated>2014-07-01T12:37:51-04:00</updated>
+  <id>http://ElPiloto.github.io/</id>
+  <author>
+    <name><![CDATA[Luis R. Piloto]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Paper: Deep Learning from Temporal Coherence in Video]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/05/30/paper-deep-learning-from-temporal-coherence-in-video/"/>
+    <updated>2014-05-30T15:32:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/05/30/paper-deep-learning-from-temporal-coherence-in-video</id>
+    <content type="html"><![CDATA[<h3 id="punchline">Punchline:</h3>
+
+<p>They used a convolutional neural network to do object recognition on video streams.  Motivated by the idea that consecutive video frames likely contain the same objects and therefore should have similar representations, they modify the neural network cost function to include a “coherence” term:  </p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+ L_{coh}(\theta, inputx, inputy) = \begin{cases}
+		  \|z_{\theta}(input_x) - z_{\theta}(input_y) \|_1  & \textbf{if x,y consecutive}\\
+		  max(0, \delta - \|z_{\theta}(input_x) - z_{\theta}(input_y) \|_1)   & \textbf{otherwise}\\
+\hline
+\end{cases}  \\
+\delta: \text{hyperparam push apart non-consecutive representations} \\
+z_{\theta}(x) = \text{hidden layer representation for input x just before output layer}  %]]&gt;</script>
+
+<h3 id="noteworthy-details">Noteworthy Details:</h3>
+<p>Training: They do some weird training where you have to look at the output of the network for two different outputs, they call this a siamese architecture.</p>
+
+<h3 id="ideas">Ideas:</h3>
+<ul>
+  <li>Modify $ L_{coh} $ to be a function of the number of time steps between inputs  </li>
+  <li>What if we could use slow-features as a better proxy for temporal distance between training samples i.e. push representations closer together based on the difference between their slowest features?</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

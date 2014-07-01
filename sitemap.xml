@@ -145,23 +145,107 @@
         <lastmod>2014-03-25T00:37:12-04:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://ElPiloto.github.io/blog/2014/03/23/markov-chain-monte-carlo-a-babytown-easy-introduction/
+        </loc>
+        <lastmod>2014-03-27T23:02:02-04:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://ElPiloto.github.io/blog/2014/03/27/sleep-eeg-meeting-first-pass-new-pilot-data/
+        </loc>
+        <lastmod>2014-03-27T12:06:18-04:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://ElPiloto.github.io/blog/2014/03/27/mvpa-evidence-for-offline-reply-predicts-revaluation-of-action-values/
+        </loc>
+        <lastmod>2014-03-27T13:17:34-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ElPiloto.github.io/blog/2014/04/03/non-markov-sfa/</loc>
+        <lastmod>2014-04-10T18:03:10-04:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://ElPiloto.github.io/blog/2014/04/10/non-markov-sfa-matt-botvinick-meeting/
+        </loc>
+        <lastmod>2014-04-10T18:15:52-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ElPiloto.github.io/blog/2014/04/16/sleep-eeg-update/</loc>
+        <lastmod>2014-04-20T11:52:46-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ElPiloto.github.io/blog/2014/04/20/sleep-eeg-update/</loc>
+        <lastmod>2014-05-04T19:01:38-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ElPiloto.github.io/blog/2014/05/04/sleep-eeg-update/</loc>
+        <lastmod>2014-05-04T20:44:54-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ElPiloto.github.io/blog/2014/05/04/sleep-eeg-update-2/</loc>
+        <lastmod>2014-05-05T12:35:44-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ElPiloto.github.io/blog/2014/05/22/lstm-trained/</loc>
+        <lastmod>2014-05-22T15:48:58-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ElPiloto.github.io/blog/2014/05/22/lstm-trained-multiple-loops/</loc>
+        <lastmod>2014-05-22T16:35:36-04:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://ElPiloto.github.io/blog/2014/05/30/paper-deep-learning-from-temporal-coherence-in-video/
+        </loc>
+        <lastmod>2014-05-30T18:22:24-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ElPiloto.github.io/blog/2014/06/02/sleep-eeg-ken-meeting/</loc>
+        <lastmod>2014-06-02T12:04:14-04:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://ElPiloto.github.io/blog/2014/06/10/representational-similarity-for-non-markov-task-in-lstm-hidden-layers-and-sfa-of-hidden-layers/
+        </loc>
+        <lastmod>2014-06-12T13:34:04-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ElPiloto.github.io/blog/2014/06/11/understanding-sfa/</loc>
+        <lastmod>2014-06-11T11:17:12-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ElPiloto.github.io/blog/2014/06/23/sleep-eeg-9-subjects/</loc>
+        <lastmod>2014-06-29T23:55:44-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ElPiloto.github.io/blog/2014/06/24/sfa-nonmarkov-modify-network/</loc>
+        <lastmod>2014-06-26T21:49:28-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ElPiloto.github.io/</loc>
+        <lastmod>2014-06-29T23:55:44-04:00</lastmod>
+    </url>
+    <url>
         <loc>http://ElPiloto.github.io/about/</loc>
         <lastmod>2014-03-25T00:37:12-04:00</lastmod>
     </url>
     <url>
-        <loc>http://ElPiloto.github.io/</loc>
-        <lastmod>2014-03-25T00:37:12-04:00</lastmod>
-    </url>
-    <url>
-        <loc>http://ElPiloto.github.io/robots.txt</loc>
-        <lastmod>2014-03-23T01:26:39-04:00</lastmod>
+        <loc>http://ElPiloto.github.io/research/</loc>
+        <lastmod>2014-03-27T11:15:14-04:00</lastmod>
     </url>
     <url>
         <loc>http://ElPiloto.github.io/blog/archives/</loc>
-        <lastmod>2014-03-25T00:37:12-04:00</lastmod>
+        <lastmod>2014-06-29T23:55:44-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ElPiloto.github.io/robots.txt</loc>
+        <lastmod>2014-03-23T01:26:38-04:00</lastmod>
     </url>
     <url>
         <loc>http://ElPiloto.github.io/see/</loc>
-        <lastmod>2014-03-25T01:36:19-04:00</lastmod>
+        <lastmod>2014-03-25T01:36:18-04:00</lastmod>
     </url>
 </urlset>

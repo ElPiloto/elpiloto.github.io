@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: nonmarkov | Something Witty]]></title>
+  <link href="http://ElPiloto.github.io/blog/categories/nonmarkov/atom.xml" rel="self"/>
+  <link href="http://ElPiloto.github.io/"/>
+  <updated>2014-07-01T12:37:51-04:00</updated>
+  <id>http://ElPiloto.github.io/</id>
+  <author>
+    <name><![CDATA[Luis R. Piloto]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Understanding SFA]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/06/11/understanding-sfa/"/>
+    <updated>2014-06-11T11:14:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/06/11/understanding-sfa</id>
+    <content type="html"><![CDATA[<h3 id="questions">Questions</h3>
+<pre> Estimating Driving Forces of Nonstationary Time Series with Slow Feature Analysis, Wiskott (2003)</pre>
+<p>What does it mean that slow-feature analysis only considers one point at a time?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Representational Similarity for Non-markov Task in LSTM Hidden Layers and SFA of Hidden Layers]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/06/10/representational-similarity-for-non-markov-task-in-lstm-hidden-layers-and-sfa-of-hidden-layers/"/>
+    <updated>2014-06-10T15:48:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/06/10/representational-similarity-for-non-markov-task-in-lstm-hidden-layers-and-sfa-of-hidden-layers</id>
+    <content type="html"><![CDATA[<p>We’re interested in how slow-feature analysis processes representations generated for a non-Markov task.  Towards this end, we apply slow-feature analysis to the hidden layer representation of a recurrent long short-term memory network that solves a non-Markovian task.  Importantly, we must first understand the hidden layer representation to see which components to the SFA’d hidden layer representation are generated from the slow-feature process and which were already present in the data.</p>
+
+<h3 id="raw-hidden-layer-and-sfa-values">Raw Hidden Layer and SFA Values</h3>
+
+<p>In a previous post, we have the raw hidden layer representation as we loop around the maze.  Here is an alternate version of that plot:
+<img src="/images/research/hidden_layer_time_series.png" width="700" height="350">
+<strong>Figure 1:</strong> The first three subplots show the hidden layer activations for all three hidden nodes.  The last subplot shows the sum of all three activations.  The blue stripes in the background correspond to the times during which the “rat” is at the fork.  Alternating bands correspond to travelling in alternate directions of the maze.</p>
+
+<p>This task is only non-Markovian in the center hallway: the correct action is entirely determined by the current location for all locations on the outside of the maze, but this is not true of the center hallway locations.  If we look at <code>hidden node 3</code>, we see that it only differs in value across loop directions at the timepoints near the fork.  Essentially, <code>hidden node 3</code> provides a linearly separable signal that indicates the direction of travel.  This is made even clearer in the two plots below showing the hidden layer activations for each location on the maze either on a leftward or rightward loop.</p>
+
+<p><img src="/images/research/hidden_layer_on_maze_raw_left.png" width="700" height="350">
+<img src="/images/research/hidden_layer_on_maze_raw_right.png" width="700" height="350"></p>
+
+<p><strong>Figure 2:</strong>  The normalized (-1 to 1) hidden layer representation, a vector of three values: one for each hidden node, for each location in the maze is plotted using <em>imagesc</em> at that location in the maze.  This is done for both leftward (top) and rightward (bottom) loops.  For example, the subplot in the middle row of the center column on the top plot (“Raw Hidden Layer Values - Left”) shows the hidden layer representation for that location in the maze during a leftward loop.  The hidden layer representation for that location during a rightward loop is shown on the bottom plot at the same location.  Do not be confused by the fact that the bottom plot for a rightward loop has filled in values for locations on the maze that are only visited during a leftward loop - these are just pasted in from the leftward loop for visualization purposes (and vice-versa for the leftward loop and rightward loop maze locations).</p>
+
+<p>We see that <code>hidden node 3</code> has different values for the different loops along the center hallway, but nearly symmetric values along the outsides of the maze.  It is less clear what the other hidden units may be encoding.  A comparison of the first two hidden unit activations across loops shows that they code the outer loops of the maze differently, but not points along the center hallway (Figure 3 below).</p>
+
+<p><img src="/images/research/hidden_nodes<em>1_and</em>2_comparison.png" width="700" height="350">
+<strong>Figure 3:</strong> Above we plot the activation for the first and second hidden units for each loop direction of the maze and subsequently their sum (bottom plot).  The x-axis labels analogous locations in the maze across the loops e.g. “Top Corner” on the middle plot shows the activation of <code>hidden node 2</code> for the top left corner location (blue) and the the top right corner (green).   Notably, the activations are pretty similar for the center hallway locations (“Fork”, “Bottom Center”, and “Mid Center”).</p>
+
+<p>The network does find 20 unique states (the true number of unique states in our task) and we can see this just using the first two hidden unit activations.  This begs the question: is the third hidden unit needed?  It would be <strong>very</strong> helpful to plot the multidimensional scaling for all three hidden unit activations, <del>so maybe somebody (<em>cough</em> Luis <em>cough</em> <em>cough</em> a.k.a. my own self <em>cough</em>) should do that</del> here is that <a href="/images/research/hidden_layer_mds.png">plot</a>. Another diagnostic to assess the utility of this third hidden unit would be to look at how the slow-feature analysis output varies based on whether we give all three hidden units or just the first two.
+<img src="/images/research/hidden_layer_representation_mds_rm_1st_visit.png" width="700" height="350"> 
+<strong>Figure 4:</strong> Above we plot the hidden unit activations for each time step in our trajectory of 20 loops around the maze.  Importantly, locations on the outside of the maze (circles with black or magenta outlines) cluster together across visits. The center locations, however, are cluster according to loop direction.</p>
+
+<p>We can also look at the hidden layer represtation similarity from one location to the other locations as shown below.
+<img src="/images/research/hidden_layer_self_similarity.png" width="700" height="350"> 
+<strong>Figure 5:</strong> This shows the representational similarity for each unique state (recall that not all locations correspond to unique states).  The labels along the axes correspond to different locations on the maze (also indicating the loop direction when relevant) using the key below.</p>
+<center>
+<img src="/images/research/legend_correlation_plots.png" width="450" height="65"> 
+</center>
+
+<p>Below we show an alternative method for visualizing the hidden layer representation of a location to other locations.
+<img src="/images/research/Linear_corr_states_hidden_and_sfa_hidden_representation.png" width="700" height="350">
+<strong>Figure 6:</strong> For each location in the maze, we create a subplot that shows the hidden layer representation for that location in the maze against all other locations in the maze.  For example, to look at the representational similarity between the top-left corner and the bottom-right corner, look at the top-left subplot and the bottom-right square within that subplot.  The similarity between a location and itself is also plotted, which is uninformative in the case of locations on the outside of the maze.  However, for locations that have multiple states (i.e. the fork location corresponds to both states “Fork - Leftward loop” and “Fork - Rightward loop”), the similarity is plotted across loop directions e.g. the top-center subplot shows the representational similarity for the fork location and the top-center value in that subplot corresponds to the representational similarity between the fork on a leftward loop and the fork on a rightward loop.</p>
+
+<h3 id="dump-of-sfa-similarity-plots">Dump of SFA Similarity Plots</h3>
+<p><img src="/images/research/Linear_corr_states_hidden_and_sfa_sfa3.png" width="700" height="350">
+<img src="/images/research/Linear_corr_states_hidden_and_sfa_sfa2.png" width="700" height="350">
+<img src="/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa3.png" width="700" height="350">
+<img src="/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa2.png" width="700" height="350"></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Paper: Deep Learning from Temporal Coherence in Video]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/05/30/paper-deep-learning-from-temporal-coherence-in-video/"/>
+    <updated>2014-05-30T15:32:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/05/30/paper-deep-learning-from-temporal-coherence-in-video</id>
+    <content type="html"><![CDATA[<h3 id="punchline">Punchline:</h3>
+
+<p>They used a convolutional neural network to do object recognition on video streams.  Motivated by the idea that consecutive video frames likely contain the same objects and therefore should have similar representations, they modify the neural network cost function to include a “coherence” term:  </p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+ L_{coh}(\theta, inputx, inputy) = \begin{cases}
+		  \|z_{\theta}(input_x) - z_{\theta}(input_y) \|_1  & \textbf{if x,y consecutive}\\
+		  max(0, \delta - \|z_{\theta}(input_x) - z_{\theta}(input_y) \|_1)   & \textbf{otherwise}\\
+\hline
+\end{cases}  \\
+\delta: \text{hyperparam push apart non-consecutive representations} \\
+z_{\theta}(x) = \text{hidden layer representation for input x just before output layer}  %]]&gt;</script>
+
+<h3 id="noteworthy-details">Noteworthy Details:</h3>
+<p>Training: They do some weird training where you have to look at the output of the network for two different outputs, they call this a siamese architecture.</p>
+
+<h3 id="ideas">Ideas:</h3>
+<ul>
+  <li>Modify $ L_{coh} $ to be a function of the number of time steps between inputs  </li>
+  <li>What if we could use slow-features as a better proxy for temporal distance between training samples i.e. push representations closer together based on the difference between their slowest features?</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[LSTM trained multiple loops]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/05/22/lstm-trained-multiple-loops/"/>
+    <updated>2014-05-22T15:46:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/05/22/lstm-trained-multiple-loops</id>
+    <content type="html"><![CDATA[<h3 id="status">Status:</h3>
+
+<ul>
+  <li>Rudimentary system for importing rnnlib log information to matlab for performing SFA</li>
+  <li><strong>Successfully trained LSTM on 20 loops through an eightball maze (same dimensions as last time): 0% misclassification</strong></li>
+</ul>
+
+<p><img src="/images/research/hidden_state_activations_width3_loops20.png" width="700" height="350"></p>
+
+<h3 id="questions-for-meeting">Questions for meeting</h3>
+<ul>
+  <li>What should we perform the SFA on?</li>
+  <li>How many loops around the maze do we need?</li>
+</ul>
+
+<h3 id="next-steps">Next steps</h3>
+<p>Look at similarity metric for each timestep using correlation matrix - send to Matt
+Be wary of SFA on multidimensional data and throwing away certain features
+Send SFA
+Waldo task: Ari did SFA on the task (using sparse representation, 8 units
+perhaps LSTM’ing Waldo task
+generate figures for a week from now</p>
+
+<p>short term memory for serial order - matt bot paper, network needs to remember things that aren’t relevant to current output, 
+single unit recording analysis paper by bill newsome, analyzed by valerio monte, nature 2013 “context-dependent computations by recurrent dynamics in prefrontal cortex”</p>
+
+<p>LSTM seems different than orthogonal</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[LSTM Trained on Non-Markov Loop]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/05/22/lstm-trained/"/>
+    <updated>2014-05-22T13:42:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/05/22/lstm-trained</id>
+    <content type="html"><![CDATA[<h3 id="status">Status:</h3>
+
+<p>Successfully trained (finally) a LSTM network on a single loop through an eightball maze.
+The eightball maze had a width $= 7$, height $= 3$, giving a total of 17 locations in the maze.</p>
+
+<p><img src="/images/research/non_markov_maze.png" width="700" height="350"></p>
+
+<p><strong>This is the architecture used:</strong> <br />
+- input layer: represent each location as an input node<br />
+- hidden layer: 2 LSTM blocks<br />
+- output layer: represent each output location as an output node  </p>
+
+<p><strong>Training/Testing:</strong> <br />
+Input was a single sequence which consisted of a full loop around the maze, which takes 21 time steps. Testing was done simply by specifying the next step in the sequence.</p>
+
+<p><strong>RNNLIB Config File &amp;&amp; CDL</strong></p>
+
+<h3 id="next-steps">Next Steps:</h3>
+<ul>
+  <li>Run SFA on this output</li>
+  <li>Train/test on sequences that have more loops around the maze  </li>
+  <li>Run SFA on this output</li>
+  <li>Logistical<br />
+    <ul>
+      <li>Develop method of transferring from rnnlib log files to matlab so that we can do SFA</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="rnnlib-discoveries--questions">RNNLIB Discoveries &amp; Questions</h3>
+<ul>
+  <li>Default behavior is to have hidden layers be recurrent in time both forwards and backwards, this is <strong>NOT</strong> what we want for our current usage.  </li>
+  <li><code>hiddenSize</code> controls the number of units in the hidden layer, to specify multiple hidden layers can add values here  </li>
+  <li><code>hiddenBlock</code> still unclear what this does   </li>
+  <li><code>inputBlock</code> not sure what the benefit of creating an input block is, it seems to just replicate the input layer and has the same exact activations when I look at the log file  </li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

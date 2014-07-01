@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: noarchive | Something Witty]]></title>
+  <link href="http://ElPiloto.github.io/blog/categories/noarchive/atom.xml" rel="self"/>
+  <link href="http://ElPiloto.github.io/"/>
+  <updated>2014-07-01T12:37:51-04:00</updated>
+  <id>http://ElPiloto.github.io/</id>
+  <author>
+    <name><![CDATA[Luis R. Piloto]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[SFA Nonmarkov: Modify network, maze size and type, visualize gates]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/06/24/sfa-nonmarkov-modify-network/"/>
+    <updated>2014-06-24T13:38:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/06/24/sfa-nonmarkov-modify-network</id>
+    <content type="html"><![CDATA[<h3 id="overview-of-simulations">Overview of simulations</h3>
+<ol>
+  <li>Look at the gate values along the maze trajectories (previously we only looked at the hidden state values). Recall that a long-short term memory network has three gates: read, write, and forget   </li>
+  <li>We also need to look at our old MDS plots of the hidden layers and label the trajectory (previously we only showed whether a representation belonged to the center hallway or right or left outer maze locations)</li>
+  <li>We want to see if we get any qualitative differences as we change the width of the maze.  </li>
+  <li>We want to see if changing the maze type to be a ring will still yield the segmenting behavior we see from SFA  </li>
+  <li>We want to see if we get any qualitative differences as we change the number of hidden units</li>
+</ol>
+
+<h3 id="different-num-hidden-units">Different Num Hidden Units</h3>
+
+<h4 id="hidden-unit-mds-plots">Hidden Unit MDS Plots</h4>
+<p><img src="/images/research/sfa_lstm/hidden_layer_width3_hidden5_loop.png" width="750" height="350"> 
+<img src="/images/research/sfa_lstm/hidden_layer_width3_hidden3_loop.png" width="750" height="350"> </p>
+
+<h5 id="observations">Observations:</h5>
+<ol>
+  <li>Much cleaner separation of states with 5 hidden units compared to 3 hidden units based on the loop to which they belong.</li>
+  <li>Also get cleaner separation of states based on center versus non-center.</li>
+  <li><strong>These results suggest that the hidden layer representation generated using 5 hidden units might be a better representation for looking at the benefits of SFA.</strong></li>
+</ol>
+
+<h4 id="hidden-unit-similarity-plots-according-to-location-on-maze">Hidden Unit Similarity Plots According to Location on Maze</h4>
+<p><img src="/images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden5.png" width="750" height="350"> 
+<strong>Figure 2a) 5 Hidden Units</strong>
+<img src="/images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden3.png" width="750" height="350"> 
+<strong>Figure 2b) 3 Hidden Units</strong>  </p>
+
+<h5 id="observations-1">Observations:</h5>
+<p>This is just another way of seeing how much cleaner the 5 hidden units representation is.</p>
+
+<h4 id="linear-sfa-top-2-slowest-features">Linear SFA Top 2 Slowest Features</h4>
+<p><img src="/images/research/sfa_lstm/sfa<em>1st</em>2<em>features_rm</em>1st_visit_width3<em>hidden5.png" width="750" height="350"> 
+<strong>Figure 3a) 5 Hidden Units</strong>
+<img src="/images/research/sfa_lstm/sfa</em>1st<em>2_features_rm</em>1st_visit_width3_hidden3.png" width="750" height="350"> 
+<strong>Figure 3b) 3 Hidden Units</strong>   </p>
+
+<h5 id="observations-2">Observations:</h5>
+<ol>
+  <li>Here we see exactly what we hoped for in the 5 hidden units case: the first slow-feature indicates which loop we’re on!</li>
+  <li>The question is: how much of this is the neural network and how much of this is SFA? Well let’s look at the plots below of the raw hidden layer values across the maze.  If the neural network is doing all the heavy lifting, then we would see a single, slowly varying feature that encodes the loops direction but this doesn’t seem to be the case!</li>
+</ol>
+
+<p><img src="/images/research/sfa_lstm/hidden_layer_on_maze_raw_left_width3_hidden5.png" width="750" height="350"> 
+<strong>Figure 4a) 5 Hidden Units</strong>
+<img src="/images/research/sfa_lstm/hidden_layer_on_maze_raw_right_width3_hidden5.png" width="750" height="350"> 
+<strong>Figure 4b) 5 Hidden Units</strong>   </p>
+
+<p><strong>NOTE:</strong> These colors look exactly the same along the central corridor (which would be troubling), but their values are actually different if you look at the numbers.</p>
+
+<h3 id="different-maze-size----width-7-5-hidden-units">Different Maze Size  - Width 7, 5 Hidden Units</h3>
+
+<h4 id="hidden-unit-mds-plots-1">Hidden Unit MDS Plots</h4>
+<p><img src="/images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png" width="750" height="350"> </p>
+
+<h4 id="linear-sfa-top-2-slowest-features-1">Linear SFA Top 2 Slowest Features</h4>
+
+<p><img src="/images/research/sfa_lstm/sfa_linear_1st2features_width7_hidden5.png" width="750" height="350"> </p>
+
+<h3 id="different-maze-structure">Different Maze Structure</h3>
+
+<h4 id="hidden-unit-mds-plots-2">Hidden Unit MDS Plots</h4>
+<p><img src="/images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png" width="750" height="350"> </p>
+
+<h4 id="linear-sfa-top-2-slowest-features-2">Linear SFA Top 2 Slowest Features</h4>
+<p><img src="/images/research/sfa_lstm/sfa_1wayloop_width7_hidden5.png" width="750" height="350"> </p>
+
+<h3 id="meeting-with-mattbot">Meeting with Mattbot:</h3>
+
+<h4 id="observations-3">Observations:</h4>
+<ol>
+  <li>It does seem like the first slow feature encodes which outer loop we’re on.   </li>
+  <li>Cooler than that, our second slow feature for the width 7, 5 hidden units case, encodes which step of the outer loop we’re on, regardless of which direction the loop is.  This is motherfucking abstraction! We’re going to try to connect this to to-do item #4.</li>
+</ol>
+
+<h4 id="to-do">To-Do:</h4>
+<ol>
+  <li>Why are the slow-features on such a small scale?    </li>
+  <li>Why are the hidden layer representations (think MDS width3, hidden5) so similar at the fork point - Matt thinks I might be off by one because the point just after the fork diverges which is what you would expect from the fork point - since they make vastly different predictions.  </li>
+  <li>Will PCA give us anything useful?    </li>
+  <li>I should read a paper on rat neurophysiology, an older paper - they showed that in an 8-arm radial maze, certain PFC cells encoded specific parts of an arm, without being specific to the particular arm.  This is similar to our second slow feature in the </li>
+  <li>Check that these results are invariant o the number of hidden units and size of the maze.</li>
+</ol>
+
+<h4 id="other-to-do">Other to-do:</h4>
+<p>This isn’t related to the non-markov, but to the factored state towers of hanoi: I was tasked with performing slow feature analysis on a random walk on a factored state representation of the towers of hanoi task.  It seems like I’m getting a result that Ari wasn’t able to: The first slow feature seems to represent the location of the largest ring.
+* I should check with Ari to make sure I did things the way he did, too <br />
+* I should show Matt the MDS of the slow features <br />
+* I should make sure all of theslow features load on all dimensions of the original input space.<br />
+* We’re not sure what the second slowest feature should look like, but it seems like it might be the configuration of the second largest ring conditioned on the location of the largest ring.  That’s definitely what the scatter plot of the first two features looks like.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG 9 Subjects]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/06/23/sleep-eeg-9-subjects/"/>
+    <updated>2014-06-23T12:14:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/06/23/sleep-eeg-9-subjects</id>
+    <content type="html"><![CDATA[<h3 id="wake-classification-results">Wake Classification Results</h3>
+<p>These are important because it’s likely we’ll want to exclude subjects with poor wake cross-validation AUC from subsequent analyses.</p>
+
+<p><img src="/images/research/wake_AUC_most_subjects.png" width="700" height="350"></p>
+
+<p><strong>Figure 1:</strong> This shows the AUC for leave-one-out cross-validation on wake EEG data training on all the z-scored frequencies corresponding to a particular time bin as indicated on the y-axis.  The AUC was calculating by training a classifier that distinguishes between all classes, but only testing on patterns that corresponded to either a celebrity or a landmark.  The AUC was calculated by feeding in the difference between the output for the celebrity one-vs-all classifier and the landmark one-vs-all classifier for each cross-validation fold and the plotted values show the mean AUC across all cross-validation folds.  We had previously looked at the cross-validation accuracy for the first two subjects across a wider range of times, but narrowed it down to these four windows.</p>
+
+<p><code>plot_loopify_time_sweep_results_AUC.m </code>  <br />
+<code>classify_piloy_log_reg_time_sweep_driver.m </code>      </p>
+
+<p>Commit ID: <code> </code>     </p>
+
+<h3 id="sleep-cross-validation-classification-all-frequencies-per-time-bin">Sleep Cross-Validation Classification: All Frequencies Per Time Bin</h3>
+<p><strong>NOTE:</strong> These results were supposed to be for performing feature selection, but I accidentally set the feature selection statistical threshold to 1, which is the same as not using feature selection.  <del>Re-running these results with feature selection.</del>  The results actually containing feature selection are just below.</p>
+
+<p><img src="/images/research/all<em>9subjects_sleep_CV_AUC_feature_select.png" width="700" height="350">
+<strong>Figure 2a)</strong> We plot the AUC for classification of celebrity vs. landmarks during sleep across all our subjects (y-axis).  This was calculated by performing cross-validation (somewhere between 15-fold and 40-fold depending on the number of sleep patterns available) using all frequencies z-scored across electrodes for a particular timebin (x-axis). <br />
+<img src="/images/research/all</em>9subjects_sleep_CV_AUC_feature_select_PVAL.png" width="700" height="350">
+<strong>Figure 2b)</strong> We plot the p-values for combinations of subjects and time bins with sleep cross-validation AUC values that are calculated via a shuffled permutation test whereby the labels of the classes are shuffled, we train a classifier with the shuffled patterns, and look at the cross-validation AUC for this shuffled dataset. Areas in red have p-values &gt; 0.05.
+<img src="/images/research/all<em>9subjects_sleep_CV_acc_feature_select.png" width="700" height="350">
+<strong>Figure 2c)</strong> Instead of calculating the AUC, we plot the classification accuracy - this should be pretty similar to Figure 2b.
+<img src="/images/research/all</em>9subjects_sleep_CV_acc_feature_select_PVAL.png" width="700" height="350">
+<strong>Figure 2d)</strong> Here we plot the p-values for the classification accuracies.</p>
+
+<h3 id="sleep-cross-validation-classification-feature-selection-all-frequencies-per-time-bin">Sleep Cross-Validation Classification Feature Selection: All Frequencies Per Time Bin</h3>
+
+<p><img src="/images/research/9_subjects_CV_ACTUAL_AUC_feature_select.png" width="700" height="350">
+<strong>Figure 3a)</strong> We plot the AUC for classification of celebrity vs. landmarks during sleep across all our subjects (y-axis).  This was calculated by performing cross-validation (somewhere between 15-fold and 40-fold depending on the number of sleep patterns available) using all frequencies z-scored across electrodes for a particular timebin (x-axis). <br />
+<img src="/images/research/9_subjects_CV_ACTUAL_AUC_feature_select_PVAL.png" width="700" height="350">
+<strong>Figure 3b)</strong> We plot the p-values for combinations of subjects and time bins with sleep cross-validation AUC values that are calculated via a shuffled permutation test whereby the labels of the classes are shuffled, we train a classifier with the shuffled patterns, and look at the cross-validation AUC for this shuffled dataset. Areas in red have p-values &gt; 0.05.
+<img src="/images/research/9_subjects_CV_ACTUAL_acc_feature_select.png" width="700" height="350">
+<strong>Figure 3c)</strong> Instead of calculating the AUC, we plot the classification accuracy - this should be pretty similar to Figure 2b.
+<img src="/images/research/9_subjects_CV_ACTUAL_acc_feature_select_PVAL.png" width="700" height="350">
+<strong>Figure 3d)</strong> Here we plot the p-values for the classification accuracies.</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Understanding SFA]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/06/11/understanding-sfa/"/>
+    <updated>2014-06-11T11:14:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/06/11/understanding-sfa</id>
+    <content type="html"><![CDATA[<h3 id="questions">Questions</h3>
+<pre> Estimating Driving Forces of Nonstationary Time Series with Slow Feature Analysis, Wiskott (2003)</pre>
+<p>What does it mean that slow-feature analysis only considers one point at a time?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Representational Similarity for Non-markov Task in LSTM Hidden Layers and SFA of Hidden Layers]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/06/10/representational-similarity-for-non-markov-task-in-lstm-hidden-layers-and-sfa-of-hidden-layers/"/>
+    <updated>2014-06-10T15:48:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/06/10/representational-similarity-for-non-markov-task-in-lstm-hidden-layers-and-sfa-of-hidden-layers</id>
+    <content type="html"><![CDATA[<p>We’re interested in how slow-feature analysis processes representations generated for a non-Markov task.  Towards this end, we apply slow-feature analysis to the hidden layer representation of a recurrent long short-term memory network that solves a non-Markovian task.  Importantly, we must first understand the hidden layer representation to see which components to the SFA’d hidden layer representation are generated from the slow-feature process and which were already present in the data.</p>
+
+<h3 id="raw-hidden-layer-and-sfa-values">Raw Hidden Layer and SFA Values</h3>
+
+<p>In a previous post, we have the raw hidden layer representation as we loop around the maze.  Here is an alternate version of that plot:
+<img src="/images/research/hidden_layer_time_series.png" width="700" height="350">
+<strong>Figure 1:</strong> The first three subplots show the hidden layer activations for all three hidden nodes.  The last subplot shows the sum of all three activations.  The blue stripes in the background correspond to the times during which the “rat” is at the fork.  Alternating bands correspond to travelling in alternate directions of the maze.</p>
+
+<p>This task is only non-Markovian in the center hallway: the correct action is entirely determined by the current location for all locations on the outside of the maze, but this is not true of the center hallway locations.  If we look at <code>hidden node 3</code>, we see that it only differs in value across loop directions at the timepoints near the fork.  Essentially, <code>hidden node 3</code> provides a linearly separable signal that indicates the direction of travel.  This is made even clearer in the two plots below showing the hidden layer activations for each location on the maze either on a leftward or rightward loop.</p>
+
+<p><img src="/images/research/hidden_layer_on_maze_raw_left.png" width="700" height="350">
+<img src="/images/research/hidden_layer_on_maze_raw_right.png" width="700" height="350"></p>
+
+<p><strong>Figure 2:</strong>  The normalized (-1 to 1) hidden layer representation, a vector of three values: one for each hidden node, for each location in the maze is plotted using <em>imagesc</em> at that location in the maze.  This is done for both leftward (top) and rightward (bottom) loops.  For example, the subplot in the middle row of the center column on the top plot (“Raw Hidden Layer Values - Left”) shows the hidden layer representation for that location in the maze during a leftward loop.  The hidden layer representation for that location during a rightward loop is shown on the bottom plot at the same location.  Do not be confused by the fact that the bottom plot for a rightward loop has filled in values for locations on the maze that are only visited during a leftward loop - these are just pasted in from the leftward loop for visualization purposes (and vice-versa for the leftward loop and rightward loop maze locations).</p>
+
+<p>We see that <code>hidden node 3</code> has different values for the different loops along the center hallway, but nearly symmetric values along the outsides of the maze.  It is less clear what the other hidden units may be encoding.  A comparison of the first two hidden unit activations across loops shows that they code the outer loops of the maze differently, but not points along the center hallway (Figure 3 below).</p>
+
+<p><img src="/images/research/hidden_nodes<em>1_and</em>2_comparison.png" width="700" height="350">
+<strong>Figure 3:</strong> Above we plot the activation for the first and second hidden units for each loop direction of the maze and subsequently their sum (bottom plot).  The x-axis labels analogous locations in the maze across the loops e.g. “Top Corner” on the middle plot shows the activation of <code>hidden node 2</code> for the top left corner location (blue) and the the top right corner (green).   Notably, the activations are pretty similar for the center hallway locations (“Fork”, “Bottom Center”, and “Mid Center”).</p>
+
+<p>The network does find 20 unique states (the true number of unique states in our task) and we can see this just using the first two hidden unit activations.  This begs the question: is the third hidden unit needed?  It would be <strong>very</strong> helpful to plot the multidimensional scaling for all three hidden unit activations, <del>so maybe somebody (<em>cough</em> Luis <em>cough</em> <em>cough</em> a.k.a. my own self <em>cough</em>) should do that</del> here is that <a href="/images/research/hidden_layer_mds.png">plot</a>. Another diagnostic to assess the utility of this third hidden unit would be to look at how the slow-feature analysis output varies based on whether we give all three hidden units or just the first two.
+<img src="/images/research/hidden_layer_representation_mds_rm_1st_visit.png" width="700" height="350"> 
+<strong>Figure 4:</strong> Above we plot the hidden unit activations for each time step in our trajectory of 20 loops around the maze.  Importantly, locations on the outside of the maze (circles with black or magenta outlines) cluster together across visits. The center locations, however, are cluster according to loop direction.</p>
+
+<p>We can also look at the hidden layer represtation similarity from one location to the other locations as shown below.
+<img src="/images/research/hidden_layer_self_similarity.png" width="700" height="350"> 
+<strong>Figure 5:</strong> This shows the representational similarity for each unique state (recall that not all locations correspond to unique states).  The labels along the axes correspond to different locations on the maze (also indicating the loop direction when relevant) using the key below.</p>
+<center>
+<img src="/images/research/legend_correlation_plots.png" width="450" height="65"> 
+</center>
+
+<p>Below we show an alternative method for visualizing the hidden layer representation of a location to other locations.
+<img src="/images/research/Linear_corr_states_hidden_and_sfa_hidden_representation.png" width="700" height="350">
+<strong>Figure 6:</strong> For each location in the maze, we create a subplot that shows the hidden layer representation for that location in the maze against all other locations in the maze.  For example, to look at the representational similarity between the top-left corner and the bottom-right corner, look at the top-left subplot and the bottom-right square within that subplot.  The similarity between a location and itself is also plotted, which is uninformative in the case of locations on the outside of the maze.  However, for locations that have multiple states (i.e. the fork location corresponds to both states “Fork - Leftward loop” and “Fork - Rightward loop”), the similarity is plotted across loop directions e.g. the top-center subplot shows the representational similarity for the fork location and the top-center value in that subplot corresponds to the representational similarity between the fork on a leftward loop and the fork on a rightward loop.</p>
+
+<h3 id="dump-of-sfa-similarity-plots">Dump of SFA Similarity Plots</h3>
+<p><img src="/images/research/Linear_corr_states_hidden_and_sfa_sfa3.png" width="700" height="350">
+<img src="/images/research/Linear_corr_states_hidden_and_sfa_sfa2.png" width="700" height="350">
+<img src="/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa3.png" width="700" height="350">
+<img src="/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa2.png" width="700" height="350"></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG Ken Meeting]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/06/02/sleep-eeg-ken-meeting/"/>
+    <updated>2014-06-02T11:27:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/06/02/sleep-eeg-ken-meeting</id>
+    <content type="html"><![CDATA[<h3 id="context">Context</h3>
+
+<p>After ending the first-year rotation, I’m now back on the hook for working on this sleep EEG project full-time.  This meeting was simply to re-orient ourselves and plan the next immediate steps.</p>
+
+<h3 id="next-steps">Next Steps</h3>
+<ol>
+  <li>Area under ROC instead of classification accuracy   </li>
+  <li>Represent goodness in terms of where it falls on the empirical null distribution (as opposed to previously where we were showing raw-classification accuracy which we really have no clue how good that should be)  </li>
+  <li>Train sleep classifier using wake WEIGHTS instead of wake average pattern as template.  The rationale behind this is that the average pattern templates treat all electrodes as equally important, but this just isn’t true.  The importance maps will take that into account   </li>
+  <li>Create existing plots for new subjects [n = 8] (!)</li>
+</ol>
+
+<h3 id="next-next-steps">Next Next Steps</h3>
+<ol>
+  <li>We need to think about how we can collapse down each sleep trial (playing of a sleep sound) into a single reactivation metric.  Currently, we have classifier output for different timebins of the sleep trial and it seems like the maximally-classifiable time bin varies across subjects. <br />
+    <ul>
+      <li>Train an “uberclassifier” that classifies across all timebins - this would give us a single reactivation score per trial   </li>
+      <li>Is there a smart way of reducing the number of features we have?<br />
+        <ul>
+          <li>we might have some <em>a priori</em> ideas about which features to include.  </li>
+          <li>we might want to look at the cross-validation accuracy along certain time-bins to narrow things down.   </li>
+        </ul>
+      </li>
+      <li>This is where I thought a recurrent neural network might be helpful for us.  </li>
+      <li>Alternative idea: train a higher-level classifier on the outputs of the individual time bin classifiers    </li>
+    </ul>
+  </li>
+  <li>How do we relate reactivations to subsequent memory?  Recall that there will be multiple classifier readouts per item, perhaps something a la [P-CIT] (https://code.google.com/p/p-cit-toolbox/) would work for us.</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+</feed>

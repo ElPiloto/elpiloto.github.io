@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Sleep EEG Update - Something Witty</title>
+  <meta name="author" content="Luis R. Piloto">
+
+  
+  <meta name="description" content="EEG, hide, noarchive, sleep Sleep EEG Update Results Shuffled Cross-validation Accuracy Using Transformed Sleep Data (Item # 5 on To-Do List)
+The &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ElPiloto.github.io/blog/2014/05/04/sleep-eeg-update">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/styles.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Something Witty" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/jquery.sidr.min.js"></script>
+  <script src="/javascripts/ah-blue.js"></script>
+  <!-- MathJax -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+  </script>
+
+  <script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-49251088-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head> 
+
+<body   >
+  <div class="aux-container">
+    <a id="nav-toggle" href="#sidr"></a>
+    <a id="search-toggle"></a>
+	<h1 style="margin-left: 30px">the blog of luis piloto</h1>
+</div>
+
+<header class="header-container clearfix" id="the_header_container">
+        <a href="/" align="left"><img src="/images/brain.svg" onerror="this.onerror=null; this.src='brain.png'"></a>
+</header>
+
+
+  <div class="main-container add-top-margin" id="the_main_container">
+    <div class="main wrapper clearfix">
+    	
+    	<aside>
+			
+			  	<div class="search-container">
+					<form action="http://google.com/search" method="get">
+						<fieldset role="search">
+							<input type="hidden" name="q" value="site:elpiloto.github.io" />
+							<input class="search-field" type="text" name="q" results="0" placeholder=""/>
+							<input class="submit" type="submit" value=""/>
+						</fieldset>
+					</form>
+				</div>
+			
+		  <div id="main-nav">
+    <nav>
+        <ul>
+        	<li>
+        		
+					<h3>Recent Posts</h3>
+<ul>
+	
+	
+	
+    
+	
+	
+    
+	
+	
+    
+	
+	
+    
+	
+	
+    
+</ul>
+
+				
+        	</li>
+        </ul>
+		<ul>
+			<li>
+				<section>
+	<h1>Other Links</h1>
+	<ul>
+		<li><a href="/about"> about luis piloto</a></li>
+		<li><a href="/see"> look </a></li>
+		<li><a href="https://github.com/Elpiloto"</a>github</li>
+		<li><a href="http://compmem.princeton.edu">compmem lab</a></li>
+		<li><a href="http://princeton.edu/~piet">apiet</a></li>
+		<li><a href="http://bensondaled.github.io/homepage/">ben deverett</a></li>
+	</ul>
+</section>
+
+			</li>
+		</ul>
+    </nav>
+</div>
+
+		</aside>
+		
+      <div>
+<article>
+	<header>
+  <div class="article-tags">
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/eeg/'>EEG</a>, <a class='category' href='/blog/categories/hide/'>hide</a>, <a class='category' href='/blog/categories/noarchive/'>noarchive</a>, <a class='category' href='/blog/categories/sleep/'>sleep</a>
+  
+</span>
+
+
+  </div>
+  
+    <h1>
+      Sleep EEG Update
+    </h1>
+  
+</header>
+<section>
+  <h3 id="results">Results</h3>
+
+<h4 id="shuffled-cross-validation-accuracy-using-transformed-sleep-data-item--5-on-to-do-list">Shuffled Cross-validation Accuracy Using Transformed Sleep Data (Item # 5 on To-Do List)</h4>
+<p>The plots below were using the generate-template-on-wake-then-transform-sleep-data-then-train-a-sleep-classifier approach.  The x-axis corresponds to training on different sleep time bins (although we use all the frequencies) and the y-axis corresponds to using different time-freq pairs to generate the wake template.  The key part of this plot is that we <strong>randomly permuted the sleep labels</strong> - so we would hope to see 50% classification accuracy here (which unfortunately doesn’t seem to be the case).  Ideally, I would have multiple iterations of this shuffling, but so far I’ve only run a single shuffle - <strong>how serious is it that I haven’t run multiple iterations?</strong></p>
+
+<p><img src="/images/research/subject_1sleep_transform_CV_shuffled.png" width="700" height="350" />
+<img src="/images/research/subject_2sleep_transform_CV_shuffled.png" width="700" height="350" /></p>
+
+<h4 id="sleep-cross-validation-accuracy-using-different-sleep-transformations-item-2-on-to-do-list">Sleep Cross-validation Accuracy using different sleep transformations (Item #2 on To-Do List)</h4>
+<p>Previously, we had only tried the generate-template-on-wake-then-transform-sleep-data-then-train-a-sleep-classifier using the FACE template, the results below show cross-validation accuracy using the face template (same results as presented previously), the scene template, and face-minus-scene.</p>
+
+<p><img src="/images/research/subject_1sleep_transform_CV.png" width="700" height="350" />
+<img src="/images/research/subject_2sleep_transform_CV.png" width="700" height="350" />
+<img src="/images/research/subject_3sleep_transform_CV.png" width="700" height="350" />
+<img src="/images/research/subject_4sleep_transform_CV.png" width="700" height="350" />
+<img src="/images/research/subject_5sleep_transform_CV.png" width="700" height="350" />
+<img src="/images/research/subject_6sleep_transform_CV.png" width="700" height="350" /></p>
+
+<h4 id="sleep-cross-validation-accuracy-using-all-frequencies-feature-select-item-4-on-to-do-list">Sleep Cross-validation Accuracy Using All Frequencies Feature Select (Item #4 on To-Do List)</h4>
+<p>This is pretty straightforward cross-validation accuracy performed on the labelled sleep data.  For each time bin of the sleep data, we z-scored the power spectrum at all frequencies across electrodes and trained a classifier using 10-fold cross-validation using standard p-value based feature selection.</p>
+
+<p><img src="/images/research/all_2_subjects_sleep_CV_feature_select.png" width="700" height="350" /></p>
+
+<h4 id="classifier-weights-for-sleep-transformed-data-item-1-on-to-do-list">Classifier Weights for sleep transformed data (Item #1 on To-Do List)</h4>
+<p>Recall that we have a classifier for each combination of wake time-freq pair and sleep time.  Each classifier sweeps the template across each frequency of the time bin, yielding a classifier with as many features as there are frequencies.  Thus, visualizing the weights would require displaying the magnitude of the weight across three dimensions: wake time-freq pair, sleep time bin, and sleep frequency.  Instead of trying to plot some whacky surface, I’ve created plots that average the magnitude of the weights either across the sleep time bins OR across sleep frequencies - if a particular time bin or frequency looks promising from these plots, we can look at the uncollapsed results as needed.</p>
+
+<p>The value displayed below is taken as follows:<br />
+<code>
+for each wake time-freq bin x sleep time bin pair:<br />
+ &nbsp; &nbsp; &nbsp; &nbsp;for each cross-validation iteration:<br />
+		 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;z-score weights<br />
+	&nbsp; &nbsp; &nbsp; &nbsp;Avg weights over cross-validation iterations and take absolute value<br />
+</code></p>
+
+<p>This 3d matrix was then collapsed either across sleep time bins or sleep frequencies.  This was done for the various wake templates.  </p>
+
+<p><strong>KEN:</strong> I know this is pretty different than the McDuff method for interpreting feature weights - but the requirement to average over the patterns made things difficult so I did things this way as a much easier to accomplish first pass.  It’s worth noting that the EEG analysis code rescales all features to be within the range of 0 and 1, so I think this crude way of looking at the features should still be pretty informative.</p>
+
+<h4 id="face-minus-scene-wake-template">Face Minus Scene Wake Template</h4>
+<p><img src="/images/research/collaped_weights_by_freq_faceMINUSscene_wake_template_subj1.png" width="700" height="350" />
+<img src="/images/research/collaped_weights_by_freq_faceMINUSscene_wake_template_subj2.png" width="700" height="350" /></p>
+
+<h4 id="face-wake-template">Face Wake Template</h4>
+<p><img src="/images/research/collaped_weights_by_freq_face_wake_template_subj1.png" width="700" height="350" />
+<img src="/images/research/collaped_weights_by_freq_face_wake_template_subj2.png" width="700" height="350" /></p>
+
+<h4 id="scene-wake-template">Scene Wake Template</h4>
+<p><img src="/images/research/collaped_weights_by_freq_scene_wake_template_subj1.png" width="700" height="350" />
+<img src="/images/research/collaped_weights_by_freq_scene_wake_template_subj2.png" width="700" height="350" /></p>
+
+<h4 id="face-minus-scene-wake-template-1">Face Minus Scene Wake Template</h4>
+<p><img src="/images/research/collapsed_weights_by_sleep_time_faceMINUSscene_wake_template_subj1.png" width="700" height="350" />
+<img src="/images/research/collapsed_weights_by_sleep_time_faceMINUSscene_wake_template_subj2.png" width="700" height="350" /></p>
+
+<h4 id="face-wake-template-1">Face Wake Template</h4>
+<p><img src="/images/research/collapsed_weights_by_sleep_time_face_wake_template_subj1.png" width="700" height="350" />
+<img src="/images/research/collapsed_weights_by_sleep_time_face_wake_template_subj2.png" width="700" height="350" /></p>
+
+<h4 id="scene-wake-template-1">Scene Wake Template</h4>
+<p><img src="/images/research/collapsed_weights_by_sleep_time_scene_wake_template_subj1.png" width="700" height="350" />
+<img src="/images/research/collapsed_weights_by_sleep_time_scene_wake_template_subj2.png" width="700" height="350" />
+<!--### Questions-->
+<!--##### Classifier Weights-->
+<!--#. When we look at the magnitude of the trained classifier weights for various wake-template-frequencies, do we see that the weights are generally bigger at the frequencies that --></p>
+
+<!--#### -->
+
+</section>
+<footer>
+  <div class="article-date">
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-04T18:45:00-04:00" pubdate data-updated="true">May 4<span>th</span>, 2014</time>
+  </div>
+</footer>
+
+	
+</article>
+</div>
+
+    </div>
+  </div>
+  <footer class="main-footer">
+	<section class="interior-footer">
+		<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+	</section>
+</footer>
+
+
+  
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+</body>
+</html>

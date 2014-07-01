@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>SFA Nonmarkov: Modify network, maze size and type, visualize gates - Something Witty</title>
+  <meta name="author" content="Luis R. Piloto">
+
+  
+  <meta name="description" content="botvinick, hide, lstm, noarchive, sfa SFA Nonmarkov: Modify Network, Maze Size and Type, Visualize Gates Overview of simulations Look at the gate &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ElPiloto.github.io/blog/2014/06/24/sfa-nonmarkov-modify-network">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/styles.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Something Witty" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/jquery.sidr.min.js"></script>
+  <script src="/javascripts/ah-blue.js"></script>
+  <!-- MathJax -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+  </script>
+
+  <script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-49251088-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head> 
+
+<body   >
+  <div class="aux-container">
+    <a id="nav-toggle" href="#sidr"></a>
+    <a id="search-toggle"></a>
+	<h1 style="margin-left: 30px">the blog of luis piloto</h1>
+</div>
+
+<header class="header-container clearfix" id="the_header_container">
+        <a href="/" align="left"><img src="/images/brain.svg" onerror="this.onerror=null; this.src='brain.png'"></a>
+</header>
+
+
+  <div class="main-container add-top-margin" id="the_main_container">
+    <div class="main wrapper clearfix">
+    	
+    	<aside>
+			
+			  	<div class="search-container">
+					<form action="http://google.com/search" method="get">
+						<fieldset role="search">
+							<input type="hidden" name="q" value="site:elpiloto.github.io" />
+							<input class="search-field" type="text" name="q" results="0" placeholder=""/>
+							<input class="submit" type="submit" value=""/>
+						</fieldset>
+					</form>
+				</div>
+			
+		  <div id="main-nav">
+    <nav>
+        <ul>
+        	<li>
+        		
+					<h3>Recent Posts</h3>
+<ul>
+	
+	
+	
+    
+	
+	
+    
+	
+	
+    
+	
+	
+    
+	
+	
+    
+</ul>
+
+				
+        	</li>
+        </ul>
+		<ul>
+			<li>
+				<section>
+	<h1>Other Links</h1>
+	<ul>
+		<li><a href="/about"> about luis piloto</a></li>
+		<li><a href="/see"> look </a></li>
+		<li><a href="https://github.com/Elpiloto"</a>github</li>
+		<li><a href="http://compmem.princeton.edu">compmem lab</a></li>
+		<li><a href="http://princeton.edu/~piet">apiet</a></li>
+		<li><a href="http://bensondaled.github.io/homepage/">ben deverett</a></li>
+	</ul>
+</section>
+
+			</li>
+		</ul>
+    </nav>
+</div>
+
+		</aside>
+		
+      <div>
+<article>
+	<header>
+  <div class="article-tags">
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/botvinick/'>botvinick</a>, <a class='category' href='/blog/categories/hide/'>hide</a>, <a class='category' href='/blog/categories/lstm/'>lstm</a>, <a class='category' href='/blog/categories/noarchive/'>noarchive</a>, <a class='category' href='/blog/categories/sfa/'>sfa</a>
+  
+</span>
+
+
+  </div>
+  
+    <h1>
+      SFA Nonmarkov: Modify Network, Maze Size and Type, Visualize Gates
+    </h1>
+  
+</header>
+<section>
+  <h3 id="overview-of-simulations">Overview of simulations</h3>
+<ol>
+  <li>Look at the gate values along the maze trajectories (previously we only looked at the hidden state values). Recall that a long-short term memory network has three gates: read, write, and forget   </li>
+  <li>We also need to look at our old MDS plots of the hidden layers and label the trajectory (previously we only showed whether a representation belonged to the center hallway or right or left outer maze locations)</li>
+  <li>We want to see if we get any qualitative differences as we change the width of the maze.  </li>
+  <li>We want to see if changing the maze type to be a ring will still yield the segmenting behavior we see from SFA  </li>
+  <li>We want to see if we get any qualitative differences as we change the number of hidden units</li>
+</ol>
+
+<h3 id="different-num-hidden-units">Different Num Hidden Units</h3>
+
+<h4 id="hidden-unit-mds-plots">Hidden Unit MDS Plots</h4>
+<p><img src="/images/research/sfa_lstm/hidden_layer_width3_hidden5_loop.png" width="750" height="350" /> 
+<img src="/images/research/sfa_lstm/hidden_layer_width3_hidden3_loop.png" width="750" height="350" /> </p>
+
+<h5 id="observations">Observations:</h5>
+<ol>
+  <li>Much cleaner separation of states with 5 hidden units compared to 3 hidden units based on the loop to which they belong.</li>
+  <li>Also get cleaner separation of states based on center versus non-center.</li>
+  <li><strong>These results suggest that the hidden layer representation generated using 5 hidden units might be a better representation for looking at the benefits of SFA.</strong></li>
+</ol>
+
+<h4 id="hidden-unit-similarity-plots-according-to-location-on-maze">Hidden Unit Similarity Plots According to Location on Maze</h4>
+<p><img src="/images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden5.png" width="750" height="350" /> 
+<strong>Figure 2a) 5 Hidden Units</strong>
+<img src="/images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden3.png" width="750" height="350" /> 
+<strong>Figure 2b) 3 Hidden Units</strong>  </p>
+
+<h5 id="observations-1">Observations:</h5>
+<p>This is just another way of seeing how much cleaner the 5 hidden units representation is.</p>
+
+<h4 id="linear-sfa-top-2-slowest-features">Linear SFA Top 2 Slowest Features</h4>
+<p><img src="/images/research/sfa_lstm/sfa_1st_2_features_rm_1st_visit_width3_hidden5.png" width="750" height="350" /> 
+<strong>Figure 3a) 5 Hidden Units</strong>
+<img src="/images/research/sfa_lstm/sfa_1st_2_features_rm_1st_visit_width3_hidden3.png" width="750" height="350" /> 
+<strong>Figure 3b) 3 Hidden Units</strong>   </p>
+
+<h5 id="observations-2">Observations:</h5>
+<ol>
+  <li>Here we see exactly what we hoped for in the 5 hidden units case: the first slow-feature indicates which loop we’re on!</li>
+  <li>The question is: how much of this is the neural network and how much of this is SFA? Well let’s look at the plots below of the raw hidden layer values across the maze.  If the neural network is doing all the heavy lifting, then we would see a single, slowly varying feature that encodes the loops direction but this doesn’t seem to be the case!</li>
+</ol>
+
+<p><img src="/images/research/sfa_lstm/hidden_layer_on_maze_raw_left_width3_hidden5.png" width="750" height="350" /> 
+<strong>Figure 4a) 5 Hidden Units</strong>
+<img src="/images/research/sfa_lstm/hidden_layer_on_maze_raw_right_width3_hidden5.png" width="750" height="350" /> 
+<strong>Figure 4b) 5 Hidden Units</strong>   </p>
+
+<p><strong>NOTE:</strong> These colors look exactly the same along the central corridor (which would be troubling), but their values are actually different if you look at the numbers.</p>
+
+<h3 id="different-maze-size----width-7-5-hidden-units">Different Maze Size  - Width 7, 5 Hidden Units</h3>
+
+<h4 id="hidden-unit-mds-plots-1">Hidden Unit MDS Plots</h4>
+<p><img src="/images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png" width="750" height="350" /> </p>
+
+<h4 id="linear-sfa-top-2-slowest-features-1">Linear SFA Top 2 Slowest Features</h4>
+
+<p><img src="/images/research/sfa_lstm/sfa_linear_1st2features_width7_hidden5.png" width="750" height="350" /> </p>
+
+<h3 id="different-maze-structure">Different Maze Structure</h3>
+
+<h4 id="hidden-unit-mds-plots-2">Hidden Unit MDS Plots</h4>
+<p><img src="/images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png" width="750" height="350" /> </p>
+
+<h4 id="linear-sfa-top-2-slowest-features-2">Linear SFA Top 2 Slowest Features</h4>
+<p><img src="/images/research/sfa_lstm/sfa_1wayloop_width7_hidden5.png" width="750" height="350" /> </p>
+
+<h3 id="meeting-with-mattbot">Meeting with Mattbot:</h3>
+
+<h4 id="observations-3">Observations:</h4>
+<ol>
+  <li>It does seem like the first slow feature encodes which outer loop we’re on.   </li>
+  <li>Cooler than that, our second slow feature for the width 7, 5 hidden units case, encodes which step of the outer loop we’re on, regardless of which direction the loop is.  This is motherfucking abstraction! We’re going to try to connect this to to-do item #4.</li>
+</ol>
+
+<h4 id="to-do">To-Do:</h4>
+<ol>
+  <li>Why are the slow-features on such a small scale?    </li>
+  <li>Why are the hidden layer representations (think MDS width3, hidden5) so similar at the fork point - Matt thinks I might be off by one because the point just after the fork diverges which is what you would expect from the fork point - since they make vastly different predictions.  </li>
+  <li>Will PCA give us anything useful?    </li>
+  <li>I should read a paper on rat neurophysiology, an older paper - they showed that in an 8-arm radial maze, certain PFC cells encoded specific parts of an arm, without being specific to the particular arm.  This is similar to our second slow feature in the </li>
+  <li>Check that these results are invariant o the number of hidden units and size of the maze.</li>
+</ol>
+
+<h4 id="other-to-do">Other to-do:</h4>
+<p>This isn’t related to the non-markov, but to the factored state towers of hanoi: I was tasked with performing slow feature analysis on a random walk on a factored state representation of the towers of hanoi task.  It seems like I’m getting a result that Ari wasn’t able to: The first slow feature seems to represent the location of the largest ring.
+* I should check with Ari to make sure I did things the way he did, too <br />
+* I should show Matt the MDS of the slow features <br />
+* I should make sure all of theslow features load on all dimensions of the original input space.<br />
+* We’re not sure what the second slowest feature should look like, but it seems like it might be the configuration of the second largest ring conditioned on the location of the largest ring.  That’s definitely what the scatter plot of the first two features looks like.</p>
+
+</section>
+<footer>
+  <div class="article-date">
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-24T13:38:00-04:00" pubdate data-updated="true">Jun 24<span>th</span>, 2014</time>
+  </div>
+</footer>
+
+	
+</article>
+</div>
+
+    </div>
+  </div>
+  <footer class="main-footer">
+	<section class="interior-footer">
+		<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+	</section>
+</footer>
+
+
+  
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+</body>
+</html>

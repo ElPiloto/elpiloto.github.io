@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Sleep EEG Update 2 - Something Witty</title>
+  <meta name="author" content="Luis R. Piloto">
+
+  
+  <meta name="description" content="EEG, hide, noarchive, sleep Sleep EEG Update 2 Here are some questions/conclusions regarding the new data: Are the trained classifier weights &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ElPiloto.github.io/blog/2014/05/04/sleep-eeg-update-2">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/styles.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Something Witty" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/jquery.sidr.min.js"></script>
+  <script src="/javascripts/ah-blue.js"></script>
+  <!-- MathJax -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+  </script>
+
+  <script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-49251088-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head> 
+
+<body   >
+  <div class="aux-container">
+    <a id="nav-toggle" href="#sidr"></a>
+    <a id="search-toggle"></a>
+	<h1 style="margin-left: 30px">the blog of luis piloto</h1>
+</div>
+
+<header class="header-container clearfix" id="the_header_container">
+        <a href="/" align="left"><img src="/images/brain.svg" onerror="this.onerror=null; this.src='brain.png'"></a>
+</header>
+
+
+  <div class="main-container add-top-margin" id="the_main_container">
+    <div class="main wrapper clearfix">
+    	
+    	<aside>
+			
+			  	<div class="search-container">
+					<form action="http://google.com/search" method="get">
+						<fieldset role="search">
+							<input type="hidden" name="q" value="site:elpiloto.github.io" />
+							<input class="search-field" type="text" name="q" results="0" placeholder=""/>
+							<input class="submit" type="submit" value=""/>
+						</fieldset>
+					</form>
+				</div>
+			
+		  <div id="main-nav">
+    <nav>
+        <ul>
+        	<li>
+        		
+					<h3>Recent Posts</h3>
+<ul>
+	
+	
+	
+    
+	
+	
+    
+	
+	
+    
+	
+	
+    
+	
+	
+    
+</ul>
+
+				
+        	</li>
+        </ul>
+		<ul>
+			<li>
+				<section>
+	<h1>Other Links</h1>
+	<ul>
+		<li><a href="/about"> about luis piloto</a></li>
+		<li><a href="/see"> look </a></li>
+		<li><a href="https://github.com/Elpiloto"</a>github</li>
+		<li><a href="http://compmem.princeton.edu">compmem lab</a></li>
+		<li><a href="http://princeton.edu/~piet">apiet</a></li>
+		<li><a href="http://bensondaled.github.io/homepage/">ben deverett</a></li>
+	</ul>
+</section>
+
+			</li>
+		</ul>
+    </nav>
+</div>
+
+		</aside>
+		
+      <div>
+<article>
+	<header>
+  <div class="article-tags">
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/eeg/'>EEG</a>, <a class='category' href='/blog/categories/hide/'>hide</a>, <a class='category' href='/blog/categories/noarchive/'>noarchive</a>, <a class='category' href='/blog/categories/sleep/'>sleep</a>
+  
+</span>
+
+
+  </div>
+  
+    <h1>
+      Sleep EEG Update 2
+    </h1>
+  
+</header>
+<section>
+  <p>Here are some questions/conclusions regarding the new data:</p>
+
+<h3 id="are-the-trained-classifier-weights-highest-at-the-frequencies-used-to-generate-the-wake-template--for-instance-given-that-sleep-data-was-transformed-using-the-faces-template-at-230-ms-and-10-hz-does-the-trained-sleep-classifier-have-high-weights-at-10-hz">Are the trained classifier weights highest at the frequencies used to generate the wake template?  For instance, given that sleep data was transformed using the faces template at 230 ms and 10 Hz, does the trained sleep classifier have high weights at 10 Hz?</h3>
+<p>This does not seem to be the case.  If we look at the averaged (across time bins) classifier weights at each frequency, we see that there are hot spots of increased feature importance at frequencies that do not depend on the parameters used for the wake template generation.  This is illustrated in the figure below: we see increased feature importance at 3 Hz regardless of the  wake time bin and frequency used for generating the wake template.  We might be tempted to say there is a relationship between the encoding frequency and the feature importance at 10 Hz, but I don’t buy it given that we only see increased feature importance along the y-axis (indicating that there seems to be something informative about the sleep data at 10 Hz) but not the x-axis.</p>
+
+<p><img src="/images/research/collaped_weights_by_freq_faceMINUSscene_wake_template_subj1.png" width="700" height="350" /></p>
+
+<h3 id="are-there-any-trends-in-increased-weights-across-any-of-the-following-parameters">Are there any trends in increased weights across any of the following parameters?</h3>
+
+<h4 id="frequencies">Frequencies?</h4>
+<p>Across both subjects, we see increased feature importance around 3 Hz.  Additionally, we can see, in both subjects, something around the 10 Hz range (10 Hz for subject 1,  7-12 Hz for subject 2) and a faint </p>
+
+<h4 id="time-bins">Time bins?</h4>
+
+<h4 id="face-vs-scene-vs-face-minus-scene">Face vs. Scene Vs. Face minus Scene</h4>
+
+<h4 id="is-there-a-link-between-the-magnitude-of-the-trained-sleep-classifier-weights-and-the-maximum-cv-accuracy-achieved-at-that-particular-time-bin--this-will-indicate-whether-or-not-there-is-a-benefit-to-reducing-the-classification-process-even-further-using-a-subset-of-the-features">Is there a link between the magnitude of the trained sleep classifier weights and the maximum CV accuracy achieved at that particular time bin?  This will indicate whether or not there is a benefit to reducing the classification process even further using a subset of the features.</h4>
+
+<p>Future To-do: Is there a link between the trained sleep classifier weights and the average cross-validation accuracy for the shuffled sleep?  What would this tell us about the underlying space?</p>
+
+<h4 id="what-is-the-relationship-between-the-weights-for-the-sleep-transformed-classifier-compared-to-the-feature-selected-weights">What is the relationship between the weights for the sleep transformed classifier compared to the feature selected weights?</h4>
+<p>I don’t have this data yet.</p>
+
+<h4 id="shuffling-results-given-that-we">Shuffling results: given that we</h4>
+
+</section>
+<footer>
+  <div class="article-date">
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-04T20:53:00-04:00" pubdate data-updated="true">May 4<span>th</span>, 2014</time>
+  </div>
+</footer>
+
+	
+</article>
+</div>
+
+    </div>
+  </div>
+  <footer class="main-footer">
+	<section class="interior-footer">
+		<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+	</section>
+</footer>
+
+
+  
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+</body>
+</html>
