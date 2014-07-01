@@ -23,6 +23,7 @@ deploy_dir      = "_deploy"   # deploy directory (for Github pages deployment)
 stash_dir       = "_stash"    # directory to stash posts for speedy generation
 posts_dir       = "_posts"    # directory for blog files
 hidden_posts_subdir = "research" # title of the subdirectory under #posts_dir where hidden posts will be stored
+hidden_posts_images_subdir = "research" # title of the subdirectory under images where the images for each hidden post will be stored
 themes_dir      = ".themes"   # directory for blog files
 new_post_ext    = "markdown"  # default new post file extension when using the new_post task
 new_page_ext    = "markdown"  # default new page file extension when using the new_page task
@@ -128,6 +129,8 @@ task :new_hidden_post, :title do |t, args|
   mkdir_p "#{source_dir}/#{posts_dir}/#{hidden_posts_subdir}"
   # this is hard-coded right now, but there should be a way to specify this in the 
   filename = "#{source_dir}/#{posts_dir}/#{hidden_posts_subdir}/#{Time.now.strftime('%Y-%m-%d')}-#{title.to_url}.#{new_post_ext}"
+  # here we make the a directory specific to this post under the hidden posts directory in the images directory, this helps keep us organized!!
+  mkdir_p = "#{source_dir}/images/#{hidden_posts_images_subdir}/#{Time.now.strftime('%Y-%m-%d')}-#{title.to_url}"
   if File.exist?(filename)
     abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
   end
