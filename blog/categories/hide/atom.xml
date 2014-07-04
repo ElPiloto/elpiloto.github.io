@@ -4,7 +4,7 @@
   <title><![CDATA[Category: hide | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/hide/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-07-04T13:17:47-04:00</updated>
+  <updated>2014-07-04T13:19:09-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -131,7 +131,9 @@
 
 <p>For method 1, we’re not getting any consistently classifiable timebins across subjects (figure 3a and 3b) which would have been the nicest result.</p>
 
-<p>The good news is that methods 2 and 3 show comparable classification AUC to method 1 and sometimes do even better.  Moreover, there isn’t a link between good classification for a time bin using method 1 compared to method 2 or 3 (e.g. method 1 classification for subject 2 doesn’t do so hot for timebins 152-230, but if you look at [this plot] ( /images/research/sleep_eeg<em>9_subjects</em>06<em>23</em>2014/sleep_xform_avg_pattern/sleep_transform_cv_auc_scene_subj2.png ) for method 2 classification for subject 2 - it’s pretty clear that that is a helpful time bin ).  These two observations give me confidence that the two sleep transform methods are genuinely helpful preprocessing steps.</p>
+<p>The good news is that methods 2 and 3 show comparable classification AUC to method 1 and sometimes do even better.  Moreover, there isn’t a link between good classification for a time bin using method 1 compared to method 2 or 3 (e.g. method 1 classification for subject 2 doesn’t do so hot for timebins 152-230, but if you look at<br />
+ [this plot] ( /images/research/sleep_eeg<em>9_subjects</em>06<em>23</em>2014/sleep_xform_avg_pattern/sleep_transform_cv_auc_scene_subj2.png ) <br />
+for method 2 classification for subject 2 - it’s pretty clear that that is a helpful time bin ).  These two observations give me confidence that the two sleep transform methods are genuinely helpful preprocessing steps.</p>
 
 <p>Moreover, I’ve been pretty excited about these sleep transform methods because they frequently, though not always, produce strong bands of good classification for particular timebins.  Note that these timebins vary across subjects.  </p>
 
