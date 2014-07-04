@@ -4,7 +4,7 @@
   <title><![CDATA[Category: sleep | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/sleep/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-07-04T13:51:22-04:00</updated>
+  <updated>2014-07-04T13:53:16-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -39,11 +39,15 @@
 
 <p>So a logical next question is to determine which method of the two sleep transform methods are better.  It seems like we get stronger bands appearing with method 2 compared to method 3 (you can check this out for yourself just quickly scrolling through the dump of the plots for both <a href="http://ElPiloto.github.io/blog/2014/07/01/sleep-eeg-transform-avg-pattern/">method 2</a> and <a href="http://ElPiloto.github.io/blog/2014/07/01/sleep-eeg-mcduff-transform/">method 3</a>).  There is some agreement between these bands across the two methods, but not always (example plots: <a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_auc_pval_face&amp;scene_subj4.png"> method 2 </a> <a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_mcduff/sleep_MCDUFF_transform_subj_4_cv_acc_pval_face&amp;scene.png"> method 3</a></p>
 
-<p>Another degree of freedom is which wake pattern do we use to transform the data: face or scene or face minus scene.  I expected there to be variability between the face and scene transformations, but was surprised to find that the face minus scene didn’t just look like the combination of the face and scene results.  Here’s an example of that:
-<a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_acc_pval_face_subj8.png">face</a>
-<a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_acc_pval_scene_subj8.png">scene</a>
-<a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_acc_pval_face&amp;scene_subj8.png">face minus scene</a>
-This leads me to believe that in the future we should train a sleep classifier that gets both a face and a scene transformed data.  What do you think?</p>
+<p>Another degree of freedom is which wake pattern do we use to transform the data: face or scene or face minus scene.  I expected there to be variability between the face and scene transformations, but was surprised to find that the face minus scene didn’t just look like the combination of the face and scene results.  Here’s an example of that:   </p>
+
+<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_acc_pval_face_subj8.png">face</a>   </p>
+
+<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_acc_pval_scene_subj8.png">scene</a>    </p>
+
+<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_acc_pval_face&amp;scene_subj8.png">face minus scene</a>   </p>
+
+<p>This leads me to believe that in the future we should train a sleep classifier that gets both a face and a scene transformed data.  What do you think?</p>
 
 <h3 id="wake-classification-results">Wake Classification Results</h3>
 <p>These are important because it’s likely we’ll want to exclude subjects with poor wake cross-validation AUC from subsequent analyses.</p>
