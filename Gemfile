@@ -18,4 +18,4 @@ end
 
 gem 'sinatra', '~> 1.4.2'
 #gem 'erubis'
-#gem 'mini_magick'
+gem 'mini_magick'

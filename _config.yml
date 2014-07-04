@@ -103,3 +103,18 @@ google_analytics_tracking_id: UA-49251088-1
 
 # Facebook Like
 facebook_like: false
+
+####### gallery and minimagick
+mini_magick:
+    gallery_1_thumbnail:
+      source: images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern
+      destination: images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/thumbs
+      commands:
+        - thumbnail: "140x140^"
+        - crop: "140x140-0x0"
+    gallery_2_thumbnail:
+      source: images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_mcduff
+      destination: images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_mcduff/thumbs
+      commands:
+        - thumbnail: "140x140^"
+        - crop: "140x140-0x0"
