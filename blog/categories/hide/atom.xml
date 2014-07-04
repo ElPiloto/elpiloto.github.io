@@ -4,7 +4,7 @@
   <title><![CDATA[Category: hide | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/hide/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-07-04T14:17:03-04:00</updated>
+  <updated>2014-07-04T14:22:07-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -112,7 +112,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Sleep EEG 9 Subjects]]></title>
+    <title type="html"><![CDATA[Sleep EEG 8 Subjects]]></title>
     <link href="http://ElPiloto.github.io/blog/2014/06/23/sleep-eeg-9-subjects/"/>
     <updated>2014-06-23T12:14:00-04:00</updated>
     <id>http://ElPiloto.github.io/blog/2014/06/23/sleep-eeg-9-subjects</id>
@@ -133,7 +133,7 @@
 
 <p>The good news is that methods 2 and 3 show comparable classification AUC to method 1 and sometimes do even better.  Moreover, there isn’t a link between good classification for a time bin using method 1 compared to method 2 or 3 (e.g. method 1 classification for subject 2 doesn’t do so hot for timebins 152-230, but if you look at <a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_auc_scene_subj2.png"> this plot</a> for method 2 classification for subject 2 - it’s pretty clear that that is a helpful time bin ).  These two observations give me confidence that the two sleep transform methods are genuinely helpful preprocessing steps.   </p>
 
-<p>Moreover, I’ve been pretty excited about these sleep transform methods because they frequently, though not always, produce strong bands of good classification for particular timebins.</p>
+<p>Moreover, I’ve been pretty excited about these sleep transform methods because they frequently, though not always, produce strong bands of good classification for particular timebins of the sleep data.</p>
 
 <p>So a logical next question is to determine which method of the two sleep transform methods are better.  It seems like we get stronger bands appearing with method 2 compared to method 3 (you can check this out for yourself just quickly scrolling through the dump of the plots for both <a href="http://ElPiloto.github.io/blog/2014/07/01/sleep-eeg-transform-avg-pattern/">method 2</a> and <a href="http://ElPiloto.github.io/blog/2014/07/01/sleep-eeg-mcduff-transform/">method 3</a>).  There is some agreement between these bands across the two methods, but not always (example plots: <a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_auc_pval_face&amp;scene_subj4.png"> method 2 </a> <a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_mcduff/sleep_MCDUFF_transform_subj_4_cv_acc_pval_face&amp;scene.png"> method 3</a>   </p>
 
@@ -147,7 +147,7 @@
 
 <p>This leads me to believe that in the future we should train a sleep classifier that gets both face and a scene transformed data.  The dot-product is sensitive to magnitude, so it could be that there is some useful information in the indivudal face and scene patterns that gets lost when we subtract the two.  What do you think?</p>
 
-<p>The main thing I’ve taken away from this data is that there are timebins of the sleep data that are classifiable, but that they vary across subjects.  This implication of this being that we have to combine the results of multiple classifiers (tested on different timebins) when we try to connect the classification to subsequent memory - but that the particular classifiers we use will have to vary across subjects.  I think an important thing to figure out is how we want to select which classifiers (a.k.a. timebins) to use for a subject.  I’ve gone through and written down a bunch of time bins that I think look good for each subject, but that was done entirely by hand which doesn’t feel right.  </p>
+<p>The main thing I’ve taken away from this data is that there are timebins of the sleep data that are classifiable, but that they vary across subjects.  This implication of this being that we have to combine the results of multiple classifiers (tested on different timebins) when we try to connect the classification to subsequent memory - but that the particular classifiers we use will have to vary across subjects.  I think an important thing to figure out is how we want to select which classifiers to use for a subject.  I’ve gone through and written down a bunch of time bins that I think look good for each subject on the second page of our EEG to-do <a href="https://docs.google.com/spreadsheets/d/1TIOy-4DN4adDDVBKbuRZ2MuI5g-Hg7KWm1nBKjwSHsU/edit?usp=sharing">spreadsheet</a>, but that was done entirely by hand which doesn’t feel right.  </p>
 
 <p>In general, I think we could proceed to linking the classifier to the behavioral or that we could try to improve the classification.  For the latter, I have a crazy idea bout using an “auto-encoder” for preprocessing the sleep data.  We could feed the network sleep data and have it’s target be the corresponding wake image.  We could apply this network in a leave-one-out fashion in order to preprocess sleep data for a regular classifier.  Seems like it’d be pretty tough to train the network given the dimensionality of the data and the relatively small number of training samples, but I figured it’s worth mentioning.  I’ll wait to hear what you think about all this, but I’m going to dedicate my brain cycles to the problem of figuring out how to select which time bins to use.</p>
 
