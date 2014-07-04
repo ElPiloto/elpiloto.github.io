@@ -193,17 +193,23 @@
 
 <p>For method 1, we’re not getting any consistently classifiable timebins across subjects (figure 3a and 3b) which would have been the nicest result.</p>
 
-<p>The good news is that methods 2 and 3 show comparable classification AUC to method 1 and sometimes do even better.  Moreover, there isn’t a link between good classification for a time bin using method 1 compared to method 2 or 3 (e.g. method 1 classification for subject 2 doesn’t do so hot for timebins 152-230, but if you look at<br />
- [this plot] ( /images/research/sleep_eeg<em>9_subjects</em>06<em>23</em>2014/sleep_xform_avg_pattern/sleep_transform_cv_auc_scene_subj2.png ) <br />
-for method 2 classification for subject 2 - it’s pretty clear that that is a helpful time bin ).  These two observations give me confidence that the two sleep transform methods are genuinely helpful preprocessing steps.</p>
+<p>The good news is that methods 2 and 3 show comparable classification AUC to method 1 and sometimes do even better.  Moreover, there isn’t a link between good classification for a time bin using method 1 compared to method 2 or 3 (e.g. method 1 classification for subject 2 doesn’t do so hot for timebins 152-230, but if you look at <a href="/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_auc_scene_subj2.png"> this plot</a> for method 2 classification for subject 2 - it’s pretty clear that that is a helpful time bin ).  These two observations give me confidence that the two sleep transform methods are genuinely helpful preprocessing steps.</p>
 
-<p>Moreover, I’ve been pretty excited about these sleep transform methods because they frequently, though not always, produce strong bands of good classification for particular timebins.  Note that these timebins vary across subjects.  </p>
+<p>Moreover, I’ve been pretty excited about these sleep transform methods because they frequently, though not always, produce strong bands of good classification for particular timebins.  Note that these timebins vary across subjects, which I’ve included below.</p>
 
 <table>
-<td>
-
-</td>
+<tr>
+<td>Subj 1</td>
+<td>254-336,835-886;</td>
+</tr>
 </table>
+<p>336-454,886-964;
+231-281;
+859-991;
+230-254;
+176-308;
+281-359;
+886-991,303-464,336-464;</p>
 
 <p>So a logical next question is to determine which method of the two sleep transform methods are better.  Unfortunately, I don’t get the impression that one method is better than the other.  Sometimes a subject will look okay (not particularly salient bands of good classification) for one method, but</p>
 
