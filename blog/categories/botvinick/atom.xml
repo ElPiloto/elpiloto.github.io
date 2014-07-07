@@ -4,7 +4,7 @@
   <title><![CDATA[Category: botvinick | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/botvinick/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-07-04T14:25:31-04:00</updated>
+  <updated>2014-07-07T11:25:33-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Towers of Hanoi SFA and 8-ball SFA results: Robustness and Potential Neural Data to Model]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/07/06/towers-of-hanoi-sfa-and-8-ball-sfa-results-robustness-and-potential-neural-data-to-model/"/>
+    <updated>2014-07-06T15:29:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/07/06/towers-of-hanoi-sfa-and-8-ball-sfa-results-robustness-and-potential-neural-data-to-model</id>
+    <content type="html"><![CDATA[<h4 id="towers-of-hanoi-to-do">Towers of Hanoi To-Do:</h4>
+<ol>
+  <li><strong>Run SFA on random walk using multiple different random number seeds</strong> </li>
+  <li>I am using the same starting location, this might affect the solutions found by SFA.  However, looking at the average input values (<code>SFA_STRUCTS.avg0</code>) shows that each feature has an average value of approximately 0.33, indicating that we do traverse all configurations equally frequently.</li>
+  <li><code>sfa_tk</code> toolbox does not give features with unit variance when performing linear SFA. This might be a problem in the general case, but shouldn’t be a problem for towers of hanoi because the point of getting unit variance is so that the weights you find that minimize the derivative are directly comparable to each other.  But in our case, the derivatives should already be directly comparable because the input features all have exactly the same distribution for a random walk on towers of hanoi. I’m not entirely sure about this last bit, so I’ll have to verify this if Ari doesn’t have any useful input on the matter - easy way forward: look at MDP (python SFA implementation).</li>
+</ol>
+
+<h4 id="general-tips-for-sfatk-toolbox">General Tips for sfa_tk toolbox</h4>
+<ol>
+  <li><code>SFA_STRUCTS.SF</code> - contains slow feature functions along the rows</li>
+  <li>Can get degenerate eigendecompositions, where an eigenvalue has greater algebraic multiplicity than geometric multiplicity (e.g. $ (2 - \lambda)^2(3-\lambda)^2 $ – alg. mult = 2, geometric = 1 for both eigenvalues).  In this case, extracted slow features are redundant (though they’ll have opposite signs).</li>
+</ol>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[SFA Nonmarkov: Modify network, maze size and type, visualize gates]]></title>
@@ -196,42 +216,6 @@ z_{\theta}(x) = \text{hidden layer representation for input x just before output
   <li>Modify $ L_{coh} $ to be a function of the number of time steps between inputs  </li>
   <li>What if we could use slow-features as a better proxy for temporal distance between training samples i.e. push representations closer together based on the difference between their slowest features?</li>
 </ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[LSTM trained multiple loops]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/05/22/lstm-trained-multiple-loops/"/>
-    <updated>2014-05-22T15:46:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/05/22/lstm-trained-multiple-loops</id>
-    <content type="html"><![CDATA[<h3 id="status">Status:</h3>
-
-<ul>
-  <li>Rudimentary system for importing rnnlib log information to matlab for performing SFA</li>
-  <li><strong>Successfully trained LSTM on 20 loops through an eightball maze (same dimensions as last time): 0% misclassification</strong></li>
-</ul>
-
-<p><img src="/images/research/hidden_state_activations_width3_loops20.png" width="700" height="350"></p>
-
-<h3 id="questions-for-meeting">Questions for meeting</h3>
-<ul>
-  <li>What should we perform the SFA on?</li>
-  <li>How many loops around the maze do we need?</li>
-</ul>
-
-<h3 id="next-steps">Next steps</h3>
-<p>Look at similarity metric for each timestep using correlation matrix - send to Matt
-Be wary of SFA on multidimensional data and throwing away certain features
-Send SFA
-Waldo task: Ari did SFA on the task (using sparse representation, 8 units
-perhaps LSTM’ing Waldo task
-generate figures for a week from now</p>
-
-<p>short term memory for serial order - matt bot paper, network needs to remember things that aren’t relevant to current output, 
-single unit recording analysis paper by bill newsome, analyzed by valerio monte, nature 2013 “context-dependent computations by recurrent dynamics in prefrontal cortex”</p>
-
-<p>LSTM seems different than orthogonal</p>
 
 ]]></content>
   </entry>

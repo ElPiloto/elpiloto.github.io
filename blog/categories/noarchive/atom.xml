@@ -4,7 +4,7 @@
   <title><![CDATA[Category: noarchive | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/noarchive/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-07-04T14:25:31-04:00</updated>
+  <updated>2014-07-07T11:25:33-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Towers of Hanoi SFA and 8-ball SFA results: Robustness and Potential Neural Data to Model]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/07/06/towers-of-hanoi-sfa-and-8-ball-sfa-results-robustness-and-potential-neural-data-to-model/"/>
+    <updated>2014-07-06T15:29:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/07/06/towers-of-hanoi-sfa-and-8-ball-sfa-results-robustness-and-potential-neural-data-to-model</id>
+    <content type="html"><![CDATA[<h4 id="towers-of-hanoi-to-do">Towers of Hanoi To-Do:</h4>
+<ol>
+  <li><strong>Run SFA on random walk using multiple different random number seeds</strong> </li>
+  <li>I am using the same starting location, this might affect the solutions found by SFA.  However, looking at the average input values (<code>SFA_STRUCTS.avg0</code>) shows that each feature has an average value of approximately 0.33, indicating that we do traverse all configurations equally frequently.</li>
+  <li><code>sfa_tk</code> toolbox does not give features with unit variance when performing linear SFA. This might be a problem in the general case, but shouldn’t be a problem for towers of hanoi because the point of getting unit variance is so that the weights you find that minimize the derivative are directly comparable to each other.  But in our case, the derivatives should already be directly comparable because the input features all have exactly the same distribution for a random walk on towers of hanoi. I’m not entirely sure about this last bit, so I’ll have to verify this if Ari doesn’t have any useful input on the matter - easy way forward: look at MDP (python SFA implementation).</li>
+</ol>
+
+<h4 id="general-tips-for-sfatk-toolbox">General Tips for sfa_tk toolbox</h4>
+<ol>
+  <li><code>SFA_STRUCTS.SF</code> - contains slow feature functions along the rows</li>
+  <li>Can get degenerate eigendecompositions, where an eigenvalue has greater algebraic multiplicity than geometric multiplicity (e.g. $ (2 - \lambda)^2(3-\lambda)^2 $ – alg. mult = 2, geometric = 1 for both eigenvalues).  In this case, extracted slow features are redundant (though they’ll have opposite signs).</li>
+</ol>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[SFA Nonmarkov: Modify network, maze size and type, visualize gates]]></title>
@@ -256,44 +276,6 @@
 <img src="/images/research/Linear_corr_states_hidden_and_sfa_sfa2.png" width="700" height="350">
 <img src="/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa3.png" width="700" height="350">
 <img src="/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa2.png" width="700" height="350"></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sleep EEG Ken Meeting]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/06/02/sleep-eeg-ken-meeting/"/>
-    <updated>2014-06-02T11:27:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/06/02/sleep-eeg-ken-meeting</id>
-    <content type="html"><![CDATA[<h3 id="context">Context</h3>
-
-<p>After ending the first-year rotation, I’m now back on the hook for working on this sleep EEG project full-time.  This meeting was simply to re-orient ourselves and plan the next immediate steps.</p>
-
-<h3 id="next-steps">Next Steps</h3>
-<ol>
-  <li>Area under ROC instead of classification accuracy   </li>
-  <li>Represent goodness in terms of where it falls on the empirical null distribution (as opposed to previously where we were showing raw-classification accuracy which we really have no clue how good that should be)  </li>
-  <li>Train sleep classifier using wake WEIGHTS instead of wake average pattern as template.  The rationale behind this is that the average pattern templates treat all electrodes as equally important, but this just isn’t true.  The importance maps will take that into account   </li>
-  <li>Create existing plots for new subjects [n = 8] (!)</li>
-</ol>
-
-<h3 id="next-next-steps">Next Next Steps</h3>
-<ol>
-  <li>We need to think about how we can collapse down each sleep trial (playing of a sleep sound) into a single reactivation metric.  Currently, we have classifier output for different timebins of the sleep trial and it seems like the maximally-classifiable time bin varies across subjects. <br />
-    <ul>
-      <li>Train an “uberclassifier” that classifies across all timebins - this would give us a single reactivation score per trial   </li>
-      <li>Is there a smart way of reducing the number of features we have?<br />
-        <ul>
-          <li>we might have some <em>a priori</em> ideas about which features to include.  </li>
-          <li>we might want to look at the cross-validation accuracy along certain time-bins to narrow things down.   </li>
-        </ul>
-      </li>
-      <li>This is where I thought a recurrent neural network might be helpful for us.  </li>
-      <li>Alternative idea: train a higher-level classifier on the outputs of the individual time bin classifiers    </li>
-    </ul>
-  </li>
-  <li>How do we relate reactivations to subsequent memory?  Recall that there will be multiple classifier readouts per item, perhaps something a la [P-CIT] (https://code.google.com/p/p-cit-toolbox/) would work for us.</li>
-</ol>
-
 ]]></content>
   </entry>
   
