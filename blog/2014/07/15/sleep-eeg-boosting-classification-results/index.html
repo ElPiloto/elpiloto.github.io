@@ -9,7 +9,7 @@
   <meta name="author" content="Luis R. Piloto">
 
   
-  <meta name="description" content="EEG, hide, noarchive, sleep Sleep EEG: Boosting Classification Results Ensemble Classification Results, Round 1 Previously, I went through and tried &hellip;">
+  <meta name="description" content="EEG, hide, noarchive, sleep Sleep EEG: Boosting Classification Results The results below “Ensemble Classification Results, Round 1” are all useless &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -172,7 +172,19 @@
   
 </header>
 <section>
-  <h3 id="ensemble-classification-results-round-1">Ensemble Classification Results, Round 1</h3>
+  <h2 id="the-results-below-ensemble-classification-results-round-1-are-all-useless">The results below “Ensemble Classification Results, Round 1” are all useless</h2>
+
+<p>I messed up the calculation of average pattern in wake classification (which is used in creating the mcduff importance map in the preprocessing below).</p>
+
+<h3 id="ensemble-classification-results-round-3">Ensemble Classification Results, Round 3</h3>
+
+<p>I used the following values to produce the plot below:
+10-fold cross validation, GentleBoost, 200 Learners, Wake Time = 152ms, Freq = 7 Hz, Importance Map for Face</p>
+
+<p><img src="/images/research/ensemble_results_subj1thru8_round3.jpg" width="700" height="350" /></p>
+
+<h3 id="ensemble-classification-results-round-1-incorrect">Ensemble Classification Results, Round 1 (INCORRECT)</h3>
+<p><strong>these results are wrong - leaving here for historical purposes only</strong></p>
 
 <p>Previously, I went through and tried various combinations of boosting algorithms (LogitBoost, GentleBoost, Adaboost.M1), number of learners, and number of folds for a single subject (subject 01) to try to determine what to run across all subjects to get the best tradeoff between accuracy and running time.  Below is a summary of those results.</p>
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: hide | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/hide/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-07-15T10:27:25-04:00</updated>
+  <updated>2014-07-15T16:58:22-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -18,11 +18,23 @@
     <link href="http://ElPiloto.github.io/blog/2014/07/15/sleep-eeg-boosting-classification-results/"/>
     <updated>2014-07-15T09:37:00-04:00</updated>
     <id>http://ElPiloto.github.io/blog/2014/07/15/sleep-eeg-boosting-classification-results</id>
-    <content type="html"><![CDATA[<h3 id="ensemble-classification-results-round-1">Ensemble Classification Results, Round 1</h3>
+    <content type="html"><![CDATA[<h2 id="the-results-below-ensemble-classification-results-round-1-are-all-useless">The results below “Ensemble Classification Results, Round 1” are all useless</h2>
+
+<p>I messed up the calculation of average pattern in wake classification (which is used in creating the mcduff importance map in the preprocessing below).</p>
+
+<h3 id="ensemble-classification-results-round-3">Ensemble Classification Results, Round 3</h3>
+
+<p>I used the following values to produce the plot below:
+10-fold cross validation, GentleBoost, 200 Learners, Wake Time = 152ms, Freq = 7 Hz, Importance Map for Face</p>
+
+<p><img src="/images/research/ensemble_results_subj1thru8_round3.jpg" width="700" height="350"></p>
+
+<h3 id="ensemble-classification-results-round-1-incorrect">Ensemble Classification Results, Round 1 (INCORRECT)</h3>
+<p><strong>these results are wrong - leaving here for historical purposes only</strong></p>
 
 <p>Previously, I went through and tried various combinations of boosting algorithms (LogitBoost, GentleBoost, Adaboost.M1), number of learners, and number of folds for a single subject (subject 01) to try to determine what to run across all subjects to get the best tradeoff between accuracy and running time.  Below is a summary of those results.</p>
 
-<p>{% img /images/research/subj1_ensemble_params_testing.png 700 300 %}</p>
+<p><img src="/images/research/subj1_ensemble_params_testing.png" width="700" height="300"></p>
 
 <p>Ultimately, I chose the following: <br />
   <strong>GentleBoost:</strong> just as good accuracy as other algorithms <em>and</em> better running time than AdaBoost.M1 or LogitBoost for some parametrizations   <br />
@@ -38,7 +50,7 @@
      - freq = 7 Hz <br />
      - mcduff pattern = face   </p>
 
-<p>{% img /images/research/ensemble_results_subj1thru8_round1.jpg 700 350 %}</p>
+<p><img src="/images/research/ensemble_results_subj1thru8_round1.jpg" width="700" height="350"></p>
 
 <h3 id="next-steps">Next Steps</h3>
 
@@ -83,8 +95,8 @@
 <h3 id="different-num-hidden-units">Different Num Hidden Units</h3>
 
 <h4 id="hidden-unit-mds-plots">Hidden Unit MDS Plots</h4>
-<p>{% img /images/research/sfa_lstm/hidden_layer_width3_hidden5_loop.png 750 350 %} 
-{% img /images/research/sfa_lstm/hidden_layer_width3_hidden3_loop.png 750 350 %} </p>
+<p><img src="/images/research/sfa_lstm/hidden_layer_width3_hidden5_loop.png" width="750" height="350"> 
+<img src="/images/research/sfa_lstm/hidden_layer_width3_hidden3_loop.png" width="750" height="350"> </p>
 
 <h5 id="observations">Observations:</h5>
 <ol>
@@ -94,18 +106,18 @@
 </ol>
 
 <h4 id="hidden-unit-similarity-plots-according-to-location-on-maze">Hidden Unit Similarity Plots According to Location on Maze</h4>
-<p>{% img /images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden5.png 750 350 %} 
+<p><img src="/images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden5.png" width="750" height="350"> 
 <strong>Figure 2a) 5 Hidden Units</strong>
-{% img /images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden3.png 750 350 %} 
+<img src="/images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden3.png" width="750" height="350"> 
 <strong>Figure 2b) 3 Hidden Units</strong>  </p>
 
 <h5 id="observations-1">Observations:</h5>
 <p>This is just another way of seeing how much cleaner the 5 hidden units representation is.</p>
 
 <h4 id="linear-sfa-top-2-slowest-features">Linear SFA Top 2 Slowest Features</h4>
-<p>{% img /images/research/sfa_lstm/sfa<em>1st</em>2<em>features_rm</em>1st_visit_width3<em>hidden5.png 750 350 %} 
+<p><img src="/images/research/sfa_lstm/sfa<em>1st</em>2<em>features_rm</em>1st_visit_width3<em>hidden5.png" width="750" height="350"> 
 <strong>Figure 3a) 5 Hidden Units</strong>
-{% img /images/research/sfa_lstm/sfa</em>1st<em>2_features_rm</em>1st_visit_width3_hidden3.png 750 350 %} 
+<img src="/images/research/sfa_lstm/sfa</em>1st<em>2_features_rm</em>1st_visit_width3_hidden3.png" width="750" height="350"> 
 <strong>Figure 3b) 3 Hidden Units</strong>   </p>
 
 <h5 id="observations-2">Observations:</h5>
@@ -114,9 +126,9 @@
   <li>The question is: how much of this is the neural network and how much of this is SFA? Well let’s look at the plots below of the raw hidden layer values across the maze.  If the neural network is doing all the heavy lifting, then we would see a single, slowly varying feature that encodes the loops direction but this doesn’t seem to be the case!</li>
 </ol>
 
-<p>{% img /images/research/sfa_lstm/hidden_layer_on_maze_raw_left_width3_hidden5.png 750 350 %} 
+<p><img src="/images/research/sfa_lstm/hidden_layer_on_maze_raw_left_width3_hidden5.png" width="750" height="350"> 
 <strong>Figure 4a) 5 Hidden Units</strong>
-{% img /images/research/sfa_lstm/hidden_layer_on_maze_raw_right_width3_hidden5.png 750 350 %} 
+<img src="/images/research/sfa_lstm/hidden_layer_on_maze_raw_right_width3_hidden5.png" width="750" height="350"> 
 <strong>Figure 4b) 5 Hidden Units</strong>   </p>
 
 <p><strong>NOTE:</strong> These colors look exactly the same along the central corridor (which would be troubling), but their values are actually different if you look at the numbers.</p>
@@ -124,19 +136,19 @@
 <h3 id="different-maze-size----width-7-5-hidden-units">Different Maze Size  - Width 7, 5 Hidden Units</h3>
 
 <h4 id="hidden-unit-mds-plots-1">Hidden Unit MDS Plots</h4>
-<p>{% img /images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png 750 350 %} </p>
+<p><img src="/images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png" width="750" height="350"> </p>
 
 <h4 id="linear-sfa-top-2-slowest-features-1">Linear SFA Top 2 Slowest Features</h4>
 
-<p>{% img /images/research/sfa_lstm/sfa_linear_1st2features_width7_hidden5.png 750 350 %} </p>
+<p><img src="/images/research/sfa_lstm/sfa_linear_1st2features_width7_hidden5.png" width="750" height="350"> </p>
 
 <h3 id="different-maze-structure">Different Maze Structure</h3>
 
 <h4 id="hidden-unit-mds-plots-2">Hidden Unit MDS Plots</h4>
-<p>{% img /images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png 750 350 %} </p>
+<p><img src="/images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png" width="750" height="350"> </p>
 
 <h4 id="linear-sfa-top-2-slowest-features-2">Linear SFA Top 2 Slowest Features</h4>
-<p>{% img /images/research/sfa_lstm/sfa_1wayloop_width7_hidden5.png 750 350 %} </p>
+<p><img src="/images/research/sfa_lstm/sfa_1wayloop_width7_hidden5.png" width="750" height="350"> </p>
 
 <h3 id="meeting-with-mattbot">Meeting with Mattbot:</h3>
 
@@ -207,38 +219,38 @@
 <h3 id="wake-classification-results">Wake Classification Results</h3>
 <p>These are important because it’s likely we’ll want to exclude subjects with poor wake cross-validation AUC from subsequent analyses.</p>
 
-<p>{% img /images/research/sleep_eeg<em>9_subjects</em>06<em>23</em>2014/wake_AUC_most_subjects.png 700 350 %}</p>
+<p><img src="/images/research/sleep_eeg<em>9_subjects</em>06<em>23</em>2014/wake_AUC_most_subjects.png" width="700" height="350"></p>
 
 <p><strong>Figure 1a:</strong> This shows the AUC for leave-one-out cross-validation on wake EEG data training on all the z-scored frequencies corresponding to a particular time bin as indicated on the y-axis.  The AUC was calculating by training a classifier that distinguishes between all classes, but only testing on patterns that corresponded to either a celebrity or a landmark.  The AUC was calculated by feeding in the difference between the output for the celebrity one-vs-all classifier and the landmark one-vs-all classifier for each cross-validation fold and the plotted values show the mean AUC across all cross-validation folds.  We had previously looked at the cross-validation accuracy for the first two subjects across a wider range of times, but narrowed it down to these four windows.</p>
 
 <p><code>plot_loopify_time_sweep_results_AUC.m </code>  <br />
 <code>classify_piloy_log_reg_time_sweep_driver.m </code>      </p>
 
-<p>{% img /images/research/sleep_eeg<em>9_subjects</em>06<em>23</em>2014/wake_auc_avgd.png 700 350 %}</p>
+<p><img src="/images/research/sleep_eeg<em>9_subjects</em>06<em>23</em>2014/wake_auc_avgd.png" width="700" height="350"></p>
 
 <p><strong>Figure 1b:</strong> Average AUC per time bin</p>
 
 <h3 id="sleep-cross-validation-classification-all-frequencies-per-time-bin">Sleep Cross-Validation Classification: All Frequencies Per Time Bin</h3>
 <p><strong>NOTE:</strong> These results were supposed to be for performing feature selection, but I accidentally set the feature selection statistical threshold to 1, which is the same as not using feature selection.  <del>Re-running these results with feature selection.</del>  The results actually containing feature selection are just below.</p>
 
-<p>{% img /images/research/sleep_eeg<em>9_subjects</em>06<em>23</em>2014/all<em>9subjects_sleep_CV_AUC_feature_select.png 700 350 %}
+<p><img src="/images/research/sleep_eeg<em>9_subjects</em>06<em>23</em>2014/all<em>9subjects_sleep_CV_AUC_feature_select.png" width="700" height="350">
 <strong>Figure 2a)</strong> We plot the AUC for classification of celebrity vs. landmarks during sleep across all our subjects (y-axis).  This was calculated by performing cross-validation (somewhere between 15-fold and 40-fold depending on the number of sleep patterns available) using all frequencies z-scored across electrodes for a particular timebin (x-axis). <br />
-{% img /images/research/sleep_eeg</em>9<em>subjects</em>06<em>23</em>2014/all<em>9subjects_sleep_CV_AUC_feature_select_PVAL.png 700 350 %}
+<img src="/images/research/sleep_eeg</em>9<em>subjects</em>06<em>23</em>2014/all<em>9subjects_sleep_CV_AUC_feature_select_PVAL.png" width="700" height="350">
 <strong>Figure 2b)</strong> We plot the p-values for combinations of subjects and time bins with sleep cross-validation AUC values that are calculated via a shuffled permutation test whereby the labels of the classes are shuffled, we train a classifier with the shuffled patterns, and look at the cross-validation AUC for this shuffled dataset. Areas in red have p-values &gt; 0.05.
-{% img /images/research/sleep_eeg</em>9<em>subjects</em>06<em>23</em>2014/all<em>9subjects_sleep_CV_acc_feature_select.png 700 350 %}
+<img src="/images/research/sleep_eeg</em>9<em>subjects</em>06<em>23</em>2014/all<em>9subjects_sleep_CV_acc_feature_select.png" width="700" height="350">
 <strong>Figure 2c)</strong> Instead of calculating the AUC, we plot the classification accuracy - this should be pretty similar to Figure 2b.
-{% img /images/research/sleep_eeg</em>9<em>subjects</em>06<em>23</em>2014/all_9subjects_sleep_CV_acc_feature_select_PVAL.png 700 350 %}
+<img src="/images/research/sleep_eeg</em>9<em>subjects</em>06<em>23</em>2014/all_9subjects_sleep_CV_acc_feature_select_PVAL.png" width="700" height="350">
 <strong>Figure 2d)</strong> Here we plot the p-values for the classification accuracies.</p>
 
 <h3 id="sleep-cross-validation-classification-feature-selection-all-frequencies-per-time-bin">Sleep Cross-Validation Classification Feature Selection: All Frequencies Per Time Bin</h3>
 
-<p>{% img /images/research/sleep_eeg<em>9_subjects</em>06<em>23</em>2014/9<em>subjects_CV_ACTUAL_AUC_feature_select.png 700 350 %}
+<p><img src="/images/research/sleep_eeg<em>9_subjects</em>06<em>23</em>2014/9<em>subjects_CV_ACTUAL_AUC_feature_select.png" width="700" height="350">
 <strong>Figure 3a)</strong> We plot the AUC for classification of celebrity vs. landmarks during sleep across all our subjects (y-axis).  This was calculated by performing cross-validation (somewhere between 15-fold and 40-fold depending on the number of sleep patterns available) using all frequencies z-scored across electrodes for a particular timebin (x-axis). <br />
-{% img /images/research/sleep_eeg</em>9<em>subjects</em>06<em>23</em>2014/9<em>subjects_CV_ACTUAL_AUC_feature_select_PVAL.png 700 350 %}
+<img src="/images/research/sleep_eeg</em>9<em>subjects</em>06<em>23</em>2014/9<em>subjects_CV_ACTUAL_AUC_feature_select_PVAL.png" width="700" height="350">
 <strong>Figure 3b)</strong> We plot the p-values for combinations of subjects and time bins with sleep cross-validation AUC values that are calculated via a shuffled permutation test whereby the labels of the classes are shuffled, we train a classifier with the shuffled patterns, and look at the cross-validation AUC for this shuffled dataset. Areas in red have p-values &gt; 0.05.
-{% img /images/research/sleep_eeg</em>9<em>subjects</em>06<em>23</em>2014/9<em>subjects_CV_ACTUAL_acc_feature_select.png 700 350 %}
+<img src="/images/research/sleep_eeg</em>9<em>subjects</em>06<em>23</em>2014/9<em>subjects_CV_ACTUAL_acc_feature_select.png" width="700" height="350">
 <strong>Figure 3c)</strong> Instead of calculating the AUC, we plot the classification accuracy - this should be pretty similar to Figure 2b.
-{% img /images/research/sleep_eeg</em>9<em>subjects</em>06<em>23</em>2014/9_subjects_CV_ACTUAL_acc_feature_select_PVAL.png 700 350 %}
+<img src="/images/research/sleep_eeg</em>9<em>subjects</em>06<em>23</em>2014/9_subjects_CV_ACTUAL_acc_feature_select_PVAL.png" width="700" height="350">
 <strong>Figure 3d)</strong> Here we plot the p-values for the classification accuracies.</p>
 
 <h3 id="sleep-cross-validation-transform-sleep-pattern-by-average-wake-pattern">Sleep Cross-Validation: Transform Sleep Pattern By Average Wake Pattern</h3>
