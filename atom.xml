@@ -4,7 +4,7 @@
   <title><![CDATA[Something Witty]]></title>
   <link href="http://ElPiloto.github.io/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-07-07T11:25:33-04:00</updated>
+  <updated>2014-07-15T10:25:32-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,39 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: Boosting Classification Results]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/07/15/sleep-eeg-boosting-classification-results/"/>
+    <updated>2014-07-15T09:37:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/07/15/sleep-eeg-boosting-classification-results</id>
+    <content type="html"><![CDATA[<h3 id="ensemble-classification-results-round-1">Ensemble Classification Results, Round 1</h3>
+
+<p>Previously, I went through and tried various combinations of boosting algorithms (LogitBoost, GentleBoost, Adaboost.M1), number of learners, and number of folds for a single subject (subject 01) to try to determine what to run across all subjects to get the best tradeoff between accuracy and running time.  Below is a summary of those results.</p>
+
+<p><img src="http://ElPiloto.github.io/images/research/subj1_ensemble_params_testing.png" width="700" height="300" /></p>
+
+<p>Ultimately, I chose the following: <br />
+  <strong>GentleBoost:</strong> just as good accuracy as other algorithms <em>and</em> better running time than AdaBoost.M1 or LogitBoost for some paramtetrixations  <em>(despite what the figure says)</em> <br />
+  <strong>50-fold cross-validation:</strong> it seemed to me like accuracy would increase with the number of folds   <br />
+  <strong>400 Learners:</strong> I was skeptical of AdaBoostM1’s results with 700 learners, that begin to overfit, so I aimed for something slightly higher than what I had tried (300 learners) that wouldn’t go too far in terms of overfitting.</p>
+
+<p>Below are the results for running <strong>GentleBoost</strong> using the aforementioned parameters, transforming the sleep data with a face minus scene McDuff importance map using wake data from time-bin = 230ms and freq = 11 Hz.   </p>
+
+<p>This is below what we’d like to get and is lower than I would have expected for the first subject.  Possible reasons this could be the case:<br />
+  - not enough data per fold<br />
+  - I (accidentally )probed boosting results on subject 1 with different parameters than used for the current results: <br />
+     - time bin = 152 ms<br />
+     - freq = 7 Hz <br />
+     - mcduff pattern = face   </p>
+
+<p><img src="http://ElPiloto.github.io/images/research/ensemble_results_subj1thru8_round1.jpg" width="700" height="350" /></p>
+
+<h3 id="next-steps">Next Steps</h3>
+
+<p>The easiest problem to check for is to see if we get better results with more data in each fold, so I’ve launched a batch of results that use 20 folds.  This should give new results relatively quickly and we can move from there.  If that doesn’t ameliorate the poor accuracy, I’ll move to using the wake parameters used to probe subject 1 to make sure that the results for subject 1 are consistent with the results I got during the probing phase.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Towers of Hanoi SFA and 8-ball SFA results: Robustness and Potential Neural Data to Model]]></title>
@@ -852,56 +885,6 @@ Now we need some way to actually specify the probability of websites I'll be on 
     <updated>2013-05-16T00:00:00-04:00</updated>
     <id>http://ElPiloto.github.io/blog/2013/05/16/tmux-command-completion-at-bash-prompt</id>
     <content type="html"><![CDATA[<p>After checking out git&#8217;s amazing git command-completion and my <a href="http://sageagainstthemachine.us/blog/2013/04/26/adding-tab-completion-for-your-bash-scripts/">recent discovery</a> of how to implement your own command-completion for bash scripts, I began to wonder why tmux didn&#8217;t have this feature.  After some searching, I found that the tmux installation includes a script file for command-completion in bash!  In the tmux-1.8 distribution, you should find a folder titled &#8220;examples&#8221; which contains a file &#8220;bash_completion_tmux.sh&#8221;.  Just source this file in your .bashrc and you&#8217;re done!!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[VIM Tips: Editing macros, sessions, command-line registers, & a new register!]]></title>
-    <link href="http://ElPiloto.github.io/blog/2013/04/30/vim-tips-editing-macros-sessions-command-line-registers--a-new-register/"/>
-    <updated>2013-04-30T00:00:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2013/04/30/vim-tips-editing-macros-sessions-command-line-registers&#8211;a-new-register</id>
-    <content type="html"><![CDATA[<h1>Edit macro</h1>
-1. Record the macro: I&#8217;m gunna assume you&#8217;ve already recorded a macro to register <code>f</code><br>
-2. Open a new area to edit the macro (this could be in your current window, but I&#8217;d prefer to do it in a new split):  <code>:sp new ENTER</code><br>
-3. Paste the macro contents as if they were a register! <code>"f</code>  This is the magic right here: I didn&#8217;t realize macros were just stored as characters in a register!
-4. Now modify the macro as you, please, yank it back <code>fy</code> after selecting it visually or otherwise<br>
-5. Finally use your modified macro: <code>@f</code><br>
-6. Feel like a f<code>*</code>ckin&#8217; boss<br><br>
-
-<h1>Vim Sessions:</h1>
-
-You can use the <code>:mksession</code> command to create a vim script that will restore your current editing session.  By default, :mksession will save your currently opened buffers, the current directory, tabs, splits, and folds you have open, but you can add more things by modifying the &#8220;sessionoptions&#8221; variable.  You can save multiple sessions by calling the :mksession command with an argument specifying the session name, which you can later invoke to load a particular session.<br><br>
-
-<h2>Example 1: Using the generic session specifier</h2>
-
-Open up vim and open up a few tabs or splits or whatever you normally do when you&#8217;re coding.
-
-Save the session: <code>:mksession ENTER</code> - this will save our session to a file named Session.vim, which is the default session name.
-
-Quit vim: :qa<br>
-
-Start vim with the default session name: vim -S
-<br><br>
-Example 2: Saving and loading a specific session:
-Just like before, open up vim normally and open up random tabs and files and splits and whatchamajiggers.
-Save the session with the name your_splits_give_them_to_me: :mks your_splits_give_them_to_me (Notice that we can specify a file name that doesn&#8217;t end in .vim and also that we can abbreviate :mksession to :mks)
-Quit vim: :qa
-Start vim with the session name your_splits_give_them_to_me: vim -S your_splits_give_them_to_me
-
-	<h1>COMBO SECTION: Paste register into the command line and the new register I learned!</h1>
-<p>Sometimes it&#8217;s useful to use the contents of a register in a command.  For instance, let&#8217;s say you&#8217;re editing a bash script, <em>bludgeon.sh</em>, and you want to actually test it before you continue adding functionality to the script.</p>
-<ul><li>How a naive user might do this:</li>
-</ul><p>           Exit vim<br/>           Execute the script: bash bludgeon.sh<br/>           Open the file in vim again: vim bludgeon.sh</p>
-<ul><li>How a less naive user might do this:</li>
-</ul><p>           Execute a command from the terminal using vim&#8217;s filter (!) by typing: &#8220;:! bash bludgeon.sh&#8221;</p>
-<ul><li>How I would do this:</li>
-</ul><p>           Instead of typing out bludgeon.sh, use the special % register to paste the filename into vim&#8217;s command line:</p>
-<p>           &#8221;:! bash &lt;Ctrl-r&gt;%&#8221;</p>
-<p>That explains two tips:</p>
-<p>The % register which contains the name of the file you&#8217;re currently editing.</p>
-<p>Pasting a register into vim&#8217;s command-line: &lt;Ctrl-r&gt; register</p>
-<p>TADA!  Happy VIM&#8217;ing!</p>
-
 ]]></content>
   </entry>
   
