@@ -4,7 +4,7 @@
   <title><![CDATA[Category: hide | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/hide/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-07-15T16:58:22-04:00</updated>
+  <updated>2014-07-16T02:10:33-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -21,6 +21,10 @@
     <content type="html"><![CDATA[<h2 id="the-results-below-ensemble-classification-results-round-1-are-all-useless">The results below “Ensemble Classification Results, Round 1” are all useless</h2>
 
 <p>I messed up the calculation of average pattern in wake classification (which is used in creating the mcduff importance map in the preprocessing below).</p>
+
+<h3 id="ensemble-classification-results-round-6---cross-validation-subject-1">Ensemble Classification Results, Round 6 - Cross-validation subject 1</h3>
+
+<p><img src="/images/research/ensemble_results_subj1_round6.jpg" width="700" height="350"></p>
 
 <h3 id="ensemble-classification-results-round-3">Ensemble Classification Results, Round 3</h3>
 
