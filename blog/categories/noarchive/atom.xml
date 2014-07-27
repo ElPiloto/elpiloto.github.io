@@ -4,7 +4,7 @@
   <title><![CDATA[Category: noarchive | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/noarchive/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-07-27T15:29:05-04:00</updated>
+  <updated>2014-07-27T15:55:55-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -29,10 +29,17 @@
 
 <p><img src="/images/research/ensemble_best<em>8_wake_subj</em>202ms_7hz_gentle.jpg" width="700" height="350"></p>
 
+<p><strong>Figure 1:</strong> The y-axis shows classification accuracy.  Subjects and parameters are shown along the x-axis (g = gentleboost algorithm, f = face mcduff importance sleep transform).</p>
+
 <h2 id="logistic-regression-sleep-importance-map-transformed-results-to-do-item-1">Logistic Regression Sleep Importance Map Transformed Results (To-Do Item #1)</h2>
 <p><img src="/images/research/log_reg_best_8_subjects_mcduff_xform.jpg" width="700" height="350"></p>
 
-<p><strong>Thoughts</strong>: These results lend further credence to the notion that it may be beneficial to sleep transform data according to both face and scene classifiers and feed both of those into a single classifier.  This idea that perhaps there is information in the scene pattern that isn’t in the face pattern (and vice versa) can be further scrutinized by looking at MDS plots of the untransformed data, the face transformed data, and scene transformed data - this may be worth doing depending on how much free time I have.  If I don’t end up looking at that, I’m not too upset since item #2 on the to-do list will also give us information about the role of the sleep transformation.  </p>
+<p><strong>Figure 2a:</strong> Displayed above is the classifier accuracy for all subjects(x-axis).  The classification accuracy was generated for various sleep importance map transformations (face, scene, or face minus scene), which is indicated along the y-axis.  The classifier features consisted of transforming the sleep data at each timebin and concatenating the sleep transformed data at each timebin into a single data matrix.  The entries along the x and y axis labelled “Mean” simply show the mean along the x and y axis respectively.</p>
+
+<p><strong>Thoughts</strong>: These results lend further credence to the notion that it may be beneficial to sleep transform data according to both face and scene classifiers and feed both of those into a single classifier.  This idea that perhaps there is information in the scene pattern that isn’t in the face pattern (and vice versa) can be further scrutinized by looking at MDS plots of the untransformed data, the face transformed data, and scene transformed data - this may be worth doing depending on how much free time I have.  If I don’t end up looking at that, I’m not too upset since item #2 on the to-do list will also give us information about the role of the sleep transformation.  Additionally: note that the average classification accuracy, across both subjects and sleep transformation types, is pretty similar to that achieved with boosting, but none of the individual sleep transformations really give the same classification accuracy profile across subjects as the boosting results (this is easier to see in the plot below where I plot the rows of Figure 2 as separate horizontal bar graphs to match the format of the boosting results.  Why does it matter that accuracy across subjects in the logistic regression case doesn’t look like the accuracy achieved with boosting?  If our sleep transformation method yielded enough signal, then it should yield similar classification accuracy across subjects for the different classifier types.</p>
+
+<p><img src="/images/research/log_reg_best_8_subjects_mcduff_xform_supplement.jpg" width="700" height="350">
+<strong>Figure 2b:</strong> A different visualization of the logistic regression plots useful for direct visual comparison against the ensemble results (Figure 1).</p>
 
 ]]></content>
   </entry>
