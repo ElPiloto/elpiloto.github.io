@@ -4,7 +4,7 @@
   <title><![CDATA[Something Witty]]></title>
   <link href="http://ElPiloto.github.io/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-07-16T02:12:19-04:00</updated>
+  <updated>2014-07-27T15:26:54-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,30 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: Post Boosting Results]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/07/27/sleep-eeg-post-boosting-results/"/>
+    <updated>2014-07-27T14:46:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/07/27/sleep-eeg-post-boosting-results</id>
+    <content type="html"><![CDATA[<h3 id="our-to-do-list-consists-of-the-following">Our to-do list consists of the following:</h3>
+<ol>
+  <li>logistic regression on sleep data using data from all time bins of the sleep data and compare this to existing results from boosting  </li>
+  <li>try boosting and logistic regression using <strong>untransformed</strong> sleep data (large volume of data)</li>
+  <li>look at various other parameterizations of boosting classification result (just because it’s easy to do)</li>
+</ol>
+
+<h3 id="as-a-refresher-here-is-the-last-boosting-result">As a refresher, here is the last boosting result:</h3>
+
+<p><img src="http://ElPiloto.github.io/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle.jpg" width="700" height="350" /></p>
+
+<h2 id="logistic-regression-sleep-importance-map-transformed-results-to-do-item-1">Logistic Regression Sleep Importance Map Transformed Results (To-Do Item #1)</h2>
+<p><img src="http://ElPiloto.github.io/images/research/log_reg_best_8_subjects_mcduff_xform.jpg" width="700" height="350" /></p>
+
+<p><strong>Thoughts</strong>: These results lend further credence to the notion that it may be beneficial to sleep transform data according to both face and scene classifiers and feed both of those into a single classifier.  This idea that perhaps there is information in the scene pattern that isn’t in the face pattern (and vice versa) can be further scrutinized by looking at MDS plots of the untransformed data, the face transformed data, and scene transformed data - this may be worth doing depending on how much free time I have.  If I don’t end up looking at that, I’m not too upset since item #2 on the to-do list will also give us information about the role of the sleep transformation.  </p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sleep EEG: Boosting Classification Results]]></title>
@@ -27,6 +51,8 @@
 <p><img src="http://ElPiloto.github.io/images/research/ensemble_results_subj1_round6.jpg" width="700" height="350" /></p>
 
 <p><img src="http://ElPiloto.github.io/images/research/ensemble_results_subj1_round6pt2.jpg" width="700" height="350" /></p>
+
+<p><img src="http://ElPiloto.github.io/images/research/ensemble_results_subj1_round6pt3.jpg" width="700" height="350" /></p>
 
 <h3 id="ensemble-classification-results-round-3">Ensemble Classification Results, Round 3</h3>
 
@@ -47,7 +73,8 @@
   <strong>50-fold cross-validation:</strong> it seemed to me like accuracy would increase with the number of folds   <br />
   <strong>400 Learners:</strong> I was skeptical of AdaBoostM1’s results with 700 learners, that begin to overfit, so I aimed for something slightly higher than what I had tried (300 learners) that wouldn’t go too far in terms of overfitting.</p>
 
-<p>Below are the results for running <strong>GentleBoost</strong> using the aforementioned parameters, transforming the sleep data with a face minus scene McDuff importance map using wake data from time-bin = 230ms and freq = 11 Hz.   </p>
+<p>Below are the results for running <strong>GentleBoost</strong> using the aforementioned parameters, transforming the sleep data with a face minus scene McDuff importance map using wake data from time-bin = 230ms and freq = 11 Hz. <br />
+j  </p>
 
 <p>This is below what we’d like to get and is lower than I would have expected for the first subject.  Possible reasons this could be the case:<br />
   - not enough data per fold<br />
@@ -894,15 +921,6 @@ P(X_{t_3} = reddit &|\ X_2 = facebook, X_1 = facebook)
 <!--
 Now we need some way to actually specify the probability of websites I'll be on over the course of the hour - sounds like a [nightmare](http://www.youtube.com/watch?v=sok_KbPG6iw).  This is where the *Markov property* comes in saying that the probability over next states only depends on my current state: $$ P(X_{t+1} | P(X_{t}) = P(X_{t+1} | P(X_{0}, X_{1}, X_{2} ... X_{t}) $$
 -->
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Tmux command-completion at bash prompt!]]></title>
-    <link href="http://ElPiloto.github.io/blog/2013/05/16/tmux-command-completion-at-bash-prompt/"/>
-    <updated>2013-05-16T00:00:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2013/05/16/tmux-command-completion-at-bash-prompt</id>
-    <content type="html"><![CDATA[<p>After checking out git&#8217;s amazing git command-completion and my <a href="http://sageagainstthemachine.us/blog/2013/04/26/adding-tab-completion-for-your-bash-scripts/">recent discovery</a> of how to implement your own command-completion for bash scripts, I began to wonder why tmux didn&#8217;t have this feature.  After some searching, I found that the tmux installation includes a script file for command-completion in bash!  In the tmux-1.8 distribution, you should find a folder titled &#8220;examples&#8221; which contains a file &#8220;bash_completion_tmux.sh&#8221;.  Just source this file in your .bashrc and you&#8217;re done!!</p>
 ]]></content>
   </entry>
   

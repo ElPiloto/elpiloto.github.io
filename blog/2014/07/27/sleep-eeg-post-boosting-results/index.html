@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: EEG - Something Witty</title>
+  <title>Sleep EEG: Post Boosting Results - Something Witty</title>
   <meta name="author" content="Luis R. Piloto">
 
   
-  <meta name="description" content="Category: EEG">
+  <meta name="description" content="EEG, hide, noarchive, sleep Sleep EEG: Post Boosting Results Our to-do list consists of the following: logistic regression on sleep data using data &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ElPiloto.github.ioblog/categories/eeg">
+  <link rel="canonical" href="http://ElPiloto.github.io/blog/2014/07/27/sleep-eeg-post-boosting-results">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/styles.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Something Witty" type="application/atom+xml">
@@ -152,13 +152,47 @@
 		</aside>
 		
       <div>
-<article role="article">
+<article>
+	<header>
+  <div class="article-tags">
+      
+
+<span class="categories">
   
-  <header>
-    <h1 class="entry-title">Category: EEG</h1>
-  </header>
+    <a class='category' href='/blog/categories/eeg/'>EEG</a>, <a class='category' href='/blog/categories/hide/'>hide</a>, <a class='category' href='/blog/categories/noarchive/'>noarchive</a>, <a class='category' href='/blog/categories/sleep/'>sleep</a>
   
-  <div id="blog-archives" class="category">
+</span>
+
+
+  </div>
+  
+    <h1>
+      Sleep EEG: Post Boosting Results
+    </h1>
+  
+</header>
+<section>
+  <h3 id="our-to-do-list-consists-of-the-following">Our to-do list consists of the following:</h3>
+<ol>
+  <li>logistic regression on sleep data using data from all time bins of the sleep data and compare this to existing results from boosting  </li>
+  <li>try boosting and logistic regression using <strong>untransformed</strong> sleep data (large volume of data)</li>
+  <li>look at various other parameterizations of boosting classification result (just because it’s easy to do)</li>
+</ol>
+
+<h3 id="as-a-refresher-here-is-the-last-boosting-result">As a refresher, here is the last boosting result:</h3>
+
+<p><img src="/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle.jpg" width="700" height="350" /></p>
+
+<h2 id="logistic-regression-sleep-importance-map-transformed-results-to-do-item-1">Logistic Regression Sleep Importance Map Transformed Results (To-Do Item #1)</h2>
+<p><img src="/images/research/log_reg_best_8_subjects_mcduff_xform.jpg" width="700" height="350" /></p>
+
+<p><strong>Thoughts</strong>: These results lend further credence to the notion that it may be beneficial to sleep transform data according to both face and scene classifiers and feed both of those into a single classifier.  This idea that perhaps there is information in the scene pattern that isn’t in the face pattern (and vice versa) can be further scrutinized by looking at MDS plots of the untransformed data, the face transformed data, and scene transformed data - this may be worth doing depending on how much free time I have.  If I don’t end up looking at that, I’m not too upset since item #2 on the to-do list will also give us information about the role of the sleep transformation.  </p>
+
+
+</section>
+<footer>
+  <div class="article-date">
+      
 
 
 
@@ -166,29 +200,18 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
 
   
+
+
+<time datetime="2014-07-27T14:46:00-04:00" pubdate data-updated="true">Jul 27<span>th</span>, 2014</time>
+  </div>
+</footer>
+
+	
 </article>
 </div>
+
     </div>
   </div>
   <footer class="main-footer">

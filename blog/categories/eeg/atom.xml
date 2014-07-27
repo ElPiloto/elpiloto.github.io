@@ -4,7 +4,7 @@
   <title><![CDATA[Category: EEG | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/eeg/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-07-16T02:12:19-04:00</updated>
+  <updated>2014-07-27T15:26:54-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,30 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: Post Boosting Results]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/07/27/sleep-eeg-post-boosting-results/"/>
+    <updated>2014-07-27T14:46:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/07/27/sleep-eeg-post-boosting-results</id>
+    <content type="html"><![CDATA[<h3 id="our-to-do-list-consists-of-the-following">Our to-do list consists of the following:</h3>
+<ol>
+  <li>logistic regression on sleep data using data from all time bins of the sleep data and compare this to existing results from boosting  </li>
+  <li>try boosting and logistic regression using <strong>untransformed</strong> sleep data (large volume of data)</li>
+  <li>look at various other parameterizations of boosting classification result (just because it’s easy to do)</li>
+</ol>
+
+<h3 id="as-a-refresher-here-is-the-last-boosting-result">As a refresher, here is the last boosting result:</h3>
+
+<p><img src="/images/research/ensemble_best<em>8_wake_subj</em>202ms_7hz_gentle.jpg" width="700" height="350"></p>
+
+<h2 id="logistic-regression-sleep-importance-map-transformed-results-to-do-item-1">Logistic Regression Sleep Importance Map Transformed Results (To-Do Item #1)</h2>
+<p><img src="/images/research/log_reg_best_8_subjects_mcduff_xform.jpg" width="700" height="350"></p>
+
+<p><strong>Thoughts</strong>: These results lend further credence to the notion that it may be beneficial to sleep transform data according to both face and scene classifiers and feed both of those into a single classifier.  This idea that perhaps there is information in the scene pattern that isn’t in the face pattern (and vice versa) can be further scrutinized by looking at MDS plots of the untransformed data, the face transformed data, and scene transformed data - this may be worth doing depending on how much free time I have.  If I don’t end up looking at that, I’m not too upset since item #2 on the to-do list will also give us information about the role of the sleep transformation.  </p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sleep EEG: Boosting Classification Results]]></title>
@@ -27,6 +51,8 @@
 <p><img src="/images/research/ensemble_results_subj1_round6.jpg" width="700" height="350"></p>
 
 <p><img src="/images/research/ensemble_results_subj1_round6pt2.jpg" width="700" height="350"></p>
+
+<p><img src="/images/research/ensemble_results_subj1_round6pt3.jpg" width="700" height="350"></p>
 
 <h3 id="ensemble-classification-results-round-3">Ensemble Classification Results, Round 3</h3>
 
@@ -47,7 +73,8 @@
   <strong>50-fold cross-validation:</strong> it seemed to me like accuracy would increase with the number of folds   <br />
   <strong>400 Learners:</strong> I was skeptical of AdaBoostM1’s results with 700 learners, that begin to overfit, so I aimed for something slightly higher than what I had tried (300 learners) that wouldn’t go too far in terms of overfitting.</p>
 
-<p>Below are the results for running <strong>GentleBoost</strong> using the aforementioned parameters, transforming the sleep data with a face minus scene McDuff importance map using wake data from time-bin = 230ms and freq = 11 Hz.   </p>
+<p>Below are the results for running <strong>GentleBoost</strong> using the aforementioned parameters, transforming the sleep data with a face minus scene McDuff importance map using wake data from time-bin = 230ms and freq = 11 Hz. <br />
+j  </p>
 
 <p>This is below what we’d like to get and is lower than I would have expected for the first subject.  Possible reasons this could be the case:<br />
   - not enough data per fold<br />
@@ -220,80 +247,6 @@
 <p>I don’t have this data yet.</p>
 
 <h4 id="shuffling-results-given-that-we">Shuffling results: given that we</h4>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sleep EEG Update]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/05/04/sleep-eeg-update/"/>
-    <updated>2014-05-04T18:45:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/05/04/sleep-eeg-update</id>
-    <content type="html"><![CDATA[<h3 id="results">Results</h3>
-
-<h4 id="shuffled-cross-validation-accuracy-using-transformed-sleep-data-item--5-on-to-do-list">Shuffled Cross-validation Accuracy Using Transformed Sleep Data (Item # 5 on To-Do List)</h4>
-<p>The plots below were using the generate-template-on-wake-then-transform-sleep-data-then-train-a-sleep-classifier approach.  The x-axis corresponds to training on different sleep time bins (although we use all the frequencies) and the y-axis corresponds to using different time-freq pairs to generate the wake template.  The key part of this plot is that we <strong>randomly permuted the sleep labels</strong> - so we would hope to see 50% classification accuracy here (which unfortunately doesn’t seem to be the case).  Ideally, I would have multiple iterations of this shuffling, but so far I’ve only run a single shuffle - <strong>how serious is it that I haven’t run multiple iterations?</strong></p>
-
-<p><img src="/images/research/subject<em>1sleep_transform_CV_shuffled.png" width="700" height="350">
-<img src="/images/research/subject</em>2sleep_transform_CV_shuffled.png" width="700" height="350"></p>
-
-<h4 id="sleep-cross-validation-accuracy-using-different-sleep-transformations-item-2-on-to-do-list">Sleep Cross-validation Accuracy using different sleep transformations (Item #2 on To-Do List)</h4>
-<p>Previously, we had only tried the generate-template-on-wake-then-transform-sleep-data-then-train-a-sleep-classifier using the FACE template, the results below show cross-validation accuracy using the face template (same results as presented previously), the scene template, and face-minus-scene.</p>
-
-<p><img src="/images/research/subject<em>1sleep_transform_CV.png" width="700" height="350">
-<img src="/images/research/subject</em>2sleep_transform_CV.png" width="700" height="350">
-<img src="/images/research/subject<em>3sleep_transform_CV.png" width="700" height="350">
-<img src="/images/research/subject</em>4sleep_transform_CV.png" width="700" height="350">
-<img src="/images/research/subject<em>5sleep_transform_CV.png" width="700" height="350">
-<img src="/images/research/subject</em>6sleep_transform_CV.png" width="700" height="350"></p>
-
-<h4 id="sleep-cross-validation-accuracy-using-all-frequencies-feature-select-item-4-on-to-do-list">Sleep Cross-validation Accuracy Using All Frequencies Feature Select (Item #4 on To-Do List)</h4>
-<p>This is pretty straightforward cross-validation accuracy performed on the labelled sleep data.  For each time bin of the sleep data, we z-scored the power spectrum at all frequencies across electrodes and trained a classifier using 10-fold cross-validation using standard p-value based feature selection.</p>
-
-<p><img src="/images/research/all_2_subjects_sleep_CV_feature_select.png" width="700" height="350"></p>
-
-<h4 id="classifier-weights-for-sleep-transformed-data-item-1-on-to-do-list">Classifier Weights for sleep transformed data (Item #1 on To-Do List)</h4>
-<p>Recall that we have a classifier for each combination of wake time-freq pair and sleep time.  Each classifier sweeps the template across each frequency of the time bin, yielding a classifier with as many features as there are frequencies.  Thus, visualizing the weights would require displaying the magnitude of the weight across three dimensions: wake time-freq pair, sleep time bin, and sleep frequency.  Instead of trying to plot some whacky surface, I’ve created plots that average the magnitude of the weights either across the sleep time bins OR across sleep frequencies - if a particular time bin or frequency looks promising from these plots, we can look at the uncollapsed results as needed.</p>
-
-<p>The value displayed below is taken as follows:<br />
-<code>
-for each wake time-freq bin x sleep time bin pair:<br />
- &nbsp; &nbsp; &nbsp; &nbsp;for each cross-validation iteration:<br />
-		 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;z-score weights<br />
-	&nbsp; &nbsp; &nbsp; &nbsp;Avg weights over cross-validation iterations and take absolute value<br />
-</code></p>
-
-<p>This 3d matrix was then collapsed either across sleep time bins or sleep frequencies.  This was done for the various wake templates.  </p>
-
-<p><strong>KEN:</strong> I know this is pretty different than the McDuff method for interpreting feature weights - but the requirement to average over the patterns made things difficult so I did things this way as a much easier to accomplish first pass.  It’s worth noting that the EEG analysis code rescales all features to be within the range of 0 and 1, so I think this crude way of looking at the features should still be pretty informative.</p>
-
-<h4 id="face-minus-scene-wake-template">Face Minus Scene Wake Template</h4>
-<p><img src="/images/research/collaped_weights_by_freq_faceMINUSscene_wake_template_subj1.png" width="700" height="350">
-<img src="/images/research/collaped_weights_by_freq_faceMINUSscene_wake_template_subj2.png" width="700" height="350"></p>
-
-<h4 id="face-wake-template">Face Wake Template</h4>
-<p><img src="/images/research/collaped_weights_by_freq_face_wake_template_subj1.png" width="700" height="350">
-<img src="/images/research/collaped_weights_by_freq_face_wake_template_subj2.png" width="700" height="350"></p>
-
-<h4 id="scene-wake-template">Scene Wake Template</h4>
-<p><img src="/images/research/collaped_weights_by_freq_scene_wake_template_subj1.png" width="700" height="350">
-<img src="/images/research/collaped_weights_by_freq_scene_wake_template_subj2.png" width="700" height="350"></p>
-
-<h4 id="face-minus-scene-wake-template-1">Face Minus Scene Wake Template</h4>
-<p><img src="/images/research/collapsed_weights_by_sleep_time_faceMINUSscene_wake_template_subj1.png" width="700" height="350">
-<img src="/images/research/collapsed_weights_by_sleep_time_faceMINUSscene_wake_template_subj2.png" width="700" height="350"></p>
-
-<h4 id="face-wake-template-1">Face Wake Template</h4>
-<p><img src="/images/research/collapsed_weights_by_sleep_time_face_wake_template_subj1.png" width="700" height="350">
-<img src="/images/research/collapsed_weights_by_sleep_time_face_wake_template_subj2.png" width="700" height="350"></p>
-
-<h4 id="scene-wake-template-1">Scene Wake Template</h4>
-<p><img src="/images/research/collapsed_weights_by_sleep_time_scene_wake_template_subj1.png" width="700" height="350">
-<img src="/images/research/collapsed_weights_by_sleep_time_scene_wake_template_subj2.png" width="700" height="350">
-<!--### Questions-->
-<!--##### Classifier Weights-->
-<!--#. When we look at the magnitude of the trained classifier weights for various wake-template-frequencies, do we see that the weights are generally bigger at the frequencies that --></p>
-
-<!--#### -->
 ]]></content>
   </entry>
   
