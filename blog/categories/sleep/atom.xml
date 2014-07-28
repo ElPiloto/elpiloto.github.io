@@ -4,7 +4,7 @@
   <title><![CDATA[Category: sleep | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/sleep/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-07-28T10:01:29-04:00</updated>
+  <updated>2014-07-28T17:46:53-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,44 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: Group Meeting]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/07/28/sleep-eeg-group-meeting/"/>
+    <updated>2014-07-28T17:10:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/07/28/sleep-eeg-group-meeting</id>
+    <content type="html"><![CDATA[<h3 id="ken-succinctly-described-two-levels-of-complexity-in-our-sleep-analysis">Ken succinctly described two levels of complexity in our sleep analysis:</h3>
+<ol>
+  <li>How do we transform the sleep?  Recall this can be face or scene transformed, we can use correlation or the dot product, we can use data from different frequencies and different time bins in the wake data, etc.<br />
+    <ul>
+      <li>Perhaps we don’t need to sleep transform?</li>
+      <li>Perhaps we need to exclude electrodes explicitly? We thought the McDuff importance maps method implemented this, but correlation doesn’t care about the magnitude so we need to re-evaluate this (either use dot product OR filter out electrodes by some other measure)  <strong>(TODO ITEM: dot product)</strong></li>
+    </ul>
+  </li>
+  <li>When does reinstatement happen?  How should we score reinstatement?  If we do classification, do we just look at one time bin for the sleep?  Do we sum up classification across all time bins, etc.<br />
+    <ul>
+      <li>Maybe we want to use a simpler method than classification a la Staresina paper: sum correlation between template and sleep pattern and threshold to indicate replay event.   </li>
+      <li>We could and should look at trial-by-trial plots of correlation across time for both the incorrect and correct pattern - eyeball the shit out of this.  <strong>(TODO ITEM)</strong></li>
+    </ul>
+  </li>
+  <li>James also mentioned trial-by-trial variability: if cue during down phase, won’t expect reactivation in next 500 ms when all neurons are turned off.</li>
+</ol>
+
+<h3 id="behavioral-results-look-great">Behavioral Results Look great</h3>
+<ol>
+  <li>Spindles too rare to use to limit the sleep data   </li>
+</ol>
+
+<h3 id="additional-thoughts">Additional thoughts:</h3>
+<ol>
+  <li>We should leave open the option to look at ERPs for classification, although Ehren’s thoughts were that ERP winds up showing in theta band of power spectrum, plus see things in power spectrum that you don’t see in the ERPs.</li>
+  <li>We can theoretically get more classification juice if we exclude forgotten items from the sleep analysis.  </li>
+  <li>Waiting on James to get power spectrum for bands using Hilbert transform  </li>
+  <li>We have the data to look at wake classification during wake reactivation i.e. can we classify when they’re learning the associated locations?   </li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sleep EEG: Post Boosting Results]]></title>
@@ -231,38 +269,6 @@ j  </p>
   <li>How do we relate reactivations to subsequent memory?  Recall that there will be multiple classifier readouts per item, perhaps something a la [P-CIT] (https://code.google.com/p/p-cit-toolbox/) would work for us.</li>
 </ol>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sleep EEG Update 2]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/05/04/sleep-eeg-update-2/"/>
-    <updated>2014-05-04T20:53:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/05/04/sleep-eeg-update-2</id>
-    <content type="html"><![CDATA[<p>Here are some questions/conclusions regarding the new data:</p>
-
-<h3 id="are-the-trained-classifier-weights-highest-at-the-frequencies-used-to-generate-the-wake-template--for-instance-given-that-sleep-data-was-transformed-using-the-faces-template-at-230-ms-and-10-hz-does-the-trained-sleep-classifier-have-high-weights-at-10-hz">Are the trained classifier weights highest at the frequencies used to generate the wake template?  For instance, given that sleep data was transformed using the faces template at 230 ms and 10 Hz, does the trained sleep classifier have high weights at 10 Hz?</h3>
-<p>This does not seem to be the case.  If we look at the averaged (across time bins) classifier weights at each frequency, we see that there are hot spots of increased feature importance at frequencies that do not depend on the parameters used for the wake template generation.  This is illustrated in the figure below: we see increased feature importance at 3 Hz regardless of the  wake time bin and frequency used for generating the wake template.  We might be tempted to say there is a relationship between the encoding frequency and the feature importance at 10 Hz, but I don’t buy it given that we only see increased feature importance along the y-axis (indicating that there seems to be something informative about the sleep data at 10 Hz) but not the x-axis.</p>
-
-<p><img src="/images/research/collaped_weights_by_freq_faceMINUSscene_wake_template_subj1.png" width="700" height="350"></p>
-
-<h3 id="are-there-any-trends-in-increased-weights-across-any-of-the-following-parameters">Are there any trends in increased weights across any of the following parameters?</h3>
-
-<h4 id="frequencies">Frequencies?</h4>
-<p>Across both subjects, we see increased feature importance around 3 Hz.  Additionally, we can see, in both subjects, something around the 10 Hz range (10 Hz for subject 1,  7-12 Hz for subject 2) and a faint </p>
-
-<h4 id="time-bins">Time bins?</h4>
-
-<h4 id="face-vs-scene-vs-face-minus-scene">Face vs. Scene Vs. Face minus Scene</h4>
-
-<h4 id="is-there-a-link-between-the-magnitude-of-the-trained-sleep-classifier-weights-and-the-maximum-cv-accuracy-achieved-at-that-particular-time-bin--this-will-indicate-whether-or-not-there-is-a-benefit-to-reducing-the-classification-process-even-further-using-a-subset-of-the-features">Is there a link between the magnitude of the trained sleep classifier weights and the maximum CV accuracy achieved at that particular time bin?  This will indicate whether or not there is a benefit to reducing the classification process even further using a subset of the features.</h4>
-
-<p>Future To-do: Is there a link between the trained sleep classifier weights and the average cross-validation accuracy for the shuffled sleep?  What would this tell us about the underlying space?</p>
-
-<h4 id="what-is-the-relationship-between-the-weights-for-the-sleep-transformed-classifier-compared-to-the-feature-selected-weights">What is the relationship between the weights for the sleep transformed classifier compared to the feature selected weights?</h4>
-<p>I don’t have this data yet.</p>
-
-<h4 id="shuffling-results-given-that-we">Shuffling results: given that we</h4>
 ]]></content>
   </entry>
   

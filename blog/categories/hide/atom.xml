@@ -4,7 +4,7 @@
   <title><![CDATA[Category: hide | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/hide/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-07-28T10:01:29-04:00</updated>
+  <updated>2014-07-28T17:46:53-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,44 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: Group Meeting]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/07/28/sleep-eeg-group-meeting/"/>
+    <updated>2014-07-28T17:10:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/07/28/sleep-eeg-group-meeting</id>
+    <content type="html"><![CDATA[<h3 id="ken-succinctly-described-two-levels-of-complexity-in-our-sleep-analysis">Ken succinctly described two levels of complexity in our sleep analysis:</h3>
+<ol>
+  <li>How do we transform the sleep?  Recall this can be face or scene transformed, we can use correlation or the dot product, we can use data from different frequencies and different time bins in the wake data, etc.<br />
+    <ul>
+      <li>Perhaps we don’t need to sleep transform?</li>
+      <li>Perhaps we need to exclude electrodes explicitly? We thought the McDuff importance maps method implemented this, but correlation doesn’t care about the magnitude so we need to re-evaluate this (either use dot product OR filter out electrodes by some other measure)  <strong>(TODO ITEM: dot product)</strong></li>
+    </ul>
+  </li>
+  <li>When does reinstatement happen?  How should we score reinstatement?  If we do classification, do we just look at one time bin for the sleep?  Do we sum up classification across all time bins, etc.<br />
+    <ul>
+      <li>Maybe we want to use a simpler method than classification a la Staresina paper: sum correlation between template and sleep pattern and threshold to indicate replay event.   </li>
+      <li>We could and should look at trial-by-trial plots of correlation across time for both the incorrect and correct pattern - eyeball the shit out of this.  <strong>(TODO ITEM)</strong></li>
+    </ul>
+  </li>
+  <li>James also mentioned trial-by-trial variability: if cue during down phase, won’t expect reactivation in next 500 ms when all neurons are turned off.</li>
+</ol>
+
+<h3 id="behavioral-results-look-great">Behavioral Results Look great</h3>
+<ol>
+  <li>Spindles too rare to use to limit the sleep data   </li>
+</ol>
+
+<h3 id="additional-thoughts">Additional thoughts:</h3>
+<ol>
+  <li>We should leave open the option to look at ERPs for classification, although Ehren’s thoughts were that ERP winds up showing in theta band of power spectrum, plus see things in power spectrum that you don’t see in the ERPs.</li>
+  <li>We can theoretically get more classification juice if we exclude forgotten items from the sleep analysis.  </li>
+  <li>Waiting on James to get power spectrum for bands using Hilbert transform  </li>
+  <li>We have the data to look at wake classification during wake reactivation i.e. can we classify when they’re learning the associated locations?   </li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sleep EEG: Post Boosting Results]]></title>
@@ -222,95 +260,6 @@ j  </p>
 * I should show Matt the MDS of the slow features <br />
 * I should make sure all of theslow features load on all dimensions of the original input space.<br />
 * We’re not sure what the second slowest feature should look like, but it seems like it might be the configuration of the second largest ring conditioned on the location of the largest ring.  That’s definitely what the scatter plot of the first two features looks like.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sleep EEG 8 Subjects]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/06/23/sleep-eeg-9-subjects/"/>
-    <updated>2014-06-23T12:14:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/06/23/sleep-eeg-9-subjects</id>
-    <content type="html"><![CDATA[<h2 id="all-the-interpretations">All the interpretations</h2>
-
-<p>Hi Ken,  </p>
-
-<p>Here’s the scoop.  We can definitely classify wake data (see Figure 1a below) The best time bin for the wake data isn’t consistent across all subjects, but it does seem to peak at 230ms, which is consistent with Ehren’s results ( compare figure 1b to figure 4: http://compmem.princeton.edu/publications/NewmanNorman10.pdf)  Our classification results aren’t as good as Ehren’s, he had a peak averaged AUC of 0.7, but I’m not too worried about it - what do you think?  There might be some utility to looking at classification for slightly later timebins (although Ehren’s results do peak at 200ms so we might already be looking at the best time bin)   </p>
-
-<p><strong>Classifying sleep?</strong> 	</p>
-
-<p>We tried three different sleep classification methods:<br />
-1. Feature selection on all the frequencies within a particular time bin of sleep data.
-2. Transform the sleep data using the average pattern of activity across all electrodes at a particular time-bin and frequency of the wake data.
-3. Transform the sleep data using the importance map generated by the wake classification instead of the average pattern of activity - this should weight the different electrodes according to how informative they are for wake classification.</p>
-
-<p>For method 1, we’re not getting any consistently classifiable timebins across subjects (figure 3a and 3b) which would have been the nicest result.  Additionally, having good wake AUC doesn’t mean that subject will have good sleep AUC.</p>
-
-<p>The good news is that methods 2 and 3 show comparable classification AUC to method 1 and sometimes do even better.  Moreover, there isn’t a link between good classification for a time bin using method 1 compared to method 2 or 3 (e.g. method 1 classification for subject 2 doesn’t do so hot for timebins 152-230, but if you look at <a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_auc_scene_subj2.png"> this plot</a> for method 2 classification for subject 2 - it’s pretty clear that that is a helpful time bin ).  These two observations give me confidence that the two sleep transform methods are genuinely helpful preprocessing steps.   </p>
-
-<p>Moreover, I’ve been pretty excited about these sleep transform methods because they frequently, though not always, produce strong bands of good classification for particular timebins of the sleep data.</p>
-
-<p>So a logical next question is to determine which method of the two sleep transform methods are better.  It seems like we get stronger bands appearing with method 2 compared to method 3 (you can check this out for yourself just quickly scrolling through the dump of the plots for both <a href="http://ElPiloto.github.io/blog/2014/07/01/sleep-eeg-transform-avg-pattern/">method 2</a> and <a href="http://ElPiloto.github.io/blog/2014/07/01/sleep-eeg-mcduff-transform/">method 3</a>).  There is some agreement between these bands across the two methods, but not always (example plots: <a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_auc_pval_face&amp;scene_subj4.png"> method 2 </a> <a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_mcduff/sleep_MCDUFF_transform_subj_4_cv_acc_pval_face&amp;scene.png"> method 3</a>   </p>
-
-<p>Another degree of freedom is which wake pattern do we use to transform the data: face or scene or face minus scene.  I expected there to be variability between the face and scene transformations, but was surprised to find that the face minus scene didn’t just look like the combination of the face and scene results.  Here’s an example of that:   </p>
-
-<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_acc_pval_face_subj8.png">face</a>   </p>
-
-<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_acc_pval_scene_subj8.png">scene</a>    </p>
-
-<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_acc_pval_face&amp;scene_subj8.png">face minus scene</a>   </p>
-
-<p>This leads me to believe that in the future we should train a sleep classifier that gets both face and a scene transformed data.  The dot-product is sensitive to magnitude, so it could be that there is some useful information in the indivudal face and scene patterns that gets lost when we subtract the two.  What do you think?</p>
-
-<p>The main thing I’ve taken away from this data is that there are timebins of the sleep data that are classifiable, but that they vary across subjects.  This implication of this being that we have to combine the results of multiple classifiers (tested on different timebins) when we try to connect the classification to subsequent memory - but that the particular classifiers we use will have to vary across subjects.  I think an important thing to figure out is how we want to select which classifiers to use for a subject.  I’ve gone through and written down a bunch of time bins that I think look good for each subject on the second page of our EEG to-do <a href="https://docs.google.com/spreadsheets/d/1TIOy-4DN4adDDVBKbuRZ2MuI5g-Hg7KWm1nBKjwSHsU/edit?usp=sharing">spreadsheet</a>, but that was done entirely by hand which doesn’t feel right.  </p>
-
-<p>In general, I think we could proceed to linking the classifier to the behavioral or that we could try to improve the classification.  For the latter, I have a crazy idea bout using an “auto-encoder” for preprocessing the sleep data.  We could feed the network sleep data and have it’s target be the corresponding wake image.  We could apply this network in a leave-one-out fashion in order to preprocess sleep data for a regular classifier.  Seems like it’d be pretty tough to train the network given the dimensionality of the data and the relatively small number of training samples, but I figured it’s worth mentioning.  I’ll wait to hear what you think about all this, but I’m going to dedicate my brain cycles to the problem of figuring out how to select which time bins to use.</p>
-
-<h3 id="wake-classification-results">Wake Classification Results</h3>
-<p>These are important because it’s likely we’ll want to exclude subjects with poor wake cross-validation AUC from subsequent analyses.</p>
-
-<p><img src="/images/research/sleep_eeg<em>9_subjects</em>06<em>23</em>2014/wake_AUC_most_subjects.png" width="700" height="350"></p>
-
-<p><strong>Figure 1a:</strong> This shows the AUC for leave-one-out cross-validation on wake EEG data training on all the z-scored frequencies corresponding to a particular time bin as indicated on the y-axis.  The AUC was calculating by training a classifier that distinguishes between all classes, but only testing on patterns that corresponded to either a celebrity or a landmark.  The AUC was calculated by feeding in the difference between the output for the celebrity one-vs-all classifier and the landmark one-vs-all classifier for each cross-validation fold and the plotted values show the mean AUC across all cross-validation folds.  We had previously looked at the cross-validation accuracy for the first two subjects across a wider range of times, but narrowed it down to these four windows.</p>
-
-<p><code>plot_loopify_time_sweep_results_AUC.m </code>  <br />
-<code>classify_piloy_log_reg_time_sweep_driver.m </code>      </p>
-
-<p><img src="/images/research/sleep_eeg<em>9_subjects</em>06<em>23</em>2014/wake_auc_avgd.png" width="700" height="350"></p>
-
-<p><strong>Figure 1b:</strong> Average AUC per time bin</p>
-
-<h3 id="sleep-cross-validation-classification-all-frequencies-per-time-bin">Sleep Cross-Validation Classification: All Frequencies Per Time Bin</h3>
-<p><strong>NOTE:</strong> These results were supposed to be for performing feature selection, but I accidentally set the feature selection statistical threshold to 1, which is the same as not using feature selection.  <del>Re-running these results with feature selection.</del>  The results actually containing feature selection are just below.</p>
-
-<p><img src="/images/research/sleep_eeg<em>9_subjects</em>06<em>23</em>2014/all<em>9subjects_sleep_CV_AUC_feature_select.png" width="700" height="350">
-<strong>Figure 2a)</strong> We plot the AUC for classification of celebrity vs. landmarks during sleep across all our subjects (y-axis).  This was calculated by performing cross-validation (somewhere between 15-fold and 40-fold depending on the number of sleep patterns available) using all frequencies z-scored across electrodes for a particular timebin (x-axis). <br />
-<img src="/images/research/sleep_eeg</em>9<em>subjects</em>06<em>23</em>2014/all<em>9subjects_sleep_CV_AUC_feature_select_PVAL.png" width="700" height="350">
-<strong>Figure 2b)</strong> We plot the p-values for combinations of subjects and time bins with sleep cross-validation AUC values that are calculated via a shuffled permutation test whereby the labels of the classes are shuffled, we train a classifier with the shuffled patterns, and look at the cross-validation AUC for this shuffled dataset. Areas in red have p-values &gt; 0.05.
-<img src="/images/research/sleep_eeg</em>9<em>subjects</em>06<em>23</em>2014/all<em>9subjects_sleep_CV_acc_feature_select.png" width="700" height="350">
-<strong>Figure 2c)</strong> Instead of calculating the AUC, we plot the classification accuracy - this should be pretty similar to Figure 2b.
-<img src="/images/research/sleep_eeg</em>9<em>subjects</em>06<em>23</em>2014/all_9subjects_sleep_CV_acc_feature_select_PVAL.png" width="700" height="350">
-<strong>Figure 2d)</strong> Here we plot the p-values for the classification accuracies.</p>
-
-<h3 id="sleep-cross-validation-classification-feature-selection-all-frequencies-per-time-bin">Sleep Cross-Validation Classification Feature Selection: All Frequencies Per Time Bin</h3>
-
-<p><img src="/images/research/sleep_eeg<em>9_subjects</em>06<em>23</em>2014/9<em>subjects_CV_ACTUAL_AUC_feature_select.png" width="700" height="350">
-<strong>Figure 3a)</strong> We plot the AUC for classification of celebrity vs. landmarks during sleep across all our subjects (y-axis).  This was calculated by performing cross-validation (somewhere between 15-fold and 40-fold depending on the number of sleep patterns available) using all frequencies z-scored across electrodes for a particular timebin (x-axis). <br />
-<img src="/images/research/sleep_eeg</em>9<em>subjects</em>06<em>23</em>2014/9<em>subjects_CV_ACTUAL_AUC_feature_select_PVAL.png" width="700" height="350">
-<strong>Figure 3b)</strong> We plot the p-values for combinations of subjects and time bins with sleep cross-validation AUC values that are calculated via a shuffled permutation test whereby the labels of the classes are shuffled, we train a classifier with the shuffled patterns, and look at the cross-validation AUC for this shuffled dataset. Areas in red have p-values &gt; 0.05.
-<img src="/images/research/sleep_eeg</em>9<em>subjects</em>06<em>23</em>2014/9<em>subjects_CV_ACTUAL_acc_feature_select.png" width="700" height="350">
-<strong>Figure 3c)</strong> Instead of calculating the AUC, we plot the classification accuracy - this should be pretty similar to Figure 2b.
-<img src="/images/research/sleep_eeg</em>9<em>subjects</em>06<em>23</em>2014/9_subjects_CV_ACTUAL_acc_feature_select_PVAL.png" width="700" height="350">
-<strong>Figure 3d)</strong> Here we plot the p-values for the classification accuracies.</p>
-
-<h3 id="sleep-cross-validation-transform-sleep-pattern-by-average-wake-pattern">Sleep Cross-Validation: Transform Sleep Pattern By Average Wake Pattern</h3>
-<p><a href="/blog/2014/07/01/sleep-eeg-transform-avg-pattern/"> dump of plots </a>   </p>
-
-<p>We have 4 x 3 plots per subject (4 plots (AUC, accuracy, and p-val map for both of those) for each result, 3 different results: one for transforming the sleep data with the average face pattern, one for transforming with the average scene pattern, and one for transforming with the difference between the average face and average scene)</p>
-
-<h3 id="sleep-cross-validation-transform-sleep-pattern-by-mcduff-importance-map">Sleep Cross-Validation: Transform Sleep Pattern By McDuff Importance Map</h3>
-<p><a href="/blog/2014/07/01/sleep-eeg-mcduff-transform/"> dump of plots </a>   </p>
-
-<p>We have 4 x 3 plots per subject (4 plots (AUC, accuracy, and p-val map for both of those) for each result, 3 different results: one for transforming the sleep data with the face mcduff importance map, one for transforming with the scene mcduff importance map, and one for transforming with the difference between the face and scene importance maps)</p>
 ]]></content>
   </entry>
   

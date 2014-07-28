@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: EEG - Something Witty</title>
+  <title>Sleep EEG: Group Meeting - Something Witty</title>
   <meta name="author" content="Luis R. Piloto">
 
   
-  <meta name="description" content="Category: EEG">
+  <meta name="description" content="EEG, hide, noarchive, sleep Sleep EEG: Group Meeting Ken succinctly described two levels of complexity in our sleep analysis: How do we transform &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ElPiloto.github.ioblog/categories/eeg">
+  <link rel="canonical" href="http://ElPiloto.github.io/blog/2014/07/28/sleep-eeg-group-meeting">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/styles.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Something Witty" type="application/atom+xml">
@@ -152,13 +152,61 @@
 		</aside>
 		
       <div>
-<article role="article">
+<article>
+	<header>
+  <div class="article-tags">
+      
+
+<span class="categories">
   
-  <header>
-    <h1 class="entry-title">Category: EEG</h1>
-  </header>
+    <a class='category' href='/blog/categories/eeg/'>EEG</a>, <a class='category' href='/blog/categories/hide/'>hide</a>, <a class='category' href='/blog/categories/noarchive/'>noarchive</a>, <a class='category' href='/blog/categories/sleep/'>sleep</a>
   
-  <div id="blog-archives" class="category">
+</span>
+
+
+  </div>
+  
+    <h1>
+      Sleep EEG: Group Meeting
+    </h1>
+  
+</header>
+<section>
+  <h3 id="ken-succinctly-described-two-levels-of-complexity-in-our-sleep-analysis">Ken succinctly described two levels of complexity in our sleep analysis:</h3>
+<ol>
+  <li>How do we transform the sleep?  Recall this can be face or scene transformed, we can use correlation or the dot product, we can use data from different frequencies and different time bins in the wake data, etc.<br />
+    <ul>
+      <li>Perhaps we don’t need to sleep transform?</li>
+      <li>Perhaps we need to exclude electrodes explicitly? We thought the McDuff importance maps method implemented this, but correlation doesn’t care about the magnitude so we need to re-evaluate this (either use dot product OR filter out electrodes by some other measure)  <strong>(TODO ITEM: dot product)</strong></li>
+    </ul>
+  </li>
+  <li>When does reinstatement happen?  How should we score reinstatement?  If we do classification, do we just look at one time bin for the sleep?  Do we sum up classification across all time bins, etc.<br />
+    <ul>
+      <li>Maybe we want to use a simpler method than classification a la Staresina paper: sum correlation between template and sleep pattern and threshold to indicate replay event.   </li>
+      <li>We could and should look at trial-by-trial plots of correlation across time for both the incorrect and correct pattern - eyeball the shit out of this.  <strong>(TODO ITEM)</strong></li>
+    </ul>
+  </li>
+  <li>James also mentioned trial-by-trial variability: if cue during down phase, won’t expect reactivation in next 500 ms when all neurons are turned off.</li>
+</ol>
+
+<h3 id="behavioral-results-look-great">Behavioral Results Look great</h3>
+<ol>
+  <li>Spindles too rare to use to limit the sleep data   </li>
+</ol>
+
+<h3 id="additional-thoughts">Additional thoughts:</h3>
+<ol>
+  <li>We should leave open the option to look at ERPs for classification, although Ehren’s thoughts were that ERP winds up showing in theta band of power spectrum, plus see things in power spectrum that you don’t see in the ERPs.</li>
+  <li>We can theoretically get more classification juice if we exclude forgotten items from the sleep analysis.  </li>
+  <li>Waiting on James to get power spectrum for bands using Hilbert transform  </li>
+  <li>We have the data to look at wake classification during wake reactivation i.e. can we classify when they’re learning the associated locations?   </li>
+</ol>
+
+
+</section>
+<footer>
+  <div class="article-date">
+      
 
 
 
@@ -166,32 +214,18 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
 
   
+
+
+<time datetime="2014-07-28T17:10:00-04:00" pubdate data-updated="true">Jul 28<span>th</span>, 2014</time>
+  </div>
+</footer>
+
+	
 </article>
 </div>
+
     </div>
   </div>
   <footer class="main-footer">
