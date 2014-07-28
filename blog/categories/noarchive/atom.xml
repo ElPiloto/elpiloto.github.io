@@ -4,7 +4,7 @@
   <title><![CDATA[Category: noarchive | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/noarchive/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-07-27T15:55:55-04:00</updated>
+  <updated>2014-07-28T10:01:29-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -41,6 +41,15 @@
 <p><img src="/images/research/log_reg_best_8_subjects_mcduff_xform_supplement.jpg" width="700" height="350">
 <strong>Figure 2b:</strong> A different visualization of the logistic regression plots useful for direct visual comparison against the ensemble results (Figure 1).</p>
 
+<h2 id="to-do-item-3-boosting-classification-results-using-different-sleep-transforms-best-8-subjects">To-Do Item #3: Boosting Classification Results Using Different Sleep Transforms, Best 8 Subjects</h2>
+<p><img src="/images/research/ensemble_best<em>8_wake_subj</em>202ms_7hz_gentle_ALL_TRANSFORMS.jpg" width="700" height="350"></p>
+
+<p><strong>Figure 3:</strong> This shows boosting classification accuracy using different sleep transforms.  The x-axis indicates which boosting algorithm (g for gentleboost) was used, the subject id (e.g. ‘15’ or ‘07’), and the wake pattern that was used for the sleep transformation (f = face, s = scene, M = face minus scene).</p>
+
+<p><strong>Thoughts:</strong> This is a clear example where the classification accuracy results would look totally different based on which analysis parameters we use.  I suspect that if we get around to doing boosting classification using both the scene and face transformation, that will look entirely different, too.</p>
+
+<h2 id="to-do-item-2-logistic-regression-classification-results-sleep---untransformed-best-8-subjects">To-Do Item #2: Logistic Regression Classification Results Sleep - UNTRANSFORMED, Best 8 Subjects</h2>
+<p><strong>3/23 JOBS STILL RUNNING ON CLUSTER</strong>  This takes a relatively long time because the feature selection has to operate over ~100,000 features and that needs to run for each cross-validation fold for each subject.</p>
 ]]></content>
   </entry>
   
