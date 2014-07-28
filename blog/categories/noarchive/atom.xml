@@ -4,7 +4,7 @@
   <title><![CDATA[Category: noarchive | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/noarchive/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-07-28T17:46:53-04:00</updated>
+  <updated>2014-07-28T17:52:11-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -29,7 +29,7 @@
   <li>When does reinstatement happen?  How should we score reinstatement?  If we do classification, do we just look at one time bin for the sleep?  Do we sum up classification across all time bins, etc.<br />
     <ul>
       <li>Maybe we want to use a simpler method than classification a la Staresina paper: sum correlation between template and sleep pattern and threshold to indicate replay event.   </li>
-      <li>We could and should look at trial-by-trial plots of correlation across time for both the incorrect and correct pattern - eyeball the shit out of this.  <strong>(TODO ITEM)</strong></li>
+      <li>We could and should look at trial-by-trial plots of correlation across time for both the incorrect and correct pattern - eyeball the crap out of this.  <strong>(TODO ITEM)</strong></li>
     </ul>
   </li>
   <li>James also mentioned trial-by-trial variability: if cue during down phase, won’t expect reactivation in next 500 ms when all neurons are turned off.</li>
