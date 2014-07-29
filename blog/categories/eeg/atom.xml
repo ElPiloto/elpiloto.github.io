@@ -4,7 +4,7 @@
   <title><![CDATA[Category: EEG | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/eeg/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-07-28T17:52:11-04:00</updated>
+  <updated>2014-07-29T12:51:30-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -61,6 +61,8 @@
   <li>logistic regression on sleep data using data from all time bins of the sleep data and compare this to existing results from boosting  </li>
   <li>try boosting and logistic regression using <strong>untransformed</strong> sleep data (large volume of data)</li>
   <li>look at various other parameterizations of boosting classification result (just because it’s easy to do)</li>
+  <li>Let’s look at what happens when the classifier gets fed in both face and scene transformed data   </li>
+  <li>Let’s look at when the classifier gets transformed using both face and scene transformed data using the DOT product (see post )  </li>
 </ol>
 
 <h3 id="as-a-refresher-here-is-the-last-boosting-result">As a refresher, here is the last boosting result:</h3>
@@ -87,7 +89,15 @@
 <p><strong>Thoughts:</strong> This is a clear example where the classification accuracy results would look totally different based on which analysis parameters we use.  I suspect that if we get around to doing boosting classification using both the scene and face transformation, that will look entirely different, too.</p>
 
 <h2 id="to-do-item-2-logistic-regression-classification-results-sleep---untransformed-best-8-subjects">To-Do Item #2: Logistic Regression Classification Results Sleep - UNTRANSFORMED, Best 8 Subjects</h2>
-<p><strong>3/23 JOBS STILL RUNNING ON CLUSTER</strong>  This takes a relatively long time because the feature selection has to operate over ~100,000 features and that needs to run for each cross-validation fold for each subject.</p>
+<p><del><strong>3/23 JOBS STILL RUNNING ON CLUSTER</strong>  This takes a relatively long time because the feature selection has to operate over ~100,000 features and that needs to run for each cross-validation fold for each subject.  The results are displayed below</del></p>
+
+<p><img src="/images/research/sleep_log_reg_raw_best8.jpg" width="700" height="350"></p>
+
+<p><strong>Figure 4:</strong> This shows the result of performing logistic regression on the raw sleep data using all frequencies, all time bins, and all electrodes on raw data.  This amounts to about 100,00 features (64 electrodes x ~47 frequencies x ~38 time bins ) so obviously I need to run this analysis with feature selection.  I really wanted to include as many features as I could (without exceeding my RAM limits), so I used a loose stat threshold for statmap_anova feature selection (p = 0.1) which yielded about 10,000 features.</p>
+
+<p><strong>Thoughts:</strong> This tells us that this data is damn noisy, we need to be smarter about what features we’re putting into the data.  Straightforward logistic regression isn’t working particularly well on this - it might be worth explicitly using LASSO instead of ridge regression as we’re currently using.  Additionally, I found something in the documentation of the <code>logRegFun</code> that suggests I should be trying much higher regularization values than I have been.  I’m going to try this out since it’s easy to run and I want to explicitly rule out the penalty term as why we’re not getting poor results. I will also look into whether or not it’s easy to use LASSO.  <strong>Update</strong> There does seem to be L1 regression in the MVPA toolbox via the <code>SMLR</code> function, although it implements multinomial regression (as compared to the current method of training a single logistic regression classifier for each class), however, it seems like it’ll bw</p>
+
+<p>I think the fact that these results are comparable to the sleep transformed data in terms of classification accuracy tells us something about the sleep data, not necessarily about the sleep transformation.  I have to double-check the linear algebra behind this interpretation of the sleep data, but I think that when we transform the sleep data, we’re essentially projecting each dimension of the sleep data onto a single vector defined by the average pattern.  Now: if there is some best subspace of the untransformed data where the classes are just barely separable (i.e. you could get 52% accuracy), then whether or not we transform the sleep data won’t really matter.  If we don’t project, we can build a classifier that goes along the subspace I mentioned.  If we do project, then that same subspace will manifest in a different basis, but with the same separability.  Obviously you won’t get this barely classifiable subspace if the vector onto which you project is orthogonal to the subspace, but if there are multiple, weakly classifiable subspaces in the data - which is not crazy to think if the data are in general weakly separable, then one of these subspaces will not be orthogonal to the vector you’re choosing yielding once again a weakly separable subspace.  In fact, I suspect that we should be able to project onto random vectors and get the same classification accuracy on average - this comes from some light reading into random subspace projection theory where given a random projection you can give a probabilistic bound on the dot product between two vectors in a random subspace as a function of their dot product in the original space i.e. with some probability the dot product in the transformed space will be within some range of the dot product in the original space.  This is all pretty loosey goosey linear algebra logic, but I think it’s a start in the right direction for understanding what’s up with the transform vs untransformed data.</p>
 ]]></content>
   </entry>
   
