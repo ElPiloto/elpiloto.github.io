@@ -4,7 +4,7 @@
   <title><![CDATA[Category: sleep | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/sleep/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-07-30T12:20:57-04:00</updated>
+  <updated>2014-07-31T14:13:03-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -117,7 +117,9 @@
 <p><strong>Thoughts:</strong> Well, not uniformly super awesome classification results for both methods, BUT I’m pretty happy to see that they have the same general profile: across both analyses subjects 11,13,15 and 5,7,8 both pop out whereas classification is poor for both subject 9 and subject 1 in both analyses.  Consistency across analyses is the only proxy we currently have for assessing whether our results are due to random chance so this is a relatively nice result in that context.  That’s a score for the veracity of our results, but the other key aspect of evaluating our results, how good the results actually are, is still lacking.  Barring success with modifying the regularization term, we’ll have to look into more explicit electrode filtering and using Hilbert transformed data to try to improve our results.  <strong>Importantly</strong> I’d like to run future analyses this same way: modifying features, but running them through both classifiers to make sure we’re getting consistent results.</p>
 
 <h2 id="to-do-item-5--feed-classifiers-face-and-scene-transformed-data-using-mcduff-importance-maps-with-dot-product-instead-of-correlation-as-pattern-similarity-measure">To-Do Item #5:  Feed classifiers face AND scene transformed data using McDuff Importance Maps with DOT PRODUCT instead of correlation as pattern similarity measure</h2>
-<p><strong>IMPORTANT:</strong> For some reason, the boosting results look EXACTLY the same as the correlation-based boosting results.  This is strange because I explicitly verified the dot product and correlation calculations actually give different values. I’m investigating whether or not this is a bug as we speak, just gotta manually step through both the correlation and the dot product code which is a pain in the, as they say in the medical field, patootie.</p>
+<p><del><strong>IMPORTANT:</strong> For some reason, the boosting results look EXACTLY the same as the correlation-based boosting results.  This is strange because I explicitly verified the dot product and correlation calculations actually give different values. I’m investigating whether or not this is a bug as we speak, just gotta manually step through both the correlation and the dot product code which is a pain in the, as they say in the medical field, patootie.</del></p>
+
+<p><strong>UPDATE:</strong> Comparing the preprocessed data using the dot product and correlation, it looks like the data being processed is in fact different for the boosting classifier i.e. I don’t think that this is a bug.  Looking into it more, given that the correlation is the normalized dot product, it makes sense that we get different results for logistic regression but not the boosting ensemble.  Why? Well, logistic regression regularization term penalizes the magnitude of the weights, thus keeping the same regularization penalty but scaling the weights is effectively the same as keeping the same weights but modifying the regularization term.  However, boosting just creates decision stumps which will split the data regardless of whether or not the data are normalized.  Thus these results make sense: all is right with the world.  Kind of.</p>
 
 <p><img src="/images/research/8<em>wake_subj</em>202ms_7hz_gentle_faceSCENE_DOTPROD.jpg" width="700" height="350"></p>
 
