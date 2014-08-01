@@ -4,7 +4,7 @@
   <title><![CDATA[Category: EEG | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/eeg/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-07-31T14:13:03-04:00</updated>
+  <updated>2014-08-01T10:39:16-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,22 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: Varying regularization and simulated results]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/08/01/sleep-eeg-varying-regularization-and-simulated-results/"/>
+    <updated>2014-08-01T10:27:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/08/01/sleep-eeg-varying-regularization-and-simulated-results</id>
+    <content type="html"><![CDATA[<h3 id="logistic-regression-untransformed-sleep-data-varying-regularization-term">Logistic Regression Untransformed Sleep Data: Varying regularization term</h3>
+<p>The motivation for this line of inquiry is contained in <a href="/blog/2014/07/27/sleep-eeg-post-boosting-results/">this post</a> under the discussion section for figure 4.</p>
+
+<p><img src="/images/research/untransformed_log_reg_lambda250and750.jpg" width="700" height="350"></p>
+
+<p><strong>Figure 1:</strong> This shows the sleep classification accuracy for logistic regression using untransformed sleep data with <code>statmap_anova</code> feature selection (stat_thresh = 0.1).</p>
+
+<p><strong>Thoughts</strong> Well this is interesting.  I had previously been using a regularization term of 1 for all the logistic regression analyses and to see this level of classification accuracy using a regularization penalty two orders of magnitude higher than previously suggests that I didn’t have much of a grasp on the role of the regularization term in this analysis.  The lambda = 750 case is encouraging because it’s up there in terms of the highest average classification accuracy we’ve seen AND it includes that largest regularization term we’ve used thus far.  It’s worth investigating how far we can push regularization before it collapses, thus I’ve launched an additional analysis trying results with regularization = 1250 and 1750.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sleep EEG: Group Meeting]]></title>
@@ -268,44 +284,6 @@ j  </p>
 <p><a href="/blog/2014/07/01/sleep-eeg-mcduff-transform/"> dump of plots </a>   </p>
 
 <p>We have 4 x 3 plots per subject (4 plots (AUC, accuracy, and p-val map for both of those) for each result, 3 different results: one for transforming the sleep data with the face mcduff importance map, one for transforming with the scene mcduff importance map, and one for transforming with the difference between the face and scene importance maps)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sleep EEG Ken Meeting]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/06/02/sleep-eeg-ken-meeting/"/>
-    <updated>2014-06-02T11:27:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/06/02/sleep-eeg-ken-meeting</id>
-    <content type="html"><![CDATA[<h3 id="context">Context</h3>
-
-<p>After ending the first-year rotation, I’m now back on the hook for working on this sleep EEG project full-time.  This meeting was simply to re-orient ourselves and plan the next immediate steps.</p>
-
-<h3 id="next-steps">Next Steps</h3>
-<ol>
-  <li>Area under ROC instead of classification accuracy   </li>
-  <li>Represent goodness in terms of where it falls on the empirical null distribution (as opposed to previously where we were showing raw-classification accuracy which we really have no clue how good that should be)  </li>
-  <li>Train sleep classifier using wake WEIGHTS instead of wake average pattern as template.  The rationale behind this is that the average pattern templates treat all electrodes as equally important, but this just isn’t true.  The importance maps will take that into account   </li>
-  <li>Create existing plots for new subjects [n = 8] (!)</li>
-</ol>
-
-<h3 id="next-next-steps">Next Next Steps</h3>
-<ol>
-  <li>We need to think about how we can collapse down each sleep trial (playing of a sleep sound) into a single reactivation metric.  Currently, we have classifier output for different timebins of the sleep trial and it seems like the maximally-classifiable time bin varies across subjects. <br />
-    <ul>
-      <li>Train an “uberclassifier” that classifies across all timebins - this would give us a single reactivation score per trial   </li>
-      <li>Is there a smart way of reducing the number of features we have?<br />
-        <ul>
-          <li>we might have some <em>a priori</em> ideas about which features to include.  </li>
-          <li>we might want to look at the cross-validation accuracy along certain time-bins to narrow things down.   </li>
-        </ul>
-      </li>
-      <li>This is where I thought a recurrent neural network might be helpful for us.  </li>
-      <li>Alternative idea: train a higher-level classifier on the outputs of the individual time bin classifiers    </li>
-    </ul>
-  </li>
-  <li>How do we relate reactivations to subsequent memory?  Recall that there will be multiple classifier readouts per item, perhaps something a la [P-CIT] (https://code.google.com/p/p-cit-toolbox/) would work for us.</li>
-</ol>
-
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: noarchive | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/noarchive/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-07-31T14:13:03-04:00</updated>
+  <updated>2014-08-01T10:39:16-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,22 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: Varying regularization and simulated results]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/08/01/sleep-eeg-varying-regularization-and-simulated-results/"/>
+    <updated>2014-08-01T10:27:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/08/01/sleep-eeg-varying-regularization-and-simulated-results</id>
+    <content type="html"><![CDATA[<h3 id="logistic-regression-untransformed-sleep-data-varying-regularization-term">Logistic Regression Untransformed Sleep Data: Varying regularization term</h3>
+<p>The motivation for this line of inquiry is contained in <a href="/blog/2014/07/27/sleep-eeg-post-boosting-results/">this post</a> under the discussion section for figure 4.</p>
+
+<p><img src="/images/research/untransformed_log_reg_lambda250and750.jpg" width="700" height="350"></p>
+
+<p><strong>Figure 1:</strong> This shows the sleep classification accuracy for logistic regression using untransformed sleep data with <code>statmap_anova</code> feature selection (stat_thresh = 0.1).</p>
+
+<p><strong>Thoughts</strong> Well this is interesting.  I had previously been using a regularization term of 1 for all the logistic regression analyses and to see this level of classification accuracy using a regularization penalty two orders of magnitude higher than previously suggests that I didn’t have much of a grasp on the role of the regularization term in this analysis.  The lambda = 750 case is encouraging because it’s up there in terms of the highest average classification accuracy we’ve seen AND it includes that largest regularization term we’ve used thus far.  It’s worth investigating how far we can push regularization before it collapses, thus I’ve launched an additional analysis trying results with regularization = 1250 and 1750.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sleep EEG: Group Meeting]]></title>
@@ -199,104 +215,6 @@ j  </p>
   <li><code>SFA_STRUCTS.SF</code> - contains slow feature functions along the rows</li>
   <li>Can get degenerate eigendecompositions, where an eigenvalue has greater algebraic multiplicity than geometric multiplicity (e.g. $ (2 - \lambda)^2(3-\lambda)^2 $ – alg. mult = 2, geometric = 1 for both eigenvalues).  In this case, extracted slow features are redundant (though they’ll have opposite signs).</li>
 </ol>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[SFA Nonmarkov: Modify network, maze size and type, visualize gates]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/06/24/sfa-nonmarkov-modify-network/"/>
-    <updated>2014-06-24T13:38:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/06/24/sfa-nonmarkov-modify-network</id>
-    <content type="html"><![CDATA[<h3 id="overview-of-simulations">Overview of simulations</h3>
-<ol>
-  <li>Look at the gate values along the maze trajectories (previously we only looked at the hidden state values). Recall that a long-short term memory network has three gates: read, write, and forget   </li>
-  <li>We also need to look at our old MDS plots of the hidden layers and label the trajectory (previously we only showed whether a representation belonged to the center hallway or right or left outer maze locations)</li>
-  <li>We want to see if we get any qualitative differences as we change the width of the maze.  </li>
-  <li>We want to see if changing the maze type to be a ring will still yield the segmenting behavior we see from SFA  </li>
-  <li>We want to see if we get any qualitative differences as we change the number of hidden units</li>
-</ol>
-
-<h3 id="different-num-hidden-units">Different Num Hidden Units</h3>
-
-<h4 id="hidden-unit-mds-plots">Hidden Unit MDS Plots</h4>
-<p><img src="/images/research/sfa_lstm/hidden_layer_width3_hidden5_loop.png" width="750" height="350"> 
-<img src="/images/research/sfa_lstm/hidden_layer_width3_hidden3_loop.png" width="750" height="350"> </p>
-
-<h5 id="observations">Observations:</h5>
-<ol>
-  <li>Much cleaner separation of states with 5 hidden units compared to 3 hidden units based on the loop to which they belong.</li>
-  <li>Also get cleaner separation of states based on center versus non-center.</li>
-  <li><strong>These results suggest that the hidden layer representation generated using 5 hidden units might be a better representation for looking at the benefits of SFA.</strong></li>
-</ol>
-
-<h4 id="hidden-unit-similarity-plots-according-to-location-on-maze">Hidden Unit Similarity Plots According to Location on Maze</h4>
-<p><img src="/images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden5.png" width="750" height="350"> 
-<strong>Figure 2a) 5 Hidden Units</strong>
-<img src="/images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden3.png" width="750" height="350"> 
-<strong>Figure 2b) 3 Hidden Units</strong>  </p>
-
-<h5 id="observations-1">Observations:</h5>
-<p>This is just another way of seeing how much cleaner the 5 hidden units representation is.</p>
-
-<h4 id="linear-sfa-top-2-slowest-features">Linear SFA Top 2 Slowest Features</h4>
-<p><img src="/images/research/sfa_lstm/sfa<em>1st</em>2<em>features_rm</em>1st_visit_width3<em>hidden5.png" width="750" height="350"> 
-<strong>Figure 3a) 5 Hidden Units</strong>
-<img src="/images/research/sfa_lstm/sfa</em>1st<em>2_features_rm</em>1st_visit_width3_hidden3.png" width="750" height="350"> 
-<strong>Figure 3b) 3 Hidden Units</strong>   </p>
-
-<h5 id="observations-2">Observations:</h5>
-<ol>
-  <li>Here we see exactly what we hoped for in the 5 hidden units case: the first slow-feature indicates which loop we’re on!</li>
-  <li>The question is: how much of this is the neural network and how much of this is SFA? Well let’s look at the plots below of the raw hidden layer values across the maze.  If the neural network is doing all the heavy lifting, then we would see a single, slowly varying feature that encodes the loops direction but this doesn’t seem to be the case!</li>
-</ol>
-
-<p><img src="/images/research/sfa_lstm/hidden_layer_on_maze_raw_left_width3_hidden5.png" width="750" height="350"> 
-<strong>Figure 4a) 5 Hidden Units</strong>
-<img src="/images/research/sfa_lstm/hidden_layer_on_maze_raw_right_width3_hidden5.png" width="750" height="350"> 
-<strong>Figure 4b) 5 Hidden Units</strong>   </p>
-
-<p><strong>NOTE:</strong> These colors look exactly the same along the central corridor (which would be troubling), but their values are actually different if you look at the numbers.</p>
-
-<h3 id="different-maze-size----width-7-5-hidden-units">Different Maze Size  - Width 7, 5 Hidden Units</h3>
-
-<h4 id="hidden-unit-mds-plots-1">Hidden Unit MDS Plots</h4>
-<p><img src="/images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png" width="750" height="350"> </p>
-
-<h4 id="linear-sfa-top-2-slowest-features-1">Linear SFA Top 2 Slowest Features</h4>
-
-<p><img src="/images/research/sfa_lstm/sfa_linear_1st2features_width7_hidden5.png" width="750" height="350"> </p>
-
-<h3 id="different-maze-structure">Different Maze Structure</h3>
-
-<h4 id="hidden-unit-mds-plots-2">Hidden Unit MDS Plots</h4>
-<p><img src="/images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png" width="750" height="350"> </p>
-
-<h4 id="linear-sfa-top-2-slowest-features-2">Linear SFA Top 2 Slowest Features</h4>
-<p><img src="/images/research/sfa_lstm/sfa_1wayloop_width7_hidden5.png" width="750" height="350"> </p>
-
-<h3 id="meeting-with-mattbot">Meeting with Mattbot:</h3>
-
-<h4 id="observations-3">Observations:</h4>
-<ol>
-  <li>It does seem like the first slow feature encodes which outer loop we’re on.   </li>
-  <li>Cooler than that, our second slow feature for the width 7, 5 hidden units case, encodes which step of the outer loop we’re on, regardless of which direction the loop is.  This is motherfucking abstraction! We’re going to try to connect this to to-do item #4.</li>
-</ol>
-
-<h4 id="to-do">To-Do:</h4>
-<ol>
-  <li>Why are the slow-features on such a small scale?    </li>
-  <li>Why are the hidden layer representations (think MDS width3, hidden5) so similar at the fork point - Matt thinks I might be off by one because the point just after the fork diverges which is what you would expect from the fork point - since they make vastly different predictions.  </li>
-  <li>Will PCA give us anything useful?    </li>
-  <li>I should read a paper on rat neurophysiology, an older paper - they showed that in an 8-arm radial maze, certain PFC cells encoded specific parts of an arm, without being specific to the particular arm.  This is similar to our second slow feature in the </li>
-  <li>Check that these results are invariant o the number of hidden units and size of the maze.</li>
-</ol>
-
-<h4 id="other-to-do">Other to-do:</h4>
-<p>This isn’t related to the non-markov, but to the factored state towers of hanoi: I was tasked with performing slow feature analysis on a random walk on a factored state representation of the towers of hanoi task.  It seems like I’m getting a result that Ari wasn’t able to: The first slow feature seems to represent the location of the largest ring.
-* I should check with Ari to make sure I did things the way he did, too <br />
-* I should show Matt the MDS of the slow features <br />
-* I should make sure all of theslow features load on all dimensions of the original input space.<br />
-* We’re not sure what the second slowest feature should look like, but it seems like it might be the configuration of the second largest ring conditioned on the location of the largest ring.  That’s definitely what the scatter plot of the first two features looks like.</p>
 ]]></content>
   </entry>
   

@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: EEG - Something Witty</title>
+  <title>Sleep EEG: Varying regularization and simulated results - Something Witty</title>
   <meta name="author" content="Luis R. Piloto">
 
   
-  <meta name="description" content="Category: EEG">
+  <meta name="description" content="EEG, hide, noarchive, sleep Sleep EEG: Varying Regularization and Simulated Results Logistic Regression Untransformed Sleep Data: Varying &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ElPiloto.github.ioblog/categories/eeg">
+  <link rel="canonical" href="http://ElPiloto.github.io/blog/2014/08/01/sleep-eeg-varying-regularization-and-simulated-results">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/styles.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Something Witty" type="application/atom+xml">
@@ -152,13 +152,39 @@
 		</aside>
 		
       <div>
-<article role="article">
+<article>
+	<header>
+  <div class="article-tags">
+      
+
+<span class="categories">
   
-  <header>
-    <h1 class="entry-title">Category: EEG</h1>
-  </header>
+    <a class='category' href='/blog/categories/eeg/'>EEG</a>, <a class='category' href='/blog/categories/hide/'>hide</a>, <a class='category' href='/blog/categories/noarchive/'>noarchive</a>, <a class='category' href='/blog/categories/sleep/'>sleep</a>
   
-  <div id="blog-archives" class="category">
+</span>
+
+
+  </div>
+  
+    <h1>
+      Sleep EEG: Varying Regularization and Simulated Results
+    </h1>
+  
+</header>
+<section>
+  <h3 id="logistic-regression-untransformed-sleep-data-varying-regularization-term">Logistic Regression Untransformed Sleep Data: Varying regularization term</h3>
+<p>The motivation for this line of inquiry is contained in <a href="/blog/2014/07/27/sleep-eeg-post-boosting-results/">this post</a> under the discussion section for figure 4.</p>
+
+<p><img src="/images/research/untransformed_log_reg_lambda250and750.jpg" width="700" height="350" /></p>
+
+<p><strong>Figure 1:</strong> This shows the sleep classification accuracy for logistic regression using untransformed sleep data with <code>statmap_anova</code> feature selection (stat_thresh = 0.1).</p>
+
+<p><strong>Thoughts</strong> Well this is interesting.  I had previously been using a regularization term of 1 for all the logistic regression analyses and to see this level of classification accuracy using a regularization penalty two orders of magnitude higher than previously suggests that I didn’t have much of a grasp on the role of the regularization term in this analysis.  The lambda = 750 case is encouraging because it’s up there in terms of the highest average classification accuracy we’ve seen AND it includes that largest regularization term we’ve used thus far.  It’s worth investigating how far we can push regularization before it collapses, thus I’ve launched an additional analysis trying results with regularization = 1250 and 1750.</p>
+
+</section>
+<footer>
+  <div class="article-date">
+      
 
 
 
@@ -166,35 +192,18 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
 
   
+
+
+<time datetime="2014-08-01T10:27:00-04:00" pubdate data-updated="true">Aug 1<span>st</span>, 2014</time>
+  </div>
+</footer>
+
+	
 </article>
 </div>
+
     </div>
   </div>
   <footer class="main-footer">
