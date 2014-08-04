@@ -4,7 +4,7 @@
   <title><![CDATA[Category: noarchive | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/noarchive/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-08-01T10:40:11-04:00</updated>
+  <updated>2014-08-03T14:05:38-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -25,11 +25,14 @@
 
 <p><strong>Figure 1:</strong> This shows the sleep classification accuracy for logistic regression using untransformed sleep data with <code>statmap_anova</code> feature selection (stat_thresh = 0.1).</p>
 
-<p><strong>Thoughts</strong> Well this is interesting.  I had previously been using a regularization term of 1 for all the logistic regression analyses and to see this level of classification accuracy using a regularization penalty two orders of magnitude higher than previously suggests that I didn’t have much of a grasp on the role of the regularization term in this analysis.  The lambda = 750 case is encouraging because it’s up there in terms of the highest average classification accuracy we’ve seen AND it includes that largest regularization term we’ve used thus far.  It’s worth investigating how far we can push regularization before it collapses, thus I’ve launched an additional analysis trying results with regularization = 1250 and 1750.  Will update this post when those results are in.</p>
+<p><strong>Thoughts</strong> Well this is interesting.  I had previously been using a regularization term of 1 for all the logistic regression analyses and to see this level of classification accuracy using a regularization penalty two orders of magnitude higher than previously suggests that I didn’t have much of a grasp on the role of the regularization term in this analysis.  The lambda = 750 case is encouraging because it’s up there in terms of the highest average classification accuracy we’ve seen AND it includes that largest regularization term we’ve used thus far.  It’s worth investigating how far we can push regularization before it collapses, thus I’ve launched an additional analysis trying results with regularization = 1250 and 1750.  Will update this post when those results are in.  ALSO, this begs the question: should we re-run our sleep transformed analyses using stronger regularization for the wake classes?  <strong>YES</strong></p>
 
 <h3 id="simulated-results">Simulated Results</h3>
 
 <p><strong>STILL CODING</strong></p>
+
+<h1 id="section">#</h1>
+<p>Ken is most interested in the hilbert-transformed data in the hopes that the Hilbert stuff will clean up (induce consistency across subjects) for wake.  Hopefully see good classification across subjects theta, 200-ish, also which electrodes are informative.</p>
 ]]></content>
   </entry>
   
