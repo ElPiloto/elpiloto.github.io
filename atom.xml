@@ -4,7 +4,7 @@
   <title><![CDATA[Something Witty]]></title>
   <link href="http://ElPiloto.github.io/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-08-04T11:01:46-04:00</updated>
+  <updated>2014-08-04T11:04:56-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -37,7 +37,7 @@
 
 <p><strong>Figure 3:</strong> This shows the sleep classification accuracy for logistic regression using untransformed sleep data with <code>statmap_anova</code> feature selection (stat_thresh = 0.1).</p>
 
-<p><strong>Thoughts:</strong> This is clearly too high for most subjects, although the subjects that have been doing well in our “best 8” analysis get pretty good classification with $\lambda = 2000$ which is unsurprising given their results for $\lambda = 1750$.  I’m gunna try running all subjects with a smaller value for $\lambda$</p>
+<p><strong>Thoughts:</strong> This is clearly too high for most subjects. Although <strong>some</strong> of the subjects that have been doing well in our “best 8” analysis get pretty good classification with $\lambda = 2000$, which is unsurprising given their results for $\lambda = 1750$, some other subjects (e.g. subject 7) that did well are now getting below-chance accuracy.  The flop of some of the good “best 8” subjects from above to below chance accuracy makes a good case for reducing the regularization penalty.  Thus, I’m gunna try running all subjects with a smaller value for $\lambda$ because the infrastructure is in place to do that.</p>
 
 <h3 id="simulated-results">Simulated Results</h3>
 
