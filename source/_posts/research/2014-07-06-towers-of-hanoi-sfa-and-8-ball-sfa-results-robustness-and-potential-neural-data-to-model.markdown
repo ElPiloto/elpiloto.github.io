@@ -11,6 +11,7 @@ categories:
 - botvinick
 ---
 
+
 #### Towers of Hanoi To-Do:
 1. **Run SFA on random walk using multiple different random number seeds** 
 2. I am using the same starting location, this might affect the solutions found by SFA.  However, looking at the average input values (<code>SFA_STRUCTS.avg0</code>) shows that each feature has an average value of approximately 0.33, indicating that we do traverse all configurations equally frequently.
