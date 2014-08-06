@@ -4,7 +4,7 @@
   <title><![CDATA[Something Witty]]></title>
   <link href="http://ElPiloto.github.io/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-08-06T10:47:50-04:00</updated>
+  <updated>2014-08-06T12:53:29-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -20,9 +20,24 @@
     <id>http://ElPiloto.github.io/blog/2014/08/06/sleep-eeg-hilbert-transformed-data</id>
     <content type="html"><![CDATA[<h2 id="wake-hilbert-transformed-classification">Wake Hilbert Transformed Classification</h2>
 
-<p><a href="src=&quot;/images/research/sleep_eeg_hilbert/wake_hilb_mean_across_subjects.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/wake_hilb_mean_across_subjects.png" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/wake_hilb_mean_across_subjects.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/wake_hilb_mean_across_subjects.png" width="700" height="350" /></a></p>
 
-<p><a href="src=&quot;/images/research/sleep_eeg_hilbert/wake_hilb_mean_across_subjects_per_freq.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/wake_hilb_mean_across_subjects_per_freq.png" width="700" height="350" /></a></p>
+<p><strong>Figure 1:</strong> Average AUC on Hilbert-transformed wake data across all subjects for each time bin and frequency band combination.</p>
+
+<p><strong>Thoughts:</strong> We see “hotspots” where we were hoping to see them: at the theta frequency around 200-230ms. Moreover, we see that the 200-230ms theta bin forms a local peak: as you move earlier or later in time, classification accuracy decreases.  Importantly, the accuracy using these bands (as opposed to individual frequencies like we had before) yields comparable average wake classification across subjects if we look at this <a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/wake_auc_avgd.png">old plot</a>.  If this result holds for all subjects, then we would feel pretty good about using the 200ms (or 230ms) theta time-freq bin to transform the sleep data.  Therefore, let’s look at the individual subjects to see if these results are driven by some subjects or if they seem to be pretty evenly distributed (spoiler: doesn’t seem to be a good time-freq bin, or even classifiable, for all subjects, but it does pretty well)</p>
+
+<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/wake_hilb_all_subjects_all_freqs_all_times.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/wake_hilb_all_subjects_all_freqs_all_times.png" width="700" height="350" /></a></p>
+
+<p><strong>Figure 2:</strong> AUC heatmaps of classification AUC per subject.  Subject IDs are along the top of each subplot, timebins run along the y-axis and frequencies along the x-axis (only explicitly marked for the last subject, but the axes are exactly the same as Figure 1).</p>
+
+<p><strong>Thoughts:</strong> These plots, though informative, suck for the purpose of evaluating how good the 200-250ms, theta bins do across all subjects.  Let’s zoom in on the areas of interest below.  One additional point, is that we’re getting <strong>much</strong> better max AUC across timebins than previously before (using individual frequencies) suggesting that the Hilbert transform is a better preprocessing technique for classification.</p>
+
+<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/wake_across_subjs_times7__8__9_freq2.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/wake_across_subjs_times7__8__9_freq2.png" width="700" height="350" /></a></p>
+
+<p><strong>Figure 3:</strong>  Above we show the AUC for each subject for 3 different times (200, 225, and 250ms respectively) for the 4 Hz (theta) frequency band.</p>
+
+<p><strong>Thoughts:</strong> This isn’t the greatest, especially considering some subjects have time-freq bins with much higher AUC.  “Irregardless,” these results are sufficiently positive to justify transforming sleep data.</p>
+
 ]]></content>
   </entry>
   
@@ -50,19 +65,19 @@ allows for:<br />
     <content type="html"><![CDATA[<h3 id="logistic-regression-untransformed-sleep-data-varying-regularization-term">Logistic Regression Untransformed Sleep Data: Varying regularization term</h3>
 <p>The motivation for this line of inquiry is contained in <a href="http://ElPiloto.github.io/blog/2014/07/27/sleep-eeg-post-boosting-results/">this post</a> under the discussion section for figure 4.</p>
 
-<p><a href="src=&quot;/images/research/untransformed_log_reg_lambda250and750.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/untransformed_log_reg_lambda250and750.jpg" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/untransformed_log_reg_lambda250and750.jpg" target="_blank"><img src="http://ElPiloto.github.io/images/research/untransformed_log_reg_lambda250and750.jpg" width="700" height="350" /></a></p>
 
 <p><strong>Figure 1:</strong> This shows the sleep classification accuracy for logistic regression using untransformed sleep data with <code>statmap_anova</code> feature selection (stat_thresh = 0.1).</p>
 
 <p><strong>Thoughts</strong> Well this is interesting.  I had previously been using a regularization term of 1 for all the logistic regression analyses and to see this level of classification accuracy using a regularization penalty two orders of magnitude higher than previously suggests that I didn’t have much of a grasp on the role of the regularization term in this analysis.  The $\lambda = 750$ case is encouraging because it’s up there in terms of the highest average classification accuracy we’ve seen AND it includes that largest regularization term we’ve used thus far.  It’s worth investigating how far we can push regularization before it collapses, thus I’ve launched an additional analysis trying results with regularization = 1250 and 1750.  Will update this post when those results are in.  ALSO, this begs the question: should we re-run our sleep transformed analyses using stronger regularization for the wake classes?  <strong>YES</strong></p>
 
-<p><a href="src=&quot;/images/research/untransformed_log_reg_lambda1250and1750.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/untransformed_log_reg_lambda1250and1750.jpg" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/untransformed_log_reg_lambda1250and1750.jpg" target="_blank"><img src="http://ElPiloto.github.io/images/research/untransformed_log_reg_lambda1250and1750.jpg" width="700" height="350" /></a></p>
 
 <p><strong>Figure 2:</strong> This shows the sleep classification accuracy for logistic regression using untransformed sleep data with <code>statmap_anova</code> feature selection (stat_thresh = 0.1).</p>
 
 <p><strong>Thoughts:</strong> This still doesn’t make it seem like we’ve hit the upper bound on the regularization penalty. I’m not sure what to make of the fact that 750 = good regularzation, 1750 = good regularization, but 1250 gives pretty crappy results.  I guess I don’t have any strong theoretical justification to think classification accuracy would vary smoothly as we modify the regularization parameter.  I’m now launching sleep untransformed classification on <em>all</em> the subjects with a high regularization term.</p>
 
-<p><a href="src=&quot;/images/research/untransformed_log_reg_lambda12000_ALLSUBJS.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/untransformed_log_reg_lambda12000_ALLSUBJS.jpg" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/untransformed_log_reg_lambda12000_ALLSUBJS.jpg" target="_blank"><img src="http://ElPiloto.github.io/images/research/untransformed_log_reg_lambda12000_ALLSUBJS.jpg" width="700" height="350" /></a></p>
 
 <p><strong>Figure 3:</strong> This shows the sleep classification accuracy for logistic regression using untransformed sleep data with <code>statmap_anova</code> feature selection (stat_thresh = 0.1).</p>
 
@@ -135,22 +150,22 @@ allows for:<br />
 
 <h3 id="as-a-refresher-here-is-the-last-boosting-result">As a refresher, here is the last boosting result:</h3>
 
-<p><a href="src=&quot;/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle.jpg" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle.jpg" target="_blank"><img src="http://ElPiloto.github.io/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle.jpg" width="700" height="350" /></a></p>
 
 <p><strong>Figure 1:</strong> The y-axis shows classification accuracy.  Subjects and parameters are shown along the x-axis (g = gentleboost algorithm, f = face mcduff importance sleep transform).</p>
 
 <h2 id="logistic-regression-sleep-importance-map-transformed-results-to-do-item-1">Logistic Regression Sleep Importance Map Transformed Results (To-Do Item #1)</h2>
-<p><a href="src=&quot;/images/research/log_reg_best_8_subjects_mcduff_xform.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/log_reg_best_8_subjects_mcduff_xform.jpg" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/log_reg_best_8_subjects_mcduff_xform.jpg" target="_blank"><img src="http://ElPiloto.github.io/images/research/log_reg_best_8_subjects_mcduff_xform.jpg" width="700" height="350" /></a></p>
 
 <p><strong>Figure 2a:</strong> Displayed above is the classifier accuracy for all subjects(x-axis).  The classification accuracy was generated for various sleep importance map transformations (face, scene, or face minus scene), which is indicated along the y-axis.  The classifier features consisted of transforming the sleep data at each timebin and concatenating the sleep transformed data at each timebin into a single data matrix.  The entries along the x and y axis labelled “Mean” simply show the mean along the x and y axis respectively.</p>
 
 <p><strong>Thoughts</strong>: These results lend further credence to the notion that it may be beneficial to sleep transform data according to both face and scene classifiers and feed both of those into a single classifier.  This idea that perhaps there is information in the scene pattern that isn’t in the face pattern (and vice versa) can be further scrutinized by looking at MDS plots of the untransformed data, the face transformed data, and scene transformed data - this may be worth doing depending on how much free time I have.  If I don’t end up looking at that, I’m not too upset since item #2 on the to-do list will also give us information about the role of the sleep transformation.  Additionally: note that the average classification accuracy, across both subjects and sleep transformation types, is pretty similar to that achieved with boosting, but none of the individual sleep transformations really give the same classification accuracy profile across subjects as the boosting results (this is easier to see in the plot below where I plot the rows of Figure 2 as separate horizontal bar graphs to match the format of the boosting results.  Why does it matter that accuracy across subjects in the logistic regression case doesn’t look like the accuracy achieved with boosting?  If our sleep transformation method yielded enough signal, then it should yield similar classification accuracy across subjects for the different classifier types.</p>
 
-<p><a href="src=&quot;/images/research/log_reg_best_8_subjects_mcduff_xform_supplement.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/log_reg_best_8_subjects_mcduff_xform_supplement.jpg" width="700" height="350" /></a>
+<p><a href="http://ElPiloto.github.io/images/research/log_reg_best_8_subjects_mcduff_xform_supplement.jpg" target="_blank"><img src="http://ElPiloto.github.io/images/research/log_reg_best_8_subjects_mcduff_xform_supplement.jpg" width="700" height="350" /></a>
 <strong>Figure 2b:</strong> A different visualization of the logistic regression plots useful for direct visual comparison against the ensemble results (Figure 1).</p>
 
 <h2 id="to-do-item-3-boosting-classification-results-using-different-sleep-transforms-best-8-subjects">To-Do Item #3: Boosting Classification Results Using Different Sleep Transforms, Best 8 Subjects</h2>
-<p><a href="src=&quot;/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle_ALL_TRANSFORMS.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle_ALL_TRANSFORMS.jpg" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle_ALL_TRANSFORMS.jpg" target="_blank"><img src="http://ElPiloto.github.io/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle_ALL_TRANSFORMS.jpg" width="700" height="350" /></a></p>
 
 <p><strong>Figure 3:</strong> This shows boosting classification accuracy using different sleep transforms.  The x-axis indicates which boosting algorithm (g for gentleboost) was used, the subject id (e.g. ‘15’ or ‘07’), and the wake pattern that was used for the sleep transformation (f = face, s = scene, M = face minus scene).</p>
 
@@ -159,7 +174,7 @@ allows for:<br />
 <h2 id="to-do-item-2-logistic-regression-classification-results-sleep---untransformed-best-8-subjects">To-Do Item #2: Logistic Regression Classification Results Sleep - UNTRANSFORMED, Best 8 Subjects</h2>
 <p><del><strong>3/23 JOBS STILL RUNNING ON CLUSTER</strong>  This takes a relatively long time because the feature selection has to operate over ~100,000 features and that needs to run for each cross-validation fold for each subject.</del>  The results are displayed below</p>
 
-<p><a href="src=&quot;/images/research/sleep_log_reg_raw_best8.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_log_reg_raw_best8.jpg" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/sleep_log_reg_raw_best8.jpg" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_log_reg_raw_best8.jpg" width="700" height="350" /></a></p>
 
 <p><strong>Figure 4:</strong> This shows the result of performing logistic regression on the raw sleep data using all frequencies, all time bins, and all electrodes on raw data.  This amounts to about 100,00 features (64 electrodes x ~47 frequencies x ~38 time bins ) so obviously I need to run this analysis with feature selection.  I really wanted to include as many features as I could (without exceeding my RAM limits), so I used a loose stat threshold for statmap_anova feature selection (p = 0.1) which yielded about 10,000 features.</p>
 
@@ -169,11 +184,11 @@ allows for:<br />
 
 <h2 id="to-do-item-4--feed-classifiers-face-and-scene-transformed-data-using-mcduff-importance-maps">To-Do Item #4:  Feed classifiers face AND scene transformed data using McDuff Importance Maps</h2>
 
-<p><a href="src=&quot;/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle_face_AND_SCENE.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle_face_AND_SCENE.jpg" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle_face_AND_SCENE.jpg" target="_blank"><img src="http://ElPiloto.github.io/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle_face_AND_SCENE.jpg" width="700" height="350" /></a></p>
 
 <p><strong>Figure 5a:</strong> Boosting classification exactly like the Figure 1) except that these incorporate a feature vector that consists of transforming all frequencies with the importance map for scene and concatenating those features onto the feature vector generated by transforming all frequencies in the sleep data with the importance map for faces.</p>
 
-<p><a href="src=&quot;/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether.jpg" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether.jpg" target="_blank"><img src="http://ElPiloto.github.io/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether.jpg" width="700" height="350" /></a></p>
 
 <p><strong>Figure 5b:</strong> Exactly the same as figure 2a, recall we’re feeding in all the timepoints to logistic regression (no explicit feature selection in this version, although we still use regularization), except this time we used both face and scene transformed features in the data.</p>
 
@@ -184,9 +199,9 @@ allows for:<br />
 
 <p><strong>UPDATE:</strong> Comparing the preprocessed data using the dot product and correlation, it looks like the data being processed is in fact different for the boosting classifier i.e. I don’t think that this is a bug.  Looking into it more, given that the correlation is the normalized dot product, it makes sense that we get different results for logistic regression but not the boosting ensemble.  Why? Well, logistic regression regularization term penalizes the magnitude of the weights, thus keeping the same regularization penalty but scaling the weights is effectively the same as keeping the same weights but modifying the regularization term.  However, boosting just creates decision stumps which will split the data regardless of whether or not the data are normalized.  Thus these results make sense: all is right with the world.  Kind of.</p>
 
-<p><a href="src=&quot;/images/research/8_wake_subj_202ms_7hz_gentle_faceSCENE_DOTPROD.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/8_wake_subj_202ms_7hz_gentle_faceSCENE_DOTPROD.jpg" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/8_wake_subj_202ms_7hz_gentle_faceSCENE_DOTPROD.jpg" target="_blank"><img src="http://ElPiloto.github.io/images/research/8_wake_subj_202ms_7hz_gentle_faceSCENE_DOTPROD.jpg" width="700" height="350" /></a></p>
 
-<p><a href="src=&quot;/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether_DOTPROD.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether_DOTPROD.jpg" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether_DOTPROD.jpg" target="_blank"><img src="http://ElPiloto.github.io/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether_DOTPROD.jpg" width="700" height="350" /></a></p>
 
 ]]></content>
   </entry>
@@ -202,25 +217,25 @@ allows for:<br />
 
 <h3 id="ensemble-classification-results-round-6---cross-validation-subject-1">Ensemble Classification Results, Round 6 - Cross-validation subject 1</h3>
 
-<p><a href="src=&quot;/images/research/ensemble_results_subj1_round6.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/ensemble_results_subj1_round6.jpg" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/ensemble_results_subj1_round6.jpg" target="_blank"><img src="http://ElPiloto.github.io/images/research/ensemble_results_subj1_round6.jpg" width="700" height="350" /></a></p>
 
-<p><a href="src=&quot;/images/research/ensemble_results_subj1_round6pt2.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/ensemble_results_subj1_round6pt2.jpg" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/ensemble_results_subj1_round6pt2.jpg" target="_blank"><img src="http://ElPiloto.github.io/images/research/ensemble_results_subj1_round6pt2.jpg" width="700" height="350" /></a></p>
 
-<p><a href="src=&quot;/images/research/ensemble_results_subj1_round6pt3.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/ensemble_results_subj1_round6pt3.jpg" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/ensemble_results_subj1_round6pt3.jpg" target="_blank"><img src="http://ElPiloto.github.io/images/research/ensemble_results_subj1_round6pt3.jpg" width="700" height="350" /></a></p>
 
 <h3 id="ensemble-classification-results-round-3">Ensemble Classification Results, Round 3</h3>
 
 <p>I used the following values to produce the plot below:
 10-fold cross validation, GentleBoost, 200 Learners, Wake Time = 152ms, Freq = 7 Hz, Importance Map for Face</p>
 
-<p><a href="src=&quot;/images/research/ensemble_results_subj1thru8_round3.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/ensemble_results_subj1thru8_round3.jpg" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/ensemble_results_subj1thru8_round3.jpg" target="_blank"><img src="http://ElPiloto.github.io/images/research/ensemble_results_subj1thru8_round3.jpg" width="700" height="350" /></a></p>
 
 <h3 id="ensemble-classification-results-round-1-incorrect">Ensemble Classification Results, Round 1 (INCORRECT)</h3>
 <p><strong>these results are wrong - leaving here for historical purposes only</strong></p>
 
 <p>Previously, I went through and tried various combinations of boosting algorithms (LogitBoost, GentleBoost, Adaboost.M1), number of learners, and number of folds for a single subject (subject 01) to try to determine what to run across all subjects to get the best tradeoff between accuracy and running time.  Below is a summary of those results.</p>
 
-<p><a href="src=&quot;/images/research/subj1_ensemble_params_testing.png&quot; width=&quot;700&quot; height=&quot;300&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/subj1_ensemble_params_testing.png" width="700" height="300" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/subj1_ensemble_params_testing.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/subj1_ensemble_params_testing.png" width="700" height="300" /></a></p>
 
 <p>Ultimately, I chose the following: <br />
   <strong>GentleBoost:</strong> just as good accuracy as other algorithms <em>and</em> better running time than AdaBoost.M1 or LogitBoost for some parametrizations   <br />
@@ -237,7 +252,7 @@ j  </p>
      - freq = 7 Hz <br />
      - mcduff pattern = face   </p>
 
-<p><a href="src=&quot;/images/research/ensemble_results_subj1thru8_round1.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/ensemble_results_subj1thru8_round1.jpg" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/ensemble_results_subj1thru8_round1.jpg" target="_blank"><img src="http://ElPiloto.github.io/images/research/ensemble_results_subj1thru8_round1.jpg" width="700" height="350" /></a></p>
 
 <h3 id="next-steps">Next Steps</h3>
 
@@ -282,8 +297,8 @@ j  </p>
 <h3 id="different-num-hidden-units">Different Num Hidden Units</h3>
 
 <h4 id="hidden-unit-mds-plots">Hidden Unit MDS Plots</h4>
-<p><a href="src=&quot;/images/research/sfa_lstm/hidden_layer_width3_hidden5_loop.png&quot; width=&quot;750&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_width3_hidden5_loop.png" width="750" height="350" /></a> 
-<a href="src=&quot;/images/research/sfa_lstm/hidden_layer_width3_hidden3_loop.png&quot; width=&quot;750&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_width3_hidden3_loop.png" width="750" height="350" /></a> </p>
+<p><a href="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_width3_hidden5_loop.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_width3_hidden5_loop.png" width="750" height="350" /></a> 
+<a href="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_width3_hidden3_loop.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_width3_hidden3_loop.png" width="750" height="350" /></a> </p>
 
 <h5 id="observations">Observations:</h5>
 <ol>
@@ -293,18 +308,18 @@ j  </p>
 </ol>
 
 <h4 id="hidden-unit-similarity-plots-according-to-location-on-maze">Hidden Unit Similarity Plots According to Location on Maze</h4>
-<p><a href="src=&quot;/images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden5.png&quot; width=&quot;750&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden5.png" width="750" height="350" /></a> 
+<p><a href="http://ElPiloto.github.io/images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden5.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden5.png" width="750" height="350" /></a> 
 <strong>Figure 2a) 5 Hidden Units</strong>
-<a href="src=&quot;/images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden3.png&quot; width=&quot;750&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden3.png" width="750" height="350" /></a> 
+<a href="http://ElPiloto.github.io/images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden3.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden3.png" width="750" height="350" /></a> 
 <strong>Figure 2b) 3 Hidden Units</strong>  </p>
 
 <h5 id="observations-1">Observations:</h5>
 <p>This is just another way of seeing how much cleaner the 5 hidden units representation is.</p>
 
 <h4 id="linear-sfa-top-2-slowest-features">Linear SFA Top 2 Slowest Features</h4>
-<p><a href="src=&quot;/images/research/sfa_lstm/sfa_1st_2_features_rm_1st_visit_width3_hidden5.png&quot; width=&quot;750&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/sfa_1st_2_features_rm_1st_visit_width3_hidden5.png" width="750" height="350" /></a> 
+<p><a href="http://ElPiloto.github.io/images/research/sfa_lstm/sfa_1st_2_features_rm_1st_visit_width3_hidden5.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/sfa_1st_2_features_rm_1st_visit_width3_hidden5.png" width="750" height="350" /></a> 
 <strong>Figure 3a) 5 Hidden Units</strong>
-<a href="src=&quot;/images/research/sfa_lstm/sfa_1st_2_features_rm_1st_visit_width3_hidden3.png&quot; width=&quot;750&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/sfa_1st_2_features_rm_1st_visit_width3_hidden3.png" width="750" height="350" /></a> 
+<a href="http://ElPiloto.github.io/images/research/sfa_lstm/sfa_1st_2_features_rm_1st_visit_width3_hidden3.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/sfa_1st_2_features_rm_1st_visit_width3_hidden3.png" width="750" height="350" /></a> 
 <strong>Figure 3b) 3 Hidden Units</strong>   </p>
 
 <h5 id="observations-2">Observations:</h5>
@@ -313,9 +328,9 @@ j  </p>
   <li>The question is: how much of this is the neural network and how much of this is SFA? Well let’s look at the plots below of the raw hidden layer values across the maze.  If the neural network is doing all the heavy lifting, then we would see a single, slowly varying feature that encodes the loops direction but this doesn’t seem to be the case!</li>
 </ol>
 
-<p><a href="src=&quot;/images/research/sfa_lstm/hidden_layer_on_maze_raw_left_width3_hidden5.png&quot; width=&quot;750&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_on_maze_raw_left_width3_hidden5.png" width="750" height="350" /></a> 
+<p><a href="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_on_maze_raw_left_width3_hidden5.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_on_maze_raw_left_width3_hidden5.png" width="750" height="350" /></a> 
 <strong>Figure 4a) 5 Hidden Units</strong>
-<a href="src=&quot;/images/research/sfa_lstm/hidden_layer_on_maze_raw_right_width3_hidden5.png&quot; width=&quot;750&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_on_maze_raw_right_width3_hidden5.png" width="750" height="350" /></a> 
+<a href="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_on_maze_raw_right_width3_hidden5.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_on_maze_raw_right_width3_hidden5.png" width="750" height="350" /></a> 
 <strong>Figure 4b) 5 Hidden Units</strong>   </p>
 
 <p><strong>NOTE:</strong> These colors look exactly the same along the central corridor (which would be troubling), but their values are actually different if you look at the numbers.</p>
@@ -323,19 +338,19 @@ j  </p>
 <h3 id="different-maze-size----width-7-5-hidden-units">Different Maze Size  - Width 7, 5 Hidden Units</h3>
 
 <h4 id="hidden-unit-mds-plots-1">Hidden Unit MDS Plots</h4>
-<p><a href="src=&quot;/images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png&quot; width=&quot;750&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png" width="750" height="350" /></a> </p>
+<p><a href="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png" width="750" height="350" /></a> </p>
 
 <h4 id="linear-sfa-top-2-slowest-features-1">Linear SFA Top 2 Slowest Features</h4>
 
-<p><a href="src=&quot;/images/research/sfa_lstm/sfa_linear_1st2features_width7_hidden5.png&quot; width=&quot;750&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/sfa_linear_1st2features_width7_hidden5.png" width="750" height="350" /></a> </p>
+<p><a href="http://ElPiloto.github.io/images/research/sfa_lstm/sfa_linear_1st2features_width7_hidden5.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/sfa_linear_1st2features_width7_hidden5.png" width="750" height="350" /></a> </p>
 
 <h3 id="different-maze-structure">Different Maze Structure</h3>
 
 <h4 id="hidden-unit-mds-plots-2">Hidden Unit MDS Plots</h4>
-<p><a href="src=&quot;/images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png&quot; width=&quot;750&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png" width="750" height="350" /></a> </p>
+<p><a href="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png" width="750" height="350" /></a> </p>
 
 <h4 id="linear-sfa-top-2-slowest-features-2">Linear SFA Top 2 Slowest Features</h4>
-<p><a href="src=&quot;/images/research/sfa_lstm/sfa_1wayloop_width7_hidden5.png&quot; width=&quot;750&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/sfa_1wayloop_width7_hidden5.png" width="750" height="350" /></a> </p>
+<p><a href="http://ElPiloto.github.io/images/research/sfa_lstm/sfa_1wayloop_width7_hidden5.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/sfa_1wayloop_width7_hidden5.png" width="750" height="350" /></a> </p>
 
 <h3 id="meeting-with-mattbot">Meeting with Mattbot:</h3>
 
@@ -406,38 +421,38 @@ j  </p>
 <h3 id="wake-classification-results">Wake Classification Results</h3>
 <p>These are important because it’s likely we’ll want to exclude subjects with poor wake cross-validation AUC from subsequent analyses.</p>
 
-<p><a href="src=&quot;/images/research/sleep_eeg_9_subjects_06_23_2014/wake_AUC_most_subjects.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/wake_AUC_most_subjects.png" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/wake_AUC_most_subjects.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/wake_AUC_most_subjects.png" width="700" height="350" /></a></p>
 
 <p><strong>Figure 1a:</strong> This shows the AUC for leave-one-out cross-validation on wake EEG data training on all the z-scored frequencies corresponding to a particular time bin as indicated on the y-axis.  The AUC was calculating by training a classifier that distinguishes between all classes, but only testing on patterns that corresponded to either a celebrity or a landmark.  The AUC was calculated by feeding in the difference between the output for the celebrity one-vs-all classifier and the landmark one-vs-all classifier for each cross-validation fold and the plotted values show the mean AUC across all cross-validation folds.  We had previously looked at the cross-validation accuracy for the first two subjects across a wider range of times, but narrowed it down to these four windows.</p>
 
 <p><code>plot_loopify_time_sweep_results_AUC.m </code>  <br />
 <code>classify_piloy_log_reg_time_sweep_driver.m </code>      </p>
 
-<p><a href="src=&quot;/images/research/sleep_eeg_9_subjects_06_23_2014/wake_auc_avgd.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/wake_auc_avgd.png" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/wake_auc_avgd.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/wake_auc_avgd.png" width="700" height="350" /></a></p>
 
 <p><strong>Figure 1b:</strong> Average AUC per time bin</p>
 
 <h3 id="sleep-cross-validation-classification-all-frequencies-per-time-bin">Sleep Cross-Validation Classification: All Frequencies Per Time Bin</h3>
 <p><strong>NOTE:</strong> These results were supposed to be for performing feature selection, but I accidentally set the feature selection statistical threshold to 1, which is the same as not using feature selection.  <del>Re-running these results with feature selection.</del>  The results actually containing feature selection are just below.</p>
 
-<p><a href="src=&quot;/images/research/sleep_eeg_9_subjects_06_23_2014/all_9subjects_sleep_CV_AUC_feature_select.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/all_9subjects_sleep_CV_AUC_feature_select.png" width="700" height="350" /></a>
+<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/all_9subjects_sleep_CV_AUC_feature_select.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/all_9subjects_sleep_CV_AUC_feature_select.png" width="700" height="350" /></a>
 <strong>Figure 2a)</strong> We plot the AUC for classification of celebrity vs. landmarks during sleep across all our subjects (y-axis).  This was calculated by performing cross-validation (somewhere between 15-fold and 40-fold depending on the number of sleep patterns available) using all frequencies z-scored across electrodes for a particular timebin (x-axis). <br />
-<a href="src=&quot;/images/research/sleep_eeg_9_subjects_06_23_2014/all_9subjects_sleep_CV_AUC_feature_select_PVAL.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/all_9subjects_sleep_CV_AUC_feature_select_PVAL.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/all_9subjects_sleep_CV_AUC_feature_select_PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/all_9subjects_sleep_CV_AUC_feature_select_PVAL.png" width="700" height="350" /></a>
 <strong>Figure 2b)</strong> We plot the p-values for combinations of subjects and time bins with sleep cross-validation AUC values that are calculated via a shuffled permutation test whereby the labels of the classes are shuffled, we train a classifier with the shuffled patterns, and look at the cross-validation AUC for this shuffled dataset. Areas in red have p-values &gt; 0.05.
-<a href="src=&quot;/images/research/sleep_eeg_9_subjects_06_23_2014/all_9subjects_sleep_CV_acc_feature_select.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/all_9subjects_sleep_CV_acc_feature_select.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/all_9subjects_sleep_CV_acc_feature_select.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/all_9subjects_sleep_CV_acc_feature_select.png" width="700" height="350" /></a>
 <strong>Figure 2c)</strong> Instead of calculating the AUC, we plot the classification accuracy - this should be pretty similar to Figure 2b.
-<a href="src=&quot;/images/research/sleep_eeg_9_subjects_06_23_2014/all_9subjects_sleep_CV_acc_feature_select_PVAL.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/all_9subjects_sleep_CV_acc_feature_select_PVAL.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/all_9subjects_sleep_CV_acc_feature_select_PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/all_9subjects_sleep_CV_acc_feature_select_PVAL.png" width="700" height="350" /></a>
 <strong>Figure 2d)</strong> Here we plot the p-values for the classification accuracies.</p>
 
 <h3 id="sleep-cross-validation-classification-feature-selection-all-frequencies-per-time-bin">Sleep Cross-Validation Classification Feature Selection: All Frequencies Per Time Bin</h3>
 
-<p><a href="src=&quot;/images/research/sleep_eeg_9_subjects_06_23_2014/9_subjects_CV_ACTUAL_AUC_feature_select.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/9_subjects_CV_ACTUAL_AUC_feature_select.png" width="700" height="350" /></a>
+<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/9_subjects_CV_ACTUAL_AUC_feature_select.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/9_subjects_CV_ACTUAL_AUC_feature_select.png" width="700" height="350" /></a>
 <strong>Figure 3a)</strong> We plot the AUC for classification of celebrity vs. landmarks during sleep across all our subjects (y-axis).  This was calculated by performing cross-validation (somewhere between 15-fold and 40-fold depending on the number of sleep patterns available) using all frequencies z-scored across electrodes for a particular timebin (x-axis). <br />
-<a href="src=&quot;/images/research/sleep_eeg_9_subjects_06_23_2014/9_subjects_CV_ACTUAL_AUC_feature_select_PVAL.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/9_subjects_CV_ACTUAL_AUC_feature_select_PVAL.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/9_subjects_CV_ACTUAL_AUC_feature_select_PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/9_subjects_CV_ACTUAL_AUC_feature_select_PVAL.png" width="700" height="350" /></a>
 <strong>Figure 3b)</strong> We plot the p-values for combinations of subjects and time bins with sleep cross-validation AUC values that are calculated via a shuffled permutation test whereby the labels of the classes are shuffled, we train a classifier with the shuffled patterns, and look at the cross-validation AUC for this shuffled dataset. Areas in red have p-values &gt; 0.05.
-<a href="src=&quot;/images/research/sleep_eeg_9_subjects_06_23_2014/9_subjects_CV_ACTUAL_acc_feature_select.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/9_subjects_CV_ACTUAL_acc_feature_select.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/9_subjects_CV_ACTUAL_acc_feature_select.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/9_subjects_CV_ACTUAL_acc_feature_select.png" width="700" height="350" /></a>
 <strong>Figure 3c)</strong> Instead of calculating the AUC, we plot the classification accuracy - this should be pretty similar to Figure 2b.
-<a href="src=&quot;/images/research/sleep_eeg_9_subjects_06_23_2014/9_subjects_CV_ACTUAL_acc_feature_select_PVAL.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/9_subjects_CV_ACTUAL_acc_feature_select_PVAL.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/9_subjects_CV_ACTUAL_acc_feature_select_PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/9_subjects_CV_ACTUAL_acc_feature_select_PVAL.png" width="700" height="350" /></a>
 <strong>Figure 3d)</strong> Here we plot the p-values for the classification accuracies.</p>
 
 <h3 id="sleep-cross-validation-transform-sleep-pattern-by-average-wake-pattern">Sleep Cross-Validation: Transform Sleep Pattern By Average Wake Pattern</h3>
@@ -473,41 +488,41 @@ j  </p>
 <h3 id="raw-hidden-layer-and-sfa-values">Raw Hidden Layer and SFA Values</h3>
 
 <p>In a previous post, we have the raw hidden layer representation as we loop around the maze.  Here is an alternate version of that plot:
-<a href="src=&quot;/images/research/hidden_layer_time_series.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_layer_time_series.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/hidden_layer_time_series.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_layer_time_series.png" width="700" height="350" /></a>
 <strong>Figure 1:</strong> The first three subplots show the hidden layer activations for all three hidden nodes.  The last subplot shows the sum of all three activations.  The blue stripes in the background correspond to the times during which the “rat” is at the fork.  Alternating bands correspond to travelling in alternate directions of the maze.</p>
 
 <p>This task is only non-Markovian in the center hallway: the correct action is entirely determined by the current location for all locations on the outside of the maze, but this is not true of the center hallway locations.  If we look at <code>hidden node 3</code>, we see that it only differs in value across loop directions at the timepoints near the fork.  Essentially, <code>hidden node 3</code> provides a linearly separable signal that indicates the direction of travel.  This is made even clearer in the two plots below showing the hidden layer activations for each location on the maze either on a leftward or rightward loop.</p>
 
-<p><a href="src=&quot;/images/research/hidden_layer_on_maze_raw_left.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_layer_on_maze_raw_left.png" width="700" height="350" /></a>
-<a href="src=&quot;/images/research/hidden_layer_on_maze_raw_right.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_layer_on_maze_raw_right.png" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/hidden_layer_on_maze_raw_left.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_layer_on_maze_raw_left.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/hidden_layer_on_maze_raw_right.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_layer_on_maze_raw_right.png" width="700" height="350" /></a></p>
 
 <p><strong>Figure 2:</strong>  The normalized (-1 to 1) hidden layer representation, a vector of three values: one for each hidden node, for each location in the maze is plotted using <em>imagesc</em> at that location in the maze.  This is done for both leftward (top) and rightward (bottom) loops.  For example, the subplot in the middle row of the center column on the top plot (“Raw Hidden Layer Values - Left”) shows the hidden layer representation for that location in the maze during a leftward loop.  The hidden layer representation for that location during a rightward loop is shown on the bottom plot at the same location.  Do not be confused by the fact that the bottom plot for a rightward loop has filled in values for locations on the maze that are only visited during a leftward loop - these are just pasted in from the leftward loop for visualization purposes (and vice-versa for the leftward loop and rightward loop maze locations).</p>
 
 <p>We see that <code>hidden node 3</code> has different values for the different loops along the center hallway, but nearly symmetric values along the outsides of the maze.  It is less clear what the other hidden units may be encoding.  A comparison of the first two hidden unit activations across loops shows that they code the outer loops of the maze differently, but not points along the center hallway (Figure 3 below).</p>
 
-<p><a href="src=&quot;/images/research/hidden_nodes_1_and_2_comparison.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_nodes_1_and_2_comparison.png" width="700" height="350" /></a>
+<p><a href="http://ElPiloto.github.io/images/research/hidden_nodes_1_and_2_comparison.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_nodes_1_and_2_comparison.png" width="700" height="350" /></a>
 <strong>Figure 3:</strong> Above we plot the activation for the first and second hidden units for each loop direction of the maze and subsequently their sum (bottom plot).  The x-axis labels analogous locations in the maze across the loops e.g. “Top Corner” on the middle plot shows the activation of <code>hidden node 2</code> for the top left corner location (blue) and the the top right corner (green).   Notably, the activations are pretty similar for the center hallway locations (“Fork”, “Bottom Center”, and “Mid Center”).</p>
 
 <p>The network does find 20 unique states (the true number of unique states in our task) and we can see this just using the first two hidden unit activations.  This begs the question: is the third hidden unit needed?  It would be <strong>very</strong> helpful to plot the multidimensional scaling for all three hidden unit activations, <del>so maybe somebody (<em>cough</em> Luis <em>cough</em> <em>cough</em> a.k.a. my own self <em>cough</em>) should do that</del> here is that <a href="http://ElPiloto.github.io/images/research/hidden_layer_mds.png">plot</a>. Another diagnostic to assess the utility of this third hidden unit would be to look at how the slow-feature analysis output varies based on whether we give all three hidden units or just the first two.
-<a href="src=&quot;/images/research/hidden_layer_representation_mds_rm_1st_visit.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_layer_representation_mds_rm_1st_visit.png" width="700" height="350" /></a> 
+<a href="http://ElPiloto.github.io/images/research/hidden_layer_representation_mds_rm_1st_visit.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_layer_representation_mds_rm_1st_visit.png" width="700" height="350" /></a> 
 <strong>Figure 4:</strong> Above we plot the hidden unit activations for each time step in our trajectory of 20 loops around the maze.  Importantly, locations on the outside of the maze (circles with black or magenta outlines) cluster together across visits. The center locations, however, are cluster according to loop direction.</p>
 
 <p>We can also look at the hidden layer represtation similarity from one location to the other locations as shown below.
-<a href="src=&quot;/images/research/hidden_layer_self_similarity.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_layer_self_similarity.png" width="700" height="350" /></a> 
+<a href="http://ElPiloto.github.io/images/research/hidden_layer_self_similarity.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_layer_self_similarity.png" width="700" height="350" /></a> 
 <strong>Figure 5:</strong> This shows the representational similarity for each unique state (recall that not all locations correspond to unique states).  The labels along the axes correspond to different locations on the maze (also indicating the loop direction when relevant) using the key below.</p>
 <center>
-<a href="src=&quot;/images/research/legend_correlation_plots.png&quot; width=&quot;450&quot; height=&quot;65&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/legend_correlation_plots.png" width="450" height="65" /></a> 
+<a href="http://ElPiloto.github.io/images/research/legend_correlation_plots.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/legend_correlation_plots.png" width="450" height="65" /></a> 
 </center>
 
 <p>Below we show an alternative method for visualizing the hidden layer representation of a location to other locations.
-<a href="src=&quot;/images/research/Linear_corr_states_hidden_and_sfa_hidden_representation.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/Linear_corr_states_hidden_and_sfa_hidden_representation.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/Linear_corr_states_hidden_and_sfa_hidden_representation.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/Linear_corr_states_hidden_and_sfa_hidden_representation.png" width="700" height="350" /></a>
 <strong>Figure 6:</strong> For each location in the maze, we create a subplot that shows the hidden layer representation for that location in the maze against all other locations in the maze.  For example, to look at the representational similarity between the top-left corner and the bottom-right corner, look at the top-left subplot and the bottom-right square within that subplot.  The similarity between a location and itself is also plotted, which is uninformative in the case of locations on the outside of the maze.  However, for locations that have multiple states (i.e. the fork location corresponds to both states “Fork - Leftward loop” and “Fork - Rightward loop”), the similarity is plotted across loop directions e.g. the top-center subplot shows the representational similarity for the fork location and the top-center value in that subplot corresponds to the representational similarity between the fork on a leftward loop and the fork on a rightward loop.</p>
 
 <h3 id="dump-of-sfa-similarity-plots">Dump of SFA Similarity Plots</h3>
-<p><a href="src=&quot;/images/research/Linear_corr_states_hidden_and_sfa_sfa3.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/Linear_corr_states_hidden_and_sfa_sfa3.png" width="700" height="350" /></a>
-<a href="src=&quot;/images/research/Linear_corr_states_hidden_and_sfa_sfa2.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/Linear_corr_states_hidden_and_sfa_sfa2.png" width="700" height="350" /></a>
-<a href="src=&quot;/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa3.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa3.png" width="700" height="350" /></a>
-<a href="src=&quot;/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa2.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa2.png" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/Linear_corr_states_hidden_and_sfa_sfa3.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/Linear_corr_states_hidden_and_sfa_sfa3.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/Linear_corr_states_hidden_and_sfa_sfa2.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/Linear_corr_states_hidden_and_sfa_sfa2.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa3.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa3.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa2.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa2.png" width="700" height="350" /></a></p>
 ]]></content>
   </entry>
   
@@ -591,7 +606,7 @@ z_{\theta}(x) = \text{hidden layer representation for input x just before output
   <li><strong>Successfully trained LSTM on 20 loops through an eightball maze (same dimensions as last time): 0% misclassification</strong></li>
 </ul>
 
-<p><a href="src=&quot;/images/research/hidden_state_activations_width3_loops20.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_state_activations_width3_loops20.png" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/hidden_state_activations_width3_loops20.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_state_activations_width3_loops20.png" width="700" height="350" /></a></p>
 
 <h3 id="questions-for-meeting">Questions for meeting</h3>
 <ul>
@@ -625,7 +640,7 @@ single unit recording analysis paper by bill newsome, analyzed by valerio monte,
 <p>Successfully trained (finally) a LSTM network on a single loop through an eightball maze.
 The eightball maze had a width $= 7$, height $= 3$, giving a total of 17 locations in the maze.</p>
 
-<p><a href="src=&quot;/images/research/non_markov_maze.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/non_markov_maze.png" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/non_markov_maze.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/non_markov_maze.png" width="700" height="350" /></a></p>
 
 <p><strong>This is the architecture used:</strong> <br />
 - input layer: represent each location as an input node<br />
@@ -670,7 +685,7 @@ Input was a single sequence which consisted of a full loop around the maze, whic
 <h3 id="are-the-trained-classifier-weights-highest-at-the-frequencies-used-to-generate-the-wake-template--for-instance-given-that-sleep-data-was-transformed-using-the-faces-template-at-230-ms-and-10-hz-does-the-trained-sleep-classifier-have-high-weights-at-10-hz">Are the trained classifier weights highest at the frequencies used to generate the wake template?  For instance, given that sleep data was transformed using the faces template at 230 ms and 10 Hz, does the trained sleep classifier have high weights at 10 Hz?</h3>
 <p>This does not seem to be the case.  If we look at the averaged (across time bins) classifier weights at each frequency, we see that there are hot spots of increased feature importance at frequencies that do not depend on the parameters used for the wake template generation.  This is illustrated in the figure below: we see increased feature importance at 3 Hz regardless of the  wake time bin and frequency used for generating the wake template.  We might be tempted to say there is a relationship between the encoding frequency and the feature importance at 10 Hz, but I don’t buy it given that we only see increased feature importance along the y-axis (indicating that there seems to be something informative about the sleep data at 10 Hz) but not the x-axis.</p>
 
-<p><a href="src=&quot;/images/research/collaped_weights_by_freq_faceMINUSscene_wake_template_subj1.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_faceMINUSscene_wake_template_subj1.png" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_faceMINUSscene_wake_template_subj1.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_faceMINUSscene_wake_template_subj1.png" width="700" height="350" /></a></p>
 
 <h3 id="are-there-any-trends-in-increased-weights-across-any-of-the-following-parameters">Are there any trends in increased weights across any of the following parameters?</h3>
 
@@ -702,23 +717,23 @@ Input was a single sequence which consisted of a full loop around the maze, whic
 <h4 id="shuffled-cross-validation-accuracy-using-transformed-sleep-data-item--5-on-to-do-list">Shuffled Cross-validation Accuracy Using Transformed Sleep Data (Item # 5 on To-Do List)</h4>
 <p>The plots below were using the generate-template-on-wake-then-transform-sleep-data-then-train-a-sleep-classifier approach.  The x-axis corresponds to training on different sleep time bins (although we use all the frequencies) and the y-axis corresponds to using different time-freq pairs to generate the wake template.  The key part of this plot is that we <strong>randomly permuted the sleep labels</strong> - so we would hope to see 50% classification accuracy here (which unfortunately doesn’t seem to be the case).  Ideally, I would have multiple iterations of this shuffling, but so far I’ve only run a single shuffle - <strong>how serious is it that I haven’t run multiple iterations?</strong></p>
 
-<p><a href="src=&quot;/images/research/subject_1sleep_transform_CV_shuffled.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/subject_1sleep_transform_CV_shuffled.png" width="700" height="350" /></a>
-<a href="src=&quot;/images/research/subject_2sleep_transform_CV_shuffled.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/subject_2sleep_transform_CV_shuffled.png" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/subject_1sleep_transform_CV_shuffled.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/subject_1sleep_transform_CV_shuffled.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/subject_2sleep_transform_CV_shuffled.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/subject_2sleep_transform_CV_shuffled.png" width="700" height="350" /></a></p>
 
 <h4 id="sleep-cross-validation-accuracy-using-different-sleep-transformations-item-2-on-to-do-list">Sleep Cross-validation Accuracy using different sleep transformations (Item #2 on To-Do List)</h4>
 <p>Previously, we had only tried the generate-template-on-wake-then-transform-sleep-data-then-train-a-sleep-classifier using the FACE template, the results below show cross-validation accuracy using the face template (same results as presented previously), the scene template, and face-minus-scene.</p>
 
-<p><a href="src=&quot;/images/research/subject_1sleep_transform_CV.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/subject_1sleep_transform_CV.png" width="700" height="350" /></a>
-<a href="src=&quot;/images/research/subject_2sleep_transform_CV.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/subject_2sleep_transform_CV.png" width="700" height="350" /></a>
-<a href="src=&quot;/images/research/subject_3sleep_transform_CV.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/subject_3sleep_transform_CV.png" width="700" height="350" /></a>
-<a href="src=&quot;/images/research/subject_4sleep_transform_CV.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/subject_4sleep_transform_CV.png" width="700" height="350" /></a>
-<a href="src=&quot;/images/research/subject_5sleep_transform_CV.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/subject_5sleep_transform_CV.png" width="700" height="350" /></a>
-<a href="src=&quot;/images/research/subject_6sleep_transform_CV.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/subject_6sleep_transform_CV.png" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/subject_1sleep_transform_CV.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/subject_1sleep_transform_CV.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/subject_2sleep_transform_CV.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/subject_2sleep_transform_CV.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/subject_3sleep_transform_CV.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/subject_3sleep_transform_CV.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/subject_4sleep_transform_CV.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/subject_4sleep_transform_CV.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/subject_5sleep_transform_CV.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/subject_5sleep_transform_CV.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/subject_6sleep_transform_CV.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/subject_6sleep_transform_CV.png" width="700" height="350" /></a></p>
 
 <h4 id="sleep-cross-validation-accuracy-using-all-frequencies-feature-select-item-4-on-to-do-list">Sleep Cross-validation Accuracy Using All Frequencies Feature Select (Item #4 on To-Do List)</h4>
 <p>This is pretty straightforward cross-validation accuracy performed on the labelled sleep data.  For each time bin of the sleep data, we z-scored the power spectrum at all frequencies across electrodes and trained a classifier using 10-fold cross-validation using standard p-value based feature selection.</p>
 
-<p><a href="src=&quot;/images/research/all_2_subjects_sleep_CV_feature_select.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/all_2_subjects_sleep_CV_feature_select.png" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/all_2_subjects_sleep_CV_feature_select.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/all_2_subjects_sleep_CV_feature_select.png" width="700" height="350" /></a></p>
 
 <h4 id="classifier-weights-for-sleep-transformed-data-item-1-on-to-do-list">Classifier Weights for sleep transformed data (Item #1 on To-Do List)</h4>
 <p>Recall that we have a classifier for each combination of wake time-freq pair and sleep time.  Each classifier sweeps the template across each frequency of the time bin, yielding a classifier with as many features as there are frequencies.  Thus, visualizing the weights would require displaying the magnitude of the weight across three dimensions: wake time-freq pair, sleep time bin, and sleep frequency.  Instead of trying to plot some whacky surface, I’ve created plots that average the magnitude of the weights either across the sleep time bins OR across sleep frequencies - if a particular time bin or frequency looks promising from these plots, we can look at the uncollapsed results as needed.</p>
@@ -736,28 +751,28 @@ for each wake time-freq bin x sleep time bin pair:<br />
 <p><strong>KEN:</strong> I know this is pretty different than the McDuff method for interpreting feature weights - but the requirement to average over the patterns made things difficult so I did things this way as a much easier to accomplish first pass.  It’s worth noting that the EEG analysis code rescales all features to be within the range of 0 and 1, so I think this crude way of looking at the features should still be pretty informative.</p>
 
 <h4 id="face-minus-scene-wake-template">Face Minus Scene Wake Template</h4>
-<p><a href="src=&quot;/images/research/collaped_weights_by_freq_faceMINUSscene_wake_template_subj1.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_faceMINUSscene_wake_template_subj1.png" width="700" height="350" /></a>
-<a href="src=&quot;/images/research/collaped_weights_by_freq_faceMINUSscene_wake_template_subj2.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_faceMINUSscene_wake_template_subj2.png" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_faceMINUSscene_wake_template_subj1.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_faceMINUSscene_wake_template_subj1.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_faceMINUSscene_wake_template_subj2.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_faceMINUSscene_wake_template_subj2.png" width="700" height="350" /></a></p>
 
 <h4 id="face-wake-template">Face Wake Template</h4>
-<p><a href="src=&quot;/images/research/collaped_weights_by_freq_face_wake_template_subj1.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_face_wake_template_subj1.png" width="700" height="350" /></a>
-<a href="src=&quot;/images/research/collaped_weights_by_freq_face_wake_template_subj2.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_face_wake_template_subj2.png" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_face_wake_template_subj1.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_face_wake_template_subj1.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_face_wake_template_subj2.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_face_wake_template_subj2.png" width="700" height="350" /></a></p>
 
 <h4 id="scene-wake-template">Scene Wake Template</h4>
-<p><a href="src=&quot;/images/research/collaped_weights_by_freq_scene_wake_template_subj1.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_scene_wake_template_subj1.png" width="700" height="350" /></a>
-<a href="src=&quot;/images/research/collaped_weights_by_freq_scene_wake_template_subj2.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_scene_wake_template_subj2.png" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_scene_wake_template_subj1.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_scene_wake_template_subj1.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_scene_wake_template_subj2.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_scene_wake_template_subj2.png" width="700" height="350" /></a></p>
 
 <h4 id="face-minus-scene-wake-template-1">Face Minus Scene Wake Template</h4>
-<p><a href="src=&quot;/images/research/collapsed_weights_by_sleep_time_faceMINUSscene_wake_template_subj1.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_faceMINUSscene_wake_template_subj1.png" width="700" height="350" /></a>
-<a href="src=&quot;/images/research/collapsed_weights_by_sleep_time_faceMINUSscene_wake_template_subj2.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_faceMINUSscene_wake_template_subj2.png" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_faceMINUSscene_wake_template_subj1.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_faceMINUSscene_wake_template_subj1.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_faceMINUSscene_wake_template_subj2.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_faceMINUSscene_wake_template_subj2.png" width="700" height="350" /></a></p>
 
 <h4 id="face-wake-template-1">Face Wake Template</h4>
-<p><a href="src=&quot;/images/research/collapsed_weights_by_sleep_time_face_wake_template_subj1.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_face_wake_template_subj1.png" width="700" height="350" /></a>
-<a href="src=&quot;/images/research/collapsed_weights_by_sleep_time_face_wake_template_subj2.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_face_wake_template_subj2.png" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_face_wake_template_subj1.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_face_wake_template_subj1.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_face_wake_template_subj2.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_face_wake_template_subj2.png" width="700" height="350" /></a></p>
 
 <h4 id="scene-wake-template-1">Scene Wake Template</h4>
-<p><a href="src=&quot;/images/research/collapsed_weights_by_sleep_time_scene_wake_template_subj1.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_scene_wake_template_subj1.png" width="700" height="350" /></a>
-<a href="src=&quot;/images/research/collapsed_weights_by_sleep_time_scene_wake_template_subj2.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_scene_wake_template_subj2.png" width="700" height="350" /></a>
+<p><a href="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_scene_wake_template_subj1.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_scene_wake_template_subj1.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_scene_wake_template_subj2.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_scene_wake_template_subj2.png" width="700" height="350" /></a>
 <!--### Questions-->
 <!--##### Classifier Weights-->
 <!--#. When we look at the magnitude of the trained classifier weights for various wake-template-frequencies, do we see that the weights are generally bigger at the frequencies that --></p>
@@ -774,7 +789,7 @@ for each wake time-freq bin x sleep time bin pair:<br />
     <content type="html"><![CDATA[<h3 id="classification-results">Classification results</h3>
 <p>Last time I showed a plot for CV accuracy of wake data generated by looking at individual time bins, but using all possible frequencies.  This plot is the logical next step: it considers individual frequencies - which I did for only the most promising time bins (again independently).  I didn’t use various regularization penalties this time ($\lambda = 1$ for current plot).  Additionally, this data was z-scored across electrodes for each frequency.  </p>
 
-<p><a href="src=&quot;/images/research/sweep_time_freq.png&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sweep_time_freq.png" width="700" height="350" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/sweep_time_freq.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sweep_time_freq.png" width="700" height="350" /></a></p>
 
 <p>It’s harder to pick out the “best” frequencies from this plot (compared to picking the “best” times previously).  The ~alpha band seems to pop out for both subjects, but it might be worthwhile to investigate some of the gamma stuff going on in subject 2.   Also, note that the colorbars are on different scales for both subjects.  Also we can actually get higher classification accuracy for both subjects than we did using all frequencies like last time.</p>
 
@@ -811,7 +826,7 @@ Git commit id#: <code>59c7561e0</code></p>
 - Column 5: Subject 1, Lambda = 100<br />
 - Column 6: Subject 2, Lambda = 100  </p>
 
-<p><a href="src=&quot;/images/research/sweep_time_bins.png&quot; width=&quot;650&quot; height=&quot;550&quot;" target="_blank"><img src="http://ElPiloto.github.io/images/research/sweep_time_bins.png" width="650" height="550" /></a></p>
+<p><a href="http://ElPiloto.github.io/images/research/sweep_time_bins.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sweep_time_bins.png" width="650" height="550" /></a></p>
 
 <h3 id="next-steps">Next Steps:</h3>
 

@@ -183,22 +183,22 @@
 
 <h3 id="as-a-refresher-here-is-the-last-boosting-result">As a refresher, here is the last boosting result:</h3>
 
-<p><a href="src=&quot;/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle.jpg" width="700" height="350" /></a></p>
+<p><a href="/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle.jpg" target="_blank"><img src="/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle.jpg" width="700" height="350" /></a></p>
 
 <p><strong>Figure 1:</strong> The y-axis shows classification accuracy.  Subjects and parameters are shown along the x-axis (g = gentleboost algorithm, f = face mcduff importance sleep transform).</p>
 
 <h2 id="logistic-regression-sleep-importance-map-transformed-results-to-do-item-1">Logistic Regression Sleep Importance Map Transformed Results (To-Do Item #1)</h2>
-<p><a href="src=&quot;/images/research/log_reg_best_8_subjects_mcduff_xform.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="/images/research/log_reg_best_8_subjects_mcduff_xform.jpg" width="700" height="350" /></a></p>
+<p><a href="/images/research/log_reg_best_8_subjects_mcduff_xform.jpg" target="_blank"><img src="/images/research/log_reg_best_8_subjects_mcduff_xform.jpg" width="700" height="350" /></a></p>
 
 <p><strong>Figure 2a:</strong> Displayed above is the classifier accuracy for all subjects(x-axis).  The classification accuracy was generated for various sleep importance map transformations (face, scene, or face minus scene), which is indicated along the y-axis.  The classifier features consisted of transforming the sleep data at each timebin and concatenating the sleep transformed data at each timebin into a single data matrix.  The entries along the x and y axis labelled “Mean” simply show the mean along the x and y axis respectively.</p>
 
 <p><strong>Thoughts</strong>: These results lend further credence to the notion that it may be beneficial to sleep transform data according to both face and scene classifiers and feed both of those into a single classifier.  This idea that perhaps there is information in the scene pattern that isn’t in the face pattern (and vice versa) can be further scrutinized by looking at MDS plots of the untransformed data, the face transformed data, and scene transformed data - this may be worth doing depending on how much free time I have.  If I don’t end up looking at that, I’m not too upset since item #2 on the to-do list will also give us information about the role of the sleep transformation.  Additionally: note that the average classification accuracy, across both subjects and sleep transformation types, is pretty similar to that achieved with boosting, but none of the individual sleep transformations really give the same classification accuracy profile across subjects as the boosting results (this is easier to see in the plot below where I plot the rows of Figure 2 as separate horizontal bar graphs to match the format of the boosting results.  Why does it matter that accuracy across subjects in the logistic regression case doesn’t look like the accuracy achieved with boosting?  If our sleep transformation method yielded enough signal, then it should yield similar classification accuracy across subjects for the different classifier types.</p>
 
-<p><a href="src=&quot;/images/research/log_reg_best_8_subjects_mcduff_xform_supplement.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="/images/research/log_reg_best_8_subjects_mcduff_xform_supplement.jpg" width="700" height="350" /></a>
+<p><a href="/images/research/log_reg_best_8_subjects_mcduff_xform_supplement.jpg" target="_blank"><img src="/images/research/log_reg_best_8_subjects_mcduff_xform_supplement.jpg" width="700" height="350" /></a>
 <strong>Figure 2b:</strong> A different visualization of the logistic regression plots useful for direct visual comparison against the ensemble results (Figure 1).</p>
 
 <h2 id="to-do-item-3-boosting-classification-results-using-different-sleep-transforms-best-8-subjects">To-Do Item #3: Boosting Classification Results Using Different Sleep Transforms, Best 8 Subjects</h2>
-<p><a href="src=&quot;/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle_ALL_TRANSFORMS.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle_ALL_TRANSFORMS.jpg" width="700" height="350" /></a></p>
+<p><a href="/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle_ALL_TRANSFORMS.jpg" target="_blank"><img src="/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle_ALL_TRANSFORMS.jpg" width="700" height="350" /></a></p>
 
 <p><strong>Figure 3:</strong> This shows boosting classification accuracy using different sleep transforms.  The x-axis indicates which boosting algorithm (g for gentleboost) was used, the subject id (e.g. ‘15’ or ‘07’), and the wake pattern that was used for the sleep transformation (f = face, s = scene, M = face minus scene).</p>
 
@@ -207,7 +207,7 @@
 <h2 id="to-do-item-2-logistic-regression-classification-results-sleep---untransformed-best-8-subjects">To-Do Item #2: Logistic Regression Classification Results Sleep - UNTRANSFORMED, Best 8 Subjects</h2>
 <p><del><strong>3/23 JOBS STILL RUNNING ON CLUSTER</strong>  This takes a relatively long time because the feature selection has to operate over ~100,000 features and that needs to run for each cross-validation fold for each subject.</del>  The results are displayed below</p>
 
-<p><a href="src=&quot;/images/research/sleep_log_reg_raw_best8.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="/images/research/sleep_log_reg_raw_best8.jpg" width="700" height="350" /></a></p>
+<p><a href="/images/research/sleep_log_reg_raw_best8.jpg" target="_blank"><img src="/images/research/sleep_log_reg_raw_best8.jpg" width="700" height="350" /></a></p>
 
 <p><strong>Figure 4:</strong> This shows the result of performing logistic regression on the raw sleep data using all frequencies, all time bins, and all electrodes on raw data.  This amounts to about 100,00 features (64 electrodes x ~47 frequencies x ~38 time bins ) so obviously I need to run this analysis with feature selection.  I really wanted to include as many features as I could (without exceeding my RAM limits), so I used a loose stat threshold for statmap_anova feature selection (p = 0.1) which yielded about 10,000 features.</p>
 
@@ -217,11 +217,11 @@
 
 <h2 id="to-do-item-4--feed-classifiers-face-and-scene-transformed-data-using-mcduff-importance-maps">To-Do Item #4:  Feed classifiers face AND scene transformed data using McDuff Importance Maps</h2>
 
-<p><a href="src=&quot;/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle_face_AND_SCENE.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle_face_AND_SCENE.jpg" width="700" height="350" /></a></p>
+<p><a href="/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle_face_AND_SCENE.jpg" target="_blank"><img src="/images/research/ensemble_best_8_wake_subj_202ms_7hz_gentle_face_AND_SCENE.jpg" width="700" height="350" /></a></p>
 
 <p><strong>Figure 5a:</strong> Boosting classification exactly like the Figure 1) except that these incorporate a feature vector that consists of transforming all frequencies with the importance map for scene and concatenating those features onto the feature vector generated by transforming all frequencies in the sleep data with the importance map for faces.</p>
 
-<p><a href="src=&quot;/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether.jpg" width="700" height="350" /></a></p>
+<p><a href="/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether.jpg" target="_blank"><img src="/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether.jpg" width="700" height="350" /></a></p>
 
 <p><strong>Figure 5b:</strong> Exactly the same as figure 2a, recall we’re feeding in all the timepoints to logistic regression (no explicit feature selection in this version, although we still use regularization), except this time we used both face and scene transformed features in the data.</p>
 
@@ -232,9 +232,9 @@
 
 <p><strong>UPDATE:</strong> Comparing the preprocessed data using the dot product and correlation, it looks like the data being processed is in fact different for the boosting classifier i.e. I don’t think that this is a bug.  Looking into it more, given that the correlation is the normalized dot product, it makes sense that we get different results for logistic regression but not the boosting ensemble.  Why? Well, logistic regression regularization term penalizes the magnitude of the weights, thus keeping the same regularization penalty but scaling the weights is effectively the same as keeping the same weights but modifying the regularization term.  However, boosting just creates decision stumps which will split the data regardless of whether or not the data are normalized.  Thus these results make sense: all is right with the world.  Kind of.</p>
 
-<p><a href="src=&quot;/images/research/8_wake_subj_202ms_7hz_gentle_faceSCENE_DOTPROD.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="/images/research/8_wake_subj_202ms_7hz_gentle_faceSCENE_DOTPROD.jpg" width="700" height="350" /></a></p>
+<p><a href="/images/research/8_wake_subj_202ms_7hz_gentle_faceSCENE_DOTPROD.jpg" target="_blank"><img src="/images/research/8_wake_subj_202ms_7hz_gentle_faceSCENE_DOTPROD.jpg" width="700" height="350" /></a></p>
 
-<p><a href="src=&quot;/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether_DOTPROD.jpg&quot; width=&quot;700&quot; height=&quot;350&quot;" target="_blank"><img src="/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether_DOTPROD.jpg" width="700" height="350" /></a></p>
+<p><a href="/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether_DOTPROD.jpg" target="_blank"><img src="/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether_DOTPROD.jpg" width="700" height="350" /></a></p>
 
 
 </section>
