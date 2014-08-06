@@ -4,7 +4,7 @@
   <title><![CDATA[Category: EEG | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/eeg/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-08-04T11:04:56-04:00</updated>
+  <updated>2014-08-06T10:47:50-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -14,6 +14,19 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Sleep EEG: Hilbert Transformed Data]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/08/06/sleep-eeg-hilbert-transformed-data/"/>
+    <updated>2014-08-06T10:36:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/08/06/sleep-eeg-hilbert-transformed-data</id>
+    <content type="html"><![CDATA[<h2 id="wake-hilbert-transformed-classification">Wake Hilbert Transformed Classification</h2>
+
+<p><a href='src="/images/research/sleep_eeg_hilbert/wake_hilb_mean_across_subjects.png" width="700" height="350"' target='_blank'><img src="/images/research/sleep_eeg_hilbert/wake_hilb_mean_across_subjects.png" width="700" height="350"></a></p>
+
+<p><a href='src="/images/research/sleep_eeg_hilbert/wake_hilb_mean_across_subjects_per_freq.png" width="700" height="350"' target='_blank'><img src="/images/research/sleep_eeg_hilbert/wake_hilb_mean_across_subjects_per_freq.png" width="700" height="350"></a></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Sleep EEG: Varying regularization and simulated results]]></title>
     <link href="http://ElPiloto.github.io/blog/2014/08/01/sleep-eeg-varying-regularization-and-simulated-results/"/>
     <updated>2014-08-01T10:27:00-04:00</updated>
@@ -21,19 +34,19 @@
     <content type="html"><![CDATA[<h3 id="logistic-regression-untransformed-sleep-data-varying-regularization-term">Logistic Regression Untransformed Sleep Data: Varying regularization term</h3>
 <p>The motivation for this line of inquiry is contained in <a href="/blog/2014/07/27/sleep-eeg-post-boosting-results/">this post</a> under the discussion section for figure 4.</p>
 
-<p><img src="/images/research/untransformed_log_reg_lambda250and750.jpg" width="700" height="350"></p>
+<p><a href='src="/images/research/untransformed_log_reg_lambda250and750.jpg" width="700" height="350"' target='_blank'><img src="/images/research/untransformed_log_reg_lambda250and750.jpg" width="700" height="350"></a></p>
 
 <p><strong>Figure 1:</strong> This shows the sleep classification accuracy for logistic regression using untransformed sleep data with <code>statmap_anova</code> feature selection (stat_thresh = 0.1).</p>
 
 <p><strong>Thoughts</strong> Well this is interesting.  I had previously been using a regularization term of 1 for all the logistic regression analyses and to see this level of classification accuracy using a regularization penalty two orders of magnitude higher than previously suggests that I didn’t have much of a grasp on the role of the regularization term in this analysis.  The $\lambda = 750$ case is encouraging because it’s up there in terms of the highest average classification accuracy we’ve seen AND it includes that largest regularization term we’ve used thus far.  It’s worth investigating how far we can push regularization before it collapses, thus I’ve launched an additional analysis trying results with regularization = 1250 and 1750.  Will update this post when those results are in.  ALSO, this begs the question: should we re-run our sleep transformed analyses using stronger regularization for the wake classes?  <strong>YES</strong></p>
 
-<p><img src="/images/research/untransformed_log_reg_lambda1250and1750.jpg" width="700" height="350"></p>
+<p><a href='src="/images/research/untransformed_log_reg_lambda1250and1750.jpg" width="700" height="350"' target='_blank'><img src="/images/research/untransformed_log_reg_lambda1250and1750.jpg" width="700" height="350"></a></p>
 
 <p><strong>Figure 2:</strong> This shows the sleep classification accuracy for logistic regression using untransformed sleep data with <code>statmap_anova</code> feature selection (stat_thresh = 0.1).</p>
 
 <p><strong>Thoughts:</strong> This still doesn’t make it seem like we’ve hit the upper bound on the regularization penalty. I’m not sure what to make of the fact that 750 = good regularzation, 1750 = good regularization, but 1250 gives pretty crappy results.  I guess I don’t have any strong theoretical justification to think classification accuracy would vary smoothly as we modify the regularization parameter.  I’m now launching sleep untransformed classification on <em>all</em> the subjects with a high regularization term.</p>
 
-<p><img src="/images/research/untransformed_log_reg_lambda12000_ALLSUBJS.jpg" width="700" height="350"></p>
+<p><a href='src="/images/research/untransformed_log_reg_lambda12000_ALLSUBJS.jpg" width="700" height="350"' target='_blank'><img src="/images/research/untransformed_log_reg_lambda12000_ALLSUBJS.jpg" width="700" height="350"></a></p>
 
 <p><strong>Figure 3:</strong> This shows the sleep classification accuracy for logistic regression using untransformed sleep data with <code>statmap_anova</code> feature selection (stat_thresh = 0.1).</p>
 
@@ -106,22 +119,22 @@
 
 <h3 id="as-a-refresher-here-is-the-last-boosting-result">As a refresher, here is the last boosting result:</h3>
 
-<p><img src="/images/research/ensemble_best<em>8_wake_subj</em>202ms_7hz_gentle.jpg" width="700" height="350"></p>
+<p><a href='src="/images/research/ensemble_best<em>8_wake_subj</em>202ms_7hz_gentle.jpg" width="700" height="350"' target='_blank'><img src="/images/research/ensemble_best<em>8_wake_subj</em>202ms_7hz_gentle.jpg" width="700" height="350"></a></p>
 
 <p><strong>Figure 1:</strong> The y-axis shows classification accuracy.  Subjects and parameters are shown along the x-axis (g = gentleboost algorithm, f = face mcduff importance sleep transform).</p>
 
 <h2 id="logistic-regression-sleep-importance-map-transformed-results-to-do-item-1">Logistic Regression Sleep Importance Map Transformed Results (To-Do Item #1)</h2>
-<p><img src="/images/research/log_reg_best_8_subjects_mcduff_xform.jpg" width="700" height="350"></p>
+<p><a href='src="/images/research/log_reg_best_8_subjects_mcduff_xform.jpg" width="700" height="350"' target='_blank'><img src="/images/research/log_reg_best_8_subjects_mcduff_xform.jpg" width="700" height="350"></a></p>
 
 <p><strong>Figure 2a:</strong> Displayed above is the classifier accuracy for all subjects(x-axis).  The classification accuracy was generated for various sleep importance map transformations (face, scene, or face minus scene), which is indicated along the y-axis.  The classifier features consisted of transforming the sleep data at each timebin and concatenating the sleep transformed data at each timebin into a single data matrix.  The entries along the x and y axis labelled “Mean” simply show the mean along the x and y axis respectively.</p>
 
 <p><strong>Thoughts</strong>: These results lend further credence to the notion that it may be beneficial to sleep transform data according to both face and scene classifiers and feed both of those into a single classifier.  This idea that perhaps there is information in the scene pattern that isn’t in the face pattern (and vice versa) can be further scrutinized by looking at MDS plots of the untransformed data, the face transformed data, and scene transformed data - this may be worth doing depending on how much free time I have.  If I don’t end up looking at that, I’m not too upset since item #2 on the to-do list will also give us information about the role of the sleep transformation.  Additionally: note that the average classification accuracy, across both subjects and sleep transformation types, is pretty similar to that achieved with boosting, but none of the individual sleep transformations really give the same classification accuracy profile across subjects as the boosting results (this is easier to see in the plot below where I plot the rows of Figure 2 as separate horizontal bar graphs to match the format of the boosting results.  Why does it matter that accuracy across subjects in the logistic regression case doesn’t look like the accuracy achieved with boosting?  If our sleep transformation method yielded enough signal, then it should yield similar classification accuracy across subjects for the different classifier types.</p>
 
-<p><img src="/images/research/log_reg_best_8_subjects_mcduff_xform_supplement.jpg" width="700" height="350">
+<p><a href='src="/images/research/log_reg_best_8_subjects_mcduff_xform_supplement.jpg" width="700" height="350"' target='_blank'><img src="/images/research/log_reg_best_8_subjects_mcduff_xform_supplement.jpg" width="700" height="350"></a>
 <strong>Figure 2b:</strong> A different visualization of the logistic regression plots useful for direct visual comparison against the ensemble results (Figure 1).</p>
 
 <h2 id="to-do-item-3-boosting-classification-results-using-different-sleep-transforms-best-8-subjects">To-Do Item #3: Boosting Classification Results Using Different Sleep Transforms, Best 8 Subjects</h2>
-<p><img src="/images/research/ensemble_best<em>8_wake_subj</em>202ms_7hz_gentle_ALL_TRANSFORMS.jpg" width="700" height="350"></p>
+<p><a href='src="/images/research/ensemble_best<em>8_wake_subj</em>202ms_7hz_gentle_ALL_TRANSFORMS.jpg" width="700" height="350"' target='_blank'><img src="/images/research/ensemble_best<em>8_wake_subj</em>202ms_7hz_gentle_ALL_TRANSFORMS.jpg" width="700" height="350"></a></p>
 
 <p><strong>Figure 3:</strong> This shows boosting classification accuracy using different sleep transforms.  The x-axis indicates which boosting algorithm (g for gentleboost) was used, the subject id (e.g. ‘15’ or ‘07’), and the wake pattern that was used for the sleep transformation (f = face, s = scene, M = face minus scene).</p>
 
@@ -130,7 +143,7 @@
 <h2 id="to-do-item-2-logistic-regression-classification-results-sleep---untransformed-best-8-subjects">To-Do Item #2: Logistic Regression Classification Results Sleep - UNTRANSFORMED, Best 8 Subjects</h2>
 <p><del><strong>3/23 JOBS STILL RUNNING ON CLUSTER</strong>  This takes a relatively long time because the feature selection has to operate over ~100,000 features and that needs to run for each cross-validation fold for each subject.</del>  The results are displayed below</p>
 
-<p><img src="/images/research/sleep_log_reg_raw_best8.jpg" width="700" height="350"></p>
+<p><a href='src="/images/research/sleep_log_reg_raw_best8.jpg" width="700" height="350"' target='_blank'><img src="/images/research/sleep_log_reg_raw_best8.jpg" width="700" height="350"></a></p>
 
 <p><strong>Figure 4:</strong> This shows the result of performing logistic regression on the raw sleep data using all frequencies, all time bins, and all electrodes on raw data.  This amounts to about 100,00 features (64 electrodes x ~47 frequencies x ~38 time bins ) so obviously I need to run this analysis with feature selection.  I really wanted to include as many features as I could (without exceeding my RAM limits), so I used a loose stat threshold for statmap_anova feature selection (p = 0.1) which yielded about 10,000 features.</p>
 
@@ -140,11 +153,11 @@
 
 <h2 id="to-do-item-4--feed-classifiers-face-and-scene-transformed-data-using-mcduff-importance-maps">To-Do Item #4:  Feed classifiers face AND scene transformed data using McDuff Importance Maps</h2>
 
-<p><img src="/images/research/ensemble_best<em>8_wake_subj</em>202ms_7hz_gentle_face_AND_SCENE.jpg" width="700" height="350"></p>
+<p><a href='src="/images/research/ensemble_best<em>8_wake_subj</em>202ms_7hz_gentle_face_AND_SCENE.jpg" width="700" height="350"' target='_blank'><img src="/images/research/ensemble_best<em>8_wake_subj</em>202ms_7hz_gentle_face_AND_SCENE.jpg" width="700" height="350"></a></p>
 
 <p><strong>Figure 5a:</strong> Boosting classification exactly like the Figure 1) except that these incorporate a feature vector that consists of transforming all frequencies with the importance map for scene and concatenating those features onto the feature vector generated by transforming all frequencies in the sleep data with the importance map for faces.</p>
 
-<p><img src="/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether.jpg" width="700" height="350"></p>
+<p><a href='src="/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether.jpg" width="700" height="350"' target='_blank'><img src="/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether.jpg" width="700" height="350"></a></p>
 
 <p><strong>Figure 5b:</strong> Exactly the same as figure 2a, recall we’re feeding in all the timepoints to logistic regression (no explicit feature selection in this version, although we still use regularization), except this time we used both face and scene transformed features in the data.</p>
 
@@ -155,9 +168,9 @@
 
 <p><strong>UPDATE:</strong> Comparing the preprocessed data using the dot product and correlation, it looks like the data being processed is in fact different for the boosting classifier i.e. I don’t think that this is a bug.  Looking into it more, given that the correlation is the normalized dot product, it makes sense that we get different results for logistic regression but not the boosting ensemble.  Why? Well, logistic regression regularization term penalizes the magnitude of the weights, thus keeping the same regularization penalty but scaling the weights is effectively the same as keeping the same weights but modifying the regularization term.  However, boosting just creates decision stumps which will split the data regardless of whether or not the data are normalized.  Thus these results make sense: all is right with the world.  Kind of.</p>
 
-<p><img src="/images/research/8<em>wake_subj</em>202ms_7hz_gentle_faceSCENE_DOTPROD.jpg" width="700" height="350"></p>
+<p><a href='src="/images/research/8<em>wake_subj</em>202ms_7hz_gentle_faceSCENE_DOTPROD.jpg" width="700" height="350"' target='_blank'><img src="/images/research/8<em>wake_subj</em>202ms_7hz_gentle_faceSCENE_DOTPROD.jpg" width="700" height="350"></a></p>
 
-<p><img src="/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether_DOTPROD.jpg" width="700" height="350"></p>
+<p><a href='src="/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether_DOTPROD.jpg" width="700" height="350"' target='_blank'><img src="/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether_DOTPROD.jpg" width="700" height="350"></a></p>
 
 ]]></content>
   </entry>
@@ -173,25 +186,25 @@
 
 <h3 id="ensemble-classification-results-round-6---cross-validation-subject-1">Ensemble Classification Results, Round 6 - Cross-validation subject 1</h3>
 
-<p><img src="/images/research/ensemble_results_subj1_round6.jpg" width="700" height="350"></p>
+<p><a href='src="/images/research/ensemble_results_subj1_round6.jpg" width="700" height="350"' target='_blank'><img src="/images/research/ensemble_results_subj1_round6.jpg" width="700" height="350"></a></p>
 
-<p><img src="/images/research/ensemble_results_subj1_round6pt2.jpg" width="700" height="350"></p>
+<p><a href='src="/images/research/ensemble_results_subj1_round6pt2.jpg" width="700" height="350"' target='_blank'><img src="/images/research/ensemble_results_subj1_round6pt2.jpg" width="700" height="350"></a></p>
 
-<p><img src="/images/research/ensemble_results_subj1_round6pt3.jpg" width="700" height="350"></p>
+<p><a href='src="/images/research/ensemble_results_subj1_round6pt3.jpg" width="700" height="350"' target='_blank'><img src="/images/research/ensemble_results_subj1_round6pt3.jpg" width="700" height="350"></a></p>
 
 <h3 id="ensemble-classification-results-round-3">Ensemble Classification Results, Round 3</h3>
 
 <p>I used the following values to produce the plot below:
 10-fold cross validation, GentleBoost, 200 Learners, Wake Time = 152ms, Freq = 7 Hz, Importance Map for Face</p>
 
-<p><img src="/images/research/ensemble_results_subj1thru8_round3.jpg" width="700" height="350"></p>
+<p><a href='src="/images/research/ensemble_results_subj1thru8_round3.jpg" width="700" height="350"' target='_blank'><img src="/images/research/ensemble_results_subj1thru8_round3.jpg" width="700" height="350"></a></p>
 
 <h3 id="ensemble-classification-results-round-1-incorrect">Ensemble Classification Results, Round 1 (INCORRECT)</h3>
 <p><strong>these results are wrong - leaving here for historical purposes only</strong></p>
 
 <p>Previously, I went through and tried various combinations of boosting algorithms (LogitBoost, GentleBoost, Adaboost.M1), number of learners, and number of folds for a single subject (subject 01) to try to determine what to run across all subjects to get the best tradeoff between accuracy and running time.  Below is a summary of those results.</p>
 
-<p><img src="/images/research/subj1_ensemble_params_testing.png" width="700" height="300"></p>
+<p><a href='src="/images/research/subj1_ensemble_params_testing.png" width="700" height="300"' target='_blank'><img src="/images/research/subj1_ensemble_params_testing.png" width="700" height="300"></a></p>
 
 <p>Ultimately, I chose the following: <br />
   <strong>GentleBoost:</strong> just as good accuracy as other algorithms <em>and</em> better running time than AdaBoost.M1 or LogitBoost for some parametrizations   <br />
@@ -208,100 +221,11 @@ j  </p>
      - freq = 7 Hz <br />
      - mcduff pattern = face   </p>
 
-<p><img src="/images/research/ensemble_results_subj1thru8_round1.jpg" width="700" height="350"></p>
+<p><a href='src="/images/research/ensemble_results_subj1thru8_round1.jpg" width="700" height="350"' target='_blank'><img src="/images/research/ensemble_results_subj1thru8_round1.jpg" width="700" height="350"></a></p>
 
 <h3 id="next-steps">Next Steps</h3>
 
 <p>The easiest problem to check for is to see if we get better results with more data in each fold, so I’ve launched a batch of results that use 20 folds.  This should give new results relatively quickly and we can move from there.  If that doesn’t ameliorate the poor accuracy, I’ll move to using the wake parameters used to probe subject 1 to make sure that the results for subject 1 are consistent with the results I got during the probing phase.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sleep EEG 8 Subjects]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/06/23/sleep-eeg-9-subjects/"/>
-    <updated>2014-06-23T12:14:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/06/23/sleep-eeg-9-subjects</id>
-    <content type="html"><![CDATA[<h2 id="all-the-interpretations">All the interpretations</h2>
-
-<p>Hi Ken,  </p>
-
-<p>Here’s the scoop.  We can definitely classify wake data (see Figure 1a below) The best time bin for the wake data isn’t consistent across all subjects, but it does seem to peak at 230ms, which is consistent with Ehren’s results ( compare figure 1b to figure 4: http://compmem.princeton.edu/publications/NewmanNorman10.pdf)  Our classification results aren’t as good as Ehren’s, he had a peak averaged AUC of 0.7, but I’m not too worried about it - what do you think?  There might be some utility to looking at classification for slightly later timebins (although Ehren’s results do peak at 200ms so we might already be looking at the best time bin)   </p>
-
-<p><strong>Classifying sleep?</strong> 	</p>
-
-<p>We tried three different sleep classification methods:<br />
-1. Feature selection on all the frequencies within a particular time bin of sleep data.
-2. Transform the sleep data using the average pattern of activity across all electrodes at a particular time-bin and frequency of the wake data.
-3. Transform the sleep data using the importance map generated by the wake classification instead of the average pattern of activity - this should weight the different electrodes according to how informative they are for wake classification.</p>
-
-<p>For method 1, we’re not getting any consistently classifiable timebins across subjects (figure 3a and 3b) which would have been the nicest result.  Additionally, having good wake AUC doesn’t mean that subject will have good sleep AUC.</p>
-
-<p>The good news is that methods 2 and 3 show comparable classification AUC to method 1 and sometimes do even better.  Moreover, there isn’t a link between good classification for a time bin using method 1 compared to method 2 or 3 (e.g. method 1 classification for subject 2 doesn’t do so hot for timebins 152-230, but if you look at <a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_auc_scene_subj2.png"> this plot</a> for method 2 classification for subject 2 - it’s pretty clear that that is a helpful time bin ).  These two observations give me confidence that the two sleep transform methods are genuinely helpful preprocessing steps.   </p>
-
-<p>Moreover, I’ve been pretty excited about these sleep transform methods because they frequently, though not always, produce strong bands of good classification for particular timebins of the sleep data.</p>
-
-<p>So a logical next question is to determine which method of the two sleep transform methods are better.  It seems like we get stronger bands appearing with method 2 compared to method 3 (you can check this out for yourself just quickly scrolling through the dump of the plots for both <a href="http://ElPiloto.github.io/blog/2014/07/01/sleep-eeg-transform-avg-pattern/">method 2</a> and <a href="http://ElPiloto.github.io/blog/2014/07/01/sleep-eeg-mcduff-transform/">method 3</a>).  There is some agreement between these bands across the two methods, but not always (example plots: <a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_auc_pval_face&amp;scene_subj4.png"> method 2 </a> <a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_mcduff/sleep_MCDUFF_transform_subj_4_cv_acc_pval_face&amp;scene.png"> method 3</a>   </p>
-
-<p>Another degree of freedom is which wake pattern do we use to transform the data: face or scene or face minus scene.  I expected there to be variability between the face and scene transformations, but was surprised to find that the face minus scene didn’t just look like the combination of the face and scene results.  Here’s an example of that:   </p>
-
-<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_acc_pval_face_subj8.png">face</a>   </p>
-
-<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_acc_pval_scene_subj8.png">scene</a>    </p>
-
-<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_acc_pval_face&amp;scene_subj8.png">face minus scene</a>   </p>
-
-<p>This leads me to believe that in the future we should train a sleep classifier that gets both face and a scene transformed data.  The dot-product is sensitive to magnitude, so it could be that there is some useful information in the indivudal face and scene patterns that gets lost when we subtract the two.  What do you think?</p>
-
-<p>The main thing I’ve taken away from this data is that there are timebins of the sleep data that are classifiable, but that they vary across subjects.  This implication of this being that we have to combine the results of multiple classifiers (tested on different timebins) when we try to connect the classification to subsequent memory - but that the particular classifiers we use will have to vary across subjects.  I think an important thing to figure out is how we want to select which classifiers to use for a subject.  I’ve gone through and written down a bunch of time bins that I think look good for each subject on the second page of our EEG to-do <a href="https://docs.google.com/spreadsheets/d/1TIOy-4DN4adDDVBKbuRZ2MuI5g-Hg7KWm1nBKjwSHsU/edit?usp=sharing">spreadsheet</a>, but that was done entirely by hand which doesn’t feel right.  </p>
-
-<p>In general, I think we could proceed to linking the classifier to the behavioral or that we could try to improve the classification.  For the latter, I have a crazy idea bout using an “auto-encoder” for preprocessing the sleep data.  We could feed the network sleep data and have it’s target be the corresponding wake image.  We could apply this network in a leave-one-out fashion in order to preprocess sleep data for a regular classifier.  Seems like it’d be pretty tough to train the network given the dimensionality of the data and the relatively small number of training samples, but I figured it’s worth mentioning.  I’ll wait to hear what you think about all this, but I’m going to dedicate my brain cycles to the problem of figuring out how to select which time bins to use.</p>
-
-<h3 id="wake-classification-results">Wake Classification Results</h3>
-<p>These are important because it’s likely we’ll want to exclude subjects with poor wake cross-validation AUC from subsequent analyses.</p>
-
-<p><img src="/images/research/sleep_eeg<em>9_subjects</em>06<em>23</em>2014/wake_AUC_most_subjects.png" width="700" height="350"></p>
-
-<p><strong>Figure 1a:</strong> This shows the AUC for leave-one-out cross-validation on wake EEG data training on all the z-scored frequencies corresponding to a particular time bin as indicated on the y-axis.  The AUC was calculating by training a classifier that distinguishes between all classes, but only testing on patterns that corresponded to either a celebrity or a landmark.  The AUC was calculated by feeding in the difference between the output for the celebrity one-vs-all classifier and the landmark one-vs-all classifier for each cross-validation fold and the plotted values show the mean AUC across all cross-validation folds.  We had previously looked at the cross-validation accuracy for the first two subjects across a wider range of times, but narrowed it down to these four windows.</p>
-
-<p><code>plot_loopify_time_sweep_results_AUC.m </code>  <br />
-<code>classify_piloy_log_reg_time_sweep_driver.m </code>      </p>
-
-<p><img src="/images/research/sleep_eeg<em>9_subjects</em>06<em>23</em>2014/wake_auc_avgd.png" width="700" height="350"></p>
-
-<p><strong>Figure 1b:</strong> Average AUC per time bin</p>
-
-<h3 id="sleep-cross-validation-classification-all-frequencies-per-time-bin">Sleep Cross-Validation Classification: All Frequencies Per Time Bin</h3>
-<p><strong>NOTE:</strong> These results were supposed to be for performing feature selection, but I accidentally set the feature selection statistical threshold to 1, which is the same as not using feature selection.  <del>Re-running these results with feature selection.</del>  The results actually containing feature selection are just below.</p>
-
-<p><img src="/images/research/sleep_eeg<em>9_subjects</em>06<em>23</em>2014/all<em>9subjects_sleep_CV_AUC_feature_select.png" width="700" height="350">
-<strong>Figure 2a)</strong> We plot the AUC for classification of celebrity vs. landmarks during sleep across all our subjects (y-axis).  This was calculated by performing cross-validation (somewhere between 15-fold and 40-fold depending on the number of sleep patterns available) using all frequencies z-scored across electrodes for a particular timebin (x-axis). <br />
-<img src="/images/research/sleep_eeg</em>9<em>subjects</em>06<em>23</em>2014/all<em>9subjects_sleep_CV_AUC_feature_select_PVAL.png" width="700" height="350">
-<strong>Figure 2b)</strong> We plot the p-values for combinations of subjects and time bins with sleep cross-validation AUC values that are calculated via a shuffled permutation test whereby the labels of the classes are shuffled, we train a classifier with the shuffled patterns, and look at the cross-validation AUC for this shuffled dataset. Areas in red have p-values &gt; 0.05.
-<img src="/images/research/sleep_eeg</em>9<em>subjects</em>06<em>23</em>2014/all<em>9subjects_sleep_CV_acc_feature_select.png" width="700" height="350">
-<strong>Figure 2c)</strong> Instead of calculating the AUC, we plot the classification accuracy - this should be pretty similar to Figure 2b.
-<img src="/images/research/sleep_eeg</em>9<em>subjects</em>06<em>23</em>2014/all_9subjects_sleep_CV_acc_feature_select_PVAL.png" width="700" height="350">
-<strong>Figure 2d)</strong> Here we plot the p-values for the classification accuracies.</p>
-
-<h3 id="sleep-cross-validation-classification-feature-selection-all-frequencies-per-time-bin">Sleep Cross-Validation Classification Feature Selection: All Frequencies Per Time Bin</h3>
-
-<p><img src="/images/research/sleep_eeg<em>9_subjects</em>06<em>23</em>2014/9<em>subjects_CV_ACTUAL_AUC_feature_select.png" width="700" height="350">
-<strong>Figure 3a)</strong> We plot the AUC for classification of celebrity vs. landmarks during sleep across all our subjects (y-axis).  This was calculated by performing cross-validation (somewhere between 15-fold and 40-fold depending on the number of sleep patterns available) using all frequencies z-scored across electrodes for a particular timebin (x-axis). <br />
-<img src="/images/research/sleep_eeg</em>9<em>subjects</em>06<em>23</em>2014/9<em>subjects_CV_ACTUAL_AUC_feature_select_PVAL.png" width="700" height="350">
-<strong>Figure 3b)</strong> We plot the p-values for combinations of subjects and time bins with sleep cross-validation AUC values that are calculated via a shuffled permutation test whereby the labels of the classes are shuffled, we train a classifier with the shuffled patterns, and look at the cross-validation AUC for this shuffled dataset. Areas in red have p-values &gt; 0.05.
-<img src="/images/research/sleep_eeg</em>9<em>subjects</em>06<em>23</em>2014/9<em>subjects_CV_ACTUAL_acc_feature_select.png" width="700" height="350">
-<strong>Figure 3c)</strong> Instead of calculating the AUC, we plot the classification accuracy - this should be pretty similar to Figure 2b.
-<img src="/images/research/sleep_eeg</em>9<em>subjects</em>06<em>23</em>2014/9_subjects_CV_ACTUAL_acc_feature_select_PVAL.png" width="700" height="350">
-<strong>Figure 3d)</strong> Here we plot the p-values for the classification accuracies.</p>
-
-<h3 id="sleep-cross-validation-transform-sleep-pattern-by-average-wake-pattern">Sleep Cross-Validation: Transform Sleep Pattern By Average Wake Pattern</h3>
-<p><a href="/blog/2014/07/01/sleep-eeg-transform-avg-pattern/"> dump of plots </a>   </p>
-
-<p>We have 4 x 3 plots per subject (4 plots (AUC, accuracy, and p-val map for both of those) for each result, 3 different results: one for transforming the sleep data with the average face pattern, one for transforming with the average scene pattern, and one for transforming with the difference between the average face and average scene)</p>
-
-<h3 id="sleep-cross-validation-transform-sleep-pattern-by-mcduff-importance-map">Sleep Cross-Validation: Transform Sleep Pattern By McDuff Importance Map</h3>
-<p><a href="/blog/2014/07/01/sleep-eeg-mcduff-transform/"> dump of plots </a>   </p>
-
-<p>We have 4 x 3 plots per subject (4 plots (AUC, accuracy, and p-val map for both of those) for each result, 3 different results: one for transforming the sleep data with the face mcduff importance map, one for transforming with the scene mcduff importance map, and one for transforming with the difference between the face and scene importance maps)</p>
 ]]></content>
   </entry>
   

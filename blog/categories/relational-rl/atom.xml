@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: relational RL | Something Witty]]></title>
+  <link href="http://ElPiloto.github.io/blog/categories/relational-rl/atom.xml" rel="self"/>
+  <link href="http://ElPiloto.github.io/"/>
+  <updated>2014-08-06T10:47:50-04:00</updated>
+  <id>http://ElPiloto.github.io/</id>
+  <author>
+    <name><![CDATA[Luis R. Piloto]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Probabilistic Logic Learning - Luc De Raedt and Kristian Kersting]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/08/05/probabilistic-logic-learning-luc-de-raedt-and-kristian-kersting/"/>
+    <updated>2014-08-05T12:51:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/08/05/probabilistic-logic-learning-luc-de-raedt-and-kristian-kersting</id>
+    <content type="html"><![CDATA[<h4 id="what-does-probabilistic-logic-learning-mean">What does probabilistic logic learning mean?</h4>
+<p><strong>probabilistic</strong> - probabilistic representations and reasoning mechanisms <br />
+<strong>logic</strong> - first order logical and relational representations (compared to propositional logic affords reasoning about objects)</p>
+
+<h3 id="logic-glossary">Logic Glossary</h3>
+<p>first-order logic $\leftrightarrow$ relational representation <br />
+allows for:<br />
+<strong>extensional</strong>: <code>ram(r1,c1)</code> – </p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: hilbert | Something Witty]]></title>
+  <link href="http://ElPiloto.github.io/blog/categories/hilbert/atom.xml" rel="self"/>
+  <link href="http://ElPiloto.github.io/"/>
+  <updated>2014-08-06T10:47:50-04:00</updated>
+  <id>http://ElPiloto.github.io/</id>
+  <author>
+    <name><![CDATA[Luis R. Piloto]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: Hilbert Transformed Data]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/08/06/sleep-eeg-hilbert-transformed-data/"/>
+    <updated>2014-08-06T10:36:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/08/06/sleep-eeg-hilbert-transformed-data</id>
+    <content type="html"><![CDATA[<h2 id="wake-hilbert-transformed-classification">Wake Hilbert Transformed Classification</h2>
+
+<p><a href='src="/images/research/sleep_eeg_hilbert/wake_hilb_mean_across_subjects.png" width="700" height="350"' target='_blank'><img src="/images/research/sleep_eeg_hilbert/wake_hilb_mean_across_subjects.png" width="700" height="350"></a></p>
+
+<p><a href='src="/images/research/sleep_eeg_hilbert/wake_hilb_mean_across_subjects_per_freq.png" width="700" height="350"' target='_blank'><img src="/images/research/sleep_eeg_hilbert/wake_hilb_mean_across_subjects_per_freq.png" width="700" height="350"></a></p>
+]]></content>
+  </entry>
+  
+</feed>
