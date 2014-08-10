@@ -4,7 +4,7 @@
   <title><![CDATA[Category: hide | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/hide/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-08-10T17:21:39-04:00</updated>
+  <updated>2014-08-10T17:22:14-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -43,11 +43,10 @@
     <p>Once rules have been learned, acting with them is a well-studied research problem (Pasula, Zettlemoyer, and Kaelbling, 2004) allowing for one-shot policy adjustment given novel domain configurations (e.g. a previously blocked path is now open).</p>
   </li>
   <li>
-    <p>Propositional logic isn’t sufficient: chess can be propositionalized as follows via propositions as follows:</p>
+    <p>Propositional logic isn’t sufficient: chess can be propositionalized as follows via propositions as follows:
+<code>NumberOfBlackPawnsIsNotFive</code> and <code>whiteKingOnSameLineAsBlackKing</code></p>
   </li>
 </ol>
-<pre>NumberOfBlackPawnsIsNotFive</pre>
-<p>and &lt;pre&gt;whiteKingOnSameLineAsBlackKing&lt;/pre&gt;</p>
 
 <h2 id="what-is-relational-reinforcement-learning">What is relational reinforcement learning?</h2>
 
