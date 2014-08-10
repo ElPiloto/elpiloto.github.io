@@ -4,7 +4,7 @@
   <title><![CDATA[Category: relational RL | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/relational-rl/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-08-10T17:05:03-04:00</updated>
+  <updated>2014-08-10T17:15:15-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -37,9 +37,15 @@
     <p>Introspection: our own capacities for abstraction and transfer suggest the importance of symbolic processing (Buchheit, 1999).</p>
   </li>
   <li>
-    <p>Allows rich, intuitive specification of background knowledge: facilitating learning to new tasks (via bootstrapping from previously learned experiences): using a key on a lock is not dependent on the particular task at hand: if we learn through trial and error the abstract transition model $ T(isLocked(lock) = true, unlocks(lock,key) = true, useKeyOnLock(lock,key)) \rightarrow  isLocked(lock) = false $, then we can utilize that information in any domain that uses keys and locks.  While this allows for humans to specify background knowledge to an artificial agent by inserting that definite clause into the initial transition structure for a new RL problem, the more satisying use case is one where an agent builds up its own set of abstract relations and takes a library of relations into each new task.</p>
+    <p>Allows rich, intuitive specification of background knowledge: facilitating learning to new tasks (via bootstrapping from previously learned experiences): using a key on a lock is not dependent on the particular task at hand: if we learn through trial and error the abstract transition model $ T(isLocked(lock) = true, unlocks(lock,key) = true, useKeyOnLock(lock,key)) \rightarrow  isLocked(lock) = false $, then we can utilize that information in any domain that uses keys and locks.  While this allows for humans to specify background knowledge to an artificial agent by inserting that definite clause into the initial transition structure for a new RL problem, the more satisying use case is one where an agent builds up its own set of abstract relations and takes a library of relations into each new task.   </p>
+  </li>
+  <li>
+    <p>Once rules have been learned, acting with them is a well-studied research problem allowing for any number of planning algorithms (Pasula, Zettlemoyer, and Kaelbling, 2004).</p>
   </li>
 </ol>
+
+<h2 id="what-is-relational-reinforcement-learning">What is relational reinforcement learning?</h2>
+
 ]]></content>
   </entry>
   
