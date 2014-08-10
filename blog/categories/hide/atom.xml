@@ -4,7 +4,7 @@
   <title><![CDATA[Category: hide | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/hide/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-08-10T16:22:56-04:00</updated>
+  <updated>2014-08-10T16:30:37-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -23,8 +23,15 @@
 <p>Why do we even care about relational reinformcent learning?  </p>
 
 <ol>
-  <li><em>Rule Learning by Seven-Month-Old Infants.</em> Marcus, Vijayan, Rao, &amp; Vishton, 1999:<br />
-7-month old infants were exposed to sentences of the form: ABB or ABA during a training phase (e.g. “ga ti ti” or “ga ti ga”), testing phase entailed consistent or inconsistent conditions where presented with entirely new words either in ABB or ABA format (e.g. “wo fe fe” or “wo fe wo”).  <strong>Results:</strong> Infants looked longer at flashing light during inconsistent sentences in test period ( e.g. train “ABB”, test “ABA”) compared to consistent.  This indicates rule learning in infants, cannot be explained by statistical learning of transition probabilities because test set consisted entirely of new words (no estimate of transition probability).</li>
+  <li>
+    <p><em>Rule Learning by Seven-Month-Old Infants.</em> Marcus, Vijayan, Rao, &amp; Vishton, 1999: <strong>Methods:</strong>  <br />
+7-month old infants were exposed to sentences of the form: ABB or ABA during a training phase (e.g. “ga ti ti” or “ga ti ga”), testing phase entailed consistent or inconsistent conditions where presented with entirely new words either in ABB or ABA format (e.g. “wo fe fe” or “wo fe wo”). <br />
+<strong>Results:</strong> Infants looked longer at flashing light during inconsistent sentences in test period ( e.g. train “ABB”, test “ABA”) compared to consistent.<br />
+<strong>Discussion:</strong> This indicates rule learning in infants, cannot be explained by statistical learning of transition probabilities because test set consisted entirely of new words (no estimate of transition probability).  Requires extraction of relationships: are these two entities the same?  </p>
+  </li>
+  <li>
+    <p>Can generalize over identities of objects in the world.</p>
+  </li>
 </ol>
 ]]></content>
   </entry>
@@ -36,19 +43,19 @@
     <id>http://ElPiloto.github.io/blog/2014/08/06/sleep-eeg-hilbert-transformed-data</id>
     <content type="html"><![CDATA[<h2 id="wake-hilbert-transformed-classification">Wake Hilbert Transformed Classification</h2>
 
-<p>{% img /images/research/sleep_eeg_hilbert/wake_hilb_mean_across_subjects.png 700 350 %}</p>
+<p><a href='/images/research/sleep_eeg_hilbert/wake_hilb_mean_across_subjects.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/wake_hilb_mean_across_subjects.png" width="700" height="350"></a></p>
 
 <p><strong>Figure 1:</strong> Average AUC on Hilbert-transformed wake data across all subjects for each time bin and frequency band combination.</p>
 
 <p><strong>Thoughts:</strong> We see “hotspots” where we were hoping to see them: at the theta frequency around 200-230ms. Moreover, we see that the 200-230ms theta bin forms a local peak: as you move earlier or later in time, classification accuracy decreases.  Importantly, the accuracy using these bands (as opposed to individual frequencies like we had before) yields comparable average wake classification across subjects if we look at this <a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/wake_auc_avgd.png">old plot</a>.  If this result holds for all subjects, then we would feel pretty good about using the 200ms (or 230ms) theta time-freq bin to transform the sleep data.  Therefore, let’s look at the individual subjects to see if these results are driven by some subjects or if they seem to be pretty evenly distributed (spoiler: doesn’t seem to be a good time-freq bin, or even classifiable, for all subjects, but it does pretty well)</p>
 
-<p>{% img /images/research/sleep_eeg_hilbert/wake_hilb_all_subjects_all_freqs_all_times.png 700 350 %}</p>
+<p><a href='/images/research/sleep_eeg_hilbert/wake_hilb_all_subjects_all_freqs_all_times.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/wake_hilb_all_subjects_all_freqs_all_times.png" width="700" height="350"></a></p>
 
 <p><strong>Figure 2:</strong> AUC heatmaps of classification AUC per subject.  Subject IDs are along the top of each subplot, timebins run along the y-axis and frequencies along the x-axis (only explicitly marked for the last subject, but the axes are exactly the same as Figure 1).</p>
 
 <p><strong>Thoughts:</strong> These plots, though informative, suck for the purpose of evaluating how good the 200-250ms, theta bins do across all subjects.  Let’s zoom in on the areas of interest below.  One additional point, is that we’re getting <strong>much</strong> better max AUC across timebins than previously before (using individual frequencies) suggesting that the Hilbert transform is a better preprocessing technique for classification.</p>
 
-<p>{% img /images/research/sleep_eeg_hilbert/wake_across_subjs_times7<strong>8</strong>9_freq2.png 700 350 %}</p>
+<p><a href='/images/research/sleep_eeg_hilbert/wake_across_subjs_times7<strong>8</strong>9_freq2.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/wake_across_subjs_times7<strong>8</strong>9_freq2.png" width="700" height="350"></a></p>
 
 <p><strong>Figure 3:</strong>  Above we show the AUC for each subject for 3 different times (200, 225, and 250ms respectively) for the 4 Hz (theta) frequency band.</p>
 
@@ -58,11 +65,11 @@
 
 <p>Below we look at how discriminable the sleep data is at each particular timebin and frequency combination of the sleep data using logistic regression.  Additionally, we test the regularization parameter for two separate values $ \lambda = 1, 50 $</p>
 
-<p>{% img /images/research/sleep_eeg_hilbert/sleep_hilb_mean_across_subjects_lambda1.png 700 350 %}</p>
+<p><a href='/images/research/sleep_eeg_hilbert/sleep_hilb_mean_across_subjects_lambda1.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/sleep_hilb_mean_across_subjects_lambda1.png" width="700" height="350"></a></p>
 
 <p><strong>Figure 4:</strong> Above we show the across-subjects average AUC for performing logistic regression on the sleep data at each time and frequency band combination with regularization parameter $ \lambda = 1 $.</p>
 
-<p>{% img /images/research/sleep_eeg_hilbert/sleep_hilb_lambda50_mean_across_subjects.png 700 350 %}</p>
+<p><a href='/images/research/sleep_eeg_hilbert/sleep_hilb_lambda50_mean_across_subjects.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/sleep_hilb_lambda50_mean_across_subjects.png" width="700" height="350"></a></p>
 
 <p><strong>Figure 5:</strong> Same as Figure 4, except this time we set the regularization parameter $ \lambda = 50 $.</p>
 
@@ -70,11 +77,11 @@
 
 <p>These results are encouraging for two reasons.  First, the best time and frequency combination falls within a plausible time range.  We could talk to James to see if he has any a priori evidence to support getting results in the BETA frequency range, but at least the time isn’t too early.  Second, the AUC is pretty good on the individual subject level as we see below: most subjects are either at or above chance.</p>
 
-<p>{% img /images/research/sleep_eeg_hilbert/best_time_freq_untransformed_sleep_lambda1.jpg 700 350 %}</p>
+<p><a href='/images/research/sleep_eeg_hilbert/best_time_freq_untransformed_sleep_lambda1.jpg' target='_blank'><img src="/images/research/sleep_eeg_hilbert/best_time_freq_untransformed_sleep_lambda1.jpg" width="700" height="350"></a></p>
 
 <p><strong>Figure 6:</strong> Above we show the AUC for each subjects generated by performing logistic regression on the sleep data at the best time and frequency band combination with regularization parameter $ \lambda = 1 $.</p>
 
-<p>{% img /images/research/sleep_eeg_hilbert/best_time_freq_untransformed_sleep_lambda50.jpg 700 350 %}</p>
+<p><a href='/images/research/sleep_eeg_hilbert/best_time_freq_untransformed_sleep_lambda50.jpg' target='_blank'><img src="/images/research/sleep_eeg_hilbert/best_time_freq_untransformed_sleep_lambda50.jpg" width="700" height="350"></a></p>
 
 <p><strong>Figure 7:</strong> Same as Figure 6, except this time we set the regularization parameter $ \lambda = 50 $.</p>
 
@@ -106,19 +113,19 @@ allows for:<br />
     <content type="html"><![CDATA[<h3 id="logistic-regression-untransformed-sleep-data-varying-regularization-term">Logistic Regression Untransformed Sleep Data: Varying regularization term</h3>
 <p>The motivation for this line of inquiry is contained in <a href="/blog/2014/07/27/sleep-eeg-post-boosting-results/">this post</a> under the discussion section for figure 4.</p>
 
-<p>{% img /images/research/untransformed_log_reg_lambda250and750.jpg 700 350 %}</p>
+<p><a href='/images/research/untransformed_log_reg_lambda250and750.jpg' target='_blank'><img src="/images/research/untransformed_log_reg_lambda250and750.jpg" width="700" height="350"></a></p>
 
 <p><strong>Figure 1:</strong> This shows the sleep classification accuracy for logistic regression using untransformed sleep data with <code>statmap_anova</code> feature selection (stat_thresh = 0.1).</p>
 
 <p><strong>Thoughts</strong> Well this is interesting.  I had previously been using a regularization term of 1 for all the logistic regression analyses and to see this level of classification accuracy using a regularization penalty two orders of magnitude higher than previously suggests that I didn’t have much of a grasp on the role of the regularization term in this analysis.  The $\lambda = 750$ case is encouraging because it’s up there in terms of the highest average classification accuracy we’ve seen AND it includes that largest regularization term we’ve used thus far.  It’s worth investigating how far we can push regularization before it collapses, thus I’ve launched an additional analysis trying results with regularization = 1250 and 1750.  Will update this post when those results are in.  ALSO, this begs the question: should we re-run our sleep transformed analyses using stronger regularization for the wake classes?  <strong>YES</strong></p>
 
-<p>{% img /images/research/untransformed_log_reg_lambda1250and1750.jpg 700 350 %}</p>
+<p><a href='/images/research/untransformed_log_reg_lambda1250and1750.jpg' target='_blank'><img src="/images/research/untransformed_log_reg_lambda1250and1750.jpg" width="700" height="350"></a></p>
 
 <p><strong>Figure 2:</strong> This shows the sleep classification accuracy for logistic regression using untransformed sleep data with <code>statmap_anova</code> feature selection (stat_thresh = 0.1).</p>
 
 <p><strong>Thoughts:</strong> This still doesn’t make it seem like we’ve hit the upper bound on the regularization penalty. I’m not sure what to make of the fact that 750 = good regularzation, 1750 = good regularization, but 1250 gives pretty crappy results.  I guess I don’t have any strong theoretical justification to think classification accuracy would vary smoothly as we modify the regularization parameter.  I’m now launching sleep untransformed classification on <em>all</em> the subjects with a high regularization term.</p>
 
-<p>{% img /images/research/untransformed_log_reg_lambda12000_ALLSUBJS.jpg 700 350 %}</p>
+<p><a href='/images/research/untransformed_log_reg_lambda12000_ALLSUBJS.jpg' target='_blank'><img src="/images/research/untransformed_log_reg_lambda12000_ALLSUBJS.jpg" width="700" height="350"></a></p>
 
 <p><strong>Figure 3:</strong> This shows the sleep classification accuracy for logistic regression using untransformed sleep data with <code>statmap_anova</code> feature selection (stat_thresh = 0.1).</p>
 

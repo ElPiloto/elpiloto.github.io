@@ -4,7 +4,7 @@
   <title><![CDATA[Something Witty]]></title>
   <link href="http://ElPiloto.github.io/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-08-10T16:22:35-04:00</updated>
+  <updated>2014-08-10T16:30:37-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -23,8 +23,15 @@
 <p>Why do we even care about relational reinformcent learning?  </p>
 
 <ol>
-  <li><em>Rule Learning by Seven-Month-Old Infants.</em> Marcus, Vijayan, Rao, &amp; Vishton, 1999:<br />
-7-month old infants were exposed to sentences of the form: ABB or ABA during a training phase (e.g. “ga ti ti” or “ga ti ga”), testing phase entailed consistent or inconsistent conditions where presented with entirely new words either in ABB or ABA format (e.g. “wo fe fe” or “wo fe wo”).  <strong>Results:</strong> Infants looked longer at flashing light during inconsistent sentences in test period ( e.g. train “ABB”, test “ABA”) compared to consistent.  This indicates rule learning in infants, cannot be explained by statistical learning of transition probabilities because </li>
+  <li>
+    <p><em>Rule Learning by Seven-Month-Old Infants.</em> Marcus, Vijayan, Rao, &amp; Vishton, 1999: <strong>Methods:</strong>  <br />
+7-month old infants were exposed to sentences of the form: ABB or ABA during a training phase (e.g. “ga ti ti” or “ga ti ga”), testing phase entailed consistent or inconsistent conditions where presented with entirely new words either in ABB or ABA format (e.g. “wo fe fe” or “wo fe wo”). <br />
+<strong>Results:</strong> Infants looked longer at flashing light during inconsistent sentences in test period ( e.g. train “ABB”, test “ABA”) compared to consistent.<br />
+<strong>Discussion:</strong> This indicates rule learning in infants, cannot be explained by statistical learning of transition probabilities because test set consisted entirely of new words (no estimate of transition probability).  Requires extraction of relationships: are these two entities the same?  </p>
+  </li>
+  <li>
+    <p>Can generalize over identities of objects in the world.</p>
+  </li>
 </ol>
 ]]></content>
   </entry>
