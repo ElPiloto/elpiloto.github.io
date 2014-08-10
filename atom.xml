@@ -4,7 +4,7 @@
   <title><![CDATA[Something Witty]]></title>
   <link href="http://ElPiloto.github.io/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-08-10T11:23:53-04:00</updated>
+  <updated>2014-08-10T16:14:02-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Relational RL]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/08/10/relational-rl/"/>
+    <updated>2014-08-10T16:12:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/08/10/relational-rl</id>
+    <content type="html"><![CDATA[<h2 id="motivation">Motivation</h2>
+
+<p>Why do we even care about relational reinformcent learning?</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sleep EEG: Hilbert Transformed Data]]></title>
@@ -858,60 +869,6 @@ Git commit id#: <code>59c7561e0</code></p>
 <ul>
   <li>Look at next steps from previous meeting, they haven’t changed.</li>
 </ul>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Non-markov SFA: Matt Botvinick Meeting]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/04/10/non-markov-sfa-matt-botvinick-meeting/"/>
-    <updated>2014-04-10T17:54:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/04/10/non-markov-sfa-matt-botvinick-meeting</id>
-    <content type="html"><![CDATA[<h3 id="status">Status:</h3>
-
-<ul>
-  <li>Still unable to train successfully on non-markov loop</li>
-  <li>Tried the following things:
-    <ol>
-      <li>Training on markov loop (simply go around in a circle) and succeeded in training that network - this serves as a sanity check</li>
-      <li>Tried lower learning rate</li>
-      <li>Tried penalizing the training examples corresponding to the appropriate left or right choice more than other examples, but this produced funky, erratically erroneous behavior</li>
-      <li>Switched state representation from $(x,y)$ coordinates to place cell locations:
-        <ul>
-          <li>Helped with training non-markov: now the network simply chooses one side and incurs the cost of being wrong once every 2 cycles</li>
-        </ul>
-      </li>
-    </ol>
-  </li>
-</ul>
-
-<h3 id="comments">Comments:</h3>
-
-<ul>
-  <li>Matt thought this is more like the problem you’d expect if the recurrent neural network was just having a hard time remembering</li>
-</ul>
-
-<h3 id="next-steps">Next Steps:</h3>
-
-<ul>
-  <li>Troubleshoot neural network:
-    <ul>
-      <li>Try using LSTM network (Schmidhuber probably has an implementation)
-        <ul>
-          <li><strong>Ensure</strong> that the LSTM network produces an internal, vector of scalar representation that we can subsequently use for SFA</li>
-          <li>Matt would like a briefing of how LSTM works (though he didn’t explicitly ask for one, it’d be a sweet thing to do for him)</li>
-        </ul>
-      </li>
-      <li>Alternatively: try, Larry Abbott and David Sussillo FORCE algorithm</li>
-      <li>Alternatively: implement Matt’s recurrent neural network with an additional set of targets that serve as an autoencoder of the recurrent layer</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="random">Random:</h3>
-<ol>
-  <li>Matt spoke about another motivation for using SFA, which was Earl Miller’s dog/cat discrimination task in monkeys with stimuli which were morphed on a continuum between dog and cat (I think).  That experiment showed that visual areas represented dogs and cats “veridically”, but that prefrontal areas represented the stimuli based on the category boundary (which was manipulated).  He thought, how would you come up with that representation?  Well, you would have to think that the time series is: stimulus, press left, receive reward and that maybe we could perform SFA on this.</li>
-  <li>Matt mentioned there is a “teacher” in the Sussillo FORCE algorithm that prevents the network from being wrong on a particular trial - he thinks perhaps this relationship could be instantiated by the model-free and model-based systems.  Furthermore, that this teacher might only provide information some of the times - that it computes when it needs to monitor/control/teach/supervise the model-free system.</li>
-</ol>
 ]]></content>
   </entry>
   
