@@ -215,7 +215,9 @@
 <p>Formally, given a first-order probabilistic logic $ \Lambda $ (e.g. <em>inductive logic programming</em>), a hypothesis $ \Upsilon \in \Lambda $, predicates $p$, constants $c$, a special set of predicates $A$, then we can define the MDP as:<br />
   $ S: {s \in HB^{P \cap C} | s \models \Upsilon } $ <br />
   $ A: {a \in HB^{A \cap C} | a \models \Upsilon } $<br />
-  $ T: S x A \longmapsto S $</p>
+  $ T: S x A \longmapsto S $ <br />
+  $ R: S x A \longmapsto R $ <br />
+  $ HB = \text{Herbrand Base}, \Upsilon \text{defines which states are possible in the current domain}$, and \models</p>
 
 <h2 id="applications-of-relational-reinforcement-learning">Applications of relational reinforcement learning</h2>
 

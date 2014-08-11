@@ -4,7 +4,7 @@
   <title><![CDATA[Category: noarchive | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/noarchive/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-08-10T22:44:46-04:00</updated>
+  <updated>2014-08-10T22:47:08-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -61,8 +61,9 @@
 <p>Formally, given a first-order probabilistic logic $ \Lambda $ (e.g. <em>inductive logic programming</em>), a hypothesis $ \Upsilon \in \Lambda $, predicates $p$, constants $c$, a special set of predicates $A$, then we can define the MDP as:<br />
   $ S: {s \in HB^{P \cap C} | s \models \Upsilon } $ <br />
   $ A: {a \in HB^{A \cap C} | a \models \Upsilon } $<br />
-  $ T: S x A \longmapsto S $
-  $ R: S x A \longmapsto R $</p>
+  $ T: S x A \longmapsto S $ <br />
+  $ R: S x A \longmapsto R $ <br />
+  $ HB = \text{Herbrand Base}, \Upsilon \text{defines which states are possible in the current domain}$, and $\models$ means is an interpretation of.</p>
 
 <h2 id="applications-of-relational-reinforcement-learning">Applications of relational reinforcement learning</h2>
 ]]></content>
