@@ -4,7 +4,7 @@
   <title><![CDATA[Category: relational RL | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/relational-rl/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-08-10T23:25:13-04:00</updated>
+  <updated>2014-08-10T23:26:34-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -79,11 +79,11 @@ $ A = {move/2} $</p>
 <p>Clearly, like many other state representations, we are in dire need of abstraction.  This is done by using <em>ungrounded</em> predicates for learning a transition structure or policy, that is, predicates where the arguments are populated entirely or partially by variables.  </p>
 
 <h4 id="example-abstract-policy">Example abstract policy</h4>
-<p>Assuming the current goal is to place object a on object b, here is an abstract policy utilizing the decision list construction where we follow the rules sequentially and apply the first rule that matches:<br />
-$ r<em>0: on(a,b) \rarrow noop $<br />
-$ r</em>1: onTop(X,b) \rarrow move(X,floor) $<br />
-$ r<em>2: onTop(X,a) \rarrow move(X, floor) $<br />
-$ r</em>3: clear(a), clear(b) \rarrow move(a,b) $</p>
+<p>Assuming the current goal is to place object a on object b, here is an abstract policy utilizing the decision list construction where we follow the rules sequentially and apply the first rule that matches: <br />
+$ r<em>0: on(a,b) \rightarrow noop $<br />
+$ r</em>1: onTop(X,b) \rightarrow move(X,floor) $<br />
+$ r<em>2: onTop(X,a) \rightarrow move(X, floor) $<br />
+$ r</em>3: clear(a), clear(b) \rightarrow move(a,b) $</p>
 
 <h2 id="applications-of-relational-reinforcement-learning">Applications of relational reinforcement learning</h2>
 ]]></content>
