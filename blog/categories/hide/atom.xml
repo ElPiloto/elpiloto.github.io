@@ -4,7 +4,7 @@
   <title><![CDATA[Category: hide | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/hide/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-08-10T22:40:56-04:00</updated>
+  <updated>2014-08-10T22:44:46-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -59,7 +59,10 @@
 <p>Relational reinforcement learning hinges on upgrading representations of the individual components of an MDP e.g. states, transition function, etc.  There are various relational representations with which the components of an MDP can be upgraded: first-order logic (instantiated as stochastic context-free grammars or probabilistic relational models), graph-based relational representations.  Here we’ll stick with a probabilistic first-order logic:</p>
 
 <p>Formally, given a first-order probabilistic logic $ \Lambda $ (e.g. <em>inductive logic programming</em>), a hypothesis $ \Upsilon \in \Lambda $, predicates $p$, constants $c$, a special set of predicates $A$, then we can define the MDP as:<br />
-  $ S: {s \in HB^{P \union C} | s \models \Upsilon } $</p>
+  $ S: {s \in HB^{P \cap C} | s \models \Upsilon } $ <br />
+  $ A: {a \in HB^{A \cap C} | a \models \Upsilon } $<br />
+  $ T: S x A \longmapsto S $
+  $ R: S x A \longmapsto R $</p>
 
 <h2 id="applications-of-relational-reinforcement-learning">Applications of relational reinforcement learning</h2>
 ]]></content>
