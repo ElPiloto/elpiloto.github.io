@@ -4,7 +4,7 @@
   <title><![CDATA[Category: hide | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/hide/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-08-10T23:28:26-04:00</updated>
+  <updated>2014-08-10T23:29:50-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -72,7 +72,7 @@
 $ C = a,b,c,d,e, floor $<br />
 $ A = {move/2} $</p>
 
-<p>This defines the set of all possible states by filling in each possible constant into each possible slot of the predicates such that $ \mid S\mid = 501 legal states$   </p>
+<p>This defines the set of all possible states by filling in each possible constant into each possible slot of the predicates such that $ \mid S\mid = 501 $ legal states</p>
 
 <p>Holy Moley Batman, that’s a lot of states!  If $\mid C\mid = k$ and the arity (number of arguments accepted by a predicate) is $ \alpha_p $, then the total number of possible interpretations is $ \prod_p 2^{k^{\alpha_p}} \implies $ <strong>intractable</strong>.  </p>
 
@@ -80,10 +80,11 @@ $ A = {move/2} $</p>
 
 <h4 id="example-abstract-policy">Example abstract policy</h4>
 <p>Assuming the current goal is to place object a on object b, here is an abstract policy utilizing the decision list construction where we follow the rules sequentially and apply the first rule that matches: <br />
-$ r<em>0: on(a,b) $ $\rightarrow \text{no move} $<br />
-$ r</em>1: onTop(X,b) \rightarrow move(X,floor) $<br />
-$ r<em>2: onTop(X,a) \rightarrow move(X, floor) $<br />
-$ r</em>3: clear(a), clear(b) \rightarrow move(a,b) $</p>
+ $ 5 = 5 $ <br />
+  $ r<em>0: on(a,b) $ $\rightarrow \text{no move} $  <br />
+  $ r</em>1: onTop(X,b) \rightarrow move(X,floor) $  <br />
+  $ r<em>2: onTop(X,a) \rightarrow move(X, floor) $  <br />
+  $ r</em>3: clear(a), clear(b) \rightarrow move(a,b) $   </p>
 
 <h2 id="applications-of-relational-reinforcement-learning">Applications of relational reinforcement learning</h2>
 ]]></content>
