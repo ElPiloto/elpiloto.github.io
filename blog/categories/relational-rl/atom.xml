@@ -4,7 +4,7 @@
   <title><![CDATA[Category: relational RL | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/relational-rl/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-08-10T22:57:14-04:00</updated>
+  <updated>2014-08-10T22:57:57-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -74,7 +74,7 @@ $ A = {move/2} $</p>
 
 <p>This defines the set of all possible states by filling in each possible constant into each possible slot of the predicates such that $ \mid S\mid = 501 legal states$   </p>
 
-<p>Holy Moley Batman, that’s a lot of states!  If $\mid C\mid = k$ and the arity (number of arguments accepted by a predicate) is $ \alpha_p $, then the total number of possible interpretations is $ \prod_p 2^{k^{\alpha_p}} $</p>
+<p>Holy Moley Batman, that’s a lot of states!  If $\mid C\mid = k$ and the arity (number of arguments accepted by a predicate) is $ \alpha_p $, then the total number of possible interpretations is $ \prod_p 2^{k^{\alpha_p}} \implies $ <strong>intractable</strong>.</p>
 
 <h2 id="applications-of-relational-reinforcement-learning">Applications of relational reinforcement learning</h2>
 ]]></content>
