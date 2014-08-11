@@ -4,7 +4,7 @@
   <title><![CDATA[Something Witty]]></title>
   <link href="http://ElPiloto.github.io/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-08-10T23:29:47-04:00</updated>
+  <updated>2014-08-10T23:51:10-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -80,13 +80,19 @@ $ A = {move/2} $</p>
 
 <h4 id="example-abstract-policy">Example abstract policy</h4>
 <p>Assuming the current goal is to place object a on object b, here is an abstract policy utilizing the decision list construction where we follow the rules sequentially and apply the first rule that matches: <br />
- $ 5 = 5 $
   $ r<em>0: on(a,b) $ $\rightarrow \text{no move} $  <br />
   $ r</em>1: onTop(X,b) \rightarrow move(X,floor) $  <br />
   $ r<em>2: onTop(X,a) \rightarrow move(X, floor) $  <br />
   $ r</em>3: clear(a), clear(b) \rightarrow move(a,b) $   </p>
 
+<p><strong>Note:</strong> It is important that any ungrounded terms (i.e. <em>variables</em>) that appear on the lefthand side of a rule, also appear on the righthand side.   </p>
+
+<h2 id="model-free-relational-rl">Model-free relational RL:</h2>
+<p>The general idea is to use relational regression in order to approximate q-value function.  This has yielded things like: </p>
+
 <h2 id="applications-of-relational-reinforcement-learning">Applications of relational reinforcement learning</h2>
+
+<h4 id="learning-grounded-relational-symbols-from-continuous-data-for-abstract-reasoning">Learning Grounded Relational Symbols from Continuous Data for Abstract Reasoning</h4>
 ]]></content>
   </entry>
   
