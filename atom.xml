@@ -4,7 +4,7 @@
   <title><![CDATA[Something Witty]]></title>
   <link href="http://ElPiloto.github.io/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-08-10T17:22:14-04:00</updated>
+  <updated>2014-08-10T22:34:49-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -43,13 +43,24 @@
     <p>Once rules have been learned, acting with them is a well-studied research problem (Pasula, Zettlemoyer, and Kaelbling, 2004) allowing for one-shot policy adjustment given novel domain configurations (e.g. a previously blocked path is now open).</p>
   </li>
   <li>
-    <p>Propositional logic isn’t sufficient: chess can be propositionalized as follows via propositions as follows:
-<code>NumberOfBlackPawnsIsNotFive</code> and <code>whiteKingOnSameLineAsBlackKing</code></p>
+    <p>Propositional logic isn’t sufficient, need first-order a.k.a. relational representations: chess can be propositionalized as follows via propositions as follows: <br />
+<code>NumberOfBlackPawnsIsNotFive</code> and <code>whiteKingOnSameLineAsBlackKing</code>, but requires fixed number of objects, proposition to be constructed for all possible relations between all objects.  Compare to the relational representation: <code>sameLine(blackKing,whiteKing)</code>.  The effect of this being that we cannot easily generalize over objects or similar situations (Van Otterlo 2005). See Bongard problem for another example where relational representation is much more natural than propositional.  <strong>Take home:</strong> the allure of first-order logic is not simply that there exist theorem provers and goal regression (which is also a property of propositional logic), but the fact that it explicitly provides a mechanism for relationships between entities.   </p>
+  </li>
+  <li>
+    <p>Lookup tables or propositional representations aren’t able to represent structural aspects of states and actions in relational domains such as Block World.   </p>
+  </li>
+  <li>
+    <p>A representation should enable representing and reasoning about <em>objects</em> (Kaelbling et al., 2001); one has to be be able to represent objects and relations in our language if an intensional stance is taken (Dennett, 1987).</p>
   </li>
 </ol>
 
 <h2 id="what-is-relational-reinforcement-learning">What is relational reinforcement learning?</h2>
 
+<p>Relational reinforcement learning hinges on upgrading representations of the individual components of an MDP e.g. states, transition function, etc.  There are various relational representations with which the components of an MDP can be upgraded: first-order logic (instantiated as stochastic context-free grammars or probabilistic relational models), graph-based relational representations.  Here we’ll stick with a probabilistic first-order logic:</p>
+
+<p>Formally, given a first-order probabilistic logic $ \Lambda $ (e.g. <em>inductive logic programming</em>), a hypothesis $ \Upsilon \in \Lambda $</p>
+
+<h2 id="applications-of-relational-reinforcement-learning">Applications of relational reinforcement learning</h2>
 ]]></content>
   </entry>
   
