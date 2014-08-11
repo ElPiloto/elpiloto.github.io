@@ -242,9 +242,10 @@ $ A = {move/2} $</p>
 <p><strong>Note:</strong> It is important that any ungrounded terms (i.e. <em>variables</em>) that appear on the lefthand side of a rule, also appear on the righthand side.   </p>
 
 <h2 id="model-free-relational-rl">Model-free relational RL:</h2>
-<p>#### Q-Value
-The general idea is to use relational regression in order to approximate q-value function.  This has yielded things like:<br />
-    k-nearest neighbor: store examples, predict new q-values using distance-weighted average (requires defining distance over relational states) - also called relational instance-based regression (I think)
+
+<h4 id="q-value">Q-Value</h4>
+<p>The general idea is to use relational regression in order to approximate q-value function.  This has yielded things like:<br />
+    k-nearest neighbor: store examples, predict new q-values using distance-weighted average (requires defining distance over relational states) - also called relational instance-based regression (I think)   <br />
     kernel-based regression using Gaussian processes: pretty similar to above, requires defining kernel over graphs or using convolution kernel  <br />
     learning decision list: use relational regression to learn <em>grounded</em> Q-value function, calculate optimal <em>grounded</em> policy, feed optimal ground policy to decision list learner to produce <em>abstract</em> policy, keep both grounded and abstract policy around, use abstract policy to guide learning via generalization <br />
     TG relational regression:  incrementally build first-order trees; relational MDP specification defines which predicates are posssible, TG algorithm incrementally adds them to a regression tree as needed  </p>
