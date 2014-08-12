@@ -218,6 +218,16 @@
 
 <p><strong>Thoughts:</strong> Okay, so we have <strong>a</strong> time and frequency combination that gives us good classification accuracy, but this could just arise from multiple comparisons.  Sure, we can take comfort that the classification accuracy seems to peak at 175ms and degrades smoothly as we move away, but it’s also the case that the EEG power spectrum is pretty similar at those times.  <strong>SO</strong>, what would it take for me to believe these results?  Running classification on <strong>ALL</strong> of the <em>untransformed</em> sleep data features with heavy regularization and yielding good classification accuracy with weights that consistently preferred that time and frequency combination.  This is next on my to-do list, it shouldn’t take too long to get up and running.  I’d also like to add a reminder to myself that it may be worth subsampling the time dimension.</p>
 
+<h2 id="sleep-hilbert-untransformed-classification---use-all-time-and-frequencies">Sleep Hilbert Untransformed Classification - Use All Time and Frequencies</h2>
+
+<p><a href="/images/research/sleep_eeg_hilbert/untransformed_logreg_all_features.png" target="_blank"><img src="/images/research/sleep_eeg_hilbert/untransformed_logreg_all_features.png" width="700" height="350" /></a></p>
+
+<p><strong>Figure 8:</strong> Above we show the AUC per subject (along the y-axis) for various logistic regression regularization penalty values (along the x-axis) for classification using ALL of the features for the untransformed (i.e. not transformed according to wake pattern) sleep data using frequency bands (using Hilbert transform).  The <em>NaN</em> value is because that particular job failed and I didn’t think it was that important to justify putting off these results.</p>
+
+<p><a href="/images/research/sleep_eeg_hilbert/untransformed_logreg_all_features_avg_across_subjects.png" target="_blank"><img src="/images/research/sleep_eeg_hilbert/untransformed_logreg_all_features_avg_across_subjects.png" width="700" height="350" /></a></p>
+
+<p><strong>Figure 9:</strong> Same as Figure 8, except this time we average across subjects for each regularization setting.</p>
+
 </section>
 <footer>
   <div class="article-date">

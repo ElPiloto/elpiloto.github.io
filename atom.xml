@@ -4,7 +4,7 @@
   <title><![CDATA[Something Witty]]></title>
   <link href="http://ElPiloto.github.io/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-08-11T00:04:25-04:00</updated>
+  <updated>2014-08-12T14:05:24-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -54,6 +54,12 @@
   </li>
 </ol>
 
+<h2 id="relational-learning">Relational Learning</h2>
+
+<p>Learning in first-order logic can be broken into two categories: <br />
+1. <strong>parameter learning:</strong> assuming that we’re given a set of definite clauses, let’s learn the parameter values (i.e. probabilities).<br />
+2. __ structure learning:__ let’s learn both the definite clauses and the associated parameters (using refinement and generalization operators to maximize).   </p>
+
 <h2 id="what-is-relational-reinforcement-learning">What is relational reinforcement learning?</h2>
 
 <p>Relational reinforcement learning hinges on upgrading representations of the individual components of an MDP e.g. states, transition function, etc.  There are various relational representations with which the components of an MDP can be upgraded: first-order logic (instantiated as stochastic context-free grammars or probabilistic relational models), graph-based relational representations.  Here we’ll stick with a probabilistic first-order logic:</p>
@@ -92,15 +98,31 @@ $ A = {move/2} $</p>
 <h4 id="q-value">Q-Value</h4>
 <p>The general idea is to use relational regression in order to approximate q-value function.  This has yielded things like:<br />
     k-nearest neighbor: store examples, predict new q-values using distance-weighted average (requires defining distance over relational states) - also called relational instance-based regression (I think)   <br />
-    kernel-based regression using Gaussian processes: pretty similar to above, requires defining kernel over graphs or using convolution kernel  <br />
+    kernel-based regression using Gaussian processes: pretty similar to above, requires defining kernel over graphs or using convolution kernel, two benefits: can control generalization via covariance function smoothing parameter and since it’s embedded in a statistical framework, can give confidence of q-values which can be used to guide exploration using any of a bunch of algorithms such as upper-confidence bound, etc. <br />
     learning decision list: use relational regression to learn <em>grounded</em> Q-value function, calculate optimal <em>grounded</em> policy, feed optimal ground policy to decision list learner to produce <em>abstract</em> policy, keep both grounded and abstract policy around, use abstract policy to guide learning via generalization <br />
     TG relational regression:  incrementally build first-order trees; relational MDP specification defines which predicates are posssible, TG algorithm incrementally adds them to a regression tree as needed  </p>
 
 <h4 id="approximate-policy-iteration">Approximate Policy Iteration</h4>
 
+<h4 id="relational-naive-bayes">Relational Naive Bayes</h4>
+
+<h4 id="q-larc">Q-LARC:</h4>
+<p>feature construction based on predictive features   </p>
+
+<h2 id="model-based-relational-rl">Model-based relational RL:</h2>
+
+<p>Idea: Translate Bellman Backup Operator into relational domain.  Requires finding “preconditions” i.e. what states could lead to this state (this is called <em>regression), then a _combination</em> operator, and a <em>maximization</em> operator to define relational Bellman operator.   Defines new abstract policy from old abstract policy.  This is called <strong>decision-theoretic regression</strong>.  See explanation-based reinforcement learning.</p>
+
 <h2 id="applications-of-relational-reinforcement-learning">Applications of relational reinforcement learning</h2>
 
 <h4 id="learning-grounded-relational-symbols-from-continuous-data-for-abstract-reasoning">Learning Grounded Relational Symbols from Continuous Data for Abstract Reasoning</h4>
+
+<h4 id="learning-probabilistic-relational-planning-rules">Learning Probabilistic Relational Planning Rules</h4>
+
+<p><strong>learnRules:</strong> performs a search through a rule set using ILP operators (i.e. refinement and generalization operators)<br />
+<strong>induceOutcomes:</strong>  finds a best set of outcomes given a context and an action <br />
+<strong>learnParameters:</strong> learns a probability distribution over a set of outcomes  </p>
+
 ]]></content>
   </entry>
   
@@ -154,6 +176,16 @@ $ A = {move/2} $</p>
 <p><strong>Figure 7:</strong> Same as Figure 6, except this time we set the regularization parameter $ \lambda = 50 $.</p>
 
 <p><strong>Thoughts:</strong> Okay, so we have <strong>a</strong> time and frequency combination that gives us good classification accuracy, but this could just arise from multiple comparisons.  Sure, we can take comfort that the classification accuracy seems to peak at 175ms and degrades smoothly as we move away, but it’s also the case that the EEG power spectrum is pretty similar at those times.  <strong>SO</strong>, what would it take for me to believe these results?  Running classification on <strong>ALL</strong> of the <em>untransformed</em> sleep data features with heavy regularization and yielding good classification accuracy with weights that consistently preferred that time and frequency combination.  This is next on my to-do list, it shouldn’t take too long to get up and running.  I’d also like to add a reminder to myself that it may be worth subsampling the time dimension.</p>
+
+<h2 id="sleep-hilbert-untransformed-classification---use-all-time-and-frequencies">Sleep Hilbert Untransformed Classification - Use All Time and Frequencies</h2>
+
+<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/untransformed_logreg_all_features.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/untransformed_logreg_all_features.png" width="700" height="350" /></a></p>
+
+<p><strong>Figure 8:</strong> Above we show the AUC per subject (along the y-axis) for various logistic regression regularization penalty values (along the x-axis) for classification using ALL of the features for the untransformed (i.e. not transformed according to wake pattern) sleep data using frequency bands (using Hilbert transform).  The <em>NaN</em> value is because that particular job failed and I didn’t think it was that important to justify putting off these results.</p>
+
+<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/untransformed_logreg_all_features_avg_across_subjects.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/untransformed_logreg_all_features_avg_across_subjects.png" width="700" height="350" /></a></p>
+
+<p><strong>Figure 9:</strong> Same as Figure 8, except this time we average across subjects for each regularization setting.</p>
 ]]></content>
   </entry>
   
