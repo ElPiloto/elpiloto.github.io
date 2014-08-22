@@ -4,7 +4,7 @@
   <title><![CDATA[Something Witty]]></title>
   <link href="http://ElPiloto.github.io/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-08-22T14:39:32-04:00</updated>
+  <updated>2014-08-22T16:41:50-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -234,6 +234,20 @@ Max Class Output Prediction: scene (incorrect), scene (correct)
 % correct = 0.5
 diffAUC = 0
 </pre>
+
+<h2 id="ken-meeting-points">Ken Meeting Points</h2>
+
+<h4 id="auc">AUC</h4>
+<p>The space of <em>diffAUC</em>, <em>meanAUC</em>, and individual AUCs (e.g. <em>faceAUC</em> or <em>sceneAUC</em>) are all justifiable classification metrics.  Let’s not open this can of worms just yet, <em>however</em>, let’s <strong>definitely</strong> switch to pooling the classification outputs from all cross-validation folds and <em>then</em> calculating AUC, instead of calculating AUC for each fold, and averaging across folds.  That being said, subject 09 per-fold diffAUC was 0.1714 (see above), and their pooled diffAUC = 0.18 - so it doesn’t seem to have too much of an impact as I suspected.</p>
+
+<h4 id="feature-selection">Feature Selection</h4>
+<p>Ken thinks it’s unconventional to use feature selection and L2 regularization.  Let’s try L1 regularization instead, which has one less parameter and performs multivariate feature selection.</p>
+
+<h4 id="subject-9-crappiness">Subject 9 Crappiness</h4>
+<p>I haven’t justified why overfitting should lead to systematically incorrect predictions, it should lead to chance performance.   It may be the case that feature selection and L2 regularization is just susceptible to pathological results given that our classifier does okay when we try boosting.  If we try L1-regularization and that works okay, then we’ll know the problem is feature selection + L2 regularization.</p>
+
+<h4 id="next-steps">Next Steps:</h4>
+<p>Let’s try our leave-one-subject-out analysis for individual time-frequency pairs.</p>
 ]]></content>
   </entry>
   
