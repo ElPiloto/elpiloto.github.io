@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Sleep EEG: Past TODO items and next directions - Something Witty</title>
+  <meta name="author" content="Luis R. Piloto">
+
+  
+  <meta name="description" content="EEG, hide, hilbert, noarchive, sleep Sleep EEG: Past TODO Items and Next Directions Before determining where we should go next now that we have a &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ElPiloto.github.io/blog/2014/09/02/sleep-eeg-past-to-do-items-and-next-directions">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/styles.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Something Witty" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/jquery.sidr.min.js"></script>
+  <script src="/javascripts/ah-blue.js"></script>
+  <!-- MathJax -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+  </script>
+
+  <script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-49251088-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head> 
+
+<body   >
+  <div class="aux-container">
+    <a id="nav-toggle" href="#sidr"></a>
+    <a id="search-toggle"></a>
+	<h1 style="margin-left: 30px">the blog of luis piloto</h1>
+</div>
+
+<header class="header-container clearfix" id="the_header_container">
+        <a href="/" align="left"><img src="/images/brain.svg" onerror="this.onerror=null; this.src='brain.png'"></a>
+</header>
+
+
+  <div class="main-container add-top-margin" id="the_main_container">
+    <div class="main wrapper clearfix">
+    	
+    	<aside>
+			
+			  	<div class="search-container">
+					<form action="http://google.com/search" method="get">
+						<fieldset role="search">
+							<input type="hidden" name="q" value="site:elpiloto.github.io" />
+							<input class="search-field" type="text" name="q" results="0" placeholder=""/>
+							<input class="submit" type="submit" value=""/>
+						</fieldset>
+					</form>
+				</div>
+			
+		  <div id="main-nav">
+    <nav>
+        <ul>
+        	<li>
+        		
+					<h3>Recent Posts</h3>
+<ul>
+	
+	
+	
+    
+	
+	
+    
+	
+	
+    
+	
+	
+    
+	
+	
+    
+</ul>
+
+				
+        	</li>
+        </ul>
+		<ul>
+			<li>
+				<section>
+	<h1>Other Links</h1>
+	<ul>
+		<li><a href="/about"> about luis piloto</a></li>
+		<li><a href="/see"> look </a></li>
+		<li><a href="https://github.com/Elpiloto"</a>github</li>
+		<li><a href="http://compmem.princeton.edu">compmem lab</a></li>
+		<li><a href="http://princeton.edu/~piet">apiet</a></li>
+		<li><a href="http://bensondaled.github.io/homepage/">ben deverett</a></li>
+	</ul>
+</section>
+
+			</li>
+		</ul>
+    </nav>
+</div>
+
+		</aside>
+		
+      <div>
+<article>
+	<header>
+  <div class="article-tags">
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/eeg/'>EEG</a>, <a class='category' href='/blog/categories/hide/'>hide</a>, <a class='category' href='/blog/categories/hilbert/'>hilbert</a>, <a class='category' href='/blog/categories/noarchive/'>noarchive</a>, <a class='category' href='/blog/categories/sleep/'>sleep</a>
+  
+</span>
+
+
+  </div>
+  
+    <h1>
+      Sleep EEG: Past TODO Items and Next Directions
+    </h1>
+  
+</header>
+<section>
+  <p>Before determining where we should go next now that we have a little bit of breathing room, I did a big review of the notes (and also some emails) I left myself from the last two months of updates in order to make sure we didn’t leave any ideas behind.  <strong>Bold asterisks indicate the items I intend to do next</strong> either because I think they’re important, are easy to do, or are a requisite for something important.   </p>
+
+<h4 id="below-is-a-consolidated-list-of-to-do-items-random-things-weve-bookmarked-and-some-of-my-own-ideas">Below is a consolidated list of to-do items, random things we’ve bookmarked, and some of my own ideas</h4>
+
+<ol>
+  <li>
+    <p>L1-regularization (instead of univariate feature selection + feature regularization via L2)<strong>******</strong>(important)    </p>
+  </li>
+  <li>
+    <p>why was subject 9’s classification accuracy so low? (didn’t do poorly with other classification methods, so maybe it’s not so important to look at)   </p>
+  </li>
+  <li>coming up with a good wake template <strong>******</strong> (important) 
+    <ul>
+      <li>look at mcduff importance maps for wake LOSO logistic regression: does something pop out as the timebin/frequency to use for wake transformation?      </li>
+    </ul>
+  </li>
+  <li>
+    <p>different AUC metrics (diffAUC pooled over trials, meanAUC, etc)   </p>
+  </li>
+  <li>
+    <p>boosting untransformed wake LOSO did poorly (about chance ) - was this a bug/not enough regularization or was it due to using the relatively quicker, unfamiliar totalboost algorithm? we can test this by running logitboost or gentleboost (which worked previously) now that we don’t have the pressure of the kenP deadline <strong>******</strong>(easy to do)   </p>
+  </li>
+  <li>
+    <p>when looking at classification scores that are significantly better than chance, let’s also look at scores below chance   </p>
+  </li>
+  <li>
+    <p>do we want to look out longer than 1 second after a tone is played? if first 500ms of sleep trial data happens to fall on down phase, we wouldn’t expect classification to work for that trial   </p>
+  </li>
+  <li>sleep transform: <br />
+    <ul>
+      <li>LOSO version   </li>
+      <li>use face AND scene transformed data   </li>
+      <li>exclude electrodes individually after finding good timebin/freq for wake   </li>
+      <li>explicitly disentangle effects of dot-product vs. correlation on sleep transform   </li>
+    </ul>
+  </li>
+  <li>
+    <p>separate face vs. scene classifiers (face vs. objects/scrambled faces/scrambled scenes AND scene vs. objects/scrambled faces/ scrambled scenes): are we doing better at one of these than the other?  do they have different optimal classification times? (ties into previous thoughts about AUC: looking at face and scene classifier difference, diffAUC, vs. meanAUC)   <strong>******</strong>(important)   </p>
+  </li>
+  <li>
+    <p>classification of data using ERPs   </p>
+  </li>
+  <li>visualize data: <br />
+    <ul>
+      <li>interface with EEGLAB topoplots   </li>
+      <li>compare face/scene templates per subject to those generated on an individual-subject level   </li>
+      <li>similarity of sleep data across time bins to wake pattern via simple correlation: are these different for the different classes? <br />
+        <ul>
+          <li>we can look at the average similarity to a face or scene pattern against the average similarity for all other classes across time      </li>
+        </ul>
+      </li>
+      <li>autocorrelation of sleep data for various electrodes, could we use this as an indicator of down phases for the purpose of excluding time bins or trials?      </li>
+    </ul>
+  </li>
+  <li>
+    <p>LOSO using some form of non-linear classification? previously we didn’t think this was a viable option given the ratio of training examples to features, but the combination of Hilbert-transformed data and LOSO makes me think this is now possible   </p>
+  </li>
+  <li>
+    <p>exclude forgotten items from the sleep analysis, does this improve our sleep cross-validation?   </p>
+  </li>
+  <li>
+    <p>test wake reactivation during learning of associated locations (this is different than the current wake data we use to train on which we take from the wake localizer)   </p>
+  </li>
+  <li>
+    <p>generate simulated data to test idea that we could even find a wake pattern embedded randomly in a sleep data timebin-freq bin. also, would be good for general code validation (importance map transformations, mvpa code, etc)   </p>
+  </li>
+  <li>
+    <p>look at classifier output for scrambled conditions and use to sleep transform: do these results look different than what we get when we transform via face and scene conditions?   </p>
+  </li>
+  <li>
+    <p>“feature shuffle noise” wake classification analysis: do we get better generalization when we extend training data with patterns that are hybrids of two patterns from the same class? analogous to dropout techniques for neural networks    </p>
+  </li>
+  <li>What if we transform the sleep data according to the timebin-freq pair that performs the best for each subject?  This is obviously less parsimonious than we’d like, but a signature of reactivation is a signature of reactivation.    </li>
+</ol>
+
+</section>
+<footer>
+  <div class="article-date">
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-02T14:15:00-04:00" pubdate data-updated="true">Sep 2<span>nd</span>, 2014</time>
+  </div>
+</footer>
+
+	
+</article>
+</div>
+
+    </div>
+  </div>
+  <footer class="main-footer">
+	<section class="interior-footer">
+		<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+	</section>
+</footer>
+
+
+  
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+</body>
+</html>

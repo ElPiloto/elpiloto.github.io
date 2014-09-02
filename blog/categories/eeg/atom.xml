@@ -4,7 +4,7 @@
   <title><![CDATA[Category: EEG | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/eeg/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-08-26T16:01:47-04:00</updated>
+  <updated>2014-09-02T15:02:52-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,88 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: Past TODO items and next directions]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/09/02/sleep-eeg-past-to-do-items-and-next-directions/"/>
+    <updated>2014-09-02T14:15:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/09/02/sleep-eeg-past-to-do-items-and-next-directions</id>
+    <content type="html"><![CDATA[<p>Before determining where we should go next now that we have a little bit of breathing room, I did a big review of the notes (and also some emails) I left myself from the last two months of updates in order to make sure we didn’t leave any ideas behind.  <strong>Bold asterisks indicate the items I intend to do next</strong> either because I think they’re important, are easy to do, or are a requisite for something important.   </p>
+
+<h4 id="below-is-a-consolidated-list-of-to-do-items-random-things-weve-bookmarked-and-some-of-my-own-ideas">Below is a consolidated list of to-do items, random things we’ve bookmarked, and some of my own ideas</h4>
+
+<ol>
+  <li>
+    <p>L1-regularization (instead of univariate feature selection + feature regularization via L2)<strong>******</strong>(important)    </p>
+  </li>
+  <li>
+    <p>why was subject 9’s classification accuracy so low? (didn’t do poorly with other classification methods, so maybe it’s not so important to look at)   </p>
+  </li>
+  <li>coming up with a good wake template <strong>******</strong> (important) 
+    <ul>
+      <li>look at mcduff importance maps for wake LOSO logistic regression: does something pop out as the timebin/frequency to use for wake transformation?      </li>
+    </ul>
+  </li>
+  <li>
+    <p>different AUC metrics (diffAUC pooled over trials, meanAUC, etc)   </p>
+  </li>
+  <li>
+    <p>boosting untransformed wake LOSO did poorly (about chance ) - was this a bug/not enough regularization or was it due to using the relatively quicker, unfamiliar totalboost algorithm? we can test this by running logitboost or gentleboost (which worked previously) now that we don’t have the pressure of the kenP deadline <strong>******</strong>(easy to do)   </p>
+  </li>
+  <li>
+    <p>when looking at classification scores that are significantly better than chance, let’s also look at scores below chance   </p>
+  </li>
+  <li>
+    <p>do we want to look out longer than 1 second after a tone is played? if first 500ms of sleep trial data happens to fall on down phase, we wouldn’t expect classification to work for that trial   </p>
+  </li>
+  <li>sleep transform: <br />
+    <ul>
+      <li>LOSO version   </li>
+      <li>use face AND scene transformed data   </li>
+      <li>exclude electrodes individually after finding good timebin/freq for wake   </li>
+      <li>explicitly disentangle effects of dot-product vs. correlation on sleep transform   </li>
+    </ul>
+  </li>
+  <li>
+    <p>separate face vs. scene classifiers (face vs. objects/scrambled faces/scrambled scenes AND scene vs. objects/scrambled faces/ scrambled scenes): are we doing better at one of these than the other?  do they have different optimal classification times? (ties into previous thoughts about AUC: looking at face and scene classifier difference, diffAUC, vs. meanAUC)   <strong>******</strong>(important)   </p>
+  </li>
+  <li>
+    <p>classification of data using ERPs   </p>
+  </li>
+  <li>visualize data: <br />
+    <ul>
+      <li>interface with EEGLAB topoplots   </li>
+      <li>compare face/scene templates per subject to those generated on an individual-subject level   </li>
+      <li>similarity of sleep data across time bins to wake pattern via simple correlation: are these different for the different classes? <br />
+        <ul>
+          <li>we can look at the average similarity to a face or scene pattern against the average similarity for all other classes across time      </li>
+        </ul>
+      </li>
+      <li>autocorrelation of sleep data for various electrodes, could we use this as an indicator of down phases for the purpose of excluding time bins or trials?      </li>
+    </ul>
+  </li>
+  <li>
+    <p>LOSO using some form of non-linear classification? previously we didn’t think this was a viable option given the ratio of training examples to features, but the combination of Hilbert-transformed data and LOSO makes me think this is now possible   </p>
+  </li>
+  <li>
+    <p>exclude forgotten items from the sleep analysis, does this improve our sleep cross-validation?   </p>
+  </li>
+  <li>
+    <p>test wake reactivation during learning of associated locations (this is different than the current wake data we use to train on which we take from the wake localizer)   </p>
+  </li>
+  <li>
+    <p>generate simulated data to test idea that we could even find a wake pattern embedded randomly in a sleep data timebin-freq bin. also, would be good for general code validation (importance map transformations, mvpa code, etc)   </p>
+  </li>
+  <li>
+    <p>look at classifier output for scrambled conditions and use to sleep transform: do these results look different than what we get when we transform via face and scene conditions?   </p>
+  </li>
+  <li>
+    <p>“feature shuffle noise” wake classification analysis: do we get better generalization when we extend training data with patterns that are hybrids of two patterns from the same class? analogous to dropout techniques for neural networks    </p>
+  </li>
+  <li>What if we transform the sleep data according to the timebin-freq pair that performs the best for each subject?  This is obviously less parsimonious than we’d like, but a signature of reactivation is a signature of reactivation.    </li>
+</ol>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sleep EEG: Leave-one-subject-out]]></title>
@@ -237,78 +319,6 @@ diffAUC = 0
 <p><strong>dot product:</strong><br />
 <del>currently running sleep log reg mcduff using both faces and scenes, results will be in <code>sleep_xform_mcduff_scene_face_8subjs_dotprod.mat</code></del>  Results in post: sleep-eeg-boosting-results
 <del>currently running boosting gentle log reg using both faces and scenes, results will be in <code>boosting_mcduff_best8_gentle_scene_face_dotprod.mat</code></del>Results in post: sleep-eeg-boosting-results, <strong>EXCEPT</strong> for some reason</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sleep EEG: Post Boosting Results]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/07/27/sleep-eeg-post-boosting-results/"/>
-    <updated>2014-07-27T14:46:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/07/27/sleep-eeg-post-boosting-results</id>
-    <content type="html"><![CDATA[<h3 id="our-to-do-list-consists-of-the-following">Our to-do list consists of the following:</h3>
-<ol>
-  <li>logistic regression on sleep data using data from all time bins of the sleep data and compare this to existing results from boosting  </li>
-  <li>try boosting and logistic regression using <strong>untransformed</strong> sleep data (large volume of data)</li>
-  <li>look at various other parameterizations of boosting classification result (just because it’s easy to do)</li>
-  <li>Let’s look at what happens when the classifier gets fed in both face and scene transformed data   </li>
-  <li>Let’s look at when the classifier gets transformed using both face and scene transformed data using the DOT product (see post )  </li>
-</ol>
-
-<h3 id="as-a-refresher-here-is-the-last-boosting-result">As a refresher, here is the last boosting result:</h3>
-
-<p><a href='/images/research/ensemble_best<em>8_wake_subj</em>202ms_7hz_gentle.jpg' target='_blank'><img src="/images/research/ensemble_best<em>8_wake_subj</em>202ms_7hz_gentle.jpg" width="700" height="350"></a></p>
-
-<p><strong>Figure 1:</strong> The y-axis shows classification accuracy.  Subjects and parameters are shown along the x-axis (g = gentleboost algorithm, f = face mcduff importance sleep transform).</p>
-
-<h2 id="logistic-regression-sleep-importance-map-transformed-results-to-do-item-1">Logistic Regression Sleep Importance Map Transformed Results (To-Do Item #1)</h2>
-<p><a href='/images/research/log_reg_best_8_subjects_mcduff_xform.jpg' target='_blank'><img src="/images/research/log_reg_best_8_subjects_mcduff_xform.jpg" width="700" height="350"></a></p>
-
-<p><strong>Figure 2a:</strong> Displayed above is the classifier accuracy for all subjects(x-axis).  The classification accuracy was generated for various sleep importance map transformations (face, scene, or face minus scene), which is indicated along the y-axis.  The classifier features consisted of transforming the sleep data at each timebin and concatenating the sleep transformed data at each timebin into a single data matrix.  The entries along the x and y axis labelled “Mean” simply show the mean along the x and y axis respectively.</p>
-
-<p><strong>Thoughts</strong>: These results lend further credence to the notion that it may be beneficial to sleep transform data according to both face and scene classifiers and feed both of those into a single classifier.  This idea that perhaps there is information in the scene pattern that isn’t in the face pattern (and vice versa) can be further scrutinized by looking at MDS plots of the untransformed data, the face transformed data, and scene transformed data - this may be worth doing depending on how much free time I have.  If I don’t end up looking at that, I’m not too upset since item #2 on the to-do list will also give us information about the role of the sleep transformation.  Additionally: note that the average classification accuracy, across both subjects and sleep transformation types, is pretty similar to that achieved with boosting, but none of the individual sleep transformations really give the same classification accuracy profile across subjects as the boosting results (this is easier to see in the plot below where I plot the rows of Figure 2 as separate horizontal bar graphs to match the format of the boosting results.  Why does it matter that accuracy across subjects in the logistic regression case doesn’t look like the accuracy achieved with boosting?  If our sleep transformation method yielded enough signal, then it should yield similar classification accuracy across subjects for the different classifier types.</p>
-
-<p><a href='/images/research/log_reg_best_8_subjects_mcduff_xform_supplement.jpg' target='_blank'><img src="/images/research/log_reg_best_8_subjects_mcduff_xform_supplement.jpg" width="700" height="350"></a>
-<strong>Figure 2b:</strong> A different visualization of the logistic regression plots useful for direct visual comparison against the ensemble results (Figure 1).</p>
-
-<h2 id="to-do-item-3-boosting-classification-results-using-different-sleep-transforms-best-8-subjects">To-Do Item #3: Boosting Classification Results Using Different Sleep Transforms, Best 8 Subjects</h2>
-<p><a href='/images/research/ensemble_best<em>8_wake_subj</em>202ms_7hz_gentle_ALL_TRANSFORMS.jpg' target='_blank'><img src="/images/research/ensemble_best<em>8_wake_subj</em>202ms_7hz_gentle_ALL_TRANSFORMS.jpg" width="700" height="350"></a></p>
-
-<p><strong>Figure 3:</strong> This shows boosting classification accuracy using different sleep transforms.  The x-axis indicates which boosting algorithm (g for gentleboost) was used, the subject id (e.g. ‘15’ or ‘07’), and the wake pattern that was used for the sleep transformation (f = face, s = scene, M = face minus scene).</p>
-
-<p><strong>Thoughts:</strong> This is a clear example where the classification accuracy results would look totally different based on which analysis parameters we use.  I suspect that if we get around to doing boosting classification using both the scene and face transformation, that will look entirely different, too.</p>
-
-<h2 id="to-do-item-2-logistic-regression-classification-results-sleep---untransformed-best-8-subjects">To-Do Item #2: Logistic Regression Classification Results Sleep - UNTRANSFORMED, Best 8 Subjects</h2>
-<p><del><strong>3/23 JOBS STILL RUNNING ON CLUSTER</strong>  This takes a relatively long time because the feature selection has to operate over ~100,000 features and that needs to run for each cross-validation fold for each subject.</del>  The results are displayed below</p>
-
-<p><a href='/images/research/sleep_log_reg_raw_best8.jpg' target='_blank'><img src="/images/research/sleep_log_reg_raw_best8.jpg" width="700" height="350"></a></p>
-
-<p><strong>Figure 4:</strong> This shows the result of performing logistic regression on the raw sleep data using all frequencies, all time bins, and all electrodes on raw data.  This amounts to about 100,00 features (64 electrodes x ~47 frequencies x ~38 time bins ) so obviously I need to run this analysis with feature selection.  I really wanted to include as many features as I could (without exceeding my RAM limits), so I used a loose stat threshold for statmap_anova feature selection (p = 0.1) which yielded about 10,000 features.</p>
-
-<p><strong>Thoughts:</strong> This tells us that this data is damn noisy, we need to be smarter about what features we’re putting into the data.  Straightforward logistic regression isn’t working particularly well on this - it might be worth explicitly using LASSO instead of ridge regression as we’re currently using.  Additionally, I found something in the documentation of the <code>logRegFun</code> that suggests I should be trying much higher regularization values than I have been.  I’m going to try this out since it’s easy to run and I want to explicitly rule out the penalty term as why we’re not getting poor results. I will also look into whether or not it’s easy to use LASSO.  <strong>Update</strong> There does seem to be L1 regression in the MVPA toolbox via the <code>SMLR</code> function, although it implements multinomial regression (as compared to the current method of training a single logistic regression classifier for each class), however, it seems like it’ll bw</p>
-
-<p>I think the fact that these results are comparable to the sleep transformed data in terms of classification accuracy tells us something about the sleep data, not necessarily about the sleep transformation.  I have to double-check the linear algebra behind this interpretation of the sleep data, but I think that when we transform the sleep data, we’re essentially projecting each dimension of the sleep data onto a single vector defined by the average pattern.  Now: if there is some best subspace of the untransformed data where the classes are just barely separable (i.e. you could get 52% accuracy), then whether or not we transform the sleep data won’t really matter.  If we don’t project, we can build a classifier that goes along the subspace I mentioned.  If we do project, then that same subspace will manifest in a different basis, but with the same separability.  Obviously you won’t get this barely classifiable subspace if the vector onto which you project is orthogonal to the subspace, but if there are multiple, weakly classifiable subspaces in the data - which is not crazy to think if the data are in general weakly separable, then one of these subspaces will not be orthogonal to the vector you’re choosing yielding once again a weakly separable subspace.  In fact, I suspect that we should be able to project onto random vectors and get the same classification accuracy on average - this comes from some light reading into random subspace projection theory where given a random projection you can give a probabilistic bound on the dot product between two vectors in a random subspace as a function of their dot product in the original space i.e. with some probability the dot product in the transformed space will be within some range of the dot product in the original space.  This is all pretty loosey goosey linear algebra logic, but I think it’s a start in the right direction for understanding what’s up with the transform vs untransformed data.</p>
-
-<h2 id="to-do-item-4--feed-classifiers-face-and-scene-transformed-data-using-mcduff-importance-maps">To-Do Item #4:  Feed classifiers face AND scene transformed data using McDuff Importance Maps</h2>
-
-<p><a href='/images/research/ensemble_best<em>8_wake_subj</em>202ms_7hz_gentle_face_AND_SCENE.jpg' target='_blank'><img src="/images/research/ensemble_best<em>8_wake_subj</em>202ms_7hz_gentle_face_AND_SCENE.jpg" width="700" height="350"></a></p>
-
-<p><strong>Figure 5a:</strong> Boosting classification exactly like the Figure 1) except that these incorporate a feature vector that consists of transforming all frequencies with the importance map for scene and concatenating those features onto the feature vector generated by transforming all frequencies in the sleep data with the importance map for faces.</p>
-
-<p><a href='/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether.jpg' target='_blank'><img src="/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether.jpg" width="700" height="350"></a></p>
-
-<p><strong>Figure 5b:</strong> Exactly the same as figure 2a, recall we’re feeding in all the timepoints to logistic regression (no explicit feature selection in this version, although we still use regularization), except this time we used both face and scene transformed features in the data.</p>
-
-<p><strong>Thoughts:</strong> Well, not uniformly super awesome classification results for both methods, BUT I’m pretty happy to see that they have the same general profile: across both analyses subjects 11,13,15 and 5,7,8 both pop out whereas classification is poor for both subject 9 and subject 1 in both analyses.  Consistency across analyses is the only proxy we currently have for assessing whether our results are due to random chance so this is a relatively nice result in that context.  That’s a score for the veracity of our results, but the other key aspect of evaluating our results, how good the results actually are, is still lacking.  Barring success with modifying the regularization term, we’ll have to look into more explicit electrode filtering and using Hilbert transformed data to try to improve our results.  <strong>Importantly</strong> I’d like to run future analyses this same way: modifying features, but running them through both classifiers to make sure we’re getting consistent results.</p>
-
-<h2 id="to-do-item-5--feed-classifiers-face-and-scene-transformed-data-using-mcduff-importance-maps-with-dot-product-instead-of-correlation-as-pattern-similarity-measure">To-Do Item #5:  Feed classifiers face AND scene transformed data using McDuff Importance Maps with DOT PRODUCT instead of correlation as pattern similarity measure</h2>
-<p><del><strong>IMPORTANT:</strong> For some reason, the boosting results look EXACTLY the same as the correlation-based boosting results.  This is strange because I explicitly verified the dot product and correlation calculations actually give different values. I’m investigating whether or not this is a bug as we speak, just gotta manually step through both the correlation and the dot product code which is a pain in the, as they say in the medical field, patootie.</del></p>
-
-<p><strong>UPDATE:</strong> Comparing the preprocessed data using the dot product and correlation, it looks like the data being processed is in fact different for the boosting classifier i.e. I don’t think that this is a bug.  Looking into it more, given that the correlation is the normalized dot product, it makes sense that we get different results for logistic regression but not the boosting ensemble.  Why? Well, logistic regression regularization term penalizes the magnitude of the weights, thus keeping the same regularization penalty but scaling the weights is effectively the same as keeping the same weights but modifying the regularization term.  However, boosting just creates decision stumps which will split the data regardless of whether or not the data are normalized.  Thus these results make sense: all is right with the world.  Kind of.</p>
-
-<p><a href='/images/research/8<em>wake_subj</em>202ms_7hz_gentle_faceSCENE_DOTPROD.jpg' target='_blank'><img src="/images/research/8<em>wake_subj</em>202ms_7hz_gentle_faceSCENE_DOTPROD.jpg" width="700" height="350"></a></p>
-
-<p><a href='/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether_DOTPROD.jpg' target='_blank'><img src="/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether_DOTPROD.jpg" width="700" height="350"></a></p>
 
 ]]></content>
   </entry>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: hilbert | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/hilbert/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-08-26T16:01:47-04:00</updated>
+  <updated>2014-09-02T15:02:52-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,88 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: Past TODO items and next directions]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/09/02/sleep-eeg-past-to-do-items-and-next-directions/"/>
+    <updated>2014-09-02T14:15:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/09/02/sleep-eeg-past-to-do-items-and-next-directions</id>
+    <content type="html"><![CDATA[<p>Before determining where we should go next now that we have a little bit of breathing room, I did a big review of the notes (and also some emails) I left myself from the last two months of updates in order to make sure we didn’t leave any ideas behind.  <strong>Bold asterisks indicate the items I intend to do next</strong> either because I think they’re important, are easy to do, or are a requisite for something important.   </p>
+
+<h4 id="below-is-a-consolidated-list-of-to-do-items-random-things-weve-bookmarked-and-some-of-my-own-ideas">Below is a consolidated list of to-do items, random things we’ve bookmarked, and some of my own ideas</h4>
+
+<ol>
+  <li>
+    <p>L1-regularization (instead of univariate feature selection + feature regularization via L2)<strong>******</strong>(important)    </p>
+  </li>
+  <li>
+    <p>why was subject 9’s classification accuracy so low? (didn’t do poorly with other classification methods, so maybe it’s not so important to look at)   </p>
+  </li>
+  <li>coming up with a good wake template <strong>******</strong> (important) 
+    <ul>
+      <li>look at mcduff importance maps for wake LOSO logistic regression: does something pop out as the timebin/frequency to use for wake transformation?      </li>
+    </ul>
+  </li>
+  <li>
+    <p>different AUC metrics (diffAUC pooled over trials, meanAUC, etc)   </p>
+  </li>
+  <li>
+    <p>boosting untransformed wake LOSO did poorly (about chance ) - was this a bug/not enough regularization or was it due to using the relatively quicker, unfamiliar totalboost algorithm? we can test this by running logitboost or gentleboost (which worked previously) now that we don’t have the pressure of the kenP deadline <strong>******</strong>(easy to do)   </p>
+  </li>
+  <li>
+    <p>when looking at classification scores that are significantly better than chance, let’s also look at scores below chance   </p>
+  </li>
+  <li>
+    <p>do we want to look out longer than 1 second after a tone is played? if first 500ms of sleep trial data happens to fall on down phase, we wouldn’t expect classification to work for that trial   </p>
+  </li>
+  <li>sleep transform: <br />
+    <ul>
+      <li>LOSO version   </li>
+      <li>use face AND scene transformed data   </li>
+      <li>exclude electrodes individually after finding good timebin/freq for wake   </li>
+      <li>explicitly disentangle effects of dot-product vs. correlation on sleep transform   </li>
+    </ul>
+  </li>
+  <li>
+    <p>separate face vs. scene classifiers (face vs. objects/scrambled faces/scrambled scenes AND scene vs. objects/scrambled faces/ scrambled scenes): are we doing better at one of these than the other?  do they have different optimal classification times? (ties into previous thoughts about AUC: looking at face and scene classifier difference, diffAUC, vs. meanAUC)   <strong>******</strong>(important)   </p>
+  </li>
+  <li>
+    <p>classification of data using ERPs   </p>
+  </li>
+  <li>visualize data: <br />
+    <ul>
+      <li>interface with EEGLAB topoplots   </li>
+      <li>compare face/scene templates per subject to those generated on an individual-subject level   </li>
+      <li>similarity of sleep data across time bins to wake pattern via simple correlation: are these different for the different classes? <br />
+        <ul>
+          <li>we can look at the average similarity to a face or scene pattern against the average similarity for all other classes across time      </li>
+        </ul>
+      </li>
+      <li>autocorrelation of sleep data for various electrodes, could we use this as an indicator of down phases for the purpose of excluding time bins or trials?      </li>
+    </ul>
+  </li>
+  <li>
+    <p>LOSO using some form of non-linear classification? previously we didn’t think this was a viable option given the ratio of training examples to features, but the combination of Hilbert-transformed data and LOSO makes me think this is now possible   </p>
+  </li>
+  <li>
+    <p>exclude forgotten items from the sleep analysis, does this improve our sleep cross-validation?   </p>
+  </li>
+  <li>
+    <p>test wake reactivation during learning of associated locations (this is different than the current wake data we use to train on which we take from the wake localizer)   </p>
+  </li>
+  <li>
+    <p>generate simulated data to test idea that we could even find a wake pattern embedded randomly in a sleep data timebin-freq bin. also, would be good for general code validation (importance map transformations, mvpa code, etc)   </p>
+  </li>
+  <li>
+    <p>look at classifier output for scrambled conditions and use to sleep transform: do these results look different than what we get when we transform via face and scene conditions?   </p>
+  </li>
+  <li>
+    <p>“feature shuffle noise” wake classification analysis: do we get better generalization when we extend training data with patterns that are hybrids of two patterns from the same class? analogous to dropout techniques for neural networks    </p>
+  </li>
+  <li>What if we transform the sleep data according to the timebin-freq pair that performs the best for each subject?  This is obviously less parsimonious than we’d like, but a signature of reactivation is a signature of reactivation.    </li>
+</ol>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sleep EEG: Leave-one-subject-out]]></title>

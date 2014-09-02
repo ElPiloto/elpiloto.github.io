@@ -4,7 +4,7 @@
   <title><![CDATA[Something Witty]]></title>
   <link href="http://ElPiloto.github.io/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-08-26T16:01:47-04:00</updated>
+  <updated>2014-09-02T15:02:52-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,88 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: Past TODO items and next directions]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/09/02/sleep-eeg-past-to-do-items-and-next-directions/"/>
+    <updated>2014-09-02T14:15:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/09/02/sleep-eeg-past-to-do-items-and-next-directions</id>
+    <content type="html"><![CDATA[<p>Before determining where we should go next now that we have a little bit of breathing room, I did a big review of the notes (and also some emails) I left myself from the last two months of updates in order to make sure we didn’t leave any ideas behind.  <strong>Bold asterisks indicate the items I intend to do next</strong> either because I think they’re important, are easy to do, or are a requisite for something important.   </p>
+
+<h4 id="below-is-a-consolidated-list-of-to-do-items-random-things-weve-bookmarked-and-some-of-my-own-ideas">Below is a consolidated list of to-do items, random things we’ve bookmarked, and some of my own ideas</h4>
+
+<ol>
+  <li>
+    <p>L1-regularization (instead of univariate feature selection + feature regularization via L2)<strong>******</strong>(important)    </p>
+  </li>
+  <li>
+    <p>why was subject 9’s classification accuracy so low? (didn’t do poorly with other classification methods, so maybe it’s not so important to look at)   </p>
+  </li>
+  <li>coming up with a good wake template <strong>******</strong> (important) 
+    <ul>
+      <li>look at mcduff importance maps for wake LOSO logistic regression: does something pop out as the timebin/frequency to use for wake transformation?      </li>
+    </ul>
+  </li>
+  <li>
+    <p>different AUC metrics (diffAUC pooled over trials, meanAUC, etc)   </p>
+  </li>
+  <li>
+    <p>boosting untransformed wake LOSO did poorly (about chance ) - was this a bug/not enough regularization or was it due to using the relatively quicker, unfamiliar totalboost algorithm? we can test this by running logitboost or gentleboost (which worked previously) now that we don’t have the pressure of the kenP deadline <strong>******</strong>(easy to do)   </p>
+  </li>
+  <li>
+    <p>when looking at classification scores that are significantly better than chance, let’s also look at scores below chance   </p>
+  </li>
+  <li>
+    <p>do we want to look out longer than 1 second after a tone is played? if first 500ms of sleep trial data happens to fall on down phase, we wouldn’t expect classification to work for that trial   </p>
+  </li>
+  <li>sleep transform: <br />
+    <ul>
+      <li>LOSO version   </li>
+      <li>use face AND scene transformed data   </li>
+      <li>exclude electrodes individually after finding good timebin/freq for wake   </li>
+      <li>explicitly disentangle effects of dot-product vs. correlation on sleep transform   </li>
+    </ul>
+  </li>
+  <li>
+    <p>separate face vs. scene classifiers (face vs. objects/scrambled faces/scrambled scenes AND scene vs. objects/scrambled faces/ scrambled scenes): are we doing better at one of these than the other?  do they have different optimal classification times? (ties into previous thoughts about AUC: looking at face and scene classifier difference, diffAUC, vs. meanAUC)   <strong>******</strong>(important)   </p>
+  </li>
+  <li>
+    <p>classification of data using ERPs   </p>
+  </li>
+  <li>visualize data: <br />
+    <ul>
+      <li>interface with EEGLAB topoplots   </li>
+      <li>compare face/scene templates per subject to those generated on an individual-subject level   </li>
+      <li>similarity of sleep data across time bins to wake pattern via simple correlation: are these different for the different classes? <br />
+        <ul>
+          <li>we can look at the average similarity to a face or scene pattern against the average similarity for all other classes across time      </li>
+        </ul>
+      </li>
+      <li>autocorrelation of sleep data for various electrodes, could we use this as an indicator of down phases for the purpose of excluding time bins or trials?      </li>
+    </ul>
+  </li>
+  <li>
+    <p>LOSO using some form of non-linear classification? previously we didn’t think this was a viable option given the ratio of training examples to features, but the combination of Hilbert-transformed data and LOSO makes me think this is now possible   </p>
+  </li>
+  <li>
+    <p>exclude forgotten items from the sleep analysis, does this improve our sleep cross-validation?   </p>
+  </li>
+  <li>
+    <p>test wake reactivation during learning of associated locations (this is different than the current wake data we use to train on which we take from the wake localizer)   </p>
+  </li>
+  <li>
+    <p>generate simulated data to test idea that we could even find a wake pattern embedded randomly in a sleep data timebin-freq bin. also, would be good for general code validation (importance map transformations, mvpa code, etc)   </p>
+  </li>
+  <li>
+    <p>look at classifier output for scrambled conditions and use to sleep transform: do these results look different than what we get when we transform via face and scene conditions?   </p>
+  </li>
+  <li>
+    <p>“feature shuffle noise” wake classification analysis: do we get better generalization when we extend training data with patterns that are hybrids of two patterns from the same class? analogous to dropout techniques for neural networks    </p>
+  </li>
+  <li>What if we transform the sleep data according to the timebin-freq pair that performs the best for each subject?  This is obviously less parsimonious than we’d like, but a signature of reactivation is a signature of reactivation.    </li>
+</ol>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sleep EEG: Leave-one-subject-out]]></title>
@@ -1014,31 +1096,6 @@ for each wake time-freq bin x sleep time bin pair:<br />
 <!--#. When we look at the magnitude of the trained classifier weights for various wake-template-frequencies, do we see that the weights are generally bigger at the frequencies that --></p>
 
 <!--#### -->
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sleep EEG Update]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/04/20/sleep-eeg-update/"/>
-    <updated>2014-04-20T14:41:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/04/20/sleep-eeg-update</id>
-    <content type="html"><![CDATA[<h3 id="classification-results">Classification results</h3>
-<p>Last time I showed a plot for CV accuracy of wake data generated by looking at individual time bins, but using all possible frequencies.  This plot is the logical next step: it considers individual frequencies - which I did for only the most promising time bins (again independently).  I didn’t use various regularization penalties this time ($\lambda = 1$ for current plot).  Additionally, this data was z-scored across electrodes for each frequency.  </p>
-
-<p><a href="http://ElPiloto.github.io/images/research/sweep_time_freq.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sweep_time_freq.png" width="700" height="350" /></a></p>
-
-<p>It’s harder to pick out the “best” frequencies from this plot (compared to picking the “best” times previously).  The ~alpha band seems to pop out for both subjects, but it might be worthwhile to investigate some of the gamma stuff going on in subject 2.   Also, note that the colorbars are on different scales for both subjects.  Also we can actually get higher classification accuracy for both subjects than we did using all frequencies like last time.</p>
-
-<p>The next analysis step we discussed was to pick a vector consisting of the power across electrodes at a best time and frequency and use this to transform the sleep data and perform cross-validation on the sleep data using this transformed dataset. With the idea being that after we get good sleep cv-accuracy, we could look at the relationship between classifier output and memory.</p>
-
-<p>Sleep Transformation refresher:
-- for each time bin of the sleep data, compute dot-product between the z-scored power across electrodes at a given frequency and the “best vector” described above and do this for each frequency</p>
-
-<h3 id="next-steps">Next steps</h3>
-<p>I see two approaches:<br />
-1. glob across subjects and generate transformed-sleep CV results across a range of times and frequencies that seemed promising for both subjects (150ms - 230ms, 7-13Hz)<br />
-2. treat subjects independently, rank (time x freq) pairs by highest CV accuracy and generate transformed-sleep CV results for top 10 (time x freq) pairs   </p>
-
 ]]></content>
   </entry>
   
