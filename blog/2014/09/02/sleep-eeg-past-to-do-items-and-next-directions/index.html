@@ -178,12 +178,12 @@
 
 <ol>
   <li>
-    <p>L1-regularization (instead of univariate feature selection + feature regularization via L2)<strong>******</strong>(important)    </p>
+    <p>L1-regularization (instead of univariate feature selection + feature regularization via L2)<strong>******(important)</strong>    </p>
   </li>
   <li>
     <p>why was subject 9’s classification accuracy so low? (didn’t do poorly with other classification methods, so maybe it’s not so important to look at)   </p>
   </li>
-  <li>coming up with a good wake template <strong>******</strong> (important) 
+  <li>coming up with a good wake template <strong>******(important)</strong> 
     <ul>
       <li>look at mcduff importance maps for wake LOSO logistic regression: does something pop out as the timebin/frequency to use for wake transformation?      </li>
     </ul>
@@ -192,7 +192,7 @@
     <p>different AUC metrics (diffAUC pooled over trials, meanAUC, etc)   </p>
   </li>
   <li>
-    <p>boosting untransformed wake LOSO did poorly (about chance ) - was this a bug/not enough regularization or was it due to using the relatively quicker, unfamiliar totalboost algorithm? we can test this by running logitboost or gentleboost (which worked previously) now that we don’t have the pressure of the kenP deadline <strong>******</strong>(easy to do)   </p>
+    <p>boosting untransformed wake LOSO did poorly (about chance ) - was this a bug/not enough regularization or was it due to using the relatively quicker, unfamiliar totalboost algorithm? we can test this by running logitboost or gentleboost (which worked previously) now that we don’t have the pressure of the kenP deadline <strong>******(easy to do)</strong>   </p>
   </li>
   <li>
     <p>when looking at classification scores that are significantly better than chance, let’s also look at scores below chance   </p>
@@ -209,7 +209,7 @@
     </ul>
   </li>
   <li>
-    <p>separate face vs. scene classifiers (face vs. objects/scrambled faces/scrambled scenes AND scene vs. objects/scrambled faces/ scrambled scenes): are we doing better at one of these than the other?  do they have different optimal classification times? (ties into previous thoughts about AUC: looking at face and scene classifier difference, diffAUC, vs. meanAUC)   <strong>******</strong>(important)   </p>
+    <p>separate face vs. scene classifiers (face vs. objects/scrambled faces/scrambled scenes AND scene vs. objects/scrambled faces/ scrambled scenes): are we doing better at one of these than the other?  do they have different optimal classification times? (ties into previous thoughts about AUC: looking at face and scene classifier difference, diffAUC, vs. meanAUC)   <strong>******(important)</strong>   </p>
   </li>
   <li>
     <p>classification of data using ERPs   </p>
@@ -220,7 +220,7 @@
       <li>compare face/scene templates per subject to those generated on an individual-subject level   </li>
       <li>similarity of sleep data across time bins to wake pattern via simple correlation: are these different for the different classes?   <br />
         <ul>
-          <li>we can look at the average similarity to a face or scene pattern against the average similarity for all other classes across sleep time  bins for each frequency<strong>******</strong>(important)     </li>
+          <li>we can look at the average similarity to a face or scene pattern against the average similarity for all other classes across sleep time  bins for each frequency<strong>******(important)</strong>     </li>
         </ul>
       </li>
       <li>autocorrelation of sleep data for various electrodes, could we use this as an indicator of down phases for the purpose of excluding time bins or trials?  is there another proxy for determining a down phase?      </li>
