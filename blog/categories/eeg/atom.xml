@@ -4,7 +4,7 @@
   <title><![CDATA[Category: EEG | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/eeg/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-09-02T15:02:52-04:00</updated>
+  <updated>2014-09-02T15:10:36-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -64,12 +64,12 @@
     <ul>
       <li>interface with EEGLAB topoplots   </li>
       <li>compare face/scene templates per subject to those generated on an individual-subject level   </li>
-      <li>similarity of sleep data across time bins to wake pattern via simple correlation: are these different for the different classes? <br />
+      <li>similarity of sleep data across time bins to wake pattern via simple correlation: are these different for the different classes?  <strong>******</strong>(important) <br />
         <ul>
           <li>we can look at the average similarity to a face or scene pattern against the average similarity for all other classes across time      </li>
         </ul>
       </li>
-      <li>autocorrelation of sleep data for various electrodes, could we use this as an indicator of down phases for the purpose of excluding time bins or trials?      </li>
+      <li>autocorrelation of sleep data for various electrodes, could we use this as an indicator of down phases for the purpose of excluding time bins or trials?  is there another proxy for determining a down phase?      </li>
     </ul>
   </li>
   <li>
