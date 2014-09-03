@@ -4,7 +4,7 @@
   <title><![CDATA[Category: noarchive | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/noarchive/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-09-03T11:04:52-04:00</updated>
+  <updated>2014-09-03T13:10:48-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -99,91 +99,69 @@
 <h4 id="below-is-a-working-list-identical-to-the-above-list-showing-whats-been-completed-so-far">Below is a working list identical to the above list showing what’s been completed so far.</h4>
 
 <ol>
-  <li><del>L1-regularization (instead of univariate feature selection + feature regularization via L2)</del> Results:    </li>
-</ol>
+ <li> <del>L1-regularization (instead of univariate feature selection + feature regularization via L2)</del> Results: <br /> <br />
 
-<p><a href='/images/research/sleep_eeg_hilbert/LOSO_wake_L1.jpg' target='_blank'><img src="/images/research/sleep_eeg_hilbert/LOSO_wake_L1.jpg" width="700" height="350"></a></p>
+	NOTE: For lambda too high, the classifier simply assigns 0 to all the weights which makes sense given the number of training examples i.e. the $\lambda\ = 100$ case was just to test that this actually worked.  Totally intentional, I swear.   
 
-<p><a href='/images/research/sleep_eeg_hilbert/LOSO_wake_L1_per_subject.jpg' target='_blank'><img src="/images/research/sleep_eeg_hilbert/LOSO_wake_L1_per_subject.jpg" width="700" height="350"></a></p>
+<a href='/images/research/sleep_eeg_hilbert/LOSO_wake_L1.jpg' target='_blank'><img src="/images/research/sleep_eeg_hilbert/LOSO_wake_L1.jpg" width="700" height="350"></a>
 
-<p>NOTE: For lambda too high, the classifier simply assigns 0 to all the weights which makes sense given the number of training examples i.e. the $\lambda\ = 100$ case was just to test that this actually worked.  Totally intentional.   </p>
+<a href='/images/research/sleep_eeg_hilbert/LOSO_wake_L1_per_subject.jpg' target='_blank'><img src="/images/research/sleep_eeg_hilbert/LOSO_wake_L1_per_subject.jpg" width="700" height="350"></a>
 
-<ol>
-  <li>
-    <p><del>why was subject 9’s classification accuracy so low? (didn’t do poorly with other classification methods, so maybe it’s not so important to look at)</del> Look at <a href="http://localhost:4000/images/research/sleep_eeg_hilbert/LOSO_wake_L1_per_subject.jpg">this L1-regularized plot</a>, clearly it was just a pathological case for feature selection plus L2-regularization.  Officially, NOT gunna worry about this.   </p>
-  </li>
-  <li>coming up with a good wake template <strong>******(important)</strong> 
-    <ul>
-      <li>look at mcduff importance maps for wake LOSO logistic regression: does something pop out as the timebin/frequency to use for wake transformation?      </li>
-    </ul>
-  </li>
-  <li>
-    <p>different AUC metrics (diffAUC pooled over trials, meanAUC, etc)   </p>
-  </li>
-  <li>
-    <p><del>boosting untransformed wake LOSO did poorly (about chance ) - was this a bug/not enough regularization or was it due to using the relatively quicker, unfamiliar totalboost algorithm? we can test this by running logitboost or gentleboost (which worked previously) now that we don’t have the pressure of the kenP deadline </del> Results:     </p>
+   
+ <li> <del>why was subject 9's classification accuracy so low? (didn't do poorly with other classification methods, so maybe it's not so important to look at)</del> Look at <a href="http://localhost:4000/images/research/sleep_eeg_hilbert/LOSO_wake_L1_per_subject.jpg">this L1-regularized plot</a>, clearly it was just a pathological case for feature selection plus L2-regularization.  Officially, NOT gunna worry about this.  <br />  <br />
+    
+<li> coming up with a good wake template __******(important)__<br /> 
+    - look at mcduff importance maps for wake LOSO logistic regression: does something pop out as the timebin/frequency to use for wake transformation?     <br />  <br />
+   
+<li> different AUC metrics (diffAUC pooled over trials, meanAUC, etc)  <br />  <br />
+   
+<li> <del>boosting untransformed wake LOSO did poorly (about chance ) - was this a bug/not enough regularization or was it due to using the relatively quicker, unfamiliar totalboost algorithm? we can test this by running logitboost or gentleboost (which worked previously) now that we don't have the pressure of the kenP deadline </del> Results:    <br /><br /> 
+   
+	Additional: Running logitboost, also looking at methods for generating feature importance from boosting ensembles (using matlab toolbox so it's a bit of a blackbox to get information from) <br /> <br />
+<a href='/images/research/sleep_eeg_hilbert/LOSO_wake_gentleboost_2_classes.jpg' target='_blank'><img src="/images/research/sleep_eeg_hilbert/LOSO_wake_gentleboost_2_classes.jpg" width="700" height="350"></a>
 
-    <ul>
-      <li><strong>Additional:</strong> Running logitboost, also looking at methods for generating feature importance from boosting ensembles (using matlab toolbox so it’s a bit of a blackbox to get information from)
-<a href='/images/research/sleep_eeg_hilbert/LOSO_wake_gentleboost_2_classes.jpg' target='_blank'><img src="/images/research/sleep_eeg_hilbert/LOSO_wake_gentleboost_2_classes.jpg" width="700" height="350"></a></li>
-    </ul>
-  </li>
-  <li>
-    <p>when looking at classification scores that are significantly better than chance, let’s also look at scores below chance   </p>
-  </li>
-  <li>
-    <p>do we want to look out longer than 1 second after a tone is played? if first 500ms of sleep trial data happens to fall on down phase, we wouldn’t expect classification to work for that trial   </p>
-  </li>
-  <li>sleep transform: <br />
-    <ul>
-      <li>LOSO version   </li>
-      <li>use face AND scene transformed data   </li>
-      <li>exclude electrodes individually after finding good timebin/freq for wake   </li>
-      <li>explicitly disentangle effects of dot-product vs. correlation on sleep transform   </li>
-    </ul>
-  </li>
-  <li>
-    <p>separate face vs. scene classifiers (face vs. objects/scrambled faces/scrambled scenes AND scene vs. objects/scrambled faces/ scrambled scenes): are we doing better at one of these than the other?  do they have different optimal classification times? (ties into previous thoughts about AUC: looking at face and scene classifier difference, diffAUC, vs. meanAUC)   <strong>******(important)</strong>   </p>
-  </li>
-  <li>
-    <p>classification of data using ERPs   </p>
-  </li>
-  <li>visualize data: <br />
-    <ul>
-      <li>interface with EEGLAB topoplots   </li>
-      <li>compare face/scene templates per subject to those generated on an individual-subject level   </li>
-      <li>similarity of sleep data across time bins to wake pattern via simple correlation: are these different for the different classes?   <br />
-        <ul>
-          <li>we can look at the average similarity to a face or scene pattern against the average similarity for all other classes across sleep time  bins for each frequency<strong>******(important)</strong>     </li>
-        </ul>
-      </li>
-      <li>autocorrelation of sleep data for various electrodes, could we use this as an indicator of down phases for the purpose of excluding time bins or trials?  is there another proxy for determining a down phase?      </li>
-    </ul>
-  </li>
-  <li>
-    <p>LOSO using some form of non-linear classification? previously we didn’t think this was a viable option given the ratio of training examples to features, but the combination of Hilbert-transformed data and LOSO makes me think this is now possible   </p>
-  </li>
-  <li>
-    <p>exclude forgotten items from the sleep analysis, does this improve our sleep cross-validation?   </p>
-  </li>
-  <li>
-    <p>test wake reactivation during learning of associated locations (this is different than the current wake data we use to train on which we take from the wake localizer)   </p>
-  </li>
-  <li>
-    <p>generate simulated data to test idea that we could even find a wake pattern embedded randomly in a sleep data timebin-freq bin. also, would be good for general code validation (importance map transformations, mvpa code, etc)   </p>
-  </li>
-  <li>
-    <p>look at classifier output for scrambled conditions and use to sleep transform: do these results look different than what we get when we transform via face and scene conditions?   </p>
-  </li>
-  <li>
-    <p>“feature shuffle noise” wake classification analysis: do we get better generalization when we extend training data with patterns that are hybrids of two patterns from the same class? analogous to dropout techniques for neural networks    </p>
-  </li>
-  <li>
-    <p>What if we transform the sleep data according to the timebin-freq pair that performs the best for each subject?  This is obviously less parsimonious than we’d like, but a signature of reactivation is a signature of reactivation.    </p>
-  </li>
-  <li>For results with <em>really</em> low wake classification accuracy, what do we get if we sleep transform by flipping the labels on the importance maps generated?    </li>
-</ol>
 
+<li> when looking at classification scores that are significantly better than chance, let's also look at scores below chance    <br /> <br />
+   
+<li> do we want to look out longer than 1 second after a tone is played? if first 500ms of sleep trial data happens to fall on down phase, we wouldn't expect classification to work for that trial    <br /> <br /> <br />
+   
+<li> sleep transform:    <br />
+    - LOSO version    <br />
+    - use face AND scene transformed data    <br />
+    - exclude electrodes individually after finding good timebin/freq for wake    <br />
+    - explicitly disentangle effects of dot-product vs. correlation on sleep transform    <br /> <br />
+   
+<li> separate face vs. scene classifiers (face vs. objects/scrambled faces/scrambled scenes AND scene vs. objects/scrambled faces/ scrambled scenes): are we doing better at one of these than the other?  do they have different optimal classification times? (ties into previous thoughts about AUC: looking at face and scene classifier difference, diffAUC, vs. meanAUC)   br&gt;<br />
+   
+<li> classification of data using ERPs   <br /><br />
+   
+<li> visualize data:   <br />
+    - interface with EEGLAB topoplots   <br />
+    - compare face/scene templates per subject to those generated on an individual-subject level  <br /> 
+    - similarity of sleep data across time bins to wake pattern via simple correlation: are these different for the different classes?    <br /> 
+		- we can look at the average similarity to a face or scene pattern against the average similarity for all other classes across sleep time  bins for each frequency__******(important)__    <br /> 
+    - autocorrelation of sleep data for various electrodes, could we use this as an indicator of down phases for the purpose of excluding time bins or trials?  is there another proxy for determining a down phase?      <br /><br />
+      
+    
+<li> LOSO using some form of non-linear classification? previously we didn't think this was a viable option given the ratio of training examples to features, but the combination of Hilbert-transformed data and LOSO makes me think this is now possible   <br /><br />
+   
+<li> exclude forgotten items from the sleep analysis, does this improve our sleep cross-validation?   <br /><br />
+   
+<li> test wake reactivation during learning of associated locations (this is different than the current wake data we use to train on which we take from the wake localizer)   <br /><br />
+   
+
+<li> generate simulated data to test idea that we could even find a wake pattern embedded randomly in a sleep data timebin-freq bin. also, would be good for general code validation (importance map transformations, mvpa code, etc)  <br /><br /> 
+
+
+<li> look at classifier output for scrambled conditions and use to sleep transform: do these results look different than what we get when we transform via face and scene conditions?  <br /><br /> 
+   
+<li> "feature shuffle noise" wake classification analysis: do we get better generalization when we extend training data with patterns that are hybrids of two patterns from the same class? analogous to dropout techniques for neural networks   <br /><br /> 
+
+<li> What if we transform the sleep data according to the timebin-freq pair that performs the best for each subject?  This is obviously less parsimonious than we'd like, but a signature of reactivation is a signature of reactivation.    
+
+<li> For results with _really_ low wake classification accuracy, what do we get if we sleep transform by flipping the labels on the importance maps generated?    
+
+</li></li></li></li></li></li></li></li></li></li></li></li></li></li></li></li></li></li></li></ol>
 ]]></content>
   </entry>
   
