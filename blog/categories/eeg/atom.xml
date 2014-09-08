@@ -4,7 +4,7 @@
   <title><![CDATA[Category: EEG | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/eeg/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-09-08T14:39:07-04:00</updated>
+  <updated>2014-09-08T14:43:51-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -20,9 +20,9 @@
     <id>http://ElPiloto.github.io/blog/2014/09/04/sleep-eeg-finding-optimal-wake-pattern-for-sleep-transform</id>
     <content type="html"><![CDATA[<h2 id="wake-loso-log-reg-150ms---550ms-time-freq-sweep-on-hilbert-transformed-data">WAKE LOSO LOG REG 150ms - 550ms Time Freq. Sweep On Hilbert Transformed data</h2>
 
-<p>Find those results below.  It seems that across the board, looking at diffAUC, we get that the 300ms timebin is the best.  However, one of the goals of this analysis was to see if there was any variability in when faces are classifiable compared to when scenes are classifiable.  Towards this end, we plot the AUC on a per class basis.  That is, we look at the AUC calculating the face classifier output for faces as positive instances, and the face classifier output for scenes as negative instances.  Similarly, we do this for scenes.  When we look at this across all subjects, we find that the 300ms timebin strong diffAUC is actually driven by strong faceAUC(~0.58) for that timebin and not at all by the sceneAUC(~0.43).  Thus, if we do decide to proceed with sleep transforming, we should only face transform at 300ms.   When we look at the faceAUC per subject, we find that 300ms at the 30Hz band is the good for all but two subjects (08 and 22).  This is encouraging!  Feel encouraged.  Did it work? Are you encouraged.  Fine.  Nevermind.  Whatever.</p>
+<p>Find those results below.  It seems that across the board, looking at diffAUC, we get that the 300ms timebin is the best.  However, one of the goals of this analysis was to see if there was any variability in when faces are classifiable compared to when scenes are classifiable.  Towards this end, we plot the AUC on a per class basis.  That is, we look at the AUC calculating the face classifier output for faces as positive instances, and the face classifier output for scenes as negative instances.  Similarly, we do this for scenes.  When we look at this across all subjects, we find that the 300ms timebin strong diffAUC is actually driven by strong faceAUC(~0.58) for that timebin and not at all by the sceneAUC(~0.43).  Thus, if we do decide to proceed with sleep transforming, we should only face transform at 300ms.   When we look at the faceAUC per subject, we find that 300ms at the 30Hz band is the good for all but two subjects (08 and 22).  This is encouraging!  Feel encouraged.  Did it work? Are you encouraged?  Fine.  Nevermind.  Whatever.  </p>
 
-<p>I ran this analysis with a shortened time window, I’m re-running the analysis with the full time window to make sure that scenes aren’t doing well during the later periods.  Additionally, we have always been z-scoring across electrodes, I’m not doing that for this new analysis just to make sure our z-scoring decision (supported via our first pilot) are still valid.   </p>
+<p>I ran this analysis with a shortened time window, I’m re-running the analysis with the full time window to make sure that scenes aren’t doing well during the later periods.  Additionally, we have always been z-scoring across electrodes, I’m not doing that for this new analysis just to make sure our z-scoring decision (supported via our first pilot) are still valid.  I can look at the difference between the new results and the results below for the timebins they overlap to see the effect of z-scoring.   </p>
 
 <p><strong>TLDR;</strong><br />
 - diffAUC points to timebin 300ms as best time across all subjects with average diffAUC = 0.58 <br />
