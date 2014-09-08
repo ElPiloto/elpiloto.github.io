@@ -4,7 +4,7 @@
   <title><![CDATA[Category: sleep | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/sleep/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-09-03T13:10:48-04:00</updated>
+  <updated>2014-09-08T14:39:07-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,51 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG Finding Optimal Wake Pattern For Sleep Transform]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/09/04/sleep-eeg-finding-optimal-wake-pattern-for-sleep-transform/"/>
+    <updated>2014-09-04T10:06:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/09/04/sleep-eeg-finding-optimal-wake-pattern-for-sleep-transform</id>
+    <content type="html"><![CDATA[<h2 id="wake-loso-log-reg-150ms---550ms-time-freq-sweep-on-hilbert-transformed-data">WAKE LOSO LOG REG 150ms - 550ms Time Freq. Sweep On Hilbert Transformed data</h2>
+
+<p>Find those results below.  It seems that across the board, looking at diffAUC, we get that the 300ms timebin is the best.  However, one of the goals of this analysis was to see if there was any variability in when faces are classifiable compared to when scenes are classifiable.  Towards this end, we plot the AUC on a per class basis.  That is, we look at the AUC calculating the face classifier output for faces as positive instances, and the face classifier output for scenes as negative instances.  Similarly, we do this for scenes.  When we look at this across all subjects, we find that the 300ms timebin strong diffAUC is actually driven by strong faceAUC(~0.58) for that timebin and not at all by the sceneAUC(~0.43).  Thus, if we do decide to proceed with sleep transforming, we should only face transform at 300ms.   When we look at the faceAUC per subject, we find that 300ms at the 30Hz band is the good for all but two subjects (08 and 22).  This is encouraging!  Feel encouraged.  Did it work? Are you encouraged.  Fine.  Nevermind.  Whatever.</p>
+
+<p>I ran this analysis with a shortened time window, I’m re-running the analysis with the full time window to make sure that scenes aren’t doing well during the later periods.  Additionally, we have always been z-scoring across electrodes, I’m not doing that for this new analysis just to make sure our z-scoring decision (supported via our first pilot) are still valid.   </p>
+
+<p><strong>TLDR;</strong><br />
+- diffAUC points to timebin 300ms as best time across all subjects with average diffAUC = 0.58 <br />
+- looking into faceAUC vs. sceneAUC, it’s clear that the diffAUC is entirely driven by faceAUC (i.e. scenes aren’t above chance at 300ms), we should sleep transform sleep data using the 300ms timebin importance maps.   </p>
+
+<h2 id="lambda--100">Lambda = 100</h2>
+
+<h4 id="diffauc-face-minus-scene">diffAUC (face minus scene)</h4>
+
+<p><a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__diffAUC_lambda100.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__diffAUC_lambda100.png" width="700" height="350"></a>
+<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda100.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda100.png" width="700" height="350"></a>
+<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__faceAUC_per_subj_lambda100.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__faceAUC_per_subj_lambda100.png" width="700" height="350"></a>
+<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__sceneAUC_per_subj_lambda100.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__sceneAUC_per_subj_lambda100.png" width="700" height="350"></a></p>
+
+<h2 id="lambda--500">Lambda = 500</h2>
+
+<h4 id="diffauc-face-minus-scene-1">diffAUC (face minus scene)</h4>
+
+<p><a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__diffAUC_lambda500.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__diffAUC_lambda500.png" width="700" height="350"></a>
+<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda500.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda500.png" width="700" height="350"></a>
+<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__faceAUC_per_subj_lambda500.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__faceAUC_per_subj_lambda500.png" width="700" height="350"></a>
+<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__sceneAUC_per_subj_lambda500.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__sceneAUC_per_subj_lambda500.png" width="700" height="350"></a></p>
+
+<h2 id="lambda--1000">Lambda = 1000</h2>
+
+<h4 id="diffauc-face-minus-scene-2">diffAUC (face minus scene)</h4>
+
+<p><a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__diffAUC_lambda1000.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__diffAUC_lambda1000.png" width="700" height="350"></a>
+<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda1000.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda1000.png" width="700" height="350"></a>
+<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__faceAUC_per_subj_lambda1000.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__faceAUC_per_subj_lambda1000.png" width="700" height="350"></a>
+<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__sceneAUC_per_subj_lambda1000.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__sceneAUC_per_subj_lambda1000.png" width="700" height="350"></a></p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sleep EEG: Past TODO items and next directions]]></title>
@@ -347,49 +392,6 @@ diffAUC = 0
 <p><del><strong>STILL CODING</strong></del> <strong>PUT ON HOLD, GOING TO TRY HILBERT TRANSFORMED DATA ANALYSIS FIRST</strong></p>
 
 <!--Ken is most interested in the hilbert-transformed data in the hopes that the Hilbert stuff will clean up (induce consistency across subjects) for wake.  Hopefully see good classification across subjects theta, 200-ish, also which electrodes are informative.-->
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sleep EEG: Group Meeting]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/07/28/sleep-eeg-group-meeting/"/>
-    <updated>2014-07-28T17:10:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/07/28/sleep-eeg-group-meeting</id>
-    <content type="html"><![CDATA[<h3 id="ken-succinctly-described-two-levels-of-complexity-in-our-sleep-analysis">Ken succinctly described two levels of complexity in our sleep analysis:</h3>
-<ol>
-  <li>How do we transform the sleep?  Recall this can be face or scene transformed, we can use correlation or the dot product, we can use data from different frequencies and different time bins in the wake data, etc.<br />
-    <ul>
-      <li>Perhaps we don’t need to sleep transform?</li>
-      <li>Perhaps we need to exclude electrodes explicitly? We thought the McDuff importance maps method implemented this, but correlation doesn’t care about the magnitude so we need to re-evaluate this (either use dot product OR filter out electrodes by some other measure)  <strong>(TODO ITEM: dot product)</strong></li>
-    </ul>
-  </li>
-  <li>When does reinstatement happen?  How should we score reinstatement?  If we do classification, do we just look at one time bin for the sleep?  Do we sum up classification across all time bins, etc.<br />
-    <ul>
-      <li>Maybe we want to use a simpler method than classification a la Staresina paper: sum correlation between template and sleep pattern and threshold to indicate replay event.   </li>
-      <li>We could and should look at trial-by-trial plots of correlation across time for both the incorrect and correct pattern - eyeball the crap out of this.  <strong>(TODO ITEM)</strong></li>
-    </ul>
-  </li>
-  <li>James also mentioned trial-by-trial variability: if cue during down phase, won’t expect reactivation in next 500 ms when all neurons are turned off.</li>
-</ol>
-
-<h3 id="behavioral-results-look-great">Behavioral Results Look great</h3>
-<ol>
-  <li>Spindles too rare to use to limit the sleep data   </li>
-</ol>
-
-<h3 id="additional-thoughts">Additional thoughts:</h3>
-<ol>
-  <li>We should leave open the option to look at ERPs for classification, although Ehren’s thoughts were that ERP winds up showing in theta band of power spectrum, plus see things in power spectrum that you don’t see in the ERPs.</li>
-  <li>We can theoretically get more classification juice if we exclude forgotten items from the sleep analysis.  </li>
-  <li>Waiting on James to get power spectrum for bands using Hilbert transform  </li>
-  <li>We have the data to look at wake classification during wake reactivation i.e. can we classify when they’re learning the associated locations?   </li>
-</ol>
-
-<h3 id="todo-items">TODO ITEMS:</h3>
-<p><strong>dot product:</strong><br />
-<del>currently running sleep log reg mcduff using both faces and scenes, results will be in <code>sleep_xform_mcduff_scene_face_8subjs_dotprod.mat</code></del>  Results in post: sleep-eeg-boosting-results
-<del>currently running boosting gentle log reg using both faces and scenes, results will be in <code>boosting_mcduff_best8_gentle_scene_face_dotprod.mat</code></del>Results in post: sleep-eeg-boosting-results, <strong>EXCEPT</strong> for some reason</p>
-
 ]]></content>
   </entry>
   

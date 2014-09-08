@@ -4,7 +4,7 @@
   <title><![CDATA[Something Witty]]></title>
   <link href="http://ElPiloto.github.io/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-09-03T13:10:48-04:00</updated>
+  <updated>2014-09-08T14:39:07-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,51 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG Finding Optimal Wake Pattern For Sleep Transform]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/09/04/sleep-eeg-finding-optimal-wake-pattern-for-sleep-transform/"/>
+    <updated>2014-09-04T10:06:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/09/04/sleep-eeg-finding-optimal-wake-pattern-for-sleep-transform</id>
+    <content type="html"><![CDATA[<h2 id="wake-loso-log-reg-150ms---550ms-time-freq-sweep-on-hilbert-transformed-data">WAKE LOSO LOG REG 150ms - 550ms Time Freq. Sweep On Hilbert Transformed data</h2>
+
+<p>Find those results below.  It seems that across the board, looking at diffAUC, we get that the 300ms timebin is the best.  However, one of the goals of this analysis was to see if there was any variability in when faces are classifiable compared to when scenes are classifiable.  Towards this end, we plot the AUC on a per class basis.  That is, we look at the AUC calculating the face classifier output for faces as positive instances, and the face classifier output for scenes as negative instances.  Similarly, we do this for scenes.  When we look at this across all subjects, we find that the 300ms timebin strong diffAUC is actually driven by strong faceAUC(~0.58) for that timebin and not at all by the sceneAUC(~0.43).  Thus, if we do decide to proceed with sleep transforming, we should only face transform at 300ms.   When we look at the faceAUC per subject, we find that 300ms at the 30Hz band is the good for all but two subjects (08 and 22).  This is encouraging!  Feel encouraged.  Did it work? Are you encouraged.  Fine.  Nevermind.  Whatever.</p>
+
+<p>I ran this analysis with a shortened time window, I’m re-running the analysis with the full time window to make sure that scenes aren’t doing well during the later periods.  Additionally, we have always been z-scoring across electrodes, I’m not doing that for this new analysis just to make sure our z-scoring decision (supported via our first pilot) are still valid.   </p>
+
+<p><strong>TLDR;</strong><br />
+- diffAUC points to timebin 300ms as best time across all subjects with average diffAUC = 0.58 <br />
+- looking into faceAUC vs. sceneAUC, it’s clear that the diffAUC is entirely driven by faceAUC (i.e. scenes aren’t above chance at 300ms), we should sleep transform sleep data using the 300ms timebin importance maps.   </p>
+
+<h2 id="lambda--100">Lambda = 100</h2>
+
+<h4 id="diffauc-face-minus-scene">diffAUC (face minus scene)</h4>
+
+<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__diffAUC_lambda100.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__diffAUC_lambda100.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda100.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda100.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__faceAUC_per_subj_lambda100.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__faceAUC_per_subj_lambda100.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__sceneAUC_per_subj_lambda100.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__sceneAUC_per_subj_lambda100.png" width="700" height="350" /></a></p>
+
+<h2 id="lambda--500">Lambda = 500</h2>
+
+<h4 id="diffauc-face-minus-scene-1">diffAUC (face minus scene)</h4>
+
+<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__diffAUC_lambda500.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__diffAUC_lambda500.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda500.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda500.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__faceAUC_per_subj_lambda500.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__faceAUC_per_subj_lambda500.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__sceneAUC_per_subj_lambda500.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__sceneAUC_per_subj_lambda500.png" width="700" height="350" /></a></p>
+
+<h2 id="lambda--1000">Lambda = 1000</h2>
+
+<h4 id="diffauc-face-minus-scene-2">diffAUC (face minus scene)</h4>
+
+<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__diffAUC_lambda1000.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__diffAUC_lambda1000.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda1000.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda1000.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__faceAUC_per_subj_lambda1000.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__faceAUC_per_subj_lambda1000.png" width="700" height="350" /></a>
+<a href="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__sceneAUC_per_subj_lambda1000.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__sceneAUC_per_subj_lambda1000.png" width="700" height="350" /></a></p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sleep EEG: Past TODO items and next directions]]></title>
@@ -1092,80 +1137,6 @@ Input was a single sequence which consisted of a full loop around the maze, whic
 <p>I don’t have this data yet.</p>
 
 <h4 id="shuffling-results-given-that-we">Shuffling results: given that we</h4>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sleep EEG Update]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/05/04/sleep-eeg-update/"/>
-    <updated>2014-05-04T18:45:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/05/04/sleep-eeg-update</id>
-    <content type="html"><![CDATA[<h3 id="results">Results</h3>
-
-<h4 id="shuffled-cross-validation-accuracy-using-transformed-sleep-data-item--5-on-to-do-list">Shuffled Cross-validation Accuracy Using Transformed Sleep Data (Item # 5 on To-Do List)</h4>
-<p>The plots below were using the generate-template-on-wake-then-transform-sleep-data-then-train-a-sleep-classifier approach.  The x-axis corresponds to training on different sleep time bins (although we use all the frequencies) and the y-axis corresponds to using different time-freq pairs to generate the wake template.  The key part of this plot is that we <strong>randomly permuted the sleep labels</strong> - so we would hope to see 50% classification accuracy here (which unfortunately doesn’t seem to be the case).  Ideally, I would have multiple iterations of this shuffling, but so far I’ve only run a single shuffle - <strong>how serious is it that I haven’t run multiple iterations?</strong></p>
-
-<p><a href="http://ElPiloto.github.io/images/research/subject_1sleep_transform_CV_shuffled.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/subject_1sleep_transform_CV_shuffled.png" width="700" height="350" /></a>
-<a href="http://ElPiloto.github.io/images/research/subject_2sleep_transform_CV_shuffled.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/subject_2sleep_transform_CV_shuffled.png" width="700" height="350" /></a></p>
-
-<h4 id="sleep-cross-validation-accuracy-using-different-sleep-transformations-item-2-on-to-do-list">Sleep Cross-validation Accuracy using different sleep transformations (Item #2 on To-Do List)</h4>
-<p>Previously, we had only tried the generate-template-on-wake-then-transform-sleep-data-then-train-a-sleep-classifier using the FACE template, the results below show cross-validation accuracy using the face template (same results as presented previously), the scene template, and face-minus-scene.</p>
-
-<p><a href="http://ElPiloto.github.io/images/research/subject_1sleep_transform_CV.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/subject_1sleep_transform_CV.png" width="700" height="350" /></a>
-<a href="http://ElPiloto.github.io/images/research/subject_2sleep_transform_CV.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/subject_2sleep_transform_CV.png" width="700" height="350" /></a>
-<a href="http://ElPiloto.github.io/images/research/subject_3sleep_transform_CV.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/subject_3sleep_transform_CV.png" width="700" height="350" /></a>
-<a href="http://ElPiloto.github.io/images/research/subject_4sleep_transform_CV.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/subject_4sleep_transform_CV.png" width="700" height="350" /></a>
-<a href="http://ElPiloto.github.io/images/research/subject_5sleep_transform_CV.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/subject_5sleep_transform_CV.png" width="700" height="350" /></a>
-<a href="http://ElPiloto.github.io/images/research/subject_6sleep_transform_CV.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/subject_6sleep_transform_CV.png" width="700" height="350" /></a></p>
-
-<h4 id="sleep-cross-validation-accuracy-using-all-frequencies-feature-select-item-4-on-to-do-list">Sleep Cross-validation Accuracy Using All Frequencies Feature Select (Item #4 on To-Do List)</h4>
-<p>This is pretty straightforward cross-validation accuracy performed on the labelled sleep data.  For each time bin of the sleep data, we z-scored the power spectrum at all frequencies across electrodes and trained a classifier using 10-fold cross-validation using standard p-value based feature selection.</p>
-
-<p><a href="http://ElPiloto.github.io/images/research/all_2_subjects_sleep_CV_feature_select.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/all_2_subjects_sleep_CV_feature_select.png" width="700" height="350" /></a></p>
-
-<h4 id="classifier-weights-for-sleep-transformed-data-item-1-on-to-do-list">Classifier Weights for sleep transformed data (Item #1 on To-Do List)</h4>
-<p>Recall that we have a classifier for each combination of wake time-freq pair and sleep time.  Each classifier sweeps the template across each frequency of the time bin, yielding a classifier with as many features as there are frequencies.  Thus, visualizing the weights would require displaying the magnitude of the weight across three dimensions: wake time-freq pair, sleep time bin, and sleep frequency.  Instead of trying to plot some whacky surface, I’ve created plots that average the magnitude of the weights either across the sleep time bins OR across sleep frequencies - if a particular time bin or frequency looks promising from these plots, we can look at the uncollapsed results as needed.</p>
-
-<p>The value displayed below is taken as follows:<br />
-<code>
-for each wake time-freq bin x sleep time bin pair:<br />
- &nbsp; &nbsp; &nbsp; &nbsp;for each cross-validation iteration:<br />
-		 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;z-score weights<br />
-	&nbsp; &nbsp; &nbsp; &nbsp;Avg weights over cross-validation iterations and take absolute value<br />
-</code></p>
-
-<p>This 3d matrix was then collapsed either across sleep time bins or sleep frequencies.  This was done for the various wake templates.  </p>
-
-<p><strong>KEN:</strong> I know this is pretty different than the McDuff method for interpreting feature weights - but the requirement to average over the patterns made things difficult so I did things this way as a much easier to accomplish first pass.  It’s worth noting that the EEG analysis code rescales all features to be within the range of 0 and 1, so I think this crude way of looking at the features should still be pretty informative.</p>
-
-<h4 id="face-minus-scene-wake-template">Face Minus Scene Wake Template</h4>
-<p><a href="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_faceMINUSscene_wake_template_subj1.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_faceMINUSscene_wake_template_subj1.png" width="700" height="350" /></a>
-<a href="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_faceMINUSscene_wake_template_subj2.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_faceMINUSscene_wake_template_subj2.png" width="700" height="350" /></a></p>
-
-<h4 id="face-wake-template">Face Wake Template</h4>
-<p><a href="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_face_wake_template_subj1.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_face_wake_template_subj1.png" width="700" height="350" /></a>
-<a href="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_face_wake_template_subj2.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_face_wake_template_subj2.png" width="700" height="350" /></a></p>
-
-<h4 id="scene-wake-template">Scene Wake Template</h4>
-<p><a href="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_scene_wake_template_subj1.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_scene_wake_template_subj1.png" width="700" height="350" /></a>
-<a href="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_scene_wake_template_subj2.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collaped_weights_by_freq_scene_wake_template_subj2.png" width="700" height="350" /></a></p>
-
-<h4 id="face-minus-scene-wake-template-1">Face Minus Scene Wake Template</h4>
-<p><a href="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_faceMINUSscene_wake_template_subj1.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_faceMINUSscene_wake_template_subj1.png" width="700" height="350" /></a>
-<a href="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_faceMINUSscene_wake_template_subj2.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_faceMINUSscene_wake_template_subj2.png" width="700" height="350" /></a></p>
-
-<h4 id="face-wake-template-1">Face Wake Template</h4>
-<p><a href="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_face_wake_template_subj1.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_face_wake_template_subj1.png" width="700" height="350" /></a>
-<a href="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_face_wake_template_subj2.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_face_wake_template_subj2.png" width="700" height="350" /></a></p>
-
-<h4 id="scene-wake-template-1">Scene Wake Template</h4>
-<p><a href="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_scene_wake_template_subj1.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_scene_wake_template_subj1.png" width="700" height="350" /></a>
-<a href="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_scene_wake_template_subj2.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/collapsed_weights_by_sleep_time_scene_wake_template_subj2.png" width="700" height="350" /></a>
-<!--### Questions-->
-<!--##### Classifier Weights-->
-<!--#. When we look at the magnitude of the trained classifier weights for various wake-template-frequencies, do we see that the weights are generally bigger at the frequencies that --></p>
-
-<!--#### -->
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: hide | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/hide/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-09-03T13:10:48-04:00</updated>
+  <updated>2014-09-08T14:39:07-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,51 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG Finding Optimal Wake Pattern For Sleep Transform]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/09/04/sleep-eeg-finding-optimal-wake-pattern-for-sleep-transform/"/>
+    <updated>2014-09-04T10:06:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/09/04/sleep-eeg-finding-optimal-wake-pattern-for-sleep-transform</id>
+    <content type="html"><![CDATA[<h2 id="wake-loso-log-reg-150ms---550ms-time-freq-sweep-on-hilbert-transformed-data">WAKE LOSO LOG REG 150ms - 550ms Time Freq. Sweep On Hilbert Transformed data</h2>
+
+<p>Find those results below.  It seems that across the board, looking at diffAUC, we get that the 300ms timebin is the best.  However, one of the goals of this analysis was to see if there was any variability in when faces are classifiable compared to when scenes are classifiable.  Towards this end, we plot the AUC on a per class basis.  That is, we look at the AUC calculating the face classifier output for faces as positive instances, and the face classifier output for scenes as negative instances.  Similarly, we do this for scenes.  When we look at this across all subjects, we find that the 300ms timebin strong diffAUC is actually driven by strong faceAUC(~0.58) for that timebin and not at all by the sceneAUC(~0.43).  Thus, if we do decide to proceed with sleep transforming, we should only face transform at 300ms.   When we look at the faceAUC per subject, we find that 300ms at the 30Hz band is the good for all but two subjects (08 and 22).  This is encouraging!  Feel encouraged.  Did it work? Are you encouraged.  Fine.  Nevermind.  Whatever.</p>
+
+<p>I ran this analysis with a shortened time window, I’m re-running the analysis with the full time window to make sure that scenes aren’t doing well during the later periods.  Additionally, we have always been z-scoring across electrodes, I’m not doing that for this new analysis just to make sure our z-scoring decision (supported via our first pilot) are still valid.   </p>
+
+<p><strong>TLDR;</strong><br />
+- diffAUC points to timebin 300ms as best time across all subjects with average diffAUC = 0.58 <br />
+- looking into faceAUC vs. sceneAUC, it’s clear that the diffAUC is entirely driven by faceAUC (i.e. scenes aren’t above chance at 300ms), we should sleep transform sleep data using the 300ms timebin importance maps.   </p>
+
+<h2 id="lambda--100">Lambda = 100</h2>
+
+<h4 id="diffauc-face-minus-scene">diffAUC (face minus scene)</h4>
+
+<p><a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__diffAUC_lambda100.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__diffAUC_lambda100.png" width="700" height="350"></a>
+<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda100.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda100.png" width="700" height="350"></a>
+<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__faceAUC_per_subj_lambda100.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__faceAUC_per_subj_lambda100.png" width="700" height="350"></a>
+<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__sceneAUC_per_subj_lambda100.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__sceneAUC_per_subj_lambda100.png" width="700" height="350"></a></p>
+
+<h2 id="lambda--500">Lambda = 500</h2>
+
+<h4 id="diffauc-face-minus-scene-1">diffAUC (face minus scene)</h4>
+
+<p><a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__diffAUC_lambda500.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__diffAUC_lambda500.png" width="700" height="350"></a>
+<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda500.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda500.png" width="700" height="350"></a>
+<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__faceAUC_per_subj_lambda500.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__faceAUC_per_subj_lambda500.png" width="700" height="350"></a>
+<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__sceneAUC_per_subj_lambda500.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__sceneAUC_per_subj_lambda500.png" width="700" height="350"></a></p>
+
+<h2 id="lambda--1000">Lambda = 1000</h2>
+
+<h4 id="diffauc-face-minus-scene-2">diffAUC (face minus scene)</h4>
+
+<p><a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__diffAUC_lambda1000.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__diffAUC_lambda1000.png" width="700" height="350"></a>
+<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda1000.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda1000.png" width="700" height="350"></a>
+<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__faceAUC_per_subj_lambda1000.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__faceAUC_per_subj_lambda1000.png" width="700" height="350"></a>
+<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__sceneAUC_per_subj_lambda1000.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__sceneAUC_per_subj_lambda1000.png" width="700" height="350"></a></p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sleep EEG: Past TODO items and next directions]]></title>
@@ -426,22 +471,6 @@ diffAUC = 0
 
 <h4 id="next-steps">Next Steps:</h4>
 <p>Let’s try our leave-one-subject-out analysis for individual time-frequency pairs.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Probabilistic Logic Learning - Luc De Raedt and Kristian Kersting]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/08/05/probabilistic-logic-learning-luc-de-raedt-and-kristian-kersting/"/>
-    <updated>2014-08-05T12:51:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/08/05/probabilistic-logic-learning-luc-de-raedt-and-kristian-kersting</id>
-    <content type="html"><![CDATA[<h4 id="what-does-probabilistic-logic-learning-mean">What does probabilistic logic learning mean?</h4>
-<p><strong>probabilistic</strong> - probabilistic representations and reasoning mechanisms <br />
-<strong>logic</strong> - first order logical and relational representations (compared to propositional logic affords reasoning about objects)</p>
-
-<h3 id="logic-glossary">Logic Glossary</h3>
-<p>first-order logic $\leftrightarrow$ relational representation <br />
-allows for:<br />
-<strong>extensional</strong>: <code>ram(r1,c1)</code> – </p>
 ]]></content>
   </entry>
   
