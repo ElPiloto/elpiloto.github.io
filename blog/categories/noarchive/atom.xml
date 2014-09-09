@@ -4,7 +4,7 @@
   <title><![CDATA[Category: noarchive | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/noarchive/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-09-08T14:43:51-04:00</updated>
+  <updated>2014-09-09T15:21:46-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -27,6 +27,61 @@
 <p><strong>TLDR;</strong><br />
 - diffAUC points to timebin 300ms as best time across all subjects with average diffAUC = 0.58 <br />
 - looking into faceAUC vs. sceneAUC, it’s clear that the diffAUC is entirely driven by faceAUC (i.e. scenes aren’t above chance at 300ms), we should sleep transform sleep data using the 300ms timebin importance maps.   </p>
+
+<p><strong>QUESTIONS TO ANSWER</strong> <br />
+1. does one-sample, one-tailed t-test reveal better bins? <br />
+2. are there better times? <br />
+3. is there a difference between z-scoring and not z-scoring across channels? <br />
+4. do we get better results for lower lambdas?   </p>
+
+<p><strong>ANSWERS TO QUESTIONS</strong> <br />
+<strong>ONE.</strong> We still get the best time bin to be 300 ms <a href="http://ElPiloto.github.io/images/research/LOSO_sleep_transform/LOSO_WAKE_LOGREG_SWEEP_PVAL_face_sceneAUC_lambda100.png">if you look at the p-values</a> instead of the <a href="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda100.png">mean across subjects</a>  <br /></p>
+
+<p><strong>TWO.</strong> When we do the same analysis looking at time bins 550ms - 1000ms, we don’t get anything better.  There’s a random blip around 950ms for scenes    <a href="http://ElPiloto.github.io/images/research/LOSO_sleep_transform/LOSO_WAKE_LOGREG_SWEEP_Q2_ZSCOREPVAL_face_sceneAUC_lambda50.png">here</a>, but it’s not any better than what we saw for the 150ms - 550ms case.     <br /></p>
+
+<p><strong>THREE.</strong> YES IT DOES.  Compare these two plots WITHOUT z-scoring to their respective plots under question 4.  <br /></p>
+<center>
+<a href="http://ElPiloto.github.io/images/research/LOSO_sleep_transform/LOSO_WAKE_LOGREG_SWEEP_Q3_ZSCOREPVAL_face_sceneAUC_lambda50.png">$\lambda = 50$</a><br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_sleep_transform/LOSO_WAKE_LOGREG_SWEEP_Q3_ZSCOREPVAL_face_sceneAUC_lambda100.png">$\lambda = 100$</a><br />
+</center>
+
+<p><strong>FOUR.</strong>  We get something slightly better with lambda = 50, but not by a huge bunch.  <strong>Let’s go with 50 for a wake transform</strong>    </p>
+<center>
+<a href="http://ElPiloto.github.io/images/research/LOSO_sleep_transform/LOSO_WAKE_LOGREG_SWEEP_PVAL_face_sceneAUC_lambda1.png">$ \lambda = 1$</a><br />   
+<a href="http://ElPiloto.github.io/images/research/LOSO_sleep_transform/LOSO_WAKE_LOGREG_SWEEP_PVAL_face_sceneAUC_lambda10.png">$ \lambda = 10$</a><br />   
+<a href="http://ElPiloto.github.io/images/research/LOSO_sleep_transform/LOSO_WAKE_LOGREG_SWEEP_PVAL_face_sceneAUC_lambda50.png">$ \lambda = 50$</a><br />   
+<a href="http://ElPiloto.github.io/images/research/LOSO_sleep_transform/LOSO_WAKE_LOGREG_SWEEP_PVAL_face_sceneAUC_lambda100.png">$ \lambda = 100$</a><br />   
+</center>
+
+<p><strong>Ken Reply</strong></p>
+
+<p>i like the idea of finding the best time/freq for faces and then using
+that for a sleep transform. i agree that 300ms / 30hz looks like the
+best candidate for the “face champion”.    </p>
+
+<p>before you do the sleep transform, it would be great if you could run
+the same analysis that you just ran, but for lower lambda vals (say 1,
+10, 50). it looks like things were definitely getting worse as you
+increased lambda in the analyses that you just ran, so maybe the best
+lambda vals for this analysis are &lt; 100.    </p>
+
+<p>if 300ms / 30hz still looks good with other lambda vals, then let’s
+sleep transform using that.    </p>
+
+<p>if we go ahead with 300ms / 30hz for the transformation, then i
+recommend first filtering out uninformative electrodes, and then
+re-running the classifier on the leftover electrodes and either 1)
+using the importance map values for faces as the template, or 2) using
+the mean pattern values (for faces) as the template. i also recommend
+sticking with our original plan of grabbing the spatial pattern from
+the BEST frequency band (e.g., 30hz) at the best time point (e.g.,
+300ms) as opposed to grabbing ALL of the frequency-specific spatial
+patterns from the best time point. we can use this pattern to
+transform all of the frequences in the sleep data.     </p>
+
+<p>also, after you do the sleep transform, i am interested in looking at
+timecourses for reactivation as opposed to jumping right into crossval
+accuracy.    </p>
 
 <h2 id="lambda--100">Lambda = 100</h2>
 
