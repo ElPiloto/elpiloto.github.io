@@ -4,7 +4,7 @@
   <title><![CDATA[Category: EEG | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/eeg/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-09-10T13:04:49-04:00</updated>
+  <updated>2014-09-10T13:08:27-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -24,15 +24,15 @@
 
 <pre>
 # we're going to do a sleep transformation for each frequency
-foreach frequency band F:
+foreach frequency band wake_F:
 	foreach electrode E:
 		if pval( mean_power_faces[E] - mean_power_scenes[E] ) &lt; 0.05
 			informative_electrodes.add_electrode(E)
 	
-	data = append_subject_data(freq = F, timebin = 300ms, electrodes = informative_electrodes,
+	wake_data = append_subject_data(freq = wake_F, timebin = 300ms, electrodes = informative_electrodes,
 				classes_to_use = [faces scenes objects scrambled_faces scrambled_scenes])
 	
-	wake_logreg = train_logistic_regression_classifier(data, lambda = 10)
+	wake_logreg = train_logistic_regression_classifier(wake_data, lambda = 10)
 
 	wake_template = get_importance_map(wake_logreg, class = faces)
 	
@@ -43,9 +43,9 @@ foreach frequency band F:
 			filtered_pattern = remove_noninformative_electrodes(P, informative_electrodes)
 
 			foreach timebin T:
-				foreach frequency F:
+				foreach frequency sleep_F:
 
-					transformed_sleep_data[S,P,T,F] = dot_product( wake_template, filtered_pattern[T,F] )
+					transformed_sleep_data[S,P,T,sleep_F] = dot_product( wake_template, filtered_pattern[T,sleep_F] )
 				
 				# note below we are only grabbing data for THIS subject and THIS timebin - meaning a classifier
 				# score for each timebin
