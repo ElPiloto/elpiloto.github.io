@@ -4,7 +4,7 @@
   <title><![CDATA[Category: noarchive | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/noarchive/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-09-10T13:08:27-04:00</updated>
+  <updated>2014-09-10T13:18:50-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -23,7 +23,8 @@
 <p>In this <a href="http://ElPiloto.github.io/blog/2014/09/04/sleep-eeg-finding-optimal-wake-pattern-for-sleep-transform/">post</a> we decided we’re going to try to generate a wake template for all of the different frequency bands at the <strong>300ms time bin</strong>.  Recall that those results were for L2-regularization of LOSO data ( with $\lambda = 10$ giving us the best results )  Below we outline how we plan to transform the sleep data.</p>
 
 <pre>
-# we're going to do a sleep transformation for each frequency
+# for now, we're going to do a sleep transformation classification for each frequency
+# for later: concatenate transformed data at each frequency into a single dataset
 foreach frequency band wake_F:
 	foreach electrode E:
 		if pval( mean_power_faces[E] - mean_power_scenes[E] ) &lt; 0.05
@@ -34,6 +35,7 @@ foreach frequency band wake_F:
 	
 	wake_logreg = train_logistic_regression_classifier(wake_data, lambda = 10)
 
+	# we could also take the mean pattern as our wake template
 	wake_template = get_importance_map(wake_logreg, class = faces)
 	
 	# Option 1: old-school sleep transform analysis
@@ -55,6 +57,7 @@ foreach frequency band wake_F:
 	# Option 2: LOSO sleep transformed
 	LOSO_sleep_logreg = train_logistic_regression_classifier(transformed_sleep_data, lambda = ?, cross_validation = per_subject)
 
+	# Option 3: Use all sleep times as a single pattern (nice b/c get single classification score per trial)
 </pre>
 
 ]]></content>
