@@ -4,7 +4,7 @@
   <title><![CDATA[Category: hilbert | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/hilbert/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-09-09T15:21:46-04:00</updated>
+  <updated>2014-09-10T13:04:49-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,53 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep Transform ALL the Subjects]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/09/10/sleep-transform-all-the-subjects/"/>
+    <updated>2014-09-10T11:35:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/09/10/sleep-transform-all-the-subjects</id>
+    <content type="html"><![CDATA[<h2 id="transformation-outline">Transformation Outline</h2>
+
+<p>In this <a href="http://ElPiloto.github.io/blog/2014/09/04/sleep-eeg-finding-optimal-wake-pattern-for-sleep-transform/">post</a> we decided we’re going to try to generate a wake template for all of the different frequency bands at the <strong>300ms time bin</strong>.  Recall that those results were for L2-regularization of LOSO data ( with $\lambda = 10$ giving us the best results )  Below we outline how we plan to transform the sleep data.</p>
+
+<pre>
+# we're going to do a sleep transformation for each frequency
+foreach frequency band F:
+	foreach electrode E:
+		if pval( mean_power_faces[E] - mean_power_scenes[E] ) &lt; 0.05
+			informative_electrodes.add_electrode(E)
+	
+	data = append_subject_data(freq = F, timebin = 300ms, electrodes = informative_electrodes,
+				classes_to_use = [faces scenes objects scrambled_faces scrambled_scenes])
+	
+	wake_logreg = train_logistic_regression_classifier(data, lambda = 10)
+
+	wake_template = get_importance_map(wake_logreg, class = faces)
+	
+	# Option 1: old-school sleep transform analysis
+	foreach subject S:
+		foreach pattern P in sleep_data[S]:
+
+			filtered_pattern = remove_noninformative_electrodes(P, informative_electrodes)
+
+			foreach timebin T:
+				foreach frequency F:
+
+					transformed_sleep_data[S,P,T,F] = dot_product( wake_template, filtered_pattern[T,F] )
+				
+				# note below we are only grabbing data for THIS subject and THIS timebin - meaning a classifier
+				# score for each timebin
+				sleep_logreg[T] = train_logistic_regression_classifier(transformed_sleep_data[S,all_patterns,T, all_frequencies],
+											lambda = ?, cross_validation = leave-one-trial-out)
+	
+	# Option 2: LOSO sleep transformed
+	LOSO_sleep_logreg = train_logistic_regression_classifier(transformed_sleep_data, lambda = ?, cross_validation = per_subject)
+
+</pre>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sleep EEG Finding Optimal Wake Pattern For Sleep Transform]]></title>
@@ -45,7 +92,7 @@
 <a href="http://ElPiloto.github.io/images/research/LOSO_sleep_transform/LOSO_WAKE_LOGREG_SWEEP_Q3_ZSCOREPVAL_face_sceneAUC_lambda100.png">$\lambda = 100$</a><br />
 </center>
 
-<p><strong>FOUR.</strong>  We get something slightly better with lambda = 50, but not by a huge bunch.  <strong>Let’s go with 50 for a wake transform</strong>    </p>
+<p><strong>FOUR.</strong>  We get better results with lambda = 10 for the p-val AUC plots, but not by too much if we just look at the mean AUC across subjects.  <strong>Let’s go with 10 for a wake transform</strong>    </p>
 <center>
 <a href="http://ElPiloto.github.io/images/research/LOSO_sleep_transform/LOSO_WAKE_LOGREG_SWEEP_PVAL_face_sceneAUC_lambda1.png">$ \lambda = 1$</a><br />   
 <a href="http://ElPiloto.github.io/images/research/LOSO_sleep_transform/LOSO_WAKE_LOGREG_SWEEP_PVAL_face_sceneAUC_lambda10.png">$ \lambda = 10$</a><br />   

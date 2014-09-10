@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: sleep - Something Witty</title>
+  <title>Sleep Transform ALL the Subjects - Something Witty</title>
   <meta name="author" content="Luis R. Piloto">
 
   
-  <meta name="description" content="Category: sleep">
+  <meta name="description" content="EEG, hide, hilbert, noarchive, sleep Sleep Transform ALL the Subjects Transformation Outline In this post we decided we’re going to try to generate &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ElPiloto.github.ioblog/categories/sleep">
+  <link rel="canonical" href="http://ElPiloto.github.io/blog/2014/09/10/sleep-transform-all-the-subjects">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/styles.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Something Witty" type="application/atom+xml">
@@ -152,13 +152,70 @@
 		</aside>
 		
       <div>
-<article role="article">
+<article>
+	<header>
+  <div class="article-tags">
+      
+
+<span class="categories">
   
-  <header>
-    <h1 class="entry-title">Category: Sleep</h1>
-  </header>
+    <a class='category' href='/blog/categories/eeg/'>EEG</a>, <a class='category' href='/blog/categories/hide/'>hide</a>, <a class='category' href='/blog/categories/hilbert/'>hilbert</a>, <a class='category' href='/blog/categories/noarchive/'>noarchive</a>, <a class='category' href='/blog/categories/sleep/'>sleep</a>
   
-  <div id="blog-archives" class="category">
+</span>
+
+
+  </div>
+  
+    <h1>
+      Sleep Transform ALL the Subjects
+    </h1>
+  
+</header>
+<section>
+  <h2 id="transformation-outline">Transformation Outline</h2>
+
+<p>In this <a href="/blog/2014/09/04/sleep-eeg-finding-optimal-wake-pattern-for-sleep-transform/">post</a> we decided we’re going to try to generate a wake template for all of the different frequency bands at the <strong>300ms time bin</strong>.  Recall that those results were for L2-regularization of LOSO data ( with $\lambda = 10$ giving us the best results )  Below we outline how we plan to transform the sleep data.</p>
+
+<pre>
+# we're going to do a sleep transformation for each frequency
+foreach frequency band F:
+	foreach electrode E:
+		if pval( mean_power_faces[E] - mean_power_scenes[E] ) &lt; 0.05
+			informative_electrodes.add_electrode(E)
+	
+	data = append_subject_data(freq = F, timebin = 300ms, electrodes = informative_electrodes,
+				classes_to_use = [faces scenes objects scrambled_faces scrambled_scenes])
+	
+	wake_logreg = train_logistic_regression_classifier(data, lambda = 10)
+
+	wake_template = get_importance_map(wake_logreg, class = faces)
+	
+	# Option 1: old-school sleep transform analysis
+	foreach subject S:
+		foreach pattern P in sleep_data[S]:
+
+			filtered_pattern = remove_noninformative_electrodes(P, informative_electrodes)
+
+			foreach timebin T:
+				foreach frequency F:
+
+					transformed_sleep_data[S,P,T,F] = dot_product( wake_template, filtered_pattern[T,F] )
+				
+				# note below we are only grabbing data for THIS subject and THIS timebin - meaning a classifier
+				# score for each timebin
+				sleep_logreg[T] = train_logistic_regression_classifier(transformed_sleep_data[S,all_patterns,T, all_frequencies],
+											lambda = ?, cross_validation = leave-one-trial-out)
+	
+	# Option 2: LOSO sleep transformed
+	LOSO_sleep_logreg = train_logistic_regression_classifier(transformed_sleep_data, lambda = ?, cross_validation = per_subject)
+
+</pre>
+
+
+</section>
+<footer>
+  <div class="article-date">
+      
 
 
 
@@ -166,50 +223,18 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
 
   
+
+
+<time datetime="2014-09-10T11:35:00-04:00" pubdate data-updated="true">Sep 10<span>th</span>, 2014</time>
+  </div>
+</footer>
+
+	
 </article>
 </div>
+
     </div>
   </div>
   <footer class="main-footer">
