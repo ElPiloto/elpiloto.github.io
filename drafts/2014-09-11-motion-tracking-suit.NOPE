@@ -5,12 +5,14 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Combray - Something Witty</title>
+  <title>Motion Tracking Suit - Something Witty</title>
   <meta name="author" content="Luis R. Piloto">
 
   
-  <meta name="description" content="hide, noarchive Combray Combray: Memory-guided Perception
-Aaron Bornstein, Mariam Aly, Sam Feng How do we combine the two following pieces of &hellip;">
+  <meta name="description" content="hide, noarchive Motion Tracking Suit ## Some Stats and Facts
+- 30 Hz sensor updates
+- 23 body segments, 22 joints
+- Integration happens on device, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +21,7 @@ Aaron Bornstein, Mariam Aly, Sam Feng How do we combine the two following pieces
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ElPiloto.github.io/blog/2014/09/18/combray">
+  <link rel="canonical" href="http://ElPiloto.github.io/drafts/2014-09-11-motion-tracking-suit.NOPE">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/styles.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Something Witty" type="application/atom+xml">
@@ -121,6 +123,9 @@ Aaron Bornstein, Mariam Aly, Sam Feng How do we combine the two following pieces
 	
     
 	
+    <li>
+    	<a href="/blog/2014/09/17/install-lightspeed-toolbox-for-matlab-on-os-x-maverick/">Install Lightspeed Toolbox for Matlab on Os X Maverick</a>
+    </li>
 	
     
 	
@@ -168,83 +173,19 @@ Aaron Bornstein, Mariam Aly, Sam Feng How do we combine the two following pieces
   </div>
   
     <h1>
-      Combray
+      Motion Tracking Suit
     </h1>
   
 </header>
 <section>
-  <h2 id="combray-memory-guided-perception">Combray: Memory-guided Perception</h2>
-<p>Aaron Bornstein, Mariam Aly, Sam Feng     </p>
+  ## Some Stats and Facts
+- 30 Hz sensor updates
+- 23 body segments, 22 joints
+- Integration happens on device, so even if decrease temporal resolution, accuracy doesn't decrease
 
-<h4 id="how-do-we-combine-the-two-following-pieces-of-information">How do we combine the two following pieces of information?</h4>
-<ul>
-  <li>behavior guided by hippocampal/episodic memories    </li>
-  <li>behavior guided by perceptual evidence    </li>
-</ul>
 
-<h4 id="effects-of-priors-on-evidence-accumulation">Effects of priors on evidence accumulation</h4>
-<ul>
-  <li>random-dot motion task, can modify <em>prior</em> by making a bunch of trials have motion in same direction (i.e. a bunch of leftward moving trials, on the next trial, strong prior for motion towards left)    </li>
-  <li>translation of prior to drift-diffusion model:   <br />
-  possibility #1: modify starting point (usually set to middle, prior shifts it away from middle)  <br />
-  possibility #2: modify drift rate  <br />
-  <strong>possibility #3: accumulate sensory and memory evidence</strong> - this is the one they’re going for    </li>
-</ul>
-
-<h4 id="what-is-neural-substrate-of-the-prior">What is neural substrate of the prior?</h4>
-<ul>
-  <li>some work showing hippocampus can predict activity of V1     </li>
-  <li>other stuff I missed    </li>
-</ul>
-
-<h4 id="alternative-1-for-perceptual-and-memory-accumulation-serial-accumulation">Alternative 1 for perceptual and memory accumulation: Serial accumulation</h4>
-
-<p>Idea: memory starts accumulating, then when perceptual signal comes on stop accumulating memory signal and start accumulating perceptual evidence    </p>
-
-<h4 id="alternative-2-for-perceptual-and-memory-accumulation-parallel-accumulation">Alternative 2 for perceptual and memory accumulation: Parallel accumulation</h4>
-
-<p>Idea: sample from memory until percept is available and continue sampling from memory    </p>
-
-<h3 id="task-probabilistic-sequence-learning">Task: Probabilistic Sequence Learning</h3>
-
-<ul>
-  <li>hippocampal (and ventral temporal) activity flucturates with difficulty of predicting next item in a sequence (let’s call these variations in difficulty, variations in memory evidence)    </li>
-</ul>
-
-<p>Similarly stimuli for scenes (as opposed to faces i.e. f1 = face1)  <br />
-fractal_a   mirror_fractal_a  <br />
-f1  f2      f1            f2  <br />
-|    |      |              |  <br />
-.8  .2      .2            .8    </p>
-
-<p>perceptual noise: rapid flickering      </p>
-
-<p>learning trials: perceptual noise is off - participants learn transition structure for that block    </p>
-
-<p>test trials: perceptual noise is on - participants should combine their knowledge of the transition structure with perceptual inference to guide decisions  <br />
-- have either low or high amount of perceptual noise  <br />
-- high: calibrated to get it right 65%  <br />
-- low: calibrated to get it right 85% of the time    </p>
-
-<h4 id="pilot-1ab">Pilot 1A/B</h4>
-
-<p>Two blocks each with 140/100 learning trials and 40/80 test trials    </p>
-
-<p>Test trials: don’t actually show images during test, show white noise    </p>
-
-<p>Takeaway: subjects responded “early” 56% of the time (compared to 8.8% during learning) during test phase, seeming to indicate they were relying on memory evidence and realized the test phase didn’t actually have any perceptual evidence because they were shown white noise, not the images      </p>
-
-<h4 id="pilot-2">Pilot 2</h4>
-<p>introduce calibration for perceptual certainty   </p>
-
-<p>Takeaway: almost no early responses during test - seem reluctant to use memory evidence     </p>
-
-<p><strong>Analysis:</strong>    <br />
-- Do memory and perceptual evidence predict response times?  We can do multiple regression with both types of evidence against RT and then look at betas for both memory and perceptual evidence. <strong>YES</strong>   <br />
-- Memory evidence for what I ended up choosing decreases: <br />
-	- high perceptual noise blocks: accumulation threshold <em>increases</em> as a function of memory evidence     <br />
-	- low perceptual noise blocks: accumulation threshold <em>decreases</em> as a function of memory evidence    </p>
-
+## Ideas:
+Giant block building?
 
 </section>
 <footer>
@@ -261,10 +202,15 @@ f1  f2      f1            f2  <br />
   
 
 
-<time datetime="2014-09-18T10:04:00-04:00" pubdate data-updated="true">Sep 18<span>th</span>, 2014</time>
+<time datetime="2014-09-11T10:08:00-04:00" pubdate data-updated="true">Sep 11<span>th</span>, 2014</time>
   </div>
 </footer>
 
+	
+	  <section class="comments">
+	    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+	  </section>
 	
 </article>
 </div>
@@ -280,6 +226,22 @@ f1  f2      f1            f2  <br />
 
   
 
+
+<script type="text/javascript">
+      var disqus_shortname = 'elpiloto';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ElPiloto.github.io/drafts/2014-09-11-motion-tracking-suit.NOPE';
+        var disqus_url = 'http://ElPiloto.github.io/drafts/2014-09-11-motion-tracking-suit.NOPE';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 

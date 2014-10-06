@@ -4,7 +4,7 @@
   <title><![CDATA[Category: EEG | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/eeg/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-10-06T13:24:57-04:00</updated>
+  <updated>2014-10-06T15:47:02-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -38,18 +38,39 @@
 	- something in the 8 Hz, 100-175 ms timebin range 
 	- something in the 8 Hz, 275-325 ms timebin range   </p>
 
-<p>This will be A LOT of plots too look at, but if we see something we can always check on James’ second batch of spindle-cued subjects (NOTE: given that have up to 500ms of untarnished sleep data with James’ second batch of spindle-cued subjects, we might want to only look at results before 500 ms)</p>
+<p>This will be A LOT of plots to look at, but if we see something we can always check on James’ second batch of spindle-cued subjects (NOTE: given that have up to 500ms of untarnished sleep data with James’ second batch of spindle-cued subjects, we might want to only look at results before 500 ms)</p>
 
 <h4 id="lets-look-at-the-recursive-feature-analysis-results-for-lambda--10">Let’s look at the recursive feature analysis results for $\lambda = 10$</h4>
-<p>And see what’s the best we get across the different time bins for the 4 Hz and 8 Hz frequencies.</p>
+<p>And see what’s the best we get across the different time bins for the 4 Hz and 8 Hz frequencies at some points that we cared about - I’m working on presenting these in a better fashion but for now these are the plots that were most easily generated:    </p>
+
+<p><strong>Time = 150ms</strong>
+<a href='/images/research/LOSO_POSTBUG/LOSO_RFE_LAMBDA<em>10</em>150ms.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/LOSO_RFE_LAMBDA<em>10</em>150ms.png" width="700" height="350"></a>   </p>
+
+<p><strong>Time = 300ms</strong>
+<a href='/images/research/LOSO_POSTBUG/LOSO_RFE_LAMBDA<em>10</em>300ms.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/LOSO_RFE_LAMBDA<em>10</em>300ms.png" width="700" height="350"></a>   </p>
+
+<p><strong>Time = 475ms</strong>
+<a href='/images/research/LOSO_POSTBUG/LOSO_RFE_LAMBDA<em>10</em>475ms.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/LOSO_RFE_LAMBDA<em>10</em>475ms.png" width="700" height="350"></a>   </p>
+
+<p><strong>Time = 775ms</strong>
+<a href='/images/research/LOSO_POSTBUG/LOSO_RFE_LAMBDA<em>10</em>775ms.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/LOSO_RFE_LAMBDA<em>10</em>775ms.png" width="700" height="350"></a>   </p>
 
 <h4 id="additionally-lets-look-at-wake-loso-classification-using-just-erps">Additionally, let’s look at wake LOSO classification using just ERPs:</h4>
 <p>Well, this is awkward: our best classification results are for using the ERPs: 68% accuracy.</p>
 
 <p><a href='/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_ERP25_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_ERP25_face_sceneAUC_lambda10.png" width="700" height="350"></a></p>
 
-<h4 id="additionally-we-get-even-better-results-for-when-we-do-recursive-feature-elimintation">Additionally. we get even better results for when we do recursive feature elimintation:</h4>
+<h4 id="lastly-lets-not-forget-that-we-wanted-to-look-at-16-hz-175-ms-in-the-sleep-data-because-we-did-well-with-it-on-an-individual-subject-level-as-seen-here">Lastly, let’s not forget that we wanted to look at 16 Hz, 175 ms in the sleep data because we did well with it on an individual subject level as seen here:</h4>
 
+<p><a href='/images/research/LOSO_POSTBUG/sleep_hilb_mean_across_subjects_lambda1.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/sleep_hilb_mean_across_subjects_lambda1.png" width="700" height="350"></a></p>
+
+<p><strong>TODO:</strong></p>
+
+<ul>
+  <li>when picking number of electrodes to keep, err on the side of too many so that we get a varied distribution of importance weights (so that we can do correlation)</li>
+  <li>generate sleep similarity plots BY wednesday!</li>
+  <li>let’s do whatever we can to help James</li>
+</ul>
 ]]></content>
   </entry>
   
