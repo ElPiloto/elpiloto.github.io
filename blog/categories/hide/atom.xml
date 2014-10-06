@@ -4,7 +4,7 @@
   <title><![CDATA[Category: hide | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/hide/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-10-06T15:51:03-04:00</updated>
+  <updated>2014-10-06T15:53:24-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -69,7 +69,8 @@
 <ul>
   <li>when picking number of electrodes to keep, err on the side of too many so that we get a varied distribution of importance weights (so that we can do correlation)</li>
   <li>generate sleep similarity plots BY wednesday!</li>
-  <li>let’s do whatever we can to help James</li>
+  <li>let’s look at RFE and ERP results, too and generate a template based on that as well!</li>
+  <li>let’s do whatever we can to help James preprocess the validation subjects</li>
 </ul>
 ]]></content>
   </entry>
