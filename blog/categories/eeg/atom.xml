@@ -4,7 +4,7 @@
   <title><![CDATA[Category: EEG | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/eeg/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-10-06T15:47:02-04:00</updated>
+  <updated>2014-10-06T15:51:03-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -38,7 +38,7 @@
 	- something in the 8 Hz, 100-175 ms timebin range 
 	- something in the 8 Hz, 275-325 ms timebin range   </p>
 
-<p>This will be A LOT of plots to look at, but if we see something we can always check on James’ second batch of spindle-cued subjects (NOTE: given that have up to 500ms of untarnished sleep data with James’ second batch of spindle-cued subjects, we might want to only look at results before 500 ms)</p>
+<p>This will be A LOT of plots to look at, but if we see something we can always check on James’ second batch of spindle-cued subjects.</p>
 
 <h4 id="lets-look-at-the-recursive-feature-analysis-results-for-lambda--10">Let’s look at the recursive feature analysis results for $\lambda = 10$</h4>
 <p>And see what’s the best we get across the different time bins for the 4 Hz and 8 Hz frequencies at some points that we cared about - I’m working on presenting these in a better fashion but for now these are the plots that were most easily generated:    </p>
@@ -62,7 +62,7 @@
 
 <h4 id="lastly-lets-not-forget-that-we-wanted-to-look-at-16-hz-175-ms-in-the-sleep-data-because-we-did-well-with-it-on-an-individual-subject-level-as-seen-here">Lastly, let’s not forget that we wanted to look at 16 Hz, 175 ms in the sleep data because we did well with it on an individual subject level as seen here:</h4>
 
-<p><a href='/images/research/LOSO_POSTBUG/sleep_hilb_mean_across_subjects_lambda1.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/sleep_hilb_mean_across_subjects_lambda1.png" width="700" height="350"></a></p>
+<p><a href='/images/research/sleep_eeg_hilbert/sleep_hilb_mean_across_subjects_lambda1.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/sleep_hilb_mean_across_subjects_lambda1.png" width="700" height="350"></a></p>
 
 <p><strong>TODO:</strong></p>
 
