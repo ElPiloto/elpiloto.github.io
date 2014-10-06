@@ -4,7 +4,7 @@
   <title><![CDATA[Something Witty]]></title>
   <link href="http://ElPiloto.github.io/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-09-10T13:18:50-04:00</updated>
+  <updated>2014-10-06T13:24:57-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,361 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: LOSO (post-bug) and ERP]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/10/06/sleep-eeg-loso-post-bug-and-erp/"/>
+    <updated>2014-10-06T10:29:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/10/06/sleep-eeg-loso-post-bug-and-erp</id>
+    <content type="html"><![CDATA[<h3 id="as-described-in-a-hrefblog20140925sleep-eeg-replicating-best-p-val-resultsthis-posta-there-was-a-bug-that-messed-things-up-for-the-results-posted-a-hrefblog20140904sleep-eeg-finding-optimal-wake-pattern-for-sleep-transformherea">As described in <a href="http://ElPiloto.github.io/blog/2014/09/25/sleep-eeg-replicating-best-p-val-results/">this post</a>, there was a bug that messed things up for the results posted <a href="http://ElPiloto.github.io/blog/2014/09/04/sleep-eeg-finding-optimal-wake-pattern-for-sleep-transform/">here</a></h3>
+
+<p>In general, we were producing a non-random, though erroneous, transformation to our data so now that that bug is fixed we should be getting pretty similar results just along different times and frequencies.   </p>
+
+<h4 id="nothing-has-changed-for-the-optimal-lambda-choice">Nothing has changed for the optimal lambda choice:</h4>
+<p>Still seems pretty close between the two, but let’s stick with <a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUG_face_sceneAUC_lambda10.png">$\lambda = 10$</a> over <a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUG_face_sceneAUC_lambda50.png">$\lambda = 50$
+</a></p>
+
+<h4 id="looking-for-best-timebin-and-frequency">Looking for best timebin and frequency:</h4>
+<p>previously we liked <strong>300 ms</strong> time bin and were slightly frequency agnostic based on <a href="http://ElPiloto.github.io/images/research/LOSO_sleep_transform/LOSO_WAKE_LOGREG_SWEEP_PVAL_face_sceneAUC_lambda10.png">this</a>, but now we get totally different looking results:</p>
+
+<p><a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUGPVAL_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUGPVAL_face_sceneAUC_lambda10.png" width="700" height="350" /></a></p>
+
+<p><strong>Thoughts:</strong> Cool things: we’re getting something around when you’d expect to see the N170 for faces!  We were getting hints of this when we were doing individual subject classification, but it seems that this is the only thing from the <a href="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/wake_hilb_mean_across_subjects.png">subject-specific classification</a> that comes through in the LOSO analysis (although we also get other strongly classifiable time bins in the LOSO analsis, it’s just that those didn’t pop out in the subject-specific classification results).  <strong>SO</strong>, I say let’s generate transformed sleep data plotaccording to four or five different patterns: 
+	- something in the 4 Hz, 125-275 ms timebin range
+	- something in the 4 Hz, 450-600 ms timebin range
+	- something in the 4 Hz, 725-925 ms timebin range
+	- something in the 8 Hz, 100-175 ms timebin range 
+	- something in the 8 Hz, 275-325 ms timebin range   </p>
+
+<p>This will be A LOT of plots too look at, but if we see something we can always check on James’ second batch of spindle-cued subjects (NOTE: given that have up to 500ms of untarnished sleep data with James’ second batch of spindle-cued subjects, we might want to only look at results before 500 ms)</p>
+
+<h4 id="lets-look-at-the-recursive-feature-analysis-results-for-lambda--10">Let’s look at the recursive feature analysis results for $\lambda = 10$</h4>
+<p>And see what’s the best we get across the different time bins for the 4 Hz and 8 Hz frequencies.</p>
+
+<h4 id="additionally-lets-look-at-wake-loso-classification-using-just-erps">Additionally, let’s look at wake LOSO classification using just ERPs:</h4>
+<p>Well, this is awkward: our best classification results are for using the ERPs: 68% accuracy.</p>
+
+<p><a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_ERP25_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_ERP25_face_sceneAUC_lambda10.png" width="700" height="350" /></a></p>
+
+<h4 id="additionally-we-get-even-better-results-for-when-we-do-recursive-feature-elimintation">Additionally. we get even better results for when we do recursive feature elimintation:</h4>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[(PDP) Dan Yamins: Object recognition]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/10/03/dan-yamin-object-recognition/"/>
+    <updated>2014-10-03T10:34:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/10/03/dan-yamin-object-recognition</id>
+    <content type="html"><![CDATA[<p>Computation models of vision</p>
+
+<p>challenging computational problems:</p>
+
+<p>view: position, size, pose and illumination</p>
+
+<p>clutter and occlusion</p>
+
+<p>distortion and noise</p>
+
+<p>object category hierarchy: basic categories + individual identification of category members (category = car, identify honda civic, toyota corolla, etc)</p>
+
+<p>pixel –&gt; RGC –&gt; LGN –&gt; V1 –&gt; V2 –&gt; V4 –&gt; IT (at some point, task has been solved)</p>
+
+<p>high-variation test image set:</p>
+
+<p>objects on complex background (64 objects, 8 from 8 categories), presented on uncorrelated realistic backgrounds</p>
+
+<p>create images with different degrees of variation: 
+low-variation: size/pose/position/illumination are normalized
+high-variation: size/pose/position/illumination can vary pretty widely</p>
+
+<p>subsequently recorded from macaque V4 and IT: 300 units recorded</p>
+
+<p>output = binned spike counts in 70ms - 170ms, averaged over 25-50 reps of each image</p>
+
+<p>trained linear classifier on recordings from IT and V4 and varied variation levels of images, found that IT-based classifier basically tracks human performance   </p>
+
+<p>Lower areas (RGC, LGN, V1) have been reaosnably explained by models (~50% explained variance)   </p>
+
+<p><strong>general idea:</strong> start off with code in early cortex, eventually gets transformed to a linearly decodable code, let’s try to see what transformation supports that</p>
+
+<p>Modeling: look at performance (can do object recognition tasks) and neural predictivity (do individual layers of model correlate with corresponding layers of cortex?)   </p>
+
+<p>Instead, optimize for performance, and then <em>exo facto</em> look at how it predicts neural responses   </p>
+
+<p>Architectural Parameters: Hierarchical Convolutional Networks</p>
+
+<p>filter, theshold and saturate, pool, and normalize</p>
+
+<p>filter: kernel size, how many filters
+pooling: what kind of pooling
+normalizing: do we normalize at all</p>
+
+<p>neural predictivity: predict each unit as a linear combination of model outputs (for a given layer)</p>
+
+<p>HT experiments: tried 3 methods of training hiearchical convolutional neural network</p>
+
+<ol>
+  <li>random selection of models;  look at neural predictivity </li>
+  <li>optimizie models for performance; look at neural predictivity</li>
+  <li>optimize for IT predictivity;</li>
+</ol>
+
+<p>look at performance on task vs. IT predictivity for 1 through 3  <br />
+method 3 didn’t do much better than method 2    </p>
+
+<p>but more than anything: any of the models aren’t doing that well looking at performance vs IT predictivity, so how do we improve performance?   </p>
+
+<p>try boosting (hierarchical modular optimization): some architectures are good at individual object recognition sub-tasks (faces vs. boats, buildings vs. flowers, etc) so let’s try to combine them,   </p>
+
+<p>their hypothesis: ability to perform sub-tasks (even though they’re on a different trainig data set, specifically different categories and simpler background), finds a basis set with which a combined model can perform maximally</p>
+
+<p>this gets up to 50-65% variance explained of IT, next question V4 to model layer fit isn’t great - but actually intermediate layer in model “model V3” explains V4 - so what are the transformations that happen there? still trying to figure it out, suggestion by jon cohen: “statistical topology”   </p>
+
+<p>STATISTICAL TOPOLOGICAL DATA ANALYSIS USING PERSISTENCE LANDSCAPES</p>
+
+<p>Statistical topology</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Norman Lab Meeting: Victoria Jackson-Hanen]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/10/02/norman-lab-meeting-victoria-jackson-hanen/"/>
+    <updated>2014-10-02T12:33:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/10/02/norman-lab-meeting-victoria-jackson-hanen</id>
+    <content type="html"><![CDATA[<h2 id="the-role-of-competition-in-the-differentiation-of-visual-memories">The role of competition in the differentiation of visual memories</h2>
+
+<p>Misha and Danya (two half-brothers), look similar, don’t see them often  </p>
+
+<p>Retrieval Induced Forgetting: think about Misha (RP+), perhaps forget Danya (RP-)   </p>
+
+<p>REV-RIF: if you are allowed an opportunity to restudy an RP-, no longer activate (usurped, previously shared RP+) nodes, creates pattern separation with increased memory for REV-RIF</p>
+
+<pre>
+RIF:
+
+RP-: --|    
+NP : ----|    
+RP+: ------|    
+     memory (NRP = no retrieval practice, still same number of exposures, but don't actually have to retrieve)
+</pre>
+
+<p>Question: why is there a set level of activated nodes? i.e. why should the RP- pickup new nodes?   </p>
+
+<h3 id="how-does-rev-rif-change-visual-features-of-memories">How does REV-RIF change visual features of memories?</h3>
+
+<p>Similar shapes with similar names, how does this REV-RIF affect perception of color presentation?   </p>
+
+<p>Study all items, retrieval practice (some items), restudy all items (REV-RIF effect here), test.    </p>
+
+<p>Train pairs within same family name (e.g. advo and adva), only showing family prefix:</p>
+
+<p>present in black and white:
+       weird character 1 + weird character name 2
+                    <strong>__ADV</strong><em>__</em>         &lt;– family prefix</p>
+
+<p>SCANNER: <br />
+study 1: present individual character + full name:   <br />
+				weird character 1   <br />
+                <strong>____ADVO</strong><strong>___   <br />
+                weird character 7
+                __</strong><strong>MAGY</strong>_____   </p>
+
+<p>scanner 2: competitive trial for RP+ items, non-compettitive trial for RP- and Nrp items    </p>
+
+<p>Idea: RP+ items should </p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: Replicating best p-val results]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/09/25/sleep-eeg-replicating-best-p-val-results/"/>
+    <updated>2014-09-25T14:51:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/09/25/sleep-eeg-replicating-best-p-val-results</id>
+    <content type="html"><![CDATA[<h3 id="we-are-trying-to-replicate-these-results-below">We are trying to replicate these results below:</h3>
+
+<h4 id="so-far-ive-tried">So far I’ve tried:</h4>
+<ul>
+  <li>Running the same exact analysis (driver_LOSO_replicate_PVAL.m)   </li>
+  <li>Running the same exact analysis but only classifying between faces and scenes via:
+<code>preprocessing.type_specifics_args.classes = [1 2];</code>    <br />
+    <ul>
+      <li>this did not help   </li>
+    </ul>
+  </li>
+  <li>Try loading up results from Sept 09, and regenerating plots - will indicate whether or not something changed in plots or results. <br />
+    <ul>
+      <li>Doing this, I’ve found that the results of interest are specifically in this file:  <br />
+<code> 09-Sep-2014_14_04_44LOSO_WAKE_logreg_sweep.mat </code>   </li>
+      <li>I’ve found that it is in fact for $ \lambda = 10 $ (I was worried I might have accidentally documented the wrong value of $\lambda$)       </li>
+      <li>We were classifying against all 5 classes (validating our findings above that classifying only faces vs scenes did not reproduce the results)   </li>
+    </ul>
+  </li>
+  <li>Try duplicating exact time range used originally, perhaps there is some bug in my code <br />
+    <ul>
+      <li><strong>BAD NEWS:</strong> this reproduced the results, meaning there has to be some BUG in my code where I reshape the data, append subject data together, OR iterate through individual timebins and frequencies. This is why it would be nice to have the time to create some simulated data.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="fixing-the-damn-bug">FIXING THE DAMN BUG</h3>
+<p>Relevant files:  </p>
+
+<p>So far, I’ve ensured that when I reshape and permute the subject’s data after loading it (<code>get_preprocessed_subj_data.m, Line: 128 </code>), that I have not messed up the ordering of the data.</p>
+
+<p>Next: when I filter timebins out, do I mess that process up?  This also checks out(<code>get_preprocessed_subj_data.m, Line: 60 </code>)   </p>
+
+<p>Next: what about when I call <code>iterate_over_data</code>?  The data was misordered here, so somewhere between <code>get_preprocessed_subj_data</code> and <code>iterate_over_data</code> we messed things up.</p>
+
+<p>Next: let’s check that the anonymous function that is used for reshaping the data (after it’s been flattened) is correct, this gets used in a few places.  YEP, this is the problem: someone please kindly shoot me in the face.   </p>
+
+<h3 id="bug-the-sequel-discrepancy-between-the-recursive-feature-elimination-results-and-logistic-regression-results">BUG, The Sequel: DISCREPANCY BETWEEN THE RECURSIVE FEATURE ELIMINATION RESULTS AND LOGISTIC REGRESSION RESULTS</h3>
+<p>I’ve verified that there is no discrepancy between the accumulated values and the plotted values, so it does not seem to be the case that the plotting function is messing things up.   </p>
+
+<p>Recursive feature elimination (RFE) analysis has a setting for the minimum number of features i.e. remove features until we hit some minimum number of features.  In general, this is set to 1, so that we can see the effect of removing 0 to all but one features (electrodes).  I have found that if I set that value to 60 (only removing 4 features), then the RFE results align with the logistic regression results, however, if I set that to 1 or even just 50, the results stop lining up.  Very, very perplexing.    </p>
+
+<p>Next, let’s look at the features used for the first and second iteration with different settings (60 and 50) of the minimum number of features.  If they differ in any way, then the code for removing features must be incorrect and we can delve into that.<br />
+   - So for the second iteration, the fourth frequency, the RFE results have different features they’ve removed.  WTF, mate?   A reasonable next step would be to look at the values passed into the <code>remove_unused_features</code> for both parameter settings and see if they are the same.</p>
+
+<p>Looking at the classifier weights for the first iteration of the fourth frequency for both parameter settings, we see that they have different values, so naturally removing features would produce different removed features for the second iteration.  Additionally, this implies there is something different being fed into the classifier for the first iteration that is producing different feature weights.</p>
+
+<p><strong>HERE IT IS:</strong>  Currently, we’ve been doing an RFE iteration (going from 64 features down to minimum num_features) for each frequency bin (2 Hz all the way up to 32 Hz).  To maintain the correct level of regularization, we take the max number of features (64) and look at the ratio of regularization (usually 10) to the number of features and keep this proportional as we remove more and more features.  The bug was that between RFE iterations (i.e. starting anew at 4 Hz, after doing 2 Hz), the regularization ratio was calculating using the previous iteration’s last number of features (not the max number of features) - so as we moved from 2 Hz to 32 Hz, our results got more and more skewed from the regular logistic regression results because we were using much smaller regularization.  This is fixed now!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: James Visit Recap and Brainstorm]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/09/18/sleep-eeg-james-visit-recap-and-brainstorm/"/>
+    <updated>2014-09-18T14:49:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/09/18/sleep-eeg-james-visit-recap-and-brainstorm</id>
+    <content type="html"><![CDATA[<h4 id="regarding-this-our-best-result-during-sleep-is-058---but-were-messed-up-by-multiple-comparisons">Regarding this, our best result, during sleep, is 0.58 - but we’re messed up by multiple comparisons</h4>
+<p>TODO: we can use our a priori best itmebin and frequency to analyze James’ new dataset (timebin 175ms, freq 16)</p>
+
+<p>Cephalapod L1 vs L2</p>
+
+<p>http://elpiloto.github.io/images/research/sleep_eeg_hilbert/sleep_hilb_mean_across_subjects_lambda1.png</p>
+
+<ul>
+  <li>
+    <p>negative peak of a slow-wave, phase of 0.6 - 1.2 Hz</p>
+  </li>
+  <li>
+    <p>how similar are frequency band patterns to each other?</p>
+  </li>
+</ul>
+
+<p>N170 is really sharp, maybe at 8 Hz and 225ms, large over Cz sometimes (doesn’t make a lot of sense anatomically - you’d expect it to be over occipital)</p>
+
+<p>once we get the template, we want to inspect them, although it’s hard to know what to expect</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Combray]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/09/18/combray/"/>
+    <updated>2014-09-18T10:04:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/09/18/combray</id>
+    <content type="html"><![CDATA[<h2 id="combray-memory-guided-perception">Combray: Memory-guided Perception</h2>
+<p>Aaron Bornstein, Mariam Aly, Sam Feng     </p>
+
+<h4 id="how-do-we-combine-the-two-following-pieces-of-information">How do we combine the two following pieces of information?</h4>
+<ul>
+  <li>behavior guided by hippocampal/episodic memories    </li>
+  <li>behavior guided by perceptual evidence    </li>
+</ul>
+
+<h4 id="effects-of-priors-on-evidence-accumulation">Effects of priors on evidence accumulation</h4>
+<ul>
+  <li>random-dot motion task, can modify <em>prior</em> by making a bunch of trials have motion in same direction (i.e. a bunch of leftward moving trials, on the next trial, strong prior for motion towards left)    </li>
+  <li>translation of prior to drift-diffusion model:   <br />
+  possibility #1: modify starting point (usually set to middle, prior shifts it away from middle)  <br />
+  possibility #2: modify drift rate  <br />
+  <strong>possibility #3: accumulate sensory and memory evidence</strong> - this is the one they’re going for    </li>
+</ul>
+
+<h4 id="what-is-neural-substrate-of-the-prior">What is neural substrate of the prior?</h4>
+<ul>
+  <li>some work showing hippocampus can predict activity of V1     </li>
+  <li>other stuff I missed    </li>
+</ul>
+
+<h4 id="alternative-1-for-perceptual-and-memory-accumulation-serial-accumulation">Alternative 1 for perceptual and memory accumulation: Serial accumulation</h4>
+
+<p>Idea: memory starts accumulating, then when perceptual signal comes on stop accumulating memory signal and start accumulating perceptual evidence    </p>
+
+<h4 id="alternative-2-for-perceptual-and-memory-accumulation-parallel-accumulation">Alternative 2 for perceptual and memory accumulation: Parallel accumulation</h4>
+
+<p>Idea: sample from memory until percept is available and continue sampling from memory    </p>
+
+<h3 id="task-probabilistic-sequence-learning">Task: Probabilistic Sequence Learning</h3>
+
+<ul>
+  <li>hippocampal (and ventral temporal) activity flucturates with difficulty of predicting next item in a sequence (let’s call these variations in difficulty, variations in memory evidence)    </li>
+</ul>
+
+<p>Similarly stimuli for scenes (as opposed to faces i.e. f1 = face1)  <br />
+fractal_a   mirror_fractal_a  <br />
+f1  f2      f1            f2  <br />
+|    |      |              |  <br />
+.8  .2      .2            .8    </p>
+
+<p>perceptual noise: rapid flickering      </p>
+
+<p>learning trials: perceptual noise is off - participants learn transition structure for that block    </p>
+
+<p>test trials: perceptual noise is on - participants should combine their knowledge of the transition structure with perceptual inference to guide decisions  <br />
+- have either low or high amount of perceptual noise  <br />
+- high: calibrated to get it right 65%  <br />
+- low: calibrated to get it right 85% of the time    </p>
+
+<h4 id="pilot-1ab">Pilot 1A/B</h4>
+
+<p>Two blocks each with 140/100 learning trials and 40/80 test trials    </p>
+
+<p>Test trials: don’t actually show images during test, show white noise    </p>
+
+<p>Takeaway: subjects responded “early” 56% of the time (compared to 8.8% during learning) during test phase, seeming to indicate they were relying on memory evidence and realized the test phase didn’t actually have any perceptual evidence because they were shown white noise, not the images      </p>
+
+<h4 id="pilot-2">Pilot 2</h4>
+<p>introduce calibration for perceptual certainty   </p>
+
+<p>Takeaway: almost no early responses during test - seem reluctant to use memory evidence     </p>
+
+<p><strong>Analysis:</strong>    <br />
+- Do memory and perceptual evidence predict response times?  We can do multiple regression with both types of evidence against RT and then look at betas for both memory and perceptual evidence. <strong>YES</strong>   <br />
+- Memory evidence for what I ended up choosing decreases: <br />
+	- high perceptual noise blocks: accumulation threshold <em>increases</em> as a function of memory evidence     <br />
+	- low perceptual noise blocks: accumulation threshold <em>decreases</em> as a function of memory evidence    </p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Install Lightspeed Toolbox For Matlab on Os X Maverick]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/09/17/install-lightspeed-toolbox-for-matlab-on-os-x-maverick/"/>
+    <updated>2014-09-17T10:35:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/09/17/install-lightspeed-toolbox-for-matlab-on-os-x-maverick</id>
+    <content type="html"><![CDATA[<p>Thomas Minka’s lightspeed toolbox</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Motion Tracking Suit]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/09/11/motion-tracking-suit/"/>
+    <updated>2014-09-11T10:08:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/09/11/motion-tracking-suit</id>
+    <content type="html"><![CDATA[<h2 id="some-stats-and-facts">Some Stats and Facts</h2>
+<ul>
+  <li>30 Hz sensor updates</li>
+  <li>23 body segments, 22 joints</li>
+  <li>Integration happens on device, so even if decrease temporal resolution, accuracy doesn’t decrease</li>
+</ul>
+
+<h2 id="ideas">Ideas:</h2>
+<p>Giant block building?</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sleep Transform ALL the Subjects]]></title>
@@ -815,401 +1170,6 @@ j  </p>
   <li><code>SFA_STRUCTS.SF</code> - contains slow feature functions along the rows</li>
   <li>Can get degenerate eigendecompositions, where an eigenvalue has greater algebraic multiplicity than geometric multiplicity (e.g. $ (2 - \lambda)^2(3-\lambda)^2 $ – alg. mult = 2, geometric = 1 for both eigenvalues).  In this case, extracted slow features are redundant (though they’ll have opposite signs).</li>
 </ol>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[SFA Nonmarkov: Modify network, maze size and type, visualize gates]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/06/24/sfa-nonmarkov-modify-network/"/>
-    <updated>2014-06-24T13:38:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/06/24/sfa-nonmarkov-modify-network</id>
-    <content type="html"><![CDATA[<h3 id="overview-of-simulations">Overview of simulations</h3>
-<ol>
-  <li>Look at the gate values along the maze trajectories (previously we only looked at the hidden state values). Recall that a long-short term memory network has three gates: read, write, and forget   </li>
-  <li>We also need to look at our old MDS plots of the hidden layers and label the trajectory (previously we only showed whether a representation belonged to the center hallway or right or left outer maze locations)</li>
-  <li>We want to see if we get any qualitative differences as we change the width of the maze.  </li>
-  <li>We want to see if changing the maze type to be a ring will still yield the segmenting behavior we see from SFA  </li>
-  <li>We want to see if we get any qualitative differences as we change the number of hidden units</li>
-</ol>
-
-<h3 id="different-num-hidden-units">Different Num Hidden Units</h3>
-
-<h4 id="hidden-unit-mds-plots">Hidden Unit MDS Plots</h4>
-<p><a href="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_width3_hidden5_loop.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_width3_hidden5_loop.png" width="750" height="350" /></a> 
-<a href="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_width3_hidden3_loop.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_width3_hidden3_loop.png" width="750" height="350" /></a> </p>
-
-<h5 id="observations">Observations:</h5>
-<ol>
-  <li>Much cleaner separation of states with 5 hidden units compared to 3 hidden units based on the loop to which they belong.</li>
-  <li>Also get cleaner separation of states based on center versus non-center.</li>
-  <li><strong>These results suggest that the hidden layer representation generated using 5 hidden units might be a better representation for looking at the benefits of SFA.</strong></li>
-</ol>
-
-<h4 id="hidden-unit-similarity-plots-according-to-location-on-maze">Hidden Unit Similarity Plots According to Location on Maze</h4>
-<p><a href="http://ElPiloto.github.io/images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden5.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden5.png" width="750" height="350" /></a> 
-<strong>Figure 2a) 5 Hidden Units</strong>
-<a href="http://ElPiloto.github.io/images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden3.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden3.png" width="750" height="350" /></a> 
-<strong>Figure 2b) 3 Hidden Units</strong>  </p>
-
-<h5 id="observations-1">Observations:</h5>
-<p>This is just another way of seeing how much cleaner the 5 hidden units representation is.</p>
-
-<h4 id="linear-sfa-top-2-slowest-features">Linear SFA Top 2 Slowest Features</h4>
-<p><a href="http://ElPiloto.github.io/images/research/sfa_lstm/sfa_1st_2_features_rm_1st_visit_width3_hidden5.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/sfa_1st_2_features_rm_1st_visit_width3_hidden5.png" width="750" height="350" /></a> 
-<strong>Figure 3a) 5 Hidden Units</strong>
-<a href="http://ElPiloto.github.io/images/research/sfa_lstm/sfa_1st_2_features_rm_1st_visit_width3_hidden3.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/sfa_1st_2_features_rm_1st_visit_width3_hidden3.png" width="750" height="350" /></a> 
-<strong>Figure 3b) 3 Hidden Units</strong>   </p>
-
-<h5 id="observations-2">Observations:</h5>
-<ol>
-  <li>Here we see exactly what we hoped for in the 5 hidden units case: the first slow-feature indicates which loop we’re on!</li>
-  <li>The question is: how much of this is the neural network and how much of this is SFA? Well let’s look at the plots below of the raw hidden layer values across the maze.  If the neural network is doing all the heavy lifting, then we would see a single, slowly varying feature that encodes the loops direction but this doesn’t seem to be the case!</li>
-</ol>
-
-<p><a href="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_on_maze_raw_left_width3_hidden5.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_on_maze_raw_left_width3_hidden5.png" width="750" height="350" /></a> 
-<strong>Figure 4a) 5 Hidden Units</strong>
-<a href="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_on_maze_raw_right_width3_hidden5.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_on_maze_raw_right_width3_hidden5.png" width="750" height="350" /></a> 
-<strong>Figure 4b) 5 Hidden Units</strong>   </p>
-
-<p><strong>NOTE:</strong> These colors look exactly the same along the central corridor (which would be troubling), but their values are actually different if you look at the numbers.</p>
-
-<h3 id="different-maze-size----width-7-5-hidden-units">Different Maze Size  - Width 7, 5 Hidden Units</h3>
-
-<h4 id="hidden-unit-mds-plots-1">Hidden Unit MDS Plots</h4>
-<p><a href="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png" width="750" height="350" /></a> </p>
-
-<h4 id="linear-sfa-top-2-slowest-features-1">Linear SFA Top 2 Slowest Features</h4>
-
-<p><a href="http://ElPiloto.github.io/images/research/sfa_lstm/sfa_linear_1st2features_width7_hidden5.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/sfa_linear_1st2features_width7_hidden5.png" width="750" height="350" /></a> </p>
-
-<h3 id="different-maze-structure">Different Maze Structure</h3>
-
-<h4 id="hidden-unit-mds-plots-2">Hidden Unit MDS Plots</h4>
-<p><a href="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png" width="750" height="350" /></a> </p>
-
-<h4 id="linear-sfa-top-2-slowest-features-2">Linear SFA Top 2 Slowest Features</h4>
-<p><a href="http://ElPiloto.github.io/images/research/sfa_lstm/sfa_1wayloop_width7_hidden5.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sfa_lstm/sfa_1wayloop_width7_hidden5.png" width="750" height="350" /></a> </p>
-
-<h3 id="meeting-with-mattbot">Meeting with Mattbot:</h3>
-
-<h4 id="observations-3">Observations:</h4>
-<ol>
-  <li>It does seem like the first slow feature encodes which outer loop we’re on.   </li>
-  <li>Cooler than that, our second slow feature for the width 7, 5 hidden units case, encodes which step of the outer loop we’re on, regardless of which direction the loop is.  This is motherfucking abstraction! We’re going to try to connect this to to-do item #4.</li>
-</ol>
-
-<h4 id="to-do">To-Do:</h4>
-<ol>
-  <li>Why are the slow-features on such a small scale?    </li>
-  <li>Why are the hidden layer representations (think MDS width3, hidden5) so similar at the fork point - Matt thinks I might be off by one because the point just after the fork diverges which is what you would expect from the fork point - since they make vastly different predictions.  </li>
-  <li>Will PCA give us anything useful?    </li>
-  <li>I should read a paper on rat neurophysiology, an older paper - they showed that in an 8-arm radial maze, certain PFC cells encoded specific parts of an arm, without being specific to the particular arm.  This is similar to our second slow feature in the </li>
-  <li>Check that these results are invariant o the number of hidden units and size of the maze.</li>
-</ol>
-
-<h4 id="other-to-do">Other to-do:</h4>
-<p>This isn’t related to the non-markov, but to the factored state towers of hanoi: I was tasked with performing slow feature analysis on a random walk on a factored state representation of the towers of hanoi task.  It seems like I’m getting a result that Ari wasn’t able to: The first slow feature seems to represent the location of the largest ring.
-* I should check with Ari to make sure I did things the way he did, too <br />
-* I should show Matt the MDS of the slow features <br />
-* I should make sure all of theslow features load on all dimensions of the original input space.<br />
-* We’re not sure what the second slowest feature should look like, but it seems like it might be the configuration of the second largest ring conditioned on the location of the largest ring.  That’s definitely what the scatter plot of the first two features looks like.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sleep EEG 8 Subjects]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/06/23/sleep-eeg-9-subjects/"/>
-    <updated>2014-06-23T12:14:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/06/23/sleep-eeg-9-subjects</id>
-    <content type="html"><![CDATA[<h2 id="all-the-interpretations">All the interpretations</h2>
-
-<p>Hi Ken,  </p>
-
-<p>Here’s the scoop.  We can definitely classify wake data (see Figure 1a below) The best time bin for the wake data isn’t consistent across all subjects, but it does seem to peak at 230ms, which is consistent with Ehren’s results ( compare figure 1b to figure 4: http://compmem.princeton.edu/publications/NewmanNorman10.pdf)  Our classification results aren’t as good as Ehren’s, he had a peak averaged AUC of 0.7, but I’m not too worried about it - what do you think?  There might be some utility to looking at classification for slightly later timebins (although Ehren’s results do peak at 200ms so we might already be looking at the best time bin)   </p>
-
-<p><strong>Classifying sleep?</strong> 	</p>
-
-<p>We tried three different sleep classification methods:<br />
-1. Feature selection on all the frequencies within a particular time bin of sleep data.
-2. Transform the sleep data using the average pattern of activity across all electrodes at a particular time-bin and frequency of the wake data.
-3. Transform the sleep data using the importance map generated by the wake classification instead of the average pattern of activity - this should weight the different electrodes according to how informative they are for wake classification.</p>
-
-<p>For method 1, we’re not getting any consistently classifiable timebins across subjects (figure 3a and 3b) which would have been the nicest result.  Additionally, having good wake AUC doesn’t mean that subject will have good sleep AUC.</p>
-
-<p>The good news is that methods 2 and 3 show comparable classification AUC to method 1 and sometimes do even better.  Moreover, there isn’t a link between good classification for a time bin using method 1 compared to method 2 or 3 (e.g. method 1 classification for subject 2 doesn’t do so hot for timebins 152-230, but if you look at <a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_auc_scene_subj2.png"> this plot</a> for method 2 classification for subject 2 - it’s pretty clear that that is a helpful time bin ).  These two observations give me confidence that the two sleep transform methods are genuinely helpful preprocessing steps.   </p>
-
-<p>Moreover, I’ve been pretty excited about these sleep transform methods because they frequently, though not always, produce strong bands of good classification for particular timebins of the sleep data.</p>
-
-<p>So a logical next question is to determine which method of the two sleep transform methods are better.  It seems like we get stronger bands appearing with method 2 compared to method 3 (you can check this out for yourself just quickly scrolling through the dump of the plots for both <a href="http://ElPiloto.github.io/blog/2014/07/01/sleep-eeg-transform-avg-pattern/">method 2</a> and <a href="http://ElPiloto.github.io/blog/2014/07/01/sleep-eeg-mcduff-transform/">method 3</a>).  There is some agreement between these bands across the two methods, but not always (example plots: <a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_auc_pval_face&amp;scene_subj4.png"> method 2 </a> <a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_mcduff/sleep_MCDUFF_transform_subj_4_cv_acc_pval_face&amp;scene.png"> method 3</a>   </p>
-
-<p>Another degree of freedom is which wake pattern do we use to transform the data: face or scene or face minus scene.  I expected there to be variability between the face and scene transformations, but was surprised to find that the face minus scene didn’t just look like the combination of the face and scene results.  Here’s an example of that:   </p>
-
-<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_acc_pval_face_subj8.png">face</a>   </p>
-
-<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_acc_pval_scene_subj8.png">scene</a>    </p>
-
-<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/sleep_xform_avg_pattern/sleep_transform_cv_acc_pval_face&amp;scene_subj8.png">face minus scene</a>   </p>
-
-<p>This leads me to believe that in the future we should train a sleep classifier that gets both face and a scene transformed data.  The dot-product is sensitive to magnitude, so it could be that there is some useful information in the indivudal face and scene patterns that gets lost when we subtract the two.  What do you think?</p>
-
-<p>The main thing I’ve taken away from this data is that there are timebins of the sleep data that are classifiable, but that they vary across subjects.  This implication of this being that we have to combine the results of multiple classifiers (tested on different timebins) when we try to connect the classification to subsequent memory - but that the particular classifiers we use will have to vary across subjects.  I think an important thing to figure out is how we want to select which classifiers to use for a subject.  I’ve gone through and written down a bunch of time bins that I think look good for each subject on the second page of our EEG to-do <a href="https://docs.google.com/spreadsheets/d/1TIOy-4DN4adDDVBKbuRZ2MuI5g-Hg7KWm1nBKjwSHsU/edit?usp=sharing">spreadsheet</a>, but that was done entirely by hand which doesn’t feel right.  </p>
-
-<p>In general, I think we could proceed to linking the classifier to the behavioral or that we could try to improve the classification.  For the latter, I have a crazy idea bout using an “auto-encoder” for preprocessing the sleep data.  We could feed the network sleep data and have it’s target be the corresponding wake image.  We could apply this network in a leave-one-out fashion in order to preprocess sleep data for a regular classifier.  Seems like it’d be pretty tough to train the network given the dimensionality of the data and the relatively small number of training samples, but I figured it’s worth mentioning.  I’ll wait to hear what you think about all this, but I’m going to dedicate my brain cycles to the problem of figuring out how to select which time bins to use.</p>
-
-<h3 id="wake-classification-results">Wake Classification Results</h3>
-<p>These are important because it’s likely we’ll want to exclude subjects with poor wake cross-validation AUC from subsequent analyses.</p>
-
-<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/wake_AUC_most_subjects.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/wake_AUC_most_subjects.png" width="700" height="350" /></a></p>
-
-<p><strong>Figure 1a:</strong> This shows the AUC for leave-one-out cross-validation on wake EEG data training on all the z-scored frequencies corresponding to a particular time bin as indicated on the y-axis.  The AUC was calculating by training a classifier that distinguishes between all classes, but only testing on patterns that corresponded to either a celebrity or a landmark.  The AUC was calculated by feeding in the difference between the output for the celebrity one-vs-all classifier and the landmark one-vs-all classifier for each cross-validation fold and the plotted values show the mean AUC across all cross-validation folds.  We had previously looked at the cross-validation accuracy for the first two subjects across a wider range of times, but narrowed it down to these four windows.</p>
-
-<p><code>plot_loopify_time_sweep_results_AUC.m </code>  <br />
-<code>classify_piloy_log_reg_time_sweep_driver.m </code>      </p>
-
-<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/wake_auc_avgd.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/wake_auc_avgd.png" width="700" height="350" /></a></p>
-
-<p><strong>Figure 1b:</strong> Average AUC per time bin</p>
-
-<h3 id="sleep-cross-validation-classification-all-frequencies-per-time-bin">Sleep Cross-Validation Classification: All Frequencies Per Time Bin</h3>
-<p><strong>NOTE:</strong> These results were supposed to be for performing feature selection, but I accidentally set the feature selection statistical threshold to 1, which is the same as not using feature selection.  <del>Re-running these results with feature selection.</del>  The results actually containing feature selection are just below.</p>
-
-<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/all_9subjects_sleep_CV_AUC_feature_select.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/all_9subjects_sleep_CV_AUC_feature_select.png" width="700" height="350" /></a>
-<strong>Figure 2a)</strong> We plot the AUC for classification of celebrity vs. landmarks during sleep across all our subjects (y-axis).  This was calculated by performing cross-validation (somewhere between 15-fold and 40-fold depending on the number of sleep patterns available) using all frequencies z-scored across electrodes for a particular timebin (x-axis). <br />
-<a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/all_9subjects_sleep_CV_AUC_feature_select_PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/all_9subjects_sleep_CV_AUC_feature_select_PVAL.png" width="700" height="350" /></a>
-<strong>Figure 2b)</strong> We plot the p-values for combinations of subjects and time bins with sleep cross-validation AUC values that are calculated via a shuffled permutation test whereby the labels of the classes are shuffled, we train a classifier with the shuffled patterns, and look at the cross-validation AUC for this shuffled dataset. Areas in red have p-values &gt; 0.05.
-<a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/all_9subjects_sleep_CV_acc_feature_select.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/all_9subjects_sleep_CV_acc_feature_select.png" width="700" height="350" /></a>
-<strong>Figure 2c)</strong> Instead of calculating the AUC, we plot the classification accuracy - this should be pretty similar to Figure 2b.
-<a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/all_9subjects_sleep_CV_acc_feature_select_PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/all_9subjects_sleep_CV_acc_feature_select_PVAL.png" width="700" height="350" /></a>
-<strong>Figure 2d)</strong> Here we plot the p-values for the classification accuracies.</p>
-
-<h3 id="sleep-cross-validation-classification-feature-selection-all-frequencies-per-time-bin">Sleep Cross-Validation Classification Feature Selection: All Frequencies Per Time Bin</h3>
-
-<p><a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/9_subjects_CV_ACTUAL_AUC_feature_select.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/9_subjects_CV_ACTUAL_AUC_feature_select.png" width="700" height="350" /></a>
-<strong>Figure 3a)</strong> We plot the AUC for classification of celebrity vs. landmarks during sleep across all our subjects (y-axis).  This was calculated by performing cross-validation (somewhere between 15-fold and 40-fold depending on the number of sleep patterns available) using all frequencies z-scored across electrodes for a particular timebin (x-axis). <br />
-<a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/9_subjects_CV_ACTUAL_AUC_feature_select_PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/9_subjects_CV_ACTUAL_AUC_feature_select_PVAL.png" width="700" height="350" /></a>
-<strong>Figure 3b)</strong> We plot the p-values for combinations of subjects and time bins with sleep cross-validation AUC values that are calculated via a shuffled permutation test whereby the labels of the classes are shuffled, we train a classifier with the shuffled patterns, and look at the cross-validation AUC for this shuffled dataset. Areas in red have p-values &gt; 0.05.
-<a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/9_subjects_CV_ACTUAL_acc_feature_select.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/9_subjects_CV_ACTUAL_acc_feature_select.png" width="700" height="350" /></a>
-<strong>Figure 3c)</strong> Instead of calculating the AUC, we plot the classification accuracy - this should be pretty similar to Figure 2b.
-<a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/9_subjects_CV_ACTUAL_acc_feature_select_PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/9_subjects_CV_ACTUAL_acc_feature_select_PVAL.png" width="700" height="350" /></a>
-<strong>Figure 3d)</strong> Here we plot the p-values for the classification accuracies.</p>
-
-<h3 id="sleep-cross-validation-transform-sleep-pattern-by-average-wake-pattern">Sleep Cross-Validation: Transform Sleep Pattern By Average Wake Pattern</h3>
-<p><a href="http://ElPiloto.github.io/blog/2014/07/01/sleep-eeg-transform-avg-pattern/"> dump of plots </a>   </p>
-
-<p>We have 4 x 3 plots per subject (4 plots (AUC, accuracy, and p-val map for both of those) for each result, 3 different results: one for transforming the sleep data with the average face pattern, one for transforming with the average scene pattern, and one for transforming with the difference between the average face and average scene)</p>
-
-<h3 id="sleep-cross-validation-transform-sleep-pattern-by-mcduff-importance-map">Sleep Cross-Validation: Transform Sleep Pattern By McDuff Importance Map</h3>
-<p><a href="http://ElPiloto.github.io/blog/2014/07/01/sleep-eeg-mcduff-transform/"> dump of plots </a>   </p>
-
-<p>We have 4 x 3 plots per subject (4 plots (AUC, accuracy, and p-val map for both of those) for each result, 3 different results: one for transforming the sleep data with the face mcduff importance map, one for transforming with the scene mcduff importance map, and one for transforming with the difference between the face and scene importance maps)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Understanding SFA]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/06/11/understanding-sfa/"/>
-    <updated>2014-06-11T11:14:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/06/11/understanding-sfa</id>
-    <content type="html"><![CDATA[<h3 id="questions">Questions</h3>
-<pre> Estimating Driving Forces of Nonstationary Time Series with Slow Feature Analysis, Wiskott (2003)</pre>
-<p>What does it mean that slow-feature analysis only considers one point at a time?</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Representational Similarity for Non-markov Task in LSTM Hidden Layers and SFA of Hidden Layers]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/06/10/representational-similarity-for-non-markov-task-in-lstm-hidden-layers-and-sfa-of-hidden-layers/"/>
-    <updated>2014-06-10T15:48:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/06/10/representational-similarity-for-non-markov-task-in-lstm-hidden-layers-and-sfa-of-hidden-layers</id>
-    <content type="html"><![CDATA[<p>We’re interested in how slow-feature analysis processes representations generated for a non-Markov task.  Towards this end, we apply slow-feature analysis to the hidden layer representation of a recurrent long short-term memory network that solves a non-Markovian task.  Importantly, we must first understand the hidden layer representation to see which components to the SFA’d hidden layer representation are generated from the slow-feature process and which were already present in the data.</p>
-
-<h3 id="raw-hidden-layer-and-sfa-values">Raw Hidden Layer and SFA Values</h3>
-
-<p>In a previous post, we have the raw hidden layer representation as we loop around the maze.  Here is an alternate version of that plot:
-<a href="http://ElPiloto.github.io/images/research/hidden_layer_time_series.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_layer_time_series.png" width="700" height="350" /></a>
-<strong>Figure 1:</strong> The first three subplots show the hidden layer activations for all three hidden nodes.  The last subplot shows the sum of all three activations.  The blue stripes in the background correspond to the times during which the “rat” is at the fork.  Alternating bands correspond to travelling in alternate directions of the maze.</p>
-
-<p>This task is only non-Markovian in the center hallway: the correct action is entirely determined by the current location for all locations on the outside of the maze, but this is not true of the center hallway locations.  If we look at <code>hidden node 3</code>, we see that it only differs in value across loop directions at the timepoints near the fork.  Essentially, <code>hidden node 3</code> provides a linearly separable signal that indicates the direction of travel.  This is made even clearer in the two plots below showing the hidden layer activations for each location on the maze either on a leftward or rightward loop.</p>
-
-<p><a href="http://ElPiloto.github.io/images/research/hidden_layer_on_maze_raw_left.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_layer_on_maze_raw_left.png" width="700" height="350" /></a>
-<a href="http://ElPiloto.github.io/images/research/hidden_layer_on_maze_raw_right.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_layer_on_maze_raw_right.png" width="700" height="350" /></a></p>
-
-<p><strong>Figure 2:</strong>  The normalized (-1 to 1) hidden layer representation, a vector of three values: one for each hidden node, for each location in the maze is plotted using <em>imagesc</em> at that location in the maze.  This is done for both leftward (top) and rightward (bottom) loops.  For example, the subplot in the middle row of the center column on the top plot (“Raw Hidden Layer Values - Left”) shows the hidden layer representation for that location in the maze during a leftward loop.  The hidden layer representation for that location during a rightward loop is shown on the bottom plot at the same location.  Do not be confused by the fact that the bottom plot for a rightward loop has filled in values for locations on the maze that are only visited during a leftward loop - these are just pasted in from the leftward loop for visualization purposes (and vice-versa for the leftward loop and rightward loop maze locations).</p>
-
-<p>We see that <code>hidden node 3</code> has different values for the different loops along the center hallway, but nearly symmetric values along the outsides of the maze.  It is less clear what the other hidden units may be encoding.  A comparison of the first two hidden unit activations across loops shows that they code the outer loops of the maze differently, but not points along the center hallway (Figure 3 below).</p>
-
-<p><a href="http://ElPiloto.github.io/images/research/hidden_nodes_1_and_2_comparison.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_nodes_1_and_2_comparison.png" width="700" height="350" /></a>
-<strong>Figure 3:</strong> Above we plot the activation for the first and second hidden units for each loop direction of the maze and subsequently their sum (bottom plot).  The x-axis labels analogous locations in the maze across the loops e.g. “Top Corner” on the middle plot shows the activation of <code>hidden node 2</code> for the top left corner location (blue) and the the top right corner (green).   Notably, the activations are pretty similar for the center hallway locations (“Fork”, “Bottom Center”, and “Mid Center”).</p>
-
-<p>The network does find 20 unique states (the true number of unique states in our task) and we can see this just using the first two hidden unit activations.  This begs the question: is the third hidden unit needed?  It would be <strong>very</strong> helpful to plot the multidimensional scaling for all three hidden unit activations, <del>so maybe somebody (<em>cough</em> Luis <em>cough</em> <em>cough</em> a.k.a. my own self <em>cough</em>) should do that</del> here is that <a href="http://ElPiloto.github.io/images/research/hidden_layer_mds.png">plot</a>. Another diagnostic to assess the utility of this third hidden unit would be to look at how the slow-feature analysis output varies based on whether we give all three hidden units or just the first two.
-<a href="http://ElPiloto.github.io/images/research/hidden_layer_representation_mds_rm_1st_visit.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_layer_representation_mds_rm_1st_visit.png" width="700" height="350" /></a> 
-<strong>Figure 4:</strong> Above we plot the hidden unit activations for each time step in our trajectory of 20 loops around the maze.  Importantly, locations on the outside of the maze (circles with black or magenta outlines) cluster together across visits. The center locations, however, are cluster according to loop direction.</p>
-
-<p>We can also look at the hidden layer represtation similarity from one location to the other locations as shown below.
-<a href="http://ElPiloto.github.io/images/research/hidden_layer_self_similarity.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_layer_self_similarity.png" width="700" height="350" /></a> 
-<strong>Figure 5:</strong> This shows the representational similarity for each unique state (recall that not all locations correspond to unique states).  The labels along the axes correspond to different locations on the maze (also indicating the loop direction when relevant) using the key below.</p>
-<center>
-<a href="http://ElPiloto.github.io/images/research/legend_correlation_plots.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/legend_correlation_plots.png" width="450" height="65" /></a> 
-</center>
-
-<p>Below we show an alternative method for visualizing the hidden layer representation of a location to other locations.
-<a href="http://ElPiloto.github.io/images/research/Linear_corr_states_hidden_and_sfa_hidden_representation.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/Linear_corr_states_hidden_and_sfa_hidden_representation.png" width="700" height="350" /></a>
-<strong>Figure 6:</strong> For each location in the maze, we create a subplot that shows the hidden layer representation for that location in the maze against all other locations in the maze.  For example, to look at the representational similarity between the top-left corner and the bottom-right corner, look at the top-left subplot and the bottom-right square within that subplot.  The similarity between a location and itself is also plotted, which is uninformative in the case of locations on the outside of the maze.  However, for locations that have multiple states (i.e. the fork location corresponds to both states “Fork - Leftward loop” and “Fork - Rightward loop”), the similarity is plotted across loop directions e.g. the top-center subplot shows the representational similarity for the fork location and the top-center value in that subplot corresponds to the representational similarity between the fork on a leftward loop and the fork on a rightward loop.</p>
-
-<h3 id="dump-of-sfa-similarity-plots">Dump of SFA Similarity Plots</h3>
-<p><a href="http://ElPiloto.github.io/images/research/Linear_corr_states_hidden_and_sfa_sfa3.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/Linear_corr_states_hidden_and_sfa_sfa3.png" width="700" height="350" /></a>
-<a href="http://ElPiloto.github.io/images/research/Linear_corr_states_hidden_and_sfa_sfa2.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/Linear_corr_states_hidden_and_sfa_sfa2.png" width="700" height="350" /></a>
-<a href="http://ElPiloto.github.io/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa3.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa3.png" width="700" height="350" /></a>
-<a href="http://ElPiloto.github.io/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa2.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa2.png" width="700" height="350" /></a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sleep EEG Ken Meeting]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/06/02/sleep-eeg-ken-meeting/"/>
-    <updated>2014-06-02T11:27:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/06/02/sleep-eeg-ken-meeting</id>
-    <content type="html"><![CDATA[<h3 id="context">Context</h3>
-
-<p>After ending the first-year rotation, I’m now back on the hook for working on this sleep EEG project full-time.  This meeting was simply to re-orient ourselves and plan the next immediate steps.</p>
-
-<h3 id="next-steps">Next Steps</h3>
-<ol>
-  <li>Area under ROC instead of classification accuracy   </li>
-  <li>Represent goodness in terms of where it falls on the empirical null distribution (as opposed to previously where we were showing raw-classification accuracy which we really have no clue how good that should be)  </li>
-  <li>Train sleep classifier using wake WEIGHTS instead of wake average pattern as template.  The rationale behind this is that the average pattern templates treat all electrodes as equally important, but this just isn’t true.  The importance maps will take that into account   </li>
-  <li>Create existing plots for new subjects [n = 8] (!)</li>
-</ol>
-
-<h3 id="next-next-steps">Next Next Steps</h3>
-<ol>
-  <li>We need to think about how we can collapse down each sleep trial (playing of a sleep sound) into a single reactivation metric.  Currently, we have classifier output for different timebins of the sleep trial and it seems like the maximally-classifiable time bin varies across subjects. <br />
-    <ul>
-      <li>Train an “uberclassifier” that classifies across all timebins - this would give us a single reactivation score per trial   </li>
-      <li>Is there a smart way of reducing the number of features we have?<br />
-        <ul>
-          <li>we might have some <em>a priori</em> ideas about which features to include.  </li>
-          <li>we might want to look at the cross-validation accuracy along certain time-bins to narrow things down.   </li>
-        </ul>
-      </li>
-      <li>This is where I thought a recurrent neural network might be helpful for us.  </li>
-      <li>Alternative idea: train a higher-level classifier on the outputs of the individual time bin classifiers    </li>
-    </ul>
-  </li>
-  <li>How do we relate reactivations to subsequent memory?  Recall that there will be multiple classifier readouts per item, perhaps something a la [P-CIT] (https://code.google.com/p/p-cit-toolbox/) would work for us.</li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Paper: Deep Learning from Temporal Coherence in Video]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/05/30/paper-deep-learning-from-temporal-coherence-in-video/"/>
-    <updated>2014-05-30T15:32:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/05/30/paper-deep-learning-from-temporal-coherence-in-video</id>
-    <content type="html"><![CDATA[<h3 id="punchline">Punchline:</h3>
-
-<p>They used a convolutional neural network to do object recognition on video streams.  Motivated by the idea that consecutive video frames likely contain the same objects and therefore should have similar representations, they modify the neural network cost function to include a “coherence” term:  </p>
-
-<script type="math/tex; mode=display">% &lt;![CDATA[
- L_{coh}(\theta, inputx, inputy) = \begin{cases}
-		  \|z_{\theta}(input_x) - z_{\theta}(input_y) \|_1  & \textbf{if x,y consecutive}\\
-		  max(0, \delta - \|z_{\theta}(input_x) - z_{\theta}(input_y) \|_1)   & \textbf{otherwise}\\
-\hline
-\end{cases}  \\
-\delta: \text{hyperparam push apart non-consecutive representations} \\
-z_{\theta}(x) = \text{hidden layer representation for input x just before output layer}  %]]&gt;</script>
-
-<h3 id="noteworthy-details">Noteworthy Details:</h3>
-<p>Training: They do some weird training where you have to look at the output of the network for two different outputs, they call this a siamese architecture.</p>
-
-<h3 id="ideas">Ideas:</h3>
-<ul>
-  <li>Modify $ L_{coh} $ to be a function of the number of time steps between inputs  </li>
-  <li>What if we could use slow-features as a better proxy for temporal distance between training samples i.e. push representations closer together based on the difference between their slowest features?</li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[LSTM trained multiple loops]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/05/22/lstm-trained-multiple-loops/"/>
-    <updated>2014-05-22T15:46:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/05/22/lstm-trained-multiple-loops</id>
-    <content type="html"><![CDATA[<h3 id="status">Status:</h3>
-
-<ul>
-  <li>Rudimentary system for importing rnnlib log information to matlab for performing SFA</li>
-  <li><strong>Successfully trained LSTM on 20 loops through an eightball maze (same dimensions as last time): 0% misclassification</strong></li>
-</ul>
-
-<p><a href="http://ElPiloto.github.io/images/research/hidden_state_activations_width3_loops20.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_state_activations_width3_loops20.png" width="700" height="350" /></a></p>
-
-<h3 id="questions-for-meeting">Questions for meeting</h3>
-<ul>
-  <li>What should we perform the SFA on?</li>
-  <li>How many loops around the maze do we need?</li>
-</ul>
-
-<h3 id="next-steps">Next steps</h3>
-<p>Look at similarity metric for each timestep using correlation matrix - send to Matt
-Be wary of SFA on multidimensional data and throwing away certain features
-Send SFA
-Waldo task: Ari did SFA on the task (using sparse representation, 8 units
-perhaps LSTM’ing Waldo task
-generate figures for a week from now</p>
-
-<p>short term memory for serial order - matt bot paper, network needs to remember things that aren’t relevant to current output, 
-single unit recording analysis paper by bill newsome, analyzed by valerio monte, nature 2013 “context-dependent computations by recurrent dynamics in prefrontal cortex”</p>
-
-<p>LSTM seems different than orthogonal</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[LSTM Trained on Non-Markov Loop]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/05/22/lstm-trained/"/>
-    <updated>2014-05-22T13:42:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/05/22/lstm-trained</id>
-    <content type="html"><![CDATA[<h3 id="status">Status:</h3>
-
-<p>Successfully trained (finally) a LSTM network on a single loop through an eightball maze.
-The eightball maze had a width $= 7$, height $= 3$, giving a total of 17 locations in the maze.</p>
-
-<p><a href="http://ElPiloto.github.io/images/research/non_markov_maze.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/non_markov_maze.png" width="700" height="350" /></a></p>
-
-<p><strong>This is the architecture used:</strong> <br />
-- input layer: represent each location as an input node<br />
-- hidden layer: 2 LSTM blocks<br />
-- output layer: represent each output location as an output node  </p>
-
-<p><strong>Training/Testing:</strong> <br />
-Input was a single sequence which consisted of a full loop around the maze, which takes 21 time steps. Testing was done simply by specifying the next step in the sequence.</p>
-
-<p><strong>RNNLIB Config File &amp;&amp; CDL</strong></p>
-
-<h3 id="next-steps">Next Steps:</h3>
-<ul>
-  <li>Run SFA on this output</li>
-  <li>Train/test on sequences that have more loops around the maze  </li>
-  <li>Run SFA on this output</li>
-  <li>Logistical<br />
-    <ul>
-      <li>Develop method of transferring from rnnlib log files to matlab so that we can do SFA</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="rnnlib-discoveries--questions">RNNLIB Discoveries &amp; Questions</h3>
-<ul>
-  <li>Default behavior is to have hidden layers be recurrent in time both forwards and backwards, this is <strong>NOT</strong> what we want for our current usage.  </li>
-  <li><code>hiddenSize</code> controls the number of units in the hidden layer, to specify multiple hidden layers can add values here  </li>
-  <li><code>hiddenBlock</code> still unclear what this does   </li>
-  <li><code>inputBlock</code> not sure what the benefit of creating an input block is, it seems to just replicate the input layer and has the same exact activations when I look at the log file  </li>
-</ul>
-
 ]]></content>
   </entry>
   

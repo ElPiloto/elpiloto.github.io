@@ -4,7 +4,7 @@
   <title><![CDATA[Category: hilbert | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/hilbert/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-09-10T13:18:50-04:00</updated>
+  <updated>2014-10-06T13:24:57-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,102 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: LOSO (post-bug) and ERP]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/10/06/sleep-eeg-loso-post-bug-and-erp/"/>
+    <updated>2014-10-06T10:29:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/10/06/sleep-eeg-loso-post-bug-and-erp</id>
+    <content type="html"><![CDATA[<h3 id="as-described-in-a-hrefhttpelpilotogithubioblog20140925sleep-eeg-replicating-best-p-val-resultsthis-posta-there-was-a-bug-that-messed-things-up-for-the-results-posted-a-hrefhttpelpilotogithubioblog20140904sleep-eeg-finding-optimal-wake-pattern-for-sleep-transformherea">As described in <a href="http://ElPiloto.github.io/blog/2014/09/25/sleep-eeg-replicating-best-p-val-results/">this post</a>, there was a bug that messed things up for the results posted <a href="http://ElPiloto.github.io/blog/2014/09/04/sleep-eeg-finding-optimal-wake-pattern-for-sleep-transform/">here</a></h3>
+
+<p>In general, we were producing a non-random, though erroneous, transformation to our data so now that that bug is fixed we should be getting pretty similar results just along different times and frequencies.   </p>
+
+<h4 id="nothing-has-changed-for-the-optimal-lambda-choice">Nothing has changed for the optimal lambda choice:</h4>
+<p>Still seems pretty close between the two, but let’s stick with <a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUG_face_sceneAUC_lambda10.png">$\lambda = 10$</a> over <a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUG_face_sceneAUC_lambda50.png">$\lambda = 50$
+</a></p>
+
+<h4 id="looking-for-best-timebin-and-frequency">Looking for best timebin and frequency:</h4>
+<p>previously we liked <strong>300 ms</strong> time bin and were slightly frequency agnostic based on <a href="http://ElPiloto.github.io/images/research/LOSO_sleep_transform/LOSO_WAKE_LOGREG_SWEEP_PVAL_face_sceneAUC_lambda10.png">this</a>, but now we get totally different looking results:</p>
+
+<p><a href='/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUGPVAL_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUGPVAL_face_sceneAUC_lambda10.png" width="700" height="350"></a></p>
+
+<p><strong>Thoughts:</strong> Cool things: we’re getting something around when you’d expect to see the N170 for faces!  We were getting hints of this when we were doing individual subject classification, but it seems that this is the only thing from the <a href="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/wake_hilb_mean_across_subjects.png">subject-specific classification</a> that comes through in the LOSO analysis (although we also get other strongly classifiable time bins in the LOSO analsis, it’s just that those didn’t pop out in the subject-specific classification results).  <strong>SO</strong>, I say let’s generate transformed sleep data plotaccording to four or five different patterns: 
+	- something in the 4 Hz, 125-275 ms timebin range
+	- something in the 4 Hz, 450-600 ms timebin range
+	- something in the 4 Hz, 725-925 ms timebin range
+	- something in the 8 Hz, 100-175 ms timebin range 
+	- something in the 8 Hz, 275-325 ms timebin range   </p>
+
+<p>This will be A LOT of plots too look at, but if we see something we can always check on James’ second batch of spindle-cued subjects (NOTE: given that have up to 500ms of untarnished sleep data with James’ second batch of spindle-cued subjects, we might want to only look at results before 500 ms)</p>
+
+<h4 id="lets-look-at-the-recursive-feature-analysis-results-for-lambda--10">Let’s look at the recursive feature analysis results for $\lambda = 10$</h4>
+<p>And see what’s the best we get across the different time bins for the 4 Hz and 8 Hz frequencies.</p>
+
+<h4 id="additionally-lets-look-at-wake-loso-classification-using-just-erps">Additionally, let’s look at wake LOSO classification using just ERPs:</h4>
+<p>Well, this is awkward: our best classification results are for using the ERPs: 68% accuracy.</p>
+
+<p><a href='/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_ERP25_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_ERP25_face_sceneAUC_lambda10.png" width="700" height="350"></a></p>
+
+<h4 id="additionally-we-get-even-better-results-for-when-we-do-recursive-feature-elimintation">Additionally. we get even better results for when we do recursive feature elimintation:</h4>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: Replicating best p-val results]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/09/25/sleep-eeg-replicating-best-p-val-results/"/>
+    <updated>2014-09-25T14:51:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/09/25/sleep-eeg-replicating-best-p-val-results</id>
+    <content type="html"><![CDATA[<h3 id="we-are-trying-to-replicate-these-results-below">We are trying to replicate these results below:</h3>
+
+<h4 id="so-far-ive-tried">So far I’ve tried:</h4>
+<ul>
+  <li>Running the same exact analysis (driver_LOSO_replicate_PVAL.m)   </li>
+  <li>Running the same exact analysis but only classifying between faces and scenes via:
+<code>preprocessing.type_specifics_args.classes = [1 2];</code>    <br />
+    <ul>
+      <li>this did not help   </li>
+    </ul>
+  </li>
+  <li>Try loading up results from Sept 09, and regenerating plots - will indicate whether or not something changed in plots or results. <br />
+    <ul>
+      <li>Doing this, I’ve found that the results of interest are specifically in this file:  <br />
+<code> 09-Sep-2014_14_04_44LOSO_WAKE_logreg_sweep.mat </code>   </li>
+      <li>I’ve found that it is in fact for $ \lambda = 10 $ (I was worried I might have accidentally documented the wrong value of $\lambda$)       </li>
+      <li>We were classifying against all 5 classes (validating our findings above that classifying only faces vs scenes did not reproduce the results)   </li>
+    </ul>
+  </li>
+  <li>Try duplicating exact time range used originally, perhaps there is some bug in my code <br />
+    <ul>
+      <li><strong>BAD NEWS:</strong> this reproduced the results, meaning there has to be some BUG in my code where I reshape the data, append subject data together, OR iterate through individual timebins and frequencies. This is why it would be nice to have the time to create some simulated data.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="fixing-the-damn-bug">FIXING THE DAMN BUG</h3>
+<p>Relevant files:  </p>
+
+<p>So far, I’ve ensured that when I reshape and permute the subject’s data after loading it (<code>get_preprocessed_subj_data.m, Line: 128 </code>), that I have not messed up the ordering of the data.</p>
+
+<p>Next: when I filter timebins out, do I mess that process up?  This also checks out(<code>get_preprocessed_subj_data.m, Line: 60 </code>)   </p>
+
+<p>Next: what about when I call <code>iterate_over_data</code>?  The data was misordered here, so somewhere between <code>get_preprocessed_subj_data</code> and <code>iterate_over_data</code> we messed things up.</p>
+
+<p>Next: let’s check that the anonymous function that is used for reshaping the data (after it’s been flattened) is correct, this gets used in a few places.  YEP, this is the problem: someone please kindly shoot me in the face.   </p>
+
+<h3 id="bug-the-sequel-discrepancy-between-the-recursive-feature-elimination-results-and-logistic-regression-results">BUG, The Sequel: DISCREPANCY BETWEEN THE RECURSIVE FEATURE ELIMINATION RESULTS AND LOGISTIC REGRESSION RESULTS</h3>
+<p>I’ve verified that there is no discrepancy between the accumulated values and the plotted values, so it does not seem to be the case that the plotting function is messing things up.   </p>
+
+<p>Recursive feature elimination (RFE) analysis has a setting for the minimum number of features i.e. remove features until we hit some minimum number of features.  In general, this is set to 1, so that we can see the effect of removing 0 to all but one features (electrodes).  I have found that if I set that value to 60 (only removing 4 features), then the RFE results align with the logistic regression results, however, if I set that to 1 or even just 50, the results stop lining up.  Very, very perplexing.    </p>
+
+<p>Next, let’s look at the features used for the first and second iteration with different settings (60 and 50) of the minimum number of features.  If they differ in any way, then the code for removing features must be incorrect and we can delve into that.<br />
+   - So for the second iteration, the fourth frequency, the RFE results have different features they’ve removed.  WTF, mate?   A reasonable next step would be to look at the values passed into the <code>remove_unused_features</code> for both parameter settings and see if they are the same.</p>
+
+<p>Looking at the classifier weights for the first iteration of the fourth frequency for both parameter settings, we see that they have different values, so naturally removing features would produce different removed features for the second iteration.  Additionally, this implies there is something different being fed into the classifier for the first iteration that is producing different feature weights.</p>
+
+<p><strong>HERE IT IS:</strong>  Currently, we’ve been doing an RFE iteration (going from 64 features down to minimum num_features) for each frequency bin (2 Hz all the way up to 32 Hz).  To maintain the correct level of regularization, we take the max number of features (64) and look at the ratio of regularization (usually 10) to the number of features and keep this proportional as we remove more and more features.  The bug was that between RFE iterations (i.e. starting anew at 4 Hz, after doing 2 Hz), the regularization ratio was calculating using the previous iteration’s last number of features (not the max number of features) - so as we moved from 2 Hz to 32 Hz, our results got more and more skewed from the regular logistic regression results because we were using much smaller regularization.  This is fixed now!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sleep Transform ALL the Subjects]]></title>
@@ -312,157 +408,6 @@ accuracy.    </p>
 <li> For results with _really_ low wake classification accuracy, what do we get if we sleep transform by flipping the labels on the importance maps generated?    
 
 </li></li></li></li></li></li></li></li></li></li></li></li></li></li></li></li></li></li></li></ol>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sleep EEG: Leave-one-subject-out]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/08/26/sleep-eeg-leave-one-subject-out/"/>
-    <updated>2014-08-26T14:45:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/08/26/sleep-eeg-leave-one-subject-out</id>
-    <content type="html"><![CDATA[<h2 id="wake-leave-one-subject-out-loso-logistic-regression-use-all-freqs-all-times">Wake Leave-One-Subject-Out (LOSO) Logistic Regression, Use All freqs, All Times</h2>
-
-<p><a href='/images/research/sleep_eeg_hilbert/log_reg_LOSO_all_features_class_AUC_vary_lambda.jpg' target='_blank'><img src="/images/research/sleep_eeg_hilbert/log_reg_LOSO_all_features_class_AUC_vary_lambda.jpg" width="700" height="350"></a></p>
-
-<h4 id="this-should-contain-the-mcduff-importance-maps">This should contain the McDuff Importance Maps</h4>
-
-<h2 id="wake-loso-logistic-regression-all-freqs-restrict-time-range-to-150ms---550ms">Wake LOSO Logistic Regression, All Freqs, Restrict Time Range to 150ms - 550ms</h2>
-
-<p><a href='/images/research/sleep_eeg_hilbert/log_reg_LOSO_all_features_btwn_150ms550ms_lambda100_persubj.jpg' target='_blank'><img src="/images/research/sleep_eeg_hilbert/log_reg_LOSO_all_features_btwn_150ms550ms_lambda100_persubj.jpg" width="700" height="350"></a></p>
-
-<h2 id="wake-loso-logistic-regression-time-freq-sweeps">Wake LOSO Logistic Regression, Time-Freq Sweeps</h2>
-
-<h2 id="wake-loso-boosting-totalboost-all-freqs-all-times">Wake LOSO Boosting (TotalBoost), All Freqs, All Times</h2>
-
-<h2 id="loso-sleep-logistic-regression-all-freqs-all-times">LOSO Sleep Logistic Regression, All Freqs, All Times</h2>
-
-<h2 id="loso-sleep-boosting-all-freqs-all-times">LOSO Sleep Boosting, All Freqs, All Times</h2>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sleep EEG: Hilbert Transformed Data]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/08/06/sleep-eeg-hilbert-transformed-data/"/>
-    <updated>2014-08-06T10:36:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/08/06/sleep-eeg-hilbert-transformed-data</id>
-    <content type="html"><![CDATA[<h2 id="wake-hilbert-transformed-classification">Wake Hilbert Transformed Classification</h2>
-
-<p><a href='/images/research/sleep_eeg_hilbert/wake_hilb_mean_across_subjects.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/wake_hilb_mean_across_subjects.png" width="700" height="350"></a></p>
-
-<p><strong>Figure 1:</strong> Average AUC on Hilbert-transformed wake data across all subjects for each time bin and frequency band combination.</p>
-
-<p><strong>Thoughts:</strong> We see “hotspots” where we were hoping to see them: at the theta frequency around 200-230ms. Moreover, we see that the 200-230ms theta bin forms a local peak: as you move earlier or later in time, classification accuracy decreases.  Importantly, the accuracy using these bands (as opposed to individual frequencies like we had before) yields comparable average wake classification across subjects if we look at this <a href="http://ElPiloto.github.io/images/research/sleep_eeg_9_subjects_06_23_2014/wake_auc_avgd.png">old plot</a>.  If this result holds for all subjects, then we would feel pretty good about using the 200ms (or 230ms) theta time-freq bin to transform the sleep data.  Therefore, let’s look at the individual subjects to see if these results are driven by some subjects or if they seem to be pretty evenly distributed (spoiler: doesn’t seem to be a good time-freq bin, or even classifiable, for all subjects, but it does pretty well)</p>
-
-<p><a href='/images/research/sleep_eeg_hilbert/wake_hilb_all_subjects_all_freqs_all_times.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/wake_hilb_all_subjects_all_freqs_all_times.png" width="700" height="350"></a></p>
-
-<p><strong>Figure 2:</strong> AUC heatmaps of classification AUC per subject.  Subject IDs are along the top of each subplot, timebins run along the y-axis and frequencies along the x-axis (only explicitly marked for the last subject, but the axes are exactly the same as Figure 1).</p>
-
-<p><strong>Thoughts:</strong> These plots, though informative, suck for the purpose of evaluating how good the 200-250ms, theta bins do across all subjects.  Let’s zoom in on the areas of interest below.  One additional point, is that we’re getting <strong>much</strong> better max AUC across timebins than previously before (using individual frequencies) suggesting that the Hilbert transform is a better preprocessing technique for classification.</p>
-
-<p><a href='/images/research/sleep_eeg_hilbert/wake_across_subjs_times7<strong>8</strong>9_freq2.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/wake_across_subjs_times7<strong>8</strong>9_freq2.png" width="700" height="350"></a></p>
-
-<p><strong>Figure 3:</strong>  Above we show the AUC for each subject for 3 different times (200, 225, and 250ms respectively) for the 4 Hz (theta) frequency band.</p>
-
-<p><strong>Thoughts:</strong> This isn’t the greatest, especially considering some subjects have time-freq bins with much higher AUC.  “Irregardless,” these results are sufficiently positive to justify transforming sleep data.  Everything that we said about the non-band wake analyses holds here (e.g. we can look at other bins that look good for subjects, we can take each subject’s best bin to transform the data, etc).</p>
-
-<h2 id="sleep-hilbert-untransformed-classification---sweep-across-time-and-frequency-combinations">Sleep Hilbert Untransformed Classification - Sweep Across Time And Frequency Combinations</h2>
-
-<p>Below we look at how discriminable the sleep data is at each particular timebin and frequency combination of the sleep data using logistic regression.  Additionally, we test the regularization parameter for two separate values $ \lambda = 1, 50 $</p>
-
-<p><a href='/images/research/sleep_eeg_hilbert/sleep_hilb_mean_across_subjects_lambda1.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/sleep_hilb_mean_across_subjects_lambda1.png" width="700" height="350"></a></p>
-
-<p><strong>Figure 4:</strong> Above we show the across-subjects average AUC for performing logistic regression on the sleep data at each time and frequency band combination with regularization parameter $ \lambda = 1 $.</p>
-
-<p><a href='/images/research/sleep_eeg_hilbert/sleep_hilb_lambda50_mean_across_subjects.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/sleep_hilb_lambda50_mean_across_subjects.png" width="700" height="350"></a></p>
-
-<p><strong>Figure 5:</strong> Same as Figure 4, except this time we set the regularization parameter $ \lambda = 50 $.</p>
-
-<p><strong>Thoughts:</strong> The band around 175ms, 16 Hz looks promising - we had mentioned that we’d be pretty happy if we could get something like 7-8 points above chance average classification accuracy across subjects.  This is much higher than the average classification accuracy ($ mean AUC = 0.52 $) we were getting for our “best 8” untransformed, logistic regression average AUC using all times and frequencies (recall that those results were not using frequency bands like we are now, but instead look at the power spectrum at individual frequencies).  Obviously, we can’t directly compare the individual time and frequency band results to using all time and frequency features, but it’s the closest benchmark we have.  Those old results can be found <a href="http://ElPiloto.github.io/blog/2014/07/27/sleep-eeg-post-boosting-results/"> here </a> under the section “To-Do Item #2”.</p>
-
-<p>These results are encouraging for two reasons.  First, the best time and frequency combination falls within a plausible time range.  We could talk to James to see if he has any a priori evidence to support getting results in the BETA frequency range, but at least the time isn’t too early.  Second, the AUC is pretty good on the individual subject level as we see below: most subjects are either at or above chance.</p>
-
-<p><a href='/images/research/sleep_eeg_hilbert/best_time_freq_untransformed_sleep_lambda1.jpg' target='_blank'><img src="/images/research/sleep_eeg_hilbert/best_time_freq_untransformed_sleep_lambda1.jpg" width="700" height="350"></a></p>
-
-<p><strong>Figure 6:</strong> Above we show the AUC for each subjects generated by performing logistic regression on the sleep data at the best time and frequency band combination with regularization parameter $ \lambda = 1 $.</p>
-
-<p><a href='/images/research/sleep_eeg_hilbert/best_time_freq_untransformed_sleep_lambda50.jpg' target='_blank'><img src="/images/research/sleep_eeg_hilbert/best_time_freq_untransformed_sleep_lambda50.jpg" width="700" height="350"></a></p>
-
-<p><strong>Figure 7:</strong> Same as Figure 6, except this time we set the regularization parameter $ \lambda = 50 $.</p>
-
-<p><strong>Thoughts:</strong> Okay, so we have <strong>a</strong> time and frequency combination that gives us good classification accuracy, but this could just arise from multiple comparisons.  Sure, we can take comfort that the classification accuracy seems to peak at 175ms and degrades smoothly as we move away, but it’s also the case that the EEG power spectrum is pretty similar at those times.  <strong>SO</strong>, what would it take for me to believe these results?  Running classification on <strong>ALL</strong> of the <em>untransformed</em> sleep data features with heavy regularization and yielding good classification accuracy with weights that consistently preferred that time and frequency combination.  This is next on my to-do list, it shouldn’t take too long to get up and running.  I’d also like to add a reminder to myself that it may be worth subsampling the time dimension.</p>
-
-<h2 id="sleep-hilbert-untransformed-log-reg-classification---use-all-time-and-frequencies">Sleep Hilbert Untransformed Log Reg Classification - Use All Time and Frequencies</h2>
-
-<p><a href='/images/research/sleep_eeg_hilbert/untransformed_logreg_all_features.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/untransformed_logreg_all_features.png" width="700" height="350"></a></p>
-
-<p><strong>Figure 8:</strong> Above we show the AUC per subject (along the y-axis) for various logistic regression regularization penalty values (along the x-axis) for classification using ALL of the features for the untransformed (i.e. not transformed according to wake pattern) sleep data using frequency bands (using Hilbert transform).  The <em>NaN</em> value is because that particular job failed and I didn’t think it was that important to justify putting off these results.</p>
-
-<p><a href='/images/research/sleep_eeg_hilbert/untransformed_logreg_all_features_avg_across_subjects.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/untransformed_logreg_all_features_avg_across_subjects.png" width="700" height="350"></a></p>
-
-<p><strong>Figure 9:</strong> Same as Figure 8, except this time we average across subjects for each regularization setting.</p>
-
-<p><strong>Thoughts:</strong> These results definitely aren’t what we were hoping for, and subject09’s  results are worrisome.  We’ve seen pretty consistently classifiable results out of subject 15 which is a good sanity check that there isn’t something wrong with the code or with the range of regularization values we’ve tried.  The best case scenario is that subject 15’s data is really easily classifiable, whereas the other subjects require more careful feature selection.  Towards this end, I’m going to try three things.  First, I’m running this same exact analysis except I’m including feature selection as a preprocessing step (note: I’ll have to run it for just a single regularization value since the feature selection process is pretty time-consuming).  Second, I’m going to look at the importance maps generated by this current analysis to see which features are being loaded upon.  Lastly, I’m going to try boosting using all the features.  This would also be a great place to have simulated data, but that’ll have to take a back seat.</p>
-
-<h2 id="sleep-hilbert-untransformed-gentleboost-ensemble-classification---use-all-time-and-frequencies">Sleep Hilbert Untransformed GentleBoost Ensemble Classification - Use All Time And Frequencies</h2>
-
-<p><a href='/images/research/sleep_eeg_hilbert/untransformed_gentleboost_all_features_ACC.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/untransformed_gentleboost_all_features_ACC.png" width="700" height="350"></a></p>
-
-<p><strong>Figure 10:</strong> Above we show the AUC per subject (along the y-axis) for various logistic regression regularization penalty values (along the x-axis) for classification using ALL of the features for the untransformed (i.e. not transformed according to wake pattern) sleep data using frequency bands (using Hilbert transform).  The <em>NaN</em> value is because that particular job failed and I didn’t think it was that important to justify putting off these results.</p>
-
-<p><a href='/images/research/sleep_eeg_hilbert/untransformed_gentleboost_all_features_avg_across_subjects_ACC.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/untransformed_gentleboost_all_features_avg_across_subjects_ACC.png" width="700" height="350"></a></p>
-
-<p><strong>Figure 11:</strong> Same as Figure 10, except this time we average across subjects for each value of the <code>num_learners</code> parameter.</p>
-
-<h2 id="the-continuing-story-of-delbungalow-billdel-subject-09">The Continuing Story of <del>Bungalow Bill</del> Subject 09</h2>
-
-<p><strong>Sleep Statistics:</strong> 35 faces, 35 scenes.  Cross-validation was performed using leave-one-out-cross-validation (a.k.a. 35-fold).</p>
-
-<p>Achieves reasonable classification accuracy using boosting.  Additionally, classification accuracy (as opposed to AUC) isn’t SO horrendous for logistic regression (0.31 for feature selection using $\lambda = 100$ and setting <code>stat_thresh</code> = 0.1)  When we look at the AUC per cross-validation iteration, we find that the AUC is always 0 or 1 essentially (see figure 11 below).  It seems like we’re severly overfitting.  This is supported by the fact that the boosting method actually does well for subject 09 ( boosting much less susceptible to overfitting).  However, if this really was the case, you’d expect that doing feature selection would help this subject’s results.  Currently, that is not the case, so I’m gunna try even stricter feature selection to see if that’s what’s really at the bottom of this.</p>
-
-<p><a href='/images/research/sleep_eeg_hilbert/auc_per_iteration_feature_select_subj9.jpg' target='_blank'><img src="/images/research/sleep_eeg_hilbert/auc_per_iteration_feature_select_subj9.jpg" width="700" height="350"></a></p>
-
-<p><strong>Figure 12:</strong> Above we show the AUC per cross-validation iteration for subject 09 using logistic regression on all of the untransformed sleep features</p>
-
-<p><a href='/images/research/sleep_eeg_hilbert/per_fold_correctminusincorrect_class_outputs.jpg' target='_blank'><img src="/images/research/sleep_eeg_hilbert/per_fold_correctminusincorrect_class_outputs.jpg" width="700" height="350"></a></p>
-
-<p><strong>Figure 13:</strong> Above we show the difference between the classifier output for the correct class minus the classifier output for the incorrect class for each test item over all cross-validation iterations for various parametrizations of wake logistic regression classification for subject 9.  Note that for p = 0.01, we get something like 30-50 features selected.</p>
-
-<p><strong>Random thought:</strong> What would we get if we tried to use this for sleep transforming data by flipping the classes?</p>
-
-<p><strong>Extra thoughts:</strong> I was feeling uneasy about the fact that AUC and classification accuracy give completely different answers for subject 09.  However, I went through and verified by hand that the code for calculating the AUC is in fact correct (given the type of AUC metric we want to use).  Currently, we’re looking at the distribution of (face - scene) classifier outputs to calculate the AUC, but we get vastly different results for this subject (and I assume other subjects as well), if we calculate a separate AUC for the face classifier output, a separate AUC for the scene classifier output, and then take the average (possibly weighted by number of examples from each class) of these two AUCs to yield a single number (let’s call this method <em>meanAUC</em>).  Although we’ve been evaluating with respect to the former definition of AUC ( let’s dub this <em>diffAUC</em>), the best metric to use actually depends on how we intend to relate the sleep classifier output to the behavioral data.  One method for relating classifier output uses a binary measure to predict subsequent performance: each reactivation event is labelled as a 0 or a 1 indicating whether or not the classifier predicted the correct class.  Subsequent memory for an item should increase if the classifier correctly classified reactivation events.  In this case, the appropriate AUC method to use is the <em>diffAUC</em> because we’re interested in the difference between the classifier outputs for each class.    An alternative method for relating classifier output to behavioral data would be to only look at, for each reactivation event, the classifier output from the classifier corresponding to the item’s category (i.e. if we’re looking at a face item, we only look at the face classifier output; if we’re looking at a scene item, we take the scene classifier output).  We would predict that items with a high classifier output, despite their category, would yield better subsequent memory.  This method lends itself to evaluation via <em>meanAUC</em>.   <strong>They are fundamentally different metrics</strong> and so I shouldn’t take this as a sign that my code base is messed up.  To further illustrate how different these metrics can be, below I provide a sample of the different metrics for a particular subject:   </p>
-<pre>
-                 diffAUC: .1714
-                 meanAUC: 0.5286
-              % correct: 0.2857
-</pre>
-
-<p>Here’s a case that’s also a bit counterintuitive, but checks out.  I’m leaving this here just as a note for future Luis.</p>
-<pre>
-true classes = {face, scene}
----------------------------
-face = 0.435, 0.4635
-scene = 0.5650, 0.5365
-diff = -0.13, -0.07
-
-Max Class Output Prediction: scene (incorrect), scene (correct)
-% correct = 0.5
-diffAUC = 0
-</pre>
-
-<h2 id="ken-meeting-points">Ken Meeting Points</h2>
-
-<h4 id="auc">AUC</h4>
-<p>The space of <em>diffAUC</em>, <em>meanAUC</em>, and individual AUCs (e.g. <em>faceAUC</em> or <em>sceneAUC</em>) are all justifiable classification metrics.  Let’s not open this can of worms just yet, <em>however</em>, let’s <strong>definitely</strong> switch to pooling the classification outputs from all cross-validation folds and <em>then</em> calculating AUC, instead of calculating AUC for each fold, and averaging across folds.  That being said, subject 09 per-fold diffAUC was 0.1714 (see above), and their pooled diffAUC = 0.18 - so it doesn’t seem to have too much of an impact as I suspected.</p>
-
-<h4 id="feature-selection">Feature Selection</h4>
-<p>Ken thinks it’s unconventional to use feature selection and L2 regularization.  Let’s try L1 regularization instead, which has one less parameter and performs multivariate feature selection.</p>
-
-<h4 id="subject-9-crappiness">Subject 9 Crappiness</h4>
-<p>I haven’t justified why overfitting should lead to systematically incorrect predictions, it should lead to chance performance.   It may be the case that feature selection and L2 regularization is just susceptible to pathological results given that our classifier does okay when we try boosting.  If we try L1-regularization and that works okay, then we’ll know the problem is feature selection + L2 regularization.</p>
-
-<h4 id="next-steps">Next Steps:</h4>
-<p>Let’s try our leave-one-subject-out analysis for individual time-frequency pairs.</p>
 ]]></content>
   </entry>
   

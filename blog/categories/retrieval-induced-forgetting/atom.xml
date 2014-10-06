@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: retrieval-induced forgetting | Something Witty]]></title>
+  <link href="http://ElPiloto.github.io/blog/categories/retrieval-induced-forgetting/atom.xml" rel="self"/>
+  <link href="http://ElPiloto.github.io/"/>
+  <updated>2014-10-06T13:24:57-04:00</updated>
+  <id>http://ElPiloto.github.io/</id>
+  <author>
+    <name><![CDATA[Luis R. Piloto]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Norman Lab Meeting: Victoria Jackson-Hanen]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/10/02/norman-lab-meeting-victoria-jackson-hanen/"/>
+    <updated>2014-10-02T12:33:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/10/02/norman-lab-meeting-victoria-jackson-hanen</id>
+    <content type="html"><![CDATA[<h2 id="the-role-of-competition-in-the-differentiation-of-visual-memories">The role of competition in the differentiation of visual memories</h2>
+
+<p>Misha and Danya (two half-brothers), look similar, don’t see them often  </p>
+
+<p>Retrieval Induced Forgetting: think about Misha (RP+), perhaps forget Danya (RP-)   </p>
+
+<p>REV-RIF: if you are allowed an opportunity to restudy an RP-, no longer activate (usurped, previously shared RP+) nodes, creates pattern separation with increased memory for REV-RIF</p>
+
+<pre>
+RIF:
+
+RP-: --|    
+NP : ----|    
+RP+: ------|    
+     memory (NRP = no retrieval practice, still same number of exposures, but don't actually have to retrieve)
+</pre>
+
+<p>Question: why is there a set level of activated nodes? i.e. why should the RP- pickup new nodes?   </p>
+
+<h3 id="how-does-rev-rif-change-visual-features-of-memories">How does REV-RIF change visual features of memories?</h3>
+
+<p>Similar shapes with similar names, how does this REV-RIF affect perception of color presentation?   </p>
+
+<p>Study all items, retrieval practice (some items), restudy all items (REV-RIF effect here), test.    </p>
+
+<p>Train pairs within same family name (e.g. advo and adva), only showing family prefix:</p>
+
+<p>present in black and white:
+       weird character 1 + weird character name 2
+                    <strong>__ADV</strong><em>__</em>         &lt;– family prefix</p>
+
+<p>SCANNER: <br />
+study 1: present individual character + full name:   <br />
+				weird character 1   <br />
+                <strong>____ADVO</strong><strong>___   <br />
+                weird character 7
+                __</strong><strong>MAGY</strong>_____   </p>
+
+<p>scanner 2: competitive trial for RP+ items, non-compettitive trial for RP- and Nrp items    </p>
+
+<p>Idea: RP+ items should </p>
+
+]]></content>
+  </entry>
+  
+</feed>
