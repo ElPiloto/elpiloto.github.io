@@ -4,7 +4,7 @@
   <title><![CDATA[Category: EEG | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/eeg/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-10-13T17:18:26-04:00</updated>
+  <updated>2014-10-13T17:46:23-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: Pre-SFN Push]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/10/13/sleep-eeg-pre-sfn-push/"/>
+    <updated>2014-10-13T17:17:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/10/13/sleep-eeg-pre-sfn-push</id>
+    <content type="html"><![CDATA[<p><a href='/images/research/LOSO_POSTBUG/WAKE_ERP_TRANSFORM_SLEEP_ERP_AVG.jpg' target='_blank'><img src="/images/research/LOSO_POSTBUG/WAKE_ERP_TRANSFORM_SLEEP_ERP_AVG.jpg" width="700" height="350"></a>    </p>
+
+<h3 id="with-rescaling">WITH rescaling</h3>
+<p><a href='/images/research/LOSO_POSTBUG/RESCALING_WAKE_LOSO_ERP_ZSCORE_175ms.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/RESCALING_WAKE_LOSO_ERP_ZSCORE_175ms.png" width="700" height="350"></a>    </p>
+
+<h3 id="without-rescaling">WITHOUT rescaling</h3>
+<p><a href='/images/research/LOSO_POSTBUG/WITHOUT_RESCALING_WAKE_LOSO_ERP_ZSCORE_175ms.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/WITHOUT_RESCALING_WAKE_LOSO_ERP_ZSCORE_175ms.png" width="700" height="350"></a>    </p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sleep EEG: Sleep Transform Details And McDuff Trouble]]></title>
@@ -189,106 +204,6 @@ foreach frequency band wake_F:
 
 	# Option 3: Use all sleep times as a single pattern (nice b/c get single classification score per trial)
 </pre>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sleep EEG Finding Optimal Wake Pattern For Sleep Transform]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/09/04/sleep-eeg-finding-optimal-wake-pattern-for-sleep-transform/"/>
-    <updated>2014-09-04T10:06:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/09/04/sleep-eeg-finding-optimal-wake-pattern-for-sleep-transform</id>
-    <content type="html"><![CDATA[<h2 id="wake-loso-log-reg-150ms---550ms-time-freq-sweep-on-hilbert-transformed-data">WAKE LOSO LOG REG 150ms - 550ms Time Freq. Sweep On Hilbert Transformed data</h2>
-
-<p>Find those results below.  It seems that across the board, looking at diffAUC, we get that the 300ms timebin is the best.  However, one of the goals of this analysis was to see if there was any variability in when faces are classifiable compared to when scenes are classifiable.  Towards this end, we plot the AUC on a per class basis.  That is, we look at the AUC calculating the face classifier output for faces as positive instances, and the face classifier output for scenes as negative instances.  Similarly, we do this for scenes.  When we look at this across all subjects, we find that the 300ms timebin strong diffAUC is actually driven by strong faceAUC(~0.58) for that timebin and not at all by the sceneAUC(~0.43).  Thus, if we do decide to proceed with sleep transforming, we should only face transform at 300ms.   When we look at the faceAUC per subject, we find that 300ms at the 30Hz band is the good for all but two subjects (08 and 22).  This is encouraging!  Feel encouraged.  Did it work? Are you encouraged?  Fine.  Nevermind.  Whatever.  </p>
-
-<p>I ran this analysis with a shortened time window, I’m re-running the analysis with the full time window to make sure that scenes aren’t doing well during the later periods.  Additionally, we have always been z-scoring across electrodes, I’m not doing that for this new analysis just to make sure our z-scoring decision (supported via our first pilot) are still valid.  I can look at the difference between the new results and the results below for the timebins they overlap to see the effect of z-scoring.   </p>
-
-<p><strong>TLDR;</strong><br />
-- diffAUC points to timebin 300ms as best time across all subjects with average diffAUC = 0.58 <br />
-- looking into faceAUC vs. sceneAUC, it’s clear that the diffAUC is entirely driven by faceAUC (i.e. scenes aren’t above chance at 300ms), we should sleep transform sleep data using the 300ms timebin importance maps.   </p>
-
-<p><strong>QUESTIONS TO ANSWER</strong> <br />
-1. does one-sample, one-tailed t-test reveal better bins? <br />
-2. are there better times? <br />
-3. is there a difference between z-scoring and not z-scoring across channels? <br />
-4. do we get better results for lower lambdas?   </p>
-
-<p><strong>ANSWERS TO QUESTIONS</strong> <br />
-<strong>ONE.</strong> We still get the best time bin to be 300 ms <a href="http://ElPiloto.github.io/images/research/LOSO_sleep_transform/LOSO_WAKE_LOGREG_SWEEP_PVAL_face_sceneAUC_lambda100.png">if you look at the p-values</a> instead of the <a href="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda100.png">mean across subjects</a>  <br /></p>
-
-<p><strong>TWO.</strong> When we do the same analysis looking at time bins 550ms - 1000ms, we don’t get anything better.  There’s a random blip around 950ms for scenes    <a href="http://ElPiloto.github.io/images/research/LOSO_sleep_transform/LOSO_WAKE_LOGREG_SWEEP_Q2_ZSCOREPVAL_face_sceneAUC_lambda50.png">here</a>, but it’s not any better than what we saw for the 150ms - 550ms case.     <br /></p>
-
-<p><strong>THREE.</strong> YES IT DOES.  Compare these two plots WITHOUT z-scoring to their respective plots under question 4.  <br /></p>
-<center>
-<a href="http://ElPiloto.github.io/images/research/LOSO_sleep_transform/LOSO_WAKE_LOGREG_SWEEP_Q3_ZSCOREPVAL_face_sceneAUC_lambda50.png">$\lambda = 50$</a><br />
-<a href="http://ElPiloto.github.io/images/research/LOSO_sleep_transform/LOSO_WAKE_LOGREG_SWEEP_Q3_ZSCOREPVAL_face_sceneAUC_lambda100.png">$\lambda = 100$</a><br />
-</center>
-
-<p><strong>FOUR.</strong>  We get better results with lambda = 10 for the p-val AUC plots, but not by too much if we just look at the mean AUC across subjects.  <strong>Let’s go with 10 for a wake transform</strong>    </p>
-<center>
-<a href="http://ElPiloto.github.io/images/research/LOSO_sleep_transform/LOSO_WAKE_LOGREG_SWEEP_PVAL_face_sceneAUC_lambda1.png">$ \lambda = 1$</a><br />   
-<a href="http://ElPiloto.github.io/images/research/LOSO_sleep_transform/LOSO_WAKE_LOGREG_SWEEP_PVAL_face_sceneAUC_lambda10.png">$ \lambda = 10$</a><br />   
-<a href="http://ElPiloto.github.io/images/research/LOSO_sleep_transform/LOSO_WAKE_LOGREG_SWEEP_PVAL_face_sceneAUC_lambda50.png">$ \lambda = 50$</a><br />   
-<a href="http://ElPiloto.github.io/images/research/LOSO_sleep_transform/LOSO_WAKE_LOGREG_SWEEP_PVAL_face_sceneAUC_lambda100.png">$ \lambda = 100$</a><br />   
-</center>
-
-<p><strong>Ken Reply</strong></p>
-
-<p>i like the idea of finding the best time/freq for faces and then using
-that for a sleep transform. i agree that 300ms / 30hz looks like the
-best candidate for the “face champion”.    </p>
-
-<p>before you do the sleep transform, it would be great if you could run
-the same analysis that you just ran, but for lower lambda vals (say 1,
-10, 50). it looks like things were definitely getting worse as you
-increased lambda in the analyses that you just ran, so maybe the best
-lambda vals for this analysis are &lt; 100.    </p>
-
-<p>if 300ms / 30hz still looks good with other lambda vals, then let’s
-sleep transform using that.    </p>
-
-<p>if we go ahead with 300ms / 30hz for the transformation, then i
-recommend first filtering out uninformative electrodes, and then
-re-running the classifier on the leftover electrodes and either 1)
-using the importance map values for faces as the template, or 2) using
-the mean pattern values (for faces) as the template. i also recommend
-sticking with our original plan of grabbing the spatial pattern from
-the BEST frequency band (e.g., 30hz) at the best time point (e.g.,
-300ms) as opposed to grabbing ALL of the frequency-specific spatial
-patterns from the best time point. we can use this pattern to
-transform all of the frequences in the sleep data.     </p>
-
-<p>also, after you do the sleep transform, i am interested in looking at
-timecourses for reactivation as opposed to jumping right into crossval
-accuracy.    </p>
-
-<h2 id="lambda--100">Lambda = 100</h2>
-
-<h4 id="diffauc-face-minus-scene">diffAUC (face minus scene)</h4>
-
-<p><a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__diffAUC_lambda100.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__diffAUC_lambda100.png" width="700" height="350"></a>
-<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda100.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda100.png" width="700" height="350"></a>
-<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__faceAUC_per_subj_lambda100.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__faceAUC_per_subj_lambda100.png" width="700" height="350"></a>
-<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__sceneAUC_per_subj_lambda100.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__sceneAUC_per_subj_lambda100.png" width="700" height="350"></a></p>
-
-<h2 id="lambda--500">Lambda = 500</h2>
-
-<h4 id="diffauc-face-minus-scene-1">diffAUC (face minus scene)</h4>
-
-<p><a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__diffAUC_lambda500.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__diffAUC_lambda500.png" width="700" height="350"></a>
-<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda500.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda500.png" width="700" height="350"></a>
-<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__faceAUC_per_subj_lambda500.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__faceAUC_per_subj_lambda500.png" width="700" height="350"></a>
-<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__sceneAUC_per_subj_lambda500.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__sceneAUC_per_subj_lambda500.png" width="700" height="350"></a></p>
-
-<h2 id="lambda--1000">Lambda = 1000</h2>
-
-<h4 id="diffauc-face-minus-scene-2">diffAUC (face minus scene)</h4>
-
-<p><a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__diffAUC_lambda1000.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__diffAUC_lambda1000.png" width="700" height="350"></a>
-<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda1000.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__face_sceneAUC_lambda1000.png" width="700" height="350"></a>
-<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__faceAUC_per_subj_lambda1000.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__faceAUC_per_subj_lambda1000.png" width="700" height="350"></a>
-<a href='/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__sceneAUC_per_subj_lambda1000.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/WAKE_LOSO_logreg__sceneAUC_per_subj_lambda1000.png" width="700" height="350"></a></p>
 
 ]]></content>
   </entry>

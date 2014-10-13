@@ -4,7 +4,7 @@
   <title><![CDATA[Category: hide | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/hide/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-10-13T17:18:26-04:00</updated>
+  <updated>2014-10-13T17:46:23-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -18,7 +18,13 @@
     <link href="http://ElPiloto.github.io/blog/2014/10/13/sleep-eeg-pre-sfn-push/"/>
     <updated>2014-10-13T17:17:00-04:00</updated>
     <id>http://ElPiloto.github.io/blog/2014/10/13/sleep-eeg-pre-sfn-push</id>
-    <content type="html"><![CDATA[<p><a href='/images/research/LOSO_POSTBUG/WAKE_ERP_TRANSFORM_SLEEP_ERP_AVG.jpg' target='_blank'><img src="/images/research/LOSO_POSTBUG/WAKE_ERP_TRANSFORM_SLEEP_ERP_AVG.jpg" width="700" height="350"></a></p>
+    <content type="html"><![CDATA[<p><a href='/images/research/LOSO_POSTBUG/WAKE_ERP_TRANSFORM_SLEEP_ERP_AVG.jpg' target='_blank'><img src="/images/research/LOSO_POSTBUG/WAKE_ERP_TRANSFORM_SLEEP_ERP_AVG.jpg" width="700" height="350"></a>    </p>
+
+<h3 id="with-rescaling">WITH rescaling</h3>
+<p><a href='/images/research/LOSO_POSTBUG/RESCALING_WAKE_LOSO_ERP_ZSCORE_175ms.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/RESCALING_WAKE_LOSO_ERP_ZSCORE_175ms.png" width="700" height="350"></a>    </p>
+
+<h3 id="without-rescaling">WITHOUT rescaling</h3>
+<p><a href='/images/research/LOSO_POSTBUG/WITHOUT_RESCALING_WAKE_LOSO_ERP_ZSCORE_175ms.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/WITHOUT_RESCALING_WAKE_LOSO_ERP_ZSCORE_175ms.png" width="700" height="350"></a>    </p>
 ]]></content>
   </entry>
   
