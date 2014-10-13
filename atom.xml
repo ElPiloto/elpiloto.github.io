@@ -4,7 +4,7 @@
   <title><![CDATA[Something Witty]]></title>
   <link href="http://ElPiloto.github.io/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-10-07T11:06:16-04:00</updated>
+  <updated>2014-10-09T17:32:39-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,112 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Howard Eichenbaum]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/10/09/howard-eichenbaum/"/>
+    <updated>2014-10-09T16:34:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/10/09/howard-eichenbaum</id>
+    <content type="html"><![CDATA[<h1 id="the-hippocampus-in-space-and-time">The hippocampus in space and time</h1>
+
+<h2 id="lets-start-with-space">Let’s start with space</h2>
+<p>How the crap do we reconcile memory and location functions of hippocampus?   </p>
+
+<p>Two relevant pieces of evidence:  <br />
+1. hippocampus essential for episodic memory (Vargha-Khadem , Science 1997)    </p>
+
+<ol>
+  <li>episodic memories are organized in space and time  (Tulving, Organization of Memory, 1972)    </li>
+</ol>
+
+<p><strong>Hypothesis</strong> hippocampus organizes memories in space and time   </p>
+
+<p>context-guided object association:
+key point: forces animal to organize memories spatially   </p>
+
+<p>two connected rooms: <br />
+- same pair of compounds “A and B” in each room; one compound is positive in one room, negative in the other and vice versa      </p>
+
+<p>hippocampus neurons highly dimensional:   <br />
+- have firing selective to item (compound) AND location     </p>
+
+<h2 id="how-are-these-dimensions-organized-within-hippocampus">How are these dimensions organized within hippocampus?</h2>
+
+<p>to do so, upscaled task:
+some trials have same rooms, but different compounds “C and D” (with same positive/negative versions in each room)</p>
+
+<p>can look at:
+item identity (A v B v C v D) vs. valence (AC v BD) vs. pair (AB v CD)</p>
+
+<p>Also, recording from ensembles of neurons (instead of looking for individual cells that are responsive) and perform multivariate representational similarity analysis    </p>
+
+<p>position: same item, different item, change valence, change pair</p>
+
+<h4 id="punchline">Punchline</h4>
+<p>Look at RSA across different manipulations and find that representation is most sensitive in decreasing order to :context, position, valence, item     </p>
+
+<p>Also looked at this hierarchy in orbitofrontal cortex and found that the hierarchy is swapped (see that it cares more about valence which is consistent with what we expect from OFC)   </p>
+
+<h2 id="how-is-memory-space-managed">How is “memory space” managed?</h2>
+<p>Must be some activity between PFC and (dorsal) hippocampus:</p>
+
+<p><strong>Idea:</strong> record from hippocampus, inactivate PFC with muscimol, re-record from hippocampus  </p>
+
+<p><strong>Results:</strong> found that cell that fire to item A and context 2, would subsequently fire to both item A and context 2     – although it seems like maybe they’re talking baout recording from mPFC?   </p>
+
+<h3 id="what-is-the-origin-of-contextual-information-to-prefrontal-cortex">What is the origin of contextual information to prefrontal cortex?</h3>
+
+<p>Perhaps this is the flow of communication
+1. details –&gt; context generated from dorsal hippocampus –&gt; ventral
+2. ventral hippocampus –&gt; PFC carrying contextual information
+3. PFC –&gt; dorsal hippocampus to select relevant information</p>
+
+<p>look at J. Neuro 2010 phase lag at theta between areas to see if we can determine flow of information <br />
+found -103ms DHipp, -27ms VHipp, and mPFC 64ms    </p>
+
+<h2 id="what-about-time">What about time?</h2>
+
+<p>Do you need a hippocampus for memory for temporal order? (Fortin et al. Nature Neuro 2002)  <br />
+Experiment: learn sequence of 5 stimuli, test: which of two stimuli came earlier? <br />
+Look at behavior as a function of normal vs. hippocampal lesions
+Also tested for recognition and found lesion animals not deficient - seems like hippocampus must play an important role in memory for temporal order    </p>
+
+<h4 id="how-does-the-hippocampus-tell-time">How does the hippocampus tell time</h4>
+<p>Kraus et al. Neuron, 2013 - figure 8 task, but confounded with position, so how do we isolate time?   <br />
+Keep rat on treadmill, then find “time cells” which fire at a particular time point     </p>
+
+<p>but could potentially confound time elapsed and distance, so vary treadmill rate and found in fact both time cells and distance cells   <br />
+but actually found that there’s a distribution of cells which actually respond to some combination of time and distance, but the time-only and distance-only cells are at the tails of that distribution    </p>
+
+<h2 id="general-knowledge">General Knowledge:</h2>
+<p>ventral hippocampus: bigger place fields, generally take up whole context; develop a bit slower than dorsal hippocampus  <br />
+dorsal hippocampus: more specific, smaller place fields; develop place field selectivity perfectly correlated with learning    <br />
+monosynapse from ventral hippocampus to PFC   </p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: Sleep Transform Details And McDuff Trouble]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/10/08/sleep-eeg-sleep-transform-details-and-mcduff-trouble/"/>
+    <updated>2014-10-08T17:28:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/10/08/sleep-eeg-sleep-transform-details-and-mcduff-trouble</id>
+    <content type="html"><![CDATA[<h2 id="importance-maps">Importance Maps:</h2>
+
+<p>It turns out that we have been re-scaling (the eeg_ana_toolbox traintest function) features when performing classification.  This is arguably an okay thing to do in general, BUT DEFINITELY NOT OKAY to do when calculating McDuff importance maps which rely on looking at the average pattern activation signs and the signs of the weights because the weights were generated for a rescaled (always between 0 and 1) pattern, so that it doesn’t make sense to look at the sign agreement between the two for calculating the McDuff importance maps.  </p>
+
+<h2 id="generating-sleep-transformed-plots">Generating Sleep Transformed Plots:</h2>
+<p>Since it has been working, for the purposes of generating a wake template, we’re going to use the RFE results generated by performing feature selection on the raw feature weights (instead of McDuff importance)</p>
+
+<h4 id="additionally-there-was-some-concern-that-we-might-be-z-scoring-across-electrodes-after-each-rfe-iteration-but-really-thats-not-what-we-think-we-should-be-doing-and-luckily-not-what-were-doing-in-the-code">Additionally, there was some concern that we might be z-scoring across electrodes after each RFE iteration, but really that’s not what we think we should be doing and <em>luckily</em> <strong>not</strong> what we’re doing in the code!</h4>
+
+<h4 id="we-have-a-preference-for-more-textured-templates-and-using-the-correlation-instead-of-the-dot-product-because-the-correlation-is-scale-invariant">We have a preference for more “textured” templates and using the correlation instead of the dot product because the correlation is scale-invariant</h4>
+
+<h4 id="stucture">Stucture:</h4>
+<p>We want to generate a “flipbook” for every pair of wake time-freq bin we choose (roughly 6) and each corresponding sleep frequency.  Given 5 frequency bands and 6 wake templates, we’ll end up with roughly 30 flipbooks.</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sleep EEG: LOSO (post-bug) and ERP]]></title>
@@ -1146,65 +1252,6 @@ j  </p>
 <p><a href="http://ElPiloto.github.io/blog/2014/07/01/sleep-eeg-mcduff-transform/"> dump of plots </a>   </p>
 
 <p>We have 4 x 3 plots per subject (4 plots (AUC, accuracy, and p-val map for both of those) for each result, 3 different results: one for transforming the sleep data with the face mcduff importance map, one for transforming with the scene mcduff importance map, and one for transforming with the difference between the face and scene importance maps)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Understanding SFA]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/06/11/understanding-sfa/"/>
-    <updated>2014-06-11T11:14:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/06/11/understanding-sfa</id>
-    <content type="html"><![CDATA[<h3 id="questions">Questions</h3>
-<pre> Estimating Driving Forces of Nonstationary Time Series with Slow Feature Analysis, Wiskott (2003)</pre>
-<p>What does it mean that slow-feature analysis only considers one point at a time?</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Representational Similarity for Non-markov Task in LSTM Hidden Layers and SFA of Hidden Layers]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/06/10/representational-similarity-for-non-markov-task-in-lstm-hidden-layers-and-sfa-of-hidden-layers/"/>
-    <updated>2014-06-10T15:48:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/06/10/representational-similarity-for-non-markov-task-in-lstm-hidden-layers-and-sfa-of-hidden-layers</id>
-    <content type="html"><![CDATA[<p>We’re interested in how slow-feature analysis processes representations generated for a non-Markov task.  Towards this end, we apply slow-feature analysis to the hidden layer representation of a recurrent long short-term memory network that solves a non-Markovian task.  Importantly, we must first understand the hidden layer representation to see which components to the SFA’d hidden layer representation are generated from the slow-feature process and which were already present in the data.</p>
-
-<h3 id="raw-hidden-layer-and-sfa-values">Raw Hidden Layer and SFA Values</h3>
-
-<p>In a previous post, we have the raw hidden layer representation as we loop around the maze.  Here is an alternate version of that plot:
-<a href="http://ElPiloto.github.io/images/research/hidden_layer_time_series.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_layer_time_series.png" width="700" height="350" /></a>
-<strong>Figure 1:</strong> The first three subplots show the hidden layer activations for all three hidden nodes.  The last subplot shows the sum of all three activations.  The blue stripes in the background correspond to the times during which the “rat” is at the fork.  Alternating bands correspond to travelling in alternate directions of the maze.</p>
-
-<p>This task is only non-Markovian in the center hallway: the correct action is entirely determined by the current location for all locations on the outside of the maze, but this is not true of the center hallway locations.  If we look at <code>hidden node 3</code>, we see that it only differs in value across loop directions at the timepoints near the fork.  Essentially, <code>hidden node 3</code> provides a linearly separable signal that indicates the direction of travel.  This is made even clearer in the two plots below showing the hidden layer activations for each location on the maze either on a leftward or rightward loop.</p>
-
-<p><a href="http://ElPiloto.github.io/images/research/hidden_layer_on_maze_raw_left.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_layer_on_maze_raw_left.png" width="700" height="350" /></a>
-<a href="http://ElPiloto.github.io/images/research/hidden_layer_on_maze_raw_right.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_layer_on_maze_raw_right.png" width="700" height="350" /></a></p>
-
-<p><strong>Figure 2:</strong>  The normalized (-1 to 1) hidden layer representation, a vector of three values: one for each hidden node, for each location in the maze is plotted using <em>imagesc</em> at that location in the maze.  This is done for both leftward (top) and rightward (bottom) loops.  For example, the subplot in the middle row of the center column on the top plot (“Raw Hidden Layer Values - Left”) shows the hidden layer representation for that location in the maze during a leftward loop.  The hidden layer representation for that location during a rightward loop is shown on the bottom plot at the same location.  Do not be confused by the fact that the bottom plot for a rightward loop has filled in values for locations on the maze that are only visited during a leftward loop - these are just pasted in from the leftward loop for visualization purposes (and vice-versa for the leftward loop and rightward loop maze locations).</p>
-
-<p>We see that <code>hidden node 3</code> has different values for the different loops along the center hallway, but nearly symmetric values along the outsides of the maze.  It is less clear what the other hidden units may be encoding.  A comparison of the first two hidden unit activations across loops shows that they code the outer loops of the maze differently, but not points along the center hallway (Figure 3 below).</p>
-
-<p><a href="http://ElPiloto.github.io/images/research/hidden_nodes_1_and_2_comparison.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_nodes_1_and_2_comparison.png" width="700" height="350" /></a>
-<strong>Figure 3:</strong> Above we plot the activation for the first and second hidden units for each loop direction of the maze and subsequently their sum (bottom plot).  The x-axis labels analogous locations in the maze across the loops e.g. “Top Corner” on the middle plot shows the activation of <code>hidden node 2</code> for the top left corner location (blue) and the the top right corner (green).   Notably, the activations are pretty similar for the center hallway locations (“Fork”, “Bottom Center”, and “Mid Center”).</p>
-
-<p>The network does find 20 unique states (the true number of unique states in our task) and we can see this just using the first two hidden unit activations.  This begs the question: is the third hidden unit needed?  It would be <strong>very</strong> helpful to plot the multidimensional scaling for all three hidden unit activations, <del>so maybe somebody (<em>cough</em> Luis <em>cough</em> <em>cough</em> a.k.a. my own self <em>cough</em>) should do that</del> here is that <a href="http://ElPiloto.github.io/images/research/hidden_layer_mds.png">plot</a>. Another diagnostic to assess the utility of this third hidden unit would be to look at how the slow-feature analysis output varies based on whether we give all three hidden units or just the first two.
-<a href="http://ElPiloto.github.io/images/research/hidden_layer_representation_mds_rm_1st_visit.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_layer_representation_mds_rm_1st_visit.png" width="700" height="350" /></a> 
-<strong>Figure 4:</strong> Above we plot the hidden unit activations for each time step in our trajectory of 20 loops around the maze.  Importantly, locations on the outside of the maze (circles with black or magenta outlines) cluster together across visits. The center locations, however, are cluster according to loop direction.</p>
-
-<p>We can also look at the hidden layer represtation similarity from one location to the other locations as shown below.
-<a href="http://ElPiloto.github.io/images/research/hidden_layer_self_similarity.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/hidden_layer_self_similarity.png" width="700" height="350" /></a> 
-<strong>Figure 5:</strong> This shows the representational similarity for each unique state (recall that not all locations correspond to unique states).  The labels along the axes correspond to different locations on the maze (also indicating the loop direction when relevant) using the key below.</p>
-<center>
-<a href="http://ElPiloto.github.io/images/research/legend_correlation_plots.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/legend_correlation_plots.png" width="450" height="65" /></a> 
-</center>
-
-<p>Below we show an alternative method for visualizing the hidden layer representation of a location to other locations.
-<a href="http://ElPiloto.github.io/images/research/Linear_corr_states_hidden_and_sfa_hidden_representation.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/Linear_corr_states_hidden_and_sfa_hidden_representation.png" width="700" height="350" /></a>
-<strong>Figure 6:</strong> For each location in the maze, we create a subplot that shows the hidden layer representation for that location in the maze against all other locations in the maze.  For example, to look at the representational similarity between the top-left corner and the bottom-right corner, look at the top-left subplot and the bottom-right square within that subplot.  The similarity between a location and itself is also plotted, which is uninformative in the case of locations on the outside of the maze.  However, for locations that have multiple states (i.e. the fork location corresponds to both states “Fork - Leftward loop” and “Fork - Rightward loop”), the similarity is plotted across loop directions e.g. the top-center subplot shows the representational similarity for the fork location and the top-center value in that subplot corresponds to the representational similarity between the fork on a leftward loop and the fork on a rightward loop.</p>
-
-<h3 id="dump-of-sfa-similarity-plots">Dump of SFA Similarity Plots</h3>
-<p><a href="http://ElPiloto.github.io/images/research/Linear_corr_states_hidden_and_sfa_sfa3.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/Linear_corr_states_hidden_and_sfa_sfa3.png" width="700" height="350" /></a>
-<a href="http://ElPiloto.github.io/images/research/Linear_corr_states_hidden_and_sfa_sfa2.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/Linear_corr_states_hidden_and_sfa_sfa2.png" width="700" height="350" /></a>
-<a href="http://ElPiloto.github.io/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa3.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa3.png" width="700" height="350" /></a>
-<a href="http://ElPiloto.github.io/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa2.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa2.png" width="700" height="350" /></a></p>
 ]]></content>
   </entry>
   
