@@ -4,7 +4,7 @@
   <title><![CDATA[Category: noarchive | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/noarchive/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-10-09T17:32:39-04:00</updated>
+  <updated>2014-10-13T17:18:26-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: Pre-SFN Push]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/10/13/sleep-eeg-pre-sfn-push/"/>
+    <updated>2014-10-13T17:17:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/10/13/sleep-eeg-pre-sfn-push</id>
+    <content type="html"><![CDATA[<p><a href='/images/research/LOSO_POSTBUG/WAKE_ERP_TRANSFORM_SLEEP_ERP_AVG.jpg' target='_blank'><img src="/images/research/LOSO_POSTBUG/WAKE_ERP_TRANSFORM_SLEEP_ERP_AVG.jpg" width="700" height="350"></a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Howard Eichenbaum]]></title>
@@ -224,33 +233,6 @@ monosynapse from ventral hippocampus to PFC   </p>
 <p>Looking at the classifier weights for the first iteration of the fourth frequency for both parameter settings, we see that they have different values, so naturally removing features would produce different removed features for the second iteration.  Additionally, this implies there is something different being fed into the classifier for the first iteration that is producing different feature weights.</p>
 
 <p><strong>HERE IT IS:</strong>  Currently, we’ve been doing an RFE iteration (going from 64 features down to minimum num_features) for each frequency bin (2 Hz all the way up to 32 Hz).  To maintain the correct level of regularization, we take the max number of features (64) and look at the ratio of regularization (usually 10) to the number of features and keep this proportional as we remove more and more features.  The bug was that between RFE iterations (i.e. starting anew at 4 Hz, after doing 2 Hz), the regularization ratio was calculating using the previous iteration’s last number of features (not the max number of features) - so as we moved from 2 Hz to 32 Hz, our results got more and more skewed from the regular logistic regression results because we were using much smaller regularization.  This is fixed now!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sleep EEG: James Visit Recap and Brainstorm]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/09/18/sleep-eeg-james-visit-recap-and-brainstorm/"/>
-    <updated>2014-09-18T14:49:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/09/18/sleep-eeg-james-visit-recap-and-brainstorm</id>
-    <content type="html"><![CDATA[<h4 id="regarding-this-our-best-result-during-sleep-is-058---but-were-messed-up-by-multiple-comparisons">Regarding this, our best result, during sleep, is 0.58 - but we’re messed up by multiple comparisons</h4>
-<p>TODO: we can use our a priori best itmebin and frequency to analyze James’ new dataset (timebin 175ms, freq 16)</p>
-
-<p>Cephalapod L1 vs L2</p>
-
-<p>http://elpiloto.github.io/images/research/sleep_eeg_hilbert/sleep_hilb_mean_across_subjects_lambda1.png</p>
-
-<ul>
-  <li>
-    <p>negative peak of a slow-wave, phase of 0.6 - 1.2 Hz</p>
-  </li>
-  <li>
-    <p>how similar are frequency band patterns to each other?</p>
-  </li>
-</ul>
-
-<p>N170 is really sharp, maybe at 8 Hz and 225ms, large over Cz sometimes (doesn’t make a lot of sense anatomically - you’d expect it to be over occipital)</p>
-
-<p>once we get the template, we want to inspect them, although it’s hard to know what to expect</p>
 ]]></content>
   </entry>
   
