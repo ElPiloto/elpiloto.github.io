@@ -4,7 +4,7 @@
   <title><![CDATA[Category: EEG | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/eeg/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-10-13T17:46:23-04:00</updated>
+  <updated>2014-10-13T18:00:31-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -21,10 +21,12 @@
     <content type="html"><![CDATA[<p><a href='/images/research/LOSO_POSTBUG/WAKE_ERP_TRANSFORM_SLEEP_ERP_AVG.jpg' target='_blank'><img src="/images/research/LOSO_POSTBUG/WAKE_ERP_TRANSFORM_SLEEP_ERP_AVG.jpg" width="700" height="350"></a>    </p>
 
 <h3 id="with-rescaling">WITH rescaling</h3>
-<p><a href='/images/research/LOSO_POSTBUG/RESCALING_WAKE_LOSO_ERP_ZSCORE_175ms.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/RESCALING_WAKE_LOSO_ERP_ZSCORE_175ms.png" width="700" height="350"></a>    </p>
+<p><a href='/images/research/LOSO_POSTBUG/RESCALING_WAKE_LOSO_ERP_ZSCORE<em>175ms.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/RESCALING_WAKE_LOSO_ERP_ZSCORE<em>175ms.png" width="700" height="350"></a>  <br />
+<a href='/images/research/LOSO_POSTBUG/ERP_WAKE_LOSO_RESCALING_SPATIAL_TEMPLATES</em>175ms.jpg' target='_blank'><img src="/images/research/LOSO_POSTBUG/ERP_WAKE_LOSO_RESCALING_SPATIAL_TEMPLATES</em>175ms.jpg" width="700" height="350"></a>    </p>
 
 <h3 id="without-rescaling">WITHOUT rescaling</h3>
-<p><a href='/images/research/LOSO_POSTBUG/WITHOUT_RESCALING_WAKE_LOSO_ERP_ZSCORE_175ms.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/WITHOUT_RESCALING_WAKE_LOSO_ERP_ZSCORE_175ms.png" width="700" height="350"></a>    </p>
+<p><a href='/images/research/LOSO_POSTBUG/WITHOUT_RESCALING_WAKE_LOSO_ERP_ZSCORE<em>175ms.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/WITHOUT_RESCALING_WAKE_LOSO_ERP_ZSCORE<em>175ms.png" width="700" height="350"></a>  <br />
+<a href='/images/research/LOSO_POSTBUG/ERP_WAKE_LOSO_NORESCALING_SPATIAL_TEMPLATES</em>175ms.jpg' target='_blank'><img src="/images/research/LOSO_POSTBUG/ERP_WAKE_LOSO_NORESCALING_SPATIAL_TEMPLATES</em>175ms.jpg" width="700" height="350"></a>    </p>
 ]]></content>
   </entry>
   
