@@ -4,7 +4,7 @@
   <title><![CDATA[Something Witty]]></title>
   <link href="http://ElPiloto.github.io/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-10-14T13:54:30-04:00</updated>
+  <updated>2014-10-14T17:12:54-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -28,7 +28,9 @@
 <p><a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/WITHOUT_RESCALING_WAKE_LOSO_ERP_ZSCORE_175ms.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/WITHOUT_RESCALING_WAKE_LOSO_ERP_ZSCORE_175ms.png" width="700" height="350" /></a>  <br />
 <a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/ERP_WAKE_LOSO_NORESCALING_SPATIAL_TEMPLATES_175ms.jpg" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/ERP_WAKE_LOSO_NORESCALING_SPATIAL_TEMPLATES_175ms.jpg" width="700" height="350" /></a>    </p>
 
-<h2 id="second-batch-of-subjects">Second Batch Of Subjects:</h2>
+<h1 id="second-batch-of-subjects">Second Batch Of Subjects:</h1>
+
+<h2 id="things-that-are-the-same">Things that are the same:</h2>
 
 <h4 id="wake-loso-timebin-freq-sweep">Wake LOSO Timebin-Freq Sweep</h4>
 
@@ -37,6 +39,32 @@
 <p><a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUG_2nd_subjects_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUG_2nd_subjects_face_sceneAUC_lambda10.png" width="700" height="350" /></a>    </p>
 
 <p><a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUG_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUG_face_sceneAUC_lambda10.png" width="700" height="350" /></a>    </p>
+
+<h4 id="wake-loso-erp-classification">Wake LOSO ERP Classification</h4>
+
+<p><strong>2nd Batch Subjects</strong>
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/2nd_batch_LOSO_WAKE_LOGREG_ERP25_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/2nd_batch_LOSO_WAKE_LOGREG_ERP25_face_sceneAUC_lambda10.png" width="700" height="350" /></a>     <br />
+<strong>1st Batch Subjects</strong>   <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_ERP25_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_ERP25_face_sceneAUC_lambda10.png" width="700" height="350" /></a>       </p>
+
+<h2 id="things-that-are-not-the-same">Things that are NOT the same:</h2>
+
+<h4 id="sleep-loso-timebin-freq-sweep">Sleep LOSO Timebin-Freq Sweep</h4>
+<p><strong>2nd Batch Subjects</strong>
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SLEEP_LOSO_LOGREG_2nd_batch_subjects_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SLEEP_LOSO_LOGREG_2nd_batch_subjects_face_sceneAUC_lambda10.png" width="700" height="350" /></a>     <br />
+<strong>1st Batch Subjects</strong>   <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SLEEP_LOSO_LOGREG_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SLEEP_LOSO_LOGREG_face_sceneAUC_lambda10.png" width="700" height="350" /></a>       </p>
+
+<h4 id="sleep-loso-erp-classification">Sleep LOSO ERP Classification</h4>
+<p><strong>2nd Batch Subjects</strong>
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/2nd_batch_LOSO_SLEEP_LOGREG_ERP25_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/2nd_batch_LOSO_SLEEP_LOGREG_ERP25_face_sceneAUC_lambda10.png" width="700" height="350" /></a>     <br />
+<strong>1st Batch Subjects</strong>   <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/1st_batch_LOSO_SLEEP_LOGREG_ERP25_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/1st_batch_LOSO_SLEEP_LOGREG_ERP25_face_sceneAUC_lambda10.png" width="700" height="350" /></a>       </p>
+
+<h2 id="sleep-classify-spindleboost-trials-only">Sleep Classify SpindleBoost Trials Only</h2>
+<p><strong>2nd Batch Subjects</strong>
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SPINDLE_TRIALS_SLEEP_LOSO_LOGREG_2nd_batch_subjects_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SPINDLE_TRIALS_SLEEP_LOSO_LOGREG_2nd_batch_subjects_face_sceneAUC_lambda10.png" width="700" height="350" /></a>       </p>
+
 ]]></content>
   </entry>
   
