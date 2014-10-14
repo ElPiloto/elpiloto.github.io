@@ -4,7 +4,7 @@
   <title><![CDATA[Category: noarchive | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/noarchive/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-10-13T18:00:31-04:00</updated>
+  <updated>2014-10-14T13:54:30-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -27,6 +27,16 @@
 <h3 id="without-rescaling">WITHOUT rescaling</h3>
 <p><a href='/images/research/LOSO_POSTBUG/WITHOUT_RESCALING_WAKE_LOSO_ERP_ZSCORE<em>175ms.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/WITHOUT_RESCALING_WAKE_LOSO_ERP_ZSCORE<em>175ms.png" width="700" height="350"></a>  <br />
 <a href='/images/research/LOSO_POSTBUG/ERP_WAKE_LOSO_NORESCALING_SPATIAL_TEMPLATES</em>175ms.jpg' target='_blank'><img src="/images/research/LOSO_POSTBUG/ERP_WAKE_LOSO_NORESCALING_SPATIAL_TEMPLATES</em>175ms.jpg" width="700" height="350"></a>    </p>
+
+<h2 id="second-batch-of-subjects">Second Batch Of Subjects:</h2>
+
+<h4 id="wake-loso-timebin-freq-sweep">Wake LOSO Timebin-Freq Sweep</h4>
+
+<p>These two guys seem pretty similar (the top is the 2nd batch of subjects) </p>
+
+<p><a href='/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUG_2nd_subjects_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUG_2nd_subjects_face_sceneAUC_lambda10.png" width="700" height="350"></a>    </p>
+
+<p><a href='/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUG_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUG_face_sceneAUC_lambda10.png" width="700" height="350"></a>    </p>
 ]]></content>
   </entry>
   
