@@ -4,7 +4,7 @@
   <title><![CDATA[Category: EEG | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/eeg/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-10-30T10:52:38-04:00</updated>
+  <updated>2014-10-30T10:53:47-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -66,8 +66,9 @@
 {% img /images/research/LOSO_POSTBUG/SPINDLE_TRIALS_SLEEP_LOSO_LOGREG_2nd_batch_subjects_face_sceneAUC_lambda10.png 700 350 %}       </p>
 
 <h2 id="classify-erp-4-ms">Classify ERP 4 ms</h2>
-<p>#### WAKE   <br />
-<strong>2nd Batch Subjects</strong>
+
+<h4 id="wake">WAKE</h4>
+<p><strong>2nd Batch Subjects</strong>
 {% img /images/research/LOSO_POSTBUG/2nd_batch_LOSO_WAKE_LOGREG_ERP4<em>2seconds_face_sceneAUC_lambda10.png 700 350 %}     <br />
 <strong>1st Batch Subjects</strong>   <br />
 {% img /images/research/LOSO_POSTBUG/1st_batch_LOSO_WAKE_LOGREG_ERP4</em>2seconds_face_sceneAUC_lambda10.png 700 350 %}       </p>
