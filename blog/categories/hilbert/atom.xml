@@ -4,7 +4,7 @@
   <title><![CDATA[Category: hilbert | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/hilbert/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-10-30T10:48:50-04:00</updated>
+  <updated>2014-10-30T10:50:10-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -67,7 +67,7 @@
 
 <h2 id="wake-classify-erp-4-ms">Wake Classify ERP 4 ms</h2>
 <p><strong>2nd Batch Subjects</strong>
-<a href='~/octopress/source/images/research/LOSO_POSTBUG/2nd_batch_LOSO_SLEEP_LOGREG_ERP4<em>2seconds_face_sceneAUC_lambda10.png' target='_blank'><img src="~/octopress/source/images/research/LOSO_POSTBUG/2nd_batch_LOSO_SLEEP_LOGREG_ERP4<em>2seconds_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
+<a href='/images/research/LOSO_POSTBUG/2nd_batch_LOSO_SLEEP_LOGREG_ERP4<em>2seconds_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/2nd_batch_LOSO_SLEEP_LOGREG_ERP4<em>2seconds_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
 <strong>1st Batch Subjects</strong>   <br />
 <a href='/images/research/LOSO_POSTBUG/1st_batch_LOSO_SLEEP_LOGREG_ERP4</em>2seconds_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/1st_batch_LOSO_SLEEP_LOGREG_ERP4</em>2seconds_face_sceneAUC_lambda10.png" width="700" height="350"></a>       </p>
 
