@@ -4,7 +4,7 @@
   <title><![CDATA[Category: botvinick | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/botvinick/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-10-14T17:16:30-04:00</updated>
+  <updated>2014-10-30T10:48:50-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -50,8 +50,8 @@
 <h3 id="different-num-hidden-units">Different Num Hidden Units</h3>
 
 <h4 id="hidden-unit-mds-plots">Hidden Unit MDS Plots</h4>
-<p>{% img /images/research/sfa_lstm/hidden_layer_width3_hidden5_loop.png 750 350 %} 
-{% img /images/research/sfa_lstm/hidden_layer_width3_hidden3_loop.png 750 350 %} </p>
+<p><a href='/images/research/sfa_lstm/hidden_layer_width3_hidden5_loop.png' target='_blank'><img src="/images/research/sfa_lstm/hidden_layer_width3_hidden5_loop.png" width="750" height="350"></a> 
+<a href='/images/research/sfa_lstm/hidden_layer_width3_hidden3_loop.png' target='_blank'><img src="/images/research/sfa_lstm/hidden_layer_width3_hidden3_loop.png" width="750" height="350"></a> </p>
 
 <h5 id="observations">Observations:</h5>
 <ol>
@@ -61,18 +61,18 @@
 </ol>
 
 <h4 id="hidden-unit-similarity-plots-according-to-location-on-maze">Hidden Unit Similarity Plots According to Location on Maze</h4>
-<p>{% img /images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden5.png 750 350 %} 
+<p><a href='/images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden5.png' target='_blank'><img src="/images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden5.png" width="750" height="350"></a> 
 <strong>Figure 2a) 5 Hidden Units</strong>
-{% img /images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden3.png 750 350 %} 
+<a href='/images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden3.png' target='_blank'><img src="/images/research/sfa_lstm/Linear_corr_states_hidden_representation_width3_hidden3.png" width="750" height="350"></a> 
 <strong>Figure 2b) 3 Hidden Units</strong>  </p>
 
 <h5 id="observations-1">Observations:</h5>
 <p>This is just another way of seeing how much cleaner the 5 hidden units representation is.</p>
 
 <h4 id="linear-sfa-top-2-slowest-features">Linear SFA Top 2 Slowest Features</h4>
-<p>{% img /images/research/sfa_lstm/sfa<em>1st</em>2<em>features_rm</em>1st_visit_width3<em>hidden5.png 750 350 %} 
+<p><a href='/images/research/sfa_lstm/sfa<em>1st</em>2<em>features_rm</em>1st_visit_width3<em>hidden5.png' target='_blank'><img src="/images/research/sfa_lstm/sfa<em>1st</em>2<em>features_rm</em>1st_visit_width3<em>hidden5.png" width="750" height="350"></a> 
 <strong>Figure 3a) 5 Hidden Units</strong>
-{% img /images/research/sfa_lstm/sfa</em>1st<em>2_features_rm</em>1st_visit_width3_hidden3.png 750 350 %} 
+<a href='/images/research/sfa_lstm/sfa</em>1st<em>2_features_rm</em>1st_visit_width3_hidden3.png' target='_blank'><img src="/images/research/sfa_lstm/sfa</em>1st<em>2_features_rm</em>1st_visit_width3_hidden3.png" width="750" height="350"></a> 
 <strong>Figure 3b) 3 Hidden Units</strong>   </p>
 
 <h5 id="observations-2">Observations:</h5>
@@ -81,9 +81,9 @@
   <li>The question is: how much of this is the neural network and how much of this is SFA? Well let’s look at the plots below of the raw hidden layer values across the maze.  If the neural network is doing all the heavy lifting, then we would see a single, slowly varying feature that encodes the loops direction but this doesn’t seem to be the case!</li>
 </ol>
 
-<p>{% img /images/research/sfa_lstm/hidden_layer_on_maze_raw_left_width3_hidden5.png 750 350 %} 
+<p><a href='/images/research/sfa_lstm/hidden_layer_on_maze_raw_left_width3_hidden5.png' target='_blank'><img src="/images/research/sfa_lstm/hidden_layer_on_maze_raw_left_width3_hidden5.png" width="750" height="350"></a> 
 <strong>Figure 4a) 5 Hidden Units</strong>
-{% img /images/research/sfa_lstm/hidden_layer_on_maze_raw_right_width3_hidden5.png 750 350 %} 
+<a href='/images/research/sfa_lstm/hidden_layer_on_maze_raw_right_width3_hidden5.png' target='_blank'><img src="/images/research/sfa_lstm/hidden_layer_on_maze_raw_right_width3_hidden5.png" width="750" height="350"></a> 
 <strong>Figure 4b) 5 Hidden Units</strong>   </p>
 
 <p><strong>NOTE:</strong> These colors look exactly the same along the central corridor (which would be troubling), but their values are actually different if you look at the numbers.</p>
@@ -91,19 +91,19 @@
 <h3 id="different-maze-size----width-7-5-hidden-units">Different Maze Size  - Width 7, 5 Hidden Units</h3>
 
 <h4 id="hidden-unit-mds-plots-1">Hidden Unit MDS Plots</h4>
-<p>{% img /images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png 750 350 %} </p>
+<p><a href='/images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png' target='_blank'><img src="/images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png" width="750" height="350"></a> </p>
 
 <h4 id="linear-sfa-top-2-slowest-features-1">Linear SFA Top 2 Slowest Features</h4>
 
-<p>{% img /images/research/sfa_lstm/sfa_linear_1st2features_width7_hidden5.png 750 350 %} </p>
+<p><a href='/images/research/sfa_lstm/sfa_linear_1st2features_width7_hidden5.png' target='_blank'><img src="/images/research/sfa_lstm/sfa_linear_1st2features_width7_hidden5.png" width="750" height="350"></a> </p>
 
 <h3 id="different-maze-structure">Different Maze Structure</h3>
 
 <h4 id="hidden-unit-mds-plots-2">Hidden Unit MDS Plots</h4>
-<p>{% img /images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png 750 350 %} </p>
+<p><a href='/images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png' target='_blank'><img src="/images/research/sfa_lstm/hidden_layer_mds_width7_hidden5.png" width="750" height="350"></a> </p>
 
 <h4 id="linear-sfa-top-2-slowest-features-2">Linear SFA Top 2 Slowest Features</h4>
-<p>{% img /images/research/sfa_lstm/sfa_1wayloop_width7_hidden5.png 750 350 %} </p>
+<p><a href='/images/research/sfa_lstm/sfa_1wayloop_width7_hidden5.png' target='_blank'><img src="/images/research/sfa_lstm/sfa_1wayloop_width7_hidden5.png" width="750" height="350"></a> </p>
 
 <h3 id="meeting-with-mattbot">Meeting with Mattbot:</h3>
 
@@ -152,41 +152,41 @@
 <h3 id="raw-hidden-layer-and-sfa-values">Raw Hidden Layer and SFA Values</h3>
 
 <p>In a previous post, we have the raw hidden layer representation as we loop around the maze.  Here is an alternate version of that plot:
-{% img /images/research/hidden_layer_time_series.png 700 350 %}
+<a href='/images/research/hidden_layer_time_series.png' target='_blank'><img src="/images/research/hidden_layer_time_series.png" width="700" height="350"></a>
 <strong>Figure 1:</strong> The first three subplots show the hidden layer activations for all three hidden nodes.  The last subplot shows the sum of all three activations.  The blue stripes in the background correspond to the times during which the “rat” is at the fork.  Alternating bands correspond to travelling in alternate directions of the maze.</p>
 
 <p>This task is only non-Markovian in the center hallway: the correct action is entirely determined by the current location for all locations on the outside of the maze, but this is not true of the center hallway locations.  If we look at <code>hidden node 3</code>, we see that it only differs in value across loop directions at the timepoints near the fork.  Essentially, <code>hidden node 3</code> provides a linearly separable signal that indicates the direction of travel.  This is made even clearer in the two plots below showing the hidden layer activations for each location on the maze either on a leftward or rightward loop.</p>
 
-<p>{% img /images/research/hidden_layer_on_maze_raw_left.png 700 350 %}
-{% img /images/research/hidden_layer_on_maze_raw_right.png 700 350 %}</p>
+<p><a href='/images/research/hidden_layer_on_maze_raw_left.png' target='_blank'><img src="/images/research/hidden_layer_on_maze_raw_left.png" width="700" height="350"></a>
+<a href='/images/research/hidden_layer_on_maze_raw_right.png' target='_blank'><img src="/images/research/hidden_layer_on_maze_raw_right.png" width="700" height="350"></a></p>
 
 <p><strong>Figure 2:</strong>  The normalized (-1 to 1) hidden layer representation, a vector of three values: one for each hidden node, for each location in the maze is plotted using <em>imagesc</em> at that location in the maze.  This is done for both leftward (top) and rightward (bottom) loops.  For example, the subplot in the middle row of the center column on the top plot (“Raw Hidden Layer Values - Left”) shows the hidden layer representation for that location in the maze during a leftward loop.  The hidden layer representation for that location during a rightward loop is shown on the bottom plot at the same location.  Do not be confused by the fact that the bottom plot for a rightward loop has filled in values for locations on the maze that are only visited during a leftward loop - these are just pasted in from the leftward loop for visualization purposes (and vice-versa for the leftward loop and rightward loop maze locations).</p>
 
 <p>We see that <code>hidden node 3</code> has different values for the different loops along the center hallway, but nearly symmetric values along the outsides of the maze.  It is less clear what the other hidden units may be encoding.  A comparison of the first two hidden unit activations across loops shows that they code the outer loops of the maze differently, but not points along the center hallway (Figure 3 below).</p>
 
-<p>{% img /images/research/hidden_nodes<em>1_and</em>2_comparison.png 700 350 %}
+<p><a href='/images/research/hidden_nodes<em>1_and</em>2_comparison.png' target='_blank'><img src="/images/research/hidden_nodes<em>1_and</em>2_comparison.png" width="700" height="350"></a>
 <strong>Figure 3:</strong> Above we plot the activation for the first and second hidden units for each loop direction of the maze and subsequently their sum (bottom plot).  The x-axis labels analogous locations in the maze across the loops e.g. “Top Corner” on the middle plot shows the activation of <code>hidden node 2</code> for the top left corner location (blue) and the the top right corner (green).   Notably, the activations are pretty similar for the center hallway locations (“Fork”, “Bottom Center”, and “Mid Center”).</p>
 
 <p>The network does find 20 unique states (the true number of unique states in our task) and we can see this just using the first two hidden unit activations.  This begs the question: is the third hidden unit needed?  It would be <strong>very</strong> helpful to plot the multidimensional scaling for all three hidden unit activations, <del>so maybe somebody (<em>cough</em> Luis <em>cough</em> <em>cough</em> a.k.a. my own self <em>cough</em>) should do that</del> here is that <a href="/images/research/hidden_layer_mds.png">plot</a>. Another diagnostic to assess the utility of this third hidden unit would be to look at how the slow-feature analysis output varies based on whether we give all three hidden units or just the first two.
-{% img /images/research/hidden_layer_representation_mds_rm_1st_visit.png 700 350 %} 
+<a href='/images/research/hidden_layer_representation_mds_rm_1st_visit.png' target='_blank'><img src="/images/research/hidden_layer_representation_mds_rm_1st_visit.png" width="700" height="350"></a> 
 <strong>Figure 4:</strong> Above we plot the hidden unit activations for each time step in our trajectory of 20 loops around the maze.  Importantly, locations on the outside of the maze (circles with black or magenta outlines) cluster together across visits. The center locations, however, are cluster according to loop direction.</p>
 
 <p>We can also look at the hidden layer represtation similarity from one location to the other locations as shown below.
-{% img /images/research/hidden_layer_self_similarity.png 700 350 %} 
+<a href='/images/research/hidden_layer_self_similarity.png' target='_blank'><img src="/images/research/hidden_layer_self_similarity.png" width="700" height="350"></a> 
 <strong>Figure 5:</strong> This shows the representational similarity for each unique state (recall that not all locations correspond to unique states).  The labels along the axes correspond to different locations on the maze (also indicating the loop direction when relevant) using the key below.</p>
 <center>
-{% img /images/research/legend_correlation_plots.png 450 65 %} 
+<a href='/images/research/legend_correlation_plots.png' target='_blank'><img src="/images/research/legend_correlation_plots.png" width="450" height="65"></a> 
 </center>
 
 <p>Below we show an alternative method for visualizing the hidden layer representation of a location to other locations.
-{% img /images/research/Linear_corr_states_hidden_and_sfa_hidden_representation.png 700 350 %}
+<a href='/images/research/Linear_corr_states_hidden_and_sfa_hidden_representation.png' target='_blank'><img src="/images/research/Linear_corr_states_hidden_and_sfa_hidden_representation.png" width="700" height="350"></a>
 <strong>Figure 6:</strong> For each location in the maze, we create a subplot that shows the hidden layer representation for that location in the maze against all other locations in the maze.  For example, to look at the representational similarity between the top-left corner and the bottom-right corner, look at the top-left subplot and the bottom-right square within that subplot.  The similarity between a location and itself is also plotted, which is uninformative in the case of locations on the outside of the maze.  However, for locations that have multiple states (i.e. the fork location corresponds to both states “Fork - Leftward loop” and “Fork - Rightward loop”), the similarity is plotted across loop directions e.g. the top-center subplot shows the representational similarity for the fork location and the top-center value in that subplot corresponds to the representational similarity between the fork on a leftward loop and the fork on a rightward loop.</p>
 
 <h3 id="dump-of-sfa-similarity-plots">Dump of SFA Similarity Plots</h3>
-<p>{% img /images/research/Linear_corr_states_hidden_and_sfa_sfa3.png 700 350 %}
-{% img /images/research/Linear_corr_states_hidden_and_sfa_sfa2.png 700 350 %}
-{% img /images/research/Nonlinear_corr_states_hidden_and_sfa_sfa3.png 700 350 %}
-{% img /images/research/Nonlinear_corr_states_hidden_and_sfa_sfa2.png 700 350 %}</p>
+<p><a href='/images/research/Linear_corr_states_hidden_and_sfa_sfa3.png' target='_blank'><img src="/images/research/Linear_corr_states_hidden_and_sfa_sfa3.png" width="700" height="350"></a>
+<a href='/images/research/Linear_corr_states_hidden_and_sfa_sfa2.png' target='_blank'><img src="/images/research/Linear_corr_states_hidden_and_sfa_sfa2.png" width="700" height="350"></a>
+<a href='/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa3.png' target='_blank'><img src="/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa3.png" width="700" height="350"></a>
+<a href='/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa2.png' target='_blank'><img src="/images/research/Nonlinear_corr_states_hidden_and_sfa_sfa2.png" width="700" height="350"></a></p>
 ]]></content>
   </entry>
   

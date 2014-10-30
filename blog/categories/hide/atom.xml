@@ -4,7 +4,7 @@
   <title><![CDATA[Category: hide | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/hide/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-10-14T17:16:30-04:00</updated>
+  <updated>2014-10-30T10:48:50-04:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -14,19 +14,170 @@
 
   
   <entry>
+    <title type="html"><![CDATA[ZNN: Cpu-based Conv Nets]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/10/20/znn-cpu-based-conv-nets/"/>
+    <updated>2014-10-20T12:08:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/10/20/znn-cpu-based-conv-nets</id>
+    <content type="html"><![CDATA[<h1 id="znn">ZNN</h1>
+
+<h3 id="motivation">Motivation</h3>
+<ul>
+  <li>not that many neural network implementations utilize multi-cpu</li>
+  <li>o</li>
+</ul>
+
+<h2 id="convoluational-neural-net-training">Convoluational Neural Net Training</h2>
+
+<h4 id="forward-pass">Forward Pass:</h4>
+<p><em>Direct:</em>
+- each edge is a filter
+- convolve f &amp; w
+<em>FFT Method:</em>
+- FFT of image
+- FFT of filter
+- Multiple
+- inverse FFT</p>
+
+<h4 id="backward-pass">Backward Pass:</h4>
+<p><em>Direct:</em>   <br />
+calculate G   <br />
+convolve g and w   <br />
+<em>FFT Method:</em>   <br />
+- calculate FFT of G   <br />
+- FFT of W (already calculcated during forward pass)   <br />
+- inverse FFT     </p>
+
+<h4 id="updating-weights">Updating Weights</h4>
+<p><em>Direct:</em>   <br />
+- calculate $\frac{dE}{dB}$ and update the biases  <br />
+- convolve F(ilter) &amp; G’ and update W   <br />
+<em>FFT:</em>   <br />
+- calculate $\frac{dE}{dB}$ and update the biases   <br />
+- IFFT(FFT(F),FFT(G)), update W     </p>
+
+<h2 id="parallel-models--data-vs-thread-vs-task-model">Parallel Models:  Data vs. Thread vs. Task Model</h2>
+
+<p><strong>Data Model:</strong>
+- parallelize a single operation (convolution)  <br />
+- example: parallel loops   <br />
+<strong>Thread Model:</strong>  <br />
+- each thread has its own duties    <br />
+- thread communicate with signals/messages   <br />
+<strong>Task Model:</strong>  <br />
+- taks is an abstract concept - a function <br />
+- CPUs pick up tasks that are ready to be executed  <br />
+- global queue - can be prioritized  <br />
+- tasks can be stolen   </p>
+
+<h2 id="znns-task-model">ZNN’s Task Model</h2>
+<p><strong>Prioritized Task Model</strong>
+<strong>Scheduling strategy</strong>
+- priority based on the numbder of tasks depending on the current task’s completion
+<strong>Stealing tasks</strong>     </p>
+
+<h2 id="general-idea-for-parallelizing-forward-pass">General Idea for parallelizing forward pass:</h2>
+<p>Let’s look at dependencies (for instance, need to load a training example before you’ll need to FFT it, maybe even before you FFT individual filters, etc) and to grab job’s as needed.  <br />
+- Ultimately this leads to the only bottleneck being waiting for the output peceptron    </p>
+
+<h2 id="general-idea-for-parallelizing-backward-pass">General Idea for parallelizing backward pass:</h2>
+<ul>
+  <li>can update weights as you do backward pass   </li>
+</ul>
+
+<h1 id="how-to-znn">How to Znn?</h1>
+
+<p>Three input files:  <br />
+1.  Network spec  <br />
+2. Data spec  <br />
+3. Training Options     </p>
+
+<h4 id="network-spec">Network Spec:</h4>
+<p>Can be specified as a graph:  <br />
+	- node groups and edge groups  <br />
+[C1]    % unique name of node group
+size=5   % number of nodes
+activation=tanh
+act_params=1.712,0.666
+% mass pooling operation(only support max pooling, atm)
+filter=max
+filter_size=2,2,1
+filter_stride=2,2,1
+% weight/bias initialization
+init_type=Uniform
+init_params=0.05
+bias=0
+% learning
+eta=0.01
+mom=0.9
+wc=0
+% fft switch - unnecessary
+fft=0</p>
+
+<p>Edgegroup spec:
+[SOURCENODE_TARGETNODEGROUP] 
+size=4,4,1
+% more initialization
+init_type=Uniform
+init_params=0.05</p>
+
+<h4 id="data-spec">Data Spec:</h4>
+<p>[INPUT1]
+path=
+ext=image
+size=512,512,30
+pptype=standard2D %preprocessing -</p>
+
+<p>[LABEL1]</p>
+
+<h4 id="training-options">Training Options:</h4>
+<p>[PATH]
+config=./networks/N3.spec
+load= (can load previously saved network instances)
+data= DATA_SPEC_FILE
+save = SAVE_FILE
+[OPTIMIZE]
+n_threads=64
+force_fft=0 % force all edge groups to use FFT
+optimize_fft=1
+[TRAIN]
+train_range=1
+test_range=2
+outsz=100,100,1
+dp_type=volume % data provider types - only allows volume currently   <br />
+cost_fn=cross_entropy   <br />
+cost_fn_param=0    <br />
+data_aug=1 % randomly transform input data (random rotation, random flip - each data provider is responsible for implementing its own data augmentation logic)   <br />
+clas_thresh=0.5 % classification threshold   <br />
+softmax=1 % apply softmax at output layer  <br />
+[UPDATE]
+force_eta=0.01
+momentum=0.9
+wc=0
+anneal_factor=0.997
+anneal_freq
+[MONITOR] % saves current network instance
+n_iters=100000
+check_freq=10
+test_freq=100
+test_samples=10</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Sleep EEG: Pre-SFN Push]]></title>
     <link href="http://ElPiloto.github.io/blog/2014/10/13/sleep-eeg-pre-sfn-push/"/>
     <updated>2014-10-13T17:17:00-04:00</updated>
     <id>http://ElPiloto.github.io/blog/2014/10/13/sleep-eeg-pre-sfn-push</id>
-    <content type="html"><![CDATA[<p>{% img /images/research/LOSO_POSTBUG/WAKE_ERP_TRANSFORM_SLEEP_ERP_AVG.jpg 700 350 %}    </p>
+    <content type="html"><![CDATA[<p><a href='/images/research/LOSO_POSTBUG/WAKE_ERP_TRANSFORM_SLEEP_ERP_AVG.jpg' target='_blank'><img src="/images/research/LOSO_POSTBUG/WAKE_ERP_TRANSFORM_SLEEP_ERP_AVG.jpg" width="700" height="350"></a>    </p>
 
 <h3 id="with-rescaling">WITH rescaling</h3>
-<p>{% img /images/research/LOSO_POSTBUG/RESCALING_WAKE_LOSO_ERP_ZSCORE<em>175ms.png 700 350 %}  <br />
-{% img /images/research/LOSO_POSTBUG/ERP_WAKE_LOSO_RESCALING_SPATIAL_TEMPLATES</em>175ms.jpg 700 350 %}    </p>
+<p><a href='/images/research/LOSO_POSTBUG/RESCALING_WAKE_LOSO_ERP_ZSCORE<em>175ms.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/RESCALING_WAKE_LOSO_ERP_ZSCORE<em>175ms.png" width="700" height="350"></a>  <br />
+<a href='/images/research/LOSO_POSTBUG/ERP_WAKE_LOSO_RESCALING_SPATIAL_TEMPLATES</em>175ms.jpg' target='_blank'><img src="/images/research/LOSO_POSTBUG/ERP_WAKE_LOSO_RESCALING_SPATIAL_TEMPLATES</em>175ms.jpg" width="700" height="350"></a>    </p>
 
 <h3 id="without-rescaling">WITHOUT rescaling</h3>
-<p>{% img /images/research/LOSO_POSTBUG/WITHOUT_RESCALING_WAKE_LOSO_ERP_ZSCORE<em>175ms.png 700 350 %}  <br />
-{% img /images/research/LOSO_POSTBUG/ERP_WAKE_LOSO_NORESCALING_SPATIAL_TEMPLATES</em>175ms.jpg 700 350 %}    </p>
+<p><a href='/images/research/LOSO_POSTBUG/WITHOUT_RESCALING_WAKE_LOSO_ERP_ZSCORE<em>175ms.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/WITHOUT_RESCALING_WAKE_LOSO_ERP_ZSCORE<em>175ms.png" width="700" height="350"></a>  <br />
+<a href='/images/research/LOSO_POSTBUG/ERP_WAKE_LOSO_NORESCALING_SPATIAL_TEMPLATES</em>175ms.jpg' target='_blank'><img src="/images/research/LOSO_POSTBUG/ERP_WAKE_LOSO_NORESCALING_SPATIAL_TEMPLATES</em>175ms.jpg" width="700" height="350"></a>    </p>
 
 <h1 id="second-batch-of-subjects">Second Batch Of Subjects:</h1>
 
@@ -36,34 +187,40 @@
 
 <p>These two guys seem pretty similar (the top is the 2nd batch of subjects) </p>
 
-<p>{% img /images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUG_2nd_subjects_face_sceneAUC_lambda10.png 700 350 %}    </p>
+<p><a href='/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUG_2nd_subjects_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUG_2nd_subjects_face_sceneAUC_lambda10.png" width="700" height="350"></a>    </p>
 
-<p>{% img /images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUG_face_sceneAUC_lambda10.png 700 350 %}    </p>
+<p><a href='/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUG_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUG_face_sceneAUC_lambda10.png" width="700" height="350"></a>    </p>
 
 <h4 id="wake-loso-erp-classification">Wake LOSO ERP Classification</h4>
 
 <p><strong>2nd Batch Subjects</strong>
-{% img /images/research/LOSO_POSTBUG/2nd_batch_LOSO_WAKE_LOGREG_ERP25_face_sceneAUC_lambda10.png 700 350 %}     <br />
+<a href='/images/research/LOSO_POSTBUG/2nd_batch_LOSO_WAKE_LOGREG_ERP25_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/2nd_batch_LOSO_WAKE_LOGREG_ERP25_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
 <strong>1st Batch Subjects</strong>   <br />
-{% img /images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_ERP25_face_sceneAUC_lambda10.png 700 350 %}       </p>
+<a href='/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_ERP25_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_ERP25_face_sceneAUC_lambda10.png" width="700" height="350"></a>       </p>
 
 <h2 id="things-that-are-not-the-same">Things that are NOT the same:</h2>
 
 <h4 id="sleep-loso-timebin-freq-sweep">Sleep LOSO Timebin-Freq Sweep</h4>
 <p><strong>2nd Batch Subjects</strong>
-{% img /images/research/LOSO_POSTBUG/SLEEP_LOSO_LOGREG_2nd_batch_subjects_face_sceneAUC_lambda10.png 700 350 %}     <br />
+<a href='/images/research/LOSO_POSTBUG/SLEEP_LOSO_LOGREG_2nd_batch_subjects_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SLEEP_LOSO_LOGREG_2nd_batch_subjects_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
 <strong>1st Batch Subjects</strong>   <br />
-{% img /images/research/LOSO_POSTBUG/SLEEP_LOSO_LOGREG_face_sceneAUC_lambda10.png 700 350 %}       </p>
+<a href='/images/research/LOSO_POSTBUG/SLEEP_LOSO_LOGREG_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SLEEP_LOSO_LOGREG_face_sceneAUC_lambda10.png" width="700" height="350"></a>       </p>
 
 <h4 id="sleep-loso-erp-classification">Sleep LOSO ERP Classification</h4>
 <p><strong>2nd Batch Subjects</strong>
-{% img /images/research/LOSO_POSTBUG/2nd_batch_LOSO_SLEEP_LOGREG_ERP25_face_sceneAUC_lambda10.png 700 350 %}     <br />
+<a href='/images/research/LOSO_POSTBUG/2nd_batch_LOSO_SLEEP_LOGREG_ERP25_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/2nd_batch_LOSO_SLEEP_LOGREG_ERP25_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
 <strong>1st Batch Subjects</strong>   <br />
-{% img /images/research/LOSO_POSTBUG/1st_batch_LOSO_SLEEP_LOGREG_ERP25_face_sceneAUC_lambda10.png 700 350 %}       </p>
+<a href='/images/research/LOSO_POSTBUG/1st_batch_LOSO_SLEEP_LOGREG_ERP25_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/1st_batch_LOSO_SLEEP_LOGREG_ERP25_face_sceneAUC_lambda10.png" width="700" height="350"></a>       </p>
 
 <h2 id="sleep-classify-spindleboost-trials-only">Sleep Classify SpindleBoost Trials Only</h2>
 <p><strong>2nd Batch Subjects</strong>
-{% img /images/research/LOSO_POSTBUG/SPINDLE_TRIALS_SLEEP_LOSO_LOGREG_2nd_batch_subjects_face_sceneAUC_lambda10.png 700 350 %}       </p>
+<a href='/images/research/LOSO_POSTBUG/SPINDLE_TRIALS_SLEEP_LOSO_LOGREG_2nd_batch_subjects_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SPINDLE_TRIALS_SLEEP_LOSO_LOGREG_2nd_batch_subjects_face_sceneAUC_lambda10.png" width="700" height="350"></a>       </p>
+
+<h2 id="wake-classify-erp-4-ms">Wake Classify ERP 4 ms</h2>
+<p><strong>2nd Batch Subjects</strong>
+<a href='~/octopress/source/images/research/LOSO_POSTBUG/2nd_batch_LOSO_SLEEP_LOGREG_ERP4<em>2seconds_face_sceneAUC_lambda10.png' target='_blank'><img src="~/octopress/source/images/research/LOSO_POSTBUG/2nd_batch_LOSO_SLEEP_LOGREG_ERP4<em>2seconds_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
+<strong>1st Batch Subjects</strong>   <br />
+<a href='/images/research/LOSO_POSTBUG/1st_batch_LOSO_SLEEP_LOGREG_ERP4</em>2seconds_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/1st_batch_LOSO_SLEEP_LOGREG_ERP4</em>2seconds_face_sceneAUC_lambda10.png" width="700" height="350"></a>       </p>
 
 ]]></content>
   </entry>
@@ -190,7 +347,7 @@ monosynapse from ventral hippocampus to PFC   </p>
 <h4 id="looking-for-best-timebin-and-frequency">Looking for best timebin and frequency:</h4>
 <p>previously we liked <strong>300 ms</strong> time bin and were slightly frequency agnostic based on <a href="http://ElPiloto.github.io/images/research/LOSO_sleep_transform/LOSO_WAKE_LOGREG_SWEEP_PVAL_face_sceneAUC_lambda10.png">this</a>, but now we get totally different looking results:</p>
 
-<p>{% img /images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUGPVAL_face_sceneAUC_lambda10.png 700 350 %}</p>
+<p><a href='/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUGPVAL_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUGPVAL_face_sceneAUC_lambda10.png" width="700" height="350"></a></p>
 
 <p><strong>Thoughts:</strong> Cool things: we’re getting something around when you’d expect to see the N170 for faces!  We were getting hints of this when we were doing individual subject classification, but it seems that this is the only thing from the <a href="http://ElPiloto.github.io/images/research/sleep_eeg_hilbert/wake_hilb_mean_across_subjects.png">subject-specific classification</a> that comes through in the LOSO analysis (although we also get other strongly classifiable time bins in the LOSO analsis, it’s just that those didn’t pop out in the subject-specific classification results).  <strong>SO</strong>, I say let’s generate transformed sleep data plotaccording to four or five different patterns: 
 	- something in the 4 Hz, 125-275 ms timebin range
@@ -204,16 +361,16 @@ monosynapse from ventral hippocampus to PFC   </p>
 <h4 id="lets-look-at-the-recursive-feature-analysis-results-for-lambda--10">Let’s look at the recursive feature analysis results for $\lambda = 10$</h4>
 <p>And see what’s the best we get across the different time bins for the 4 Hz and 8 Hz frequencies at some points that we cared about: <del>- I’m working on presenting these in a better fashion but for now these are the plots that were most easily generated:</del>   </p>
 
-<p>{% img /images/research/LOSO_POSTBUG/LOSO_RFE_BEST.png 700 350 %}   </p>
+<p><a href='/images/research/LOSO_POSTBUG/LOSO_RFE_BEST.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/LOSO_RFE_BEST.png" width="700" height="350"></a>   </p>
 
 <h4 id="additionally-lets-look-at-wake-loso-classification-using-just-erps">Additionally, let’s look at wake LOSO classification using just ERPs:</h4>
 <p>Well, this is awkward: our best classification results are for using the ERPs: 68% accuracy.</p>
 
-<p>{% img /images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_ERP25_face_sceneAUC_lambda10.png 700 350 %}</p>
+<p><a href='/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_ERP25_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_ERP25_face_sceneAUC_lambda10.png" width="700" height="350"></a></p>
 
 <h4 id="lastly-lets-not-forget-that-we-wanted-to-look-at-16-hz-175-ms-in-the-sleep-data-because-we-did-well-with-it-on-an-individual-subject-level-as-seen-here">Lastly, let’s not forget that we wanted to look at 16 Hz, 175 ms in the sleep data because we did well with it on an individual subject level as seen here:</h4>
 
-<p>{% img /images/research/sleep_eeg_hilbert/sleep_hilb_mean_across_subjects_lambda1.png 700 350 %}</p>
+<p><a href='/images/research/sleep_eeg_hilbert/sleep_hilb_mean_across_subjects_lambda1.png' target='_blank'><img src="/images/research/sleep_eeg_hilbert/sleep_hilb_mean_across_subjects_lambda1.png" width="700" height="350"></a></p>
 
 <p><strong>TODO:</strong></p>
 
@@ -223,62 +380,6 @@ monosynapse from ventral hippocampus to PFC   </p>
   <li>let’s look at RFE and ERP results, too and generate a template based on that as well!</li>
   <li>let’s do whatever we can to help James preprocess the validation subjects</li>
 </ul>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sleep EEG: Replicating best p-val results]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/09/25/sleep-eeg-replicating-best-p-val-results/"/>
-    <updated>2014-09-25T14:51:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/09/25/sleep-eeg-replicating-best-p-val-results</id>
-    <content type="html"><![CDATA[<h3 id="we-are-trying-to-replicate-these-results-below">We are trying to replicate these results below:</h3>
-
-<h4 id="so-far-ive-tried">So far I’ve tried:</h4>
-<ul>
-  <li>Running the same exact analysis (driver_LOSO_replicate_PVAL.m)   </li>
-  <li>Running the same exact analysis but only classifying between faces and scenes via:
-<code>preprocessing.type_specifics_args.classes = [1 2];</code>    <br />
-    <ul>
-      <li>this did not help   </li>
-    </ul>
-  </li>
-  <li>Try loading up results from Sept 09, and regenerating plots - will indicate whether or not something changed in plots or results. <br />
-    <ul>
-      <li>Doing this, I’ve found that the results of interest are specifically in this file:  <br />
-<code> 09-Sep-2014_14_04_44LOSO_WAKE_logreg_sweep.mat </code>   </li>
-      <li>I’ve found that it is in fact for $ \lambda = 10 $ (I was worried I might have accidentally documented the wrong value of $\lambda$)       </li>
-      <li>We were classifying against all 5 classes (validating our findings above that classifying only faces vs scenes did not reproduce the results)   </li>
-    </ul>
-  </li>
-  <li>Try duplicating exact time range used originally, perhaps there is some bug in my code <br />
-    <ul>
-      <li><strong>BAD NEWS:</strong> this reproduced the results, meaning there has to be some BUG in my code where I reshape the data, append subject data together, OR iterate through individual timebins and frequencies. This is why it would be nice to have the time to create some simulated data.</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="fixing-the-damn-bug">FIXING THE DAMN BUG</h3>
-<p>Relevant files:  </p>
-
-<p>So far, I’ve ensured that when I reshape and permute the subject’s data after loading it (<code>get_preprocessed_subj_data.m, Line: 128 </code>), that I have not messed up the ordering of the data.</p>
-
-<p>Next: when I filter timebins out, do I mess that process up?  This also checks out(<code>get_preprocessed_subj_data.m, Line: 60 </code>)   </p>
-
-<p>Next: what about when I call <code>iterate_over_data</code>?  The data was misordered here, so somewhere between <code>get_preprocessed_subj_data</code> and <code>iterate_over_data</code> we messed things up.</p>
-
-<p>Next: let’s check that the anonymous function that is used for reshaping the data (after it’s been flattened) is correct, this gets used in a few places.  YEP, this is the problem: someone please kindly shoot me in the face.   </p>
-
-<h3 id="bug-the-sequel-discrepancy-between-the-recursive-feature-elimination-results-and-logistic-regression-results">BUG, The Sequel: DISCREPANCY BETWEEN THE RECURSIVE FEATURE ELIMINATION RESULTS AND LOGISTIC REGRESSION RESULTS</h3>
-<p>I’ve verified that there is no discrepancy between the accumulated values and the plotted values, so it does not seem to be the case that the plotting function is messing things up.   </p>
-
-<p>Recursive feature elimination (RFE) analysis has a setting for the minimum number of features i.e. remove features until we hit some minimum number of features.  In general, this is set to 1, so that we can see the effect of removing 0 to all but one features (electrodes).  I have found that if I set that value to 60 (only removing 4 features), then the RFE results align with the logistic regression results, however, if I set that to 1 or even just 50, the results stop lining up.  Very, very perplexing.    </p>
-
-<p>Next, let’s look at the features used for the first and second iteration with different settings (60 and 50) of the minimum number of features.  If they differ in any way, then the code for removing features must be incorrect and we can delve into that.<br />
-   - So for the second iteration, the fourth frequency, the RFE results have different features they’ve removed.  WTF, mate?   A reasonable next step would be to look at the values passed into the <code>remove_unused_features</code> for both parameter settings and see if they are the same.</p>
-
-<p>Looking at the classifier weights for the first iteration of the fourth frequency for both parameter settings, we see that they have different values, so naturally removing features would produce different removed features for the second iteration.  Additionally, this implies there is something different being fed into the classifier for the first iteration that is producing different feature weights.</p>
-
-<p><strong>HERE IT IS:</strong>  Currently, we’ve been doing an RFE iteration (going from 64 features down to minimum num_features) for each frequency bin (2 Hz all the way up to 32 Hz).  To maintain the correct level of regularization, we take the max number of features (64) and look at the ratio of regularization (usually 10) to the number of features and keep this proportional as we remove more and more features.  The bug was that between RFE iterations (i.e. starting anew at 4 Hz, after doing 2 Hz), the regularization ratio was calculating using the previous iteration’s last number of features (not the max number of features) - so as we moved from 2 Hz to 32 Hz, our results got more and more skewed from the regular logistic regression results because we were using much smaller regularization.  This is fixed now!</p>
 ]]></content>
   </entry>
   
