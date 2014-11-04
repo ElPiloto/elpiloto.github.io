@@ -4,7 +4,7 @@
   <title><![CDATA[Something Witty]]></title>
   <link href="http://ElPiloto.github.io/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-10-30T10:53:42-04:00</updated>
+  <updated>2014-11-04T17:03:54-05:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,67 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[State Representation in OFC]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/10/31/PDP-nico/"/>
+    <updated>2014-10-31T12:08:00-04:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/10/31/PDP-nico</id>
+    <content type="html"><![CDATA[<h1 id="where-and-how-is-state-represented">Where and how is state represented?</h1>
+
+<p>Perhaps OFC is a cognitive map of task space? as suggested in paper of similar title by Bob Wilson, … Yael Niv   </p>
+
+<p>Represents map of states in current task   </p>
+
+<h3 id="predicitons-of-current-study">Predicitons of current study:</h3>
+
+<p>activitiy patterns in OFC should allow us to discriminate between hidden states   </p>
+
+<p>similarity of OFC state representations should represent distance in task space    </p>
+
+<h3 id="stimuli">Stimuli</h3>
+
+<p>Young/old faces overlaid on old/modern houses   </p>
+
+<h3 id="task">Task</h3>
+<p>Trial 1:  What is the age of the currently attended image?  Need to attend to faces or houses (this is latent state during task, because instructed at start of trial) <br />
+Trial 2:  If age of currently attended image changes, next trial will have to switch attention to opposite stimulus type (e.g. from faces to houses)   </p>
+
+<h3 id="what-constitutes-a-state">What constitutes a state?</h3>
+<p><strong>Dimensions of State:</strong> <br />
+1. category of previous trial  <br />
+2. age of prev. trial  <br />
+3. category current trial  <br />
+4. age of current trial   </p>
+
+<h3 id="behavioral-data">Behavioral Data</h3>
+<p>Rewarded if stay below error   </p>
+
+<h3 id="classification-analsysis">Classification Analsysis</h3>
+<p>estimate activation pattern associated with each state <br />
+- train classifier to discriminate between states <br />
+- assess which dimensions classifier can distinguish   </p>
+
+<h4 id="ofc-encodes-most-dimensions-of-state-spate">OFC encodes most dimensions of state spate</h4>
+<p>prev category *
+prev age (p = 0.06) <br />
+current category * <br />
+current age  - doesn’t get encoded, for some reason   </p>
+
+<p>DLPFC and Hippo: Less information than OFC   </p>
+
+<h3 id="relations-of-states">Relations of States:</h3>
+<p>Basically look at state transition matrix, cluster according to successor representation    </p>
+
+<p>See reliable difference in correlation between states with same successor representation minus correlation between states with different successor representation in OFC    </p>
+
+<p>Size of effect in OFC has <strong>strong</strong> correlation with amount of errors   </p>
+
+<p>Also see: hippocampus, DLPFC, auditory cortex, and visual cortex   </p>
+
+<p>So then what does this mean? Perhaps multiple areas involved in this task?  That seems likely, but what is the role of OFC in this?     </p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ZNN: Cpu-based Conv Nets]]></title>
@@ -229,6 +290,36 @@ test_samples=10</p>
 <a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/2nd_batch_LOSO_SLEEP_LOGREG_ERP4_2seconds_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/2nd_batch_LOSO_SLEEP_LOGREG_ERP4_2seconds_face_sceneAUC_lambda10.png" width="700" height="350" /></a>     <br />
 <strong>1st Batch Subjects</strong>   <br />
 <a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/1st_batch_LOSO_SLEEP_LOGREG_ERP4_2seconds_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/1st_batch_LOSO_SLEEP_LOGREG_ERP4_2seconds_face_sceneAUC_lambda10.png" width="700" height="350" /></a>       </p>
+
+<h2 id="sleep-untransformed-loso-erp-slow-oscillation-locked">Sleep Untransformed LOSO ERP Slow Oscillation Locked</h2>
+<p><strong>2nd Batch Subjects - all trials</strong>
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_locked/2nd_batch_subjs_slow_oscillation_ERP4_SOlocked_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_locked/2nd_batch_subjs_slow_oscillation_ERP4_SOlocked_face_sceneAUC_lambda10.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_locked/2nd_batch_subjs_slow_oscillation_ERP4_SOlockedPVAL_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_locked/2nd_batch_subjs_slow_oscillation_ERP4_SOlockedPVAL_face_sceneAUC_lambda10.png" width="700" height="350" /></a>     <br />
+<strong>2nd Batch Subjects - no spindleboost trials</strong>
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_locked/2nd_batch_subjs_slow_oscillation_ERP4_SOlocked_NOSPINDLEBOOST_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_locked/2nd_batch_subjs_slow_oscillation_ERP4_SOlocked_NOSPINDLEBOOST_face_sceneAUC_lambda10.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_locked/2nd_batch_subjs_slow_oscillation_ERP4_SOlocked_NOSPINDLEBOOSTPVAL_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_locked/2nd_batch_subjs_slow_oscillation_ERP4_SOlocked_NOSPINDLEBOOSTPVAL_face_sceneAUC_lambda10.png" width="700" height="350" /></a>     <br />
+<strong>1st Batch Subjects</strong>   <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_locked/1st_batch_subjs_slow_oscillation_ERP4_SOlocked_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_locked/1st_batch_subjs_slow_oscillation_ERP4_SOlocked_face_sceneAUC_lambda10.png" width="700" height="350" /></a>      <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_locked/1st_batch_subjs_slow_oscillation_ERP4_SOlockedPVAL_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_locked/1st_batch_subjs_slow_oscillation_ERP4_SOlockedPVAL_face_sceneAUC_lambda10.png" width="700" height="350" /></a>       </p>
+
+<h2 id="sleep-untransformed-loso-erp-slow-oscillation-bins">Sleep Untransformed LOSO ERP Slow Oscillation Bins</h2>
+<p><strong>2nd Batch Subjects - all trials</strong>
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_bins_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_bins_face_sceneAUC_lambda10.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_binsPVAL_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_binsPVAL_face_sceneAUC_lambda10.png" width="700" height="350" /></a>     <br />
+<strong>2nd Batch Subjects - no spindleboost trials</strong>
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_bins_NOSPINDLES_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_bins_NOSPINDLES_face_sceneAUC_lambda10.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_bins_NOSPINDLESPVAL_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_bins_NOSPINDLESPVAL_face_sceneAUC_lambda10.png" width="700" height="350" /></a>     <br />
+<strong>1st Batch Subjects</strong>   <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/1st_batch_slow_oscillation_ERP4_by_bins_faceAUC_per_subj_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/1st_batch_slow_oscillation_ERP4_by_bins_faceAUC_per_subj_lambda10.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/1st_batch_slow_oscillation_ERP4_by_binsPVAL_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/1st_batch_slow_oscillation_ERP4_by_binsPVAL_face_sceneAUC_lambda10.png" width="700" height="350" /></a>       </p>
+
+<h2 id="sleep-untransformed-loso-erp-spindle-bins">Sleep Untransformed LOSO ERP Spindle Bins</h2>
+<p><strong>2nd Batch Subjects - all trials</strong>
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SPINDLE_BINS/2nd_batch_subjs_ERP4_by_SPINDLE_bins_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SPINDLE_BINS/2nd_batch_subjs_ERP4_by_SPINDLE_bins_face_sceneAUC_lambda10.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SPINDLE_BINS/2nd_batch_subjs_ERP4_by_SPINDLE_binsPVAL_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SPINDLE_BINS/2nd_batch_subjs_ERP4_by_SPINDLE_binsPVAL_face_sceneAUC_lambda10.png" width="700" height="350" /></a>     <br />
+<strong>1st Batch Subjects</strong>   <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SPINDLE_BINS/1st_batch_subjs_ERP4_by_SPINDLE_bins_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SPINDLE_BINS/1st_batch_subjs_ERP4_by_SPINDLE_bins_face_sceneAUC_lambda10.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SPINDLE_BINS/1st_batch_subjs_ERP4_by_SPINDLE_binsPVAL_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SPINDLE_BINS/1st_batch_subjs_ERP4_by_SPINDLE_binsPVAL_face_sceneAUC_lambda10.png" width="700" height="350" /></a>       </p>
 
 ]]></content>
   </entry>
@@ -1265,26 +1356,6 @@ j  </p>
 <h3 id="next-steps">Next Steps</h3>
 
 <p>The easiest problem to check for is to see if we get better results with more data in each fold, so I’ve launched a batch of results that use 20 folds.  This should give new results relatively quickly and we can move from there.  If that doesn’t ameliorate the poor accuracy, I’ll move to using the wake parameters used to probe subject 1 to make sure that the results for subject 1 are consistent with the results I got during the probing phase.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Towers of Hanoi SFA and 8-ball SFA results: Robustness and Potential Neural Data to Model]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/07/06/towers-of-hanoi-sfa-and-8-ball-sfa-results-robustness-and-potential-neural-data-to-model/"/>
-    <updated>2014-07-06T15:29:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/07/06/towers-of-hanoi-sfa-and-8-ball-sfa-results-robustness-and-potential-neural-data-to-model</id>
-    <content type="html"><![CDATA[<h4 id="towers-of-hanoi-to-do">Towers of Hanoi To-Do:</h4>
-<ol>
-  <li><strong>Run SFA on random walk using multiple different random number seeds</strong> </li>
-  <li>I am using the same starting location, this might affect the solutions found by SFA.  However, looking at the average input values (<code>SFA_STRUCTS.avg0</code>) shows that each feature has an average value of approximately 0.33, indicating that we do traverse all configurations equally frequently.</li>
-  <li><code>sfa_tk</code> toolbox does not give features with unit variance when performing linear SFA. This might be a problem in the general case, but shouldn’t be a problem for towers of hanoi because the point of getting unit variance is so that the weights you find that minimize the derivative are directly comparable to each other.  But in our case, the derivatives should already be directly comparable because the input features all have exactly the same distribution for a random walk on towers of hanoi. I’m not entirely sure about this last bit, so I’ll have to verify this if Ari doesn’t have any useful input on the matter - easy way forward: look at MDP (python SFA implementation).</li>
-</ol>
-
-<h4 id="general-tips-for-sfatk-toolbox">General Tips for sfa_tk toolbox</h4>
-<ol>
-  <li><code>SFA_STRUCTS.SF</code> - contains slow feature functions along the rows</li>
-  <li>Can get degenerate eigendecompositions, where an eigenvalue has greater algebraic multiplicity than geometric multiplicity (e.g. $ (2 - \lambda)^2(3-\lambda)^2 $ – alg. mult = 2, geometric = 1 for both eigenvalues).  In this case, extracted slow features are redundant (though they’ll have opposite signs).</li>
-</ol>
 ]]></content>
   </entry>
   
