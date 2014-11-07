@@ -4,7 +4,7 @@
   <title><![CDATA[Category: noarchive | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/noarchive/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-11-04T17:03:54-05:00</updated>
+  <updated>2014-11-07T16:15:52-05:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,56 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: Pre-SfN Push - the sequel]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/11/07/sleep-eeg-pre-sfn-push/"/>
+    <updated>2014-11-07T14:46:00-05:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/11/07/sleep-eeg-pre-sfn-push</id>
+    <content type="html"><![CDATA[<h2 id="sleep-untransformed-loso-erp-slow-oscillation-bins">Sleep Untransformed LOSO ERP Slow Oscillation Bins</h2>
+
+<p><strong>1st Batch Subjects</strong>   <br />
+<a href='/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_all_trials_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_all_trials_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
+<a href='/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_all_trialsface_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_all_trialsface_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+
+<p><strong>2nd Batch Subjects - all trials</strong>
+<a href='/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_all_trials_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_all_trials_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
+<a href='/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_all_trialsface_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_all_trialsface_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+
+<p><strong>2nd Batch Subjects - spindleboost trials only</strong>
+<a href='/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/SPINDLEONLY<em>2nd_batch_ERP4_all_trials_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/SPINDLEONLY<em>2nd_batch_ERP4_all_trials_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
+<a href='/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/SPINDLEONLY</em>2nd_batch_ERP4_all_trialsface_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/SPINDLEONLY</em>2nd_batch_ERP4_all_trialsface_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+
+<h2 id="sleep-untransformed-loso-erp-locked-to-slow-oscillation-trough">Sleep Untransformed LOSO ERP LOCKED to Slow Oscillation Trough</h2>
+
+<p><strong>1st Batch Subjects</strong>   <br />
+<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/1st_batch_ERP4_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/1st_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
+<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/1st_batch_ERP4face_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/1st_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+
+<p><strong>2nd Batch Subjects - all trials</strong>
+<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/2nd_batch_ERP4_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/2nd_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
+<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+
+<p><strong>2nd Batch Subjects - spindleboost trials only</strong>
+<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/SPINDLEONLY<em>2nd_batch_ERP4_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/SPINDLEONLY<em>2nd_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
+<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/SPINDLEONLY</em>2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/SPINDLEONLY</em>2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+
+<h2 id="sleep-untransformed-loso-erp-locked-to-cue">Sleep Untransformed LOSO ERP LOCKED to CUE</h2>
+
+<p><strong>1st Batch Subjects</strong>   <br />
+<a href='/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/1st_batch_ERP4_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/1st_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
+<a href='/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/1st_batch_ERP4face_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/1st_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+
+<p><strong>2nd Batch Subjects - all trials</strong>
+<a href='/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/2nd_batch_ERP4_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/2nd_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
+<a href='/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+
+<p><strong>2nd Batch Subjects - spindleboost trials only</strong>
+<a href='/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/SPINDLEONLY<em>2nd_batch_ERP4_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/SPINDLEONLY<em>2nd_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
+<a href='/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/SPINDLEONLY</em>2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/SPINDLEONLY</em>2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[State Representation in OFC]]></title>
@@ -291,7 +341,7 @@ test_samples=10</p>
 <strong>1st Batch Subjects</strong>   <br />
 <a href='/images/research/LOSO_POSTBUG/1st_batch_LOSO_SLEEP_LOGREG_ERP4</em>2seconds_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/1st_batch_LOSO_SLEEP_LOGREG_ERP4</em>2seconds_face_sceneAUC_lambda10.png" width="700" height="350"></a>       </p>
 
-<h2 id="sleep-untransformed-loso-erp-slow-oscillation-locked">Sleep Untransformed LOSO ERP Slow Oscillation Locked</h2>
+<h2 id="sleep-untransformed-loso-erp-slow-oscillation-locked---fixed">Sleep Untransformed LOSO ERP Slow Oscillation Locked - FIXED</h2>
 <p><strong>2nd Batch Subjects - all trials</strong>
 <a href='/images/research/LOSO_POSTBUG/SO_locked/2nd_batch_subjs_slow_oscillation_ERP4_SOlocked_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_locked/2nd_batch_subjs_slow_oscillation_ERP4_SOlocked_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
 <a href='/images/research/LOSO_POSTBUG/SO_locked/2nd_batch_subjs_slow_oscillation_ERP4_SOlockedPVAL_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_locked/2nd_batch_subjs_slow_oscillation_ERP4_SOlockedPVAL_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
@@ -302,15 +352,15 @@ test_samples=10</p>
 <a href='/images/research/LOSO_POSTBUG/SO_locked/1st_batch_subjs_slow_oscillation_ERP4_SOlocked_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_locked/1st_batch_subjs_slow_oscillation_ERP4_SOlocked_face_sceneAUC_lambda10.png" width="700" height="350"></a>      <br />
 <a href='/images/research/LOSO_POSTBUG/SO_locked/1st_batch_subjs_slow_oscillation_ERP4_SOlockedPVAL_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_locked/1st_batch_subjs_slow_oscillation_ERP4_SOlockedPVAL_face_sceneAUC_lambda10.png" width="700" height="350"></a>       </p>
 
-<h2 id="sleep-untransformed-loso-erp-slow-oscillation-bins">Sleep Untransformed LOSO ERP Slow Oscillation Bins</h2>
+<h2 id="sleep-untransformed-loso-erp-slow-oscillation-bins---fixed">Sleep Untransformed LOSO ERP Slow Oscillation Bins - FIXED</h2>
 <p><strong>2nd Batch Subjects - all trials</strong>
-<a href='/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_bins_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_bins_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_binsPVAL_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_binsPVAL_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
+<a href='/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_ERP4_all_trials_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_ERP4_all_trials_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
+<a href='/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_ERP4_all_trialsPVAL_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_ERP4_all_trialsPVAL_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
 <strong>2nd Batch Subjects - no spindleboost trials</strong>
 <a href='/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_bins_NOSPINDLES_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_bins_NOSPINDLES_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
 <a href='/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_bins_NOSPINDLESPVAL_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_bins_NOSPINDLESPVAL_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
 <strong>1st Batch Subjects</strong>   <br />
-<a href='/images/research/LOSO_POSTBUG/SO_BINS/1st_batch_slow_oscillation_ERP4_by_bins_faceAUC_per_subj_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS/1st_batch_slow_oscillation_ERP4_by_bins_faceAUC_per_subj_lambda10.png" width="700" height="350"></a>     <br />
+<a href='/images/research/LOSO_POSTBUG/SO_BINS/1st_batch_slow_oscillation_ERP4_by_bins_faceAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS/1st_batch_slow_oscillation_ERP4_by_bins_faceAUC_lambda10.png" width="700" height="350"></a>     <br />
 <a href='/images/research/LOSO_POSTBUG/SO_BINS/1st_batch_slow_oscillation_ERP4_by_binsPVAL_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS/1st_batch_slow_oscillation_ERP4_by_binsPVAL_face_sceneAUC_lambda10.png" width="700" height="350"></a>       </p>
 
 <h2 id="sleep-untransformed-loso-erp-spindle-bins">Sleep Untransformed LOSO ERP Spindle Bins</h2>
@@ -404,28 +454,6 @@ but actually found that there’s a distribution of cells which actually respond
 <p>ventral hippocampus: bigger place fields, generally take up whole context; develop a bit slower than dorsal hippocampus  <br />
 dorsal hippocampus: more specific, smaller place fields; develop place field selectivity perfectly correlated with learning    <br />
 monosynapse from ventral hippocampus to PFC   </p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sleep EEG: Sleep Transform Details And McDuff Trouble]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/10/08/sleep-eeg-sleep-transform-details-and-mcduff-trouble/"/>
-    <updated>2014-10-08T17:28:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/10/08/sleep-eeg-sleep-transform-details-and-mcduff-trouble</id>
-    <content type="html"><![CDATA[<h2 id="importance-maps">Importance Maps:</h2>
-
-<p>It turns out that we have been re-scaling (the eeg_ana_toolbox traintest function) features when performing classification.  This is arguably an okay thing to do in general, BUT DEFINITELY NOT OKAY to do when calculating McDuff importance maps which rely on looking at the average pattern activation signs and the signs of the weights because the weights were generated for a rescaled (always between 0 and 1) pattern, so that it doesn’t make sense to look at the sign agreement between the two for calculating the McDuff importance maps.  </p>
-
-<h2 id="generating-sleep-transformed-plots">Generating Sleep Transformed Plots:</h2>
-<p>Since it has been working, for the purposes of generating a wake template, we’re going to use the RFE results generated by performing feature selection on the raw feature weights (instead of McDuff importance)</p>
-
-<h4 id="additionally-there-was-some-concern-that-we-might-be-z-scoring-across-electrodes-after-each-rfe-iteration-but-really-thats-not-what-we-think-we-should-be-doing-and-luckily-not-what-were-doing-in-the-code">Additionally, there was some concern that we might be z-scoring across electrodes after each RFE iteration, but really that’s not what we think we should be doing and <em>luckily</em> <strong>not</strong> what we’re doing in the code!</h4>
-
-<h4 id="we-have-a-preference-for-more-textured-templates-and-using-the-correlation-instead-of-the-dot-product-because-the-correlation-is-scale-invariant">We have a preference for more “textured” templates and using the correlation instead of the dot product because the correlation is scale-invariant</h4>
-
-<h4 id="stucture">Stucture:</h4>
-<p>We want to generate a “flipbook” for every pair of wake time-freq bin we choose (roughly 6) and each corresponding sleep frequency.  Given 5 frequency bands and 6 wake templates, we’ll end up with roughly 30 flipbooks.</p>
 
 ]]></content>
   </entry>

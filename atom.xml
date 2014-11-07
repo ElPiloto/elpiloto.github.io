@@ -4,7 +4,7 @@
   <title><![CDATA[Something Witty]]></title>
   <link href="http://ElPiloto.github.io/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-11-04T17:03:54-05:00</updated>
+  <updated>2014-11-07T16:15:52-05:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,56 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: Pre-SfN Push - the sequel]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/11/07/sleep-eeg-pre-sfn-push/"/>
+    <updated>2014-11-07T14:46:00-05:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/11/07/sleep-eeg-pre-sfn-push</id>
+    <content type="html"><![CDATA[<h2 id="sleep-untransformed-loso-erp-slow-oscillation-bins">Sleep Untransformed LOSO ERP Slow Oscillation Bins</h2>
+
+<p><strong>1st Batch Subjects</strong>   <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_all_trials_lambda10_FACESCENE.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_all_trials_lambda10_FACESCENE.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_all_trialsface_sceneAUC_lambda10PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_all_trialsface_sceneAUC_lambda10PVAL.png" width="700" height="350" /></a>       </p>
+
+<p><strong>2nd Batch Subjects - all trials</strong>
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_all_trials_lambda10_FACESCENE.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_all_trials_lambda10_FACESCENE.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_all_trialsface_sceneAUC_lambda10PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_all_trialsface_sceneAUC_lambda10PVAL.png" width="700" height="350" /></a>       </p>
+
+<p><strong>2nd Batch Subjects - spindleboost trials only</strong>
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/SPINDLEONLY_2nd_batch_ERP4_all_trials_lambda10_FACESCENE.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/SPINDLEONLY_2nd_batch_ERP4_all_trials_lambda10_FACESCENE.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/SPINDLEONLY_2nd_batch_ERP4_all_trialsface_sceneAUC_lambda10PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/SPINDLEONLY_2nd_batch_ERP4_all_trialsface_sceneAUC_lambda10PVAL.png" width="700" height="350" /></a>       </p>
+
+<h2 id="sleep-untransformed-loso-erp-locked-to-slow-oscillation-trough">Sleep Untransformed LOSO ERP LOCKED to Slow Oscillation Trough</h2>
+
+<p><strong>1st Batch Subjects</strong>   <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/1st_batch_ERP4_lambda10_FACESCENE.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/1st_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/1st_batch_ERP4face_sceneAUC_lambda10PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/1st_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350" /></a>       </p>
+
+<p><strong>2nd Batch Subjects - all trials</strong>
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/2nd_batch_ERP4_lambda10_FACESCENE.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/2nd_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350" /></a>       </p>
+
+<p><strong>2nd Batch Subjects - spindleboost trials only</strong>
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/SPINDLEONLY_2nd_batch_ERP4_lambda10_FACESCENE.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/SPINDLEONLY_2nd_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/SPINDLEONLY_2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/SPINDLEONLY_2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350" /></a>       </p>
+
+<h2 id="sleep-untransformed-loso-erp-locked-to-cue">Sleep Untransformed LOSO ERP LOCKED to CUE</h2>
+
+<p><strong>1st Batch Subjects</strong>   <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/1st_batch_ERP4_lambda10_FACESCENE.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/1st_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/1st_batch_ERP4face_sceneAUC_lambda10PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/1st_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350" /></a>       </p>
+
+<p><strong>2nd Batch Subjects - all trials</strong>
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/2nd_batch_ERP4_lambda10_FACESCENE.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/2nd_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350" /></a>       </p>
+
+<p><strong>2nd Batch Subjects - spindleboost trials only</strong>
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/SPINDLEONLY_2nd_batch_ERP4_lambda10_FACESCENE.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/SPINDLEONLY_2nd_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/SPINDLEONLY_2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/SPINDLEONLY_2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350" /></a>       </p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[State Representation in OFC]]></title>
@@ -291,7 +341,7 @@ test_samples=10</p>
 <strong>1st Batch Subjects</strong>   <br />
 <a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/1st_batch_LOSO_SLEEP_LOGREG_ERP4_2seconds_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/1st_batch_LOSO_SLEEP_LOGREG_ERP4_2seconds_face_sceneAUC_lambda10.png" width="700" height="350" /></a>       </p>
 
-<h2 id="sleep-untransformed-loso-erp-slow-oscillation-locked">Sleep Untransformed LOSO ERP Slow Oscillation Locked</h2>
+<h2 id="sleep-untransformed-loso-erp-slow-oscillation-locked---fixed">Sleep Untransformed LOSO ERP Slow Oscillation Locked - FIXED</h2>
 <p><strong>2nd Batch Subjects - all trials</strong>
 <a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_locked/2nd_batch_subjs_slow_oscillation_ERP4_SOlocked_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_locked/2nd_batch_subjs_slow_oscillation_ERP4_SOlocked_face_sceneAUC_lambda10.png" width="700" height="350" /></a>     <br />
 <a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_locked/2nd_batch_subjs_slow_oscillation_ERP4_SOlockedPVAL_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_locked/2nd_batch_subjs_slow_oscillation_ERP4_SOlockedPVAL_face_sceneAUC_lambda10.png" width="700" height="350" /></a>     <br />
@@ -302,15 +352,15 @@ test_samples=10</p>
 <a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_locked/1st_batch_subjs_slow_oscillation_ERP4_SOlocked_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_locked/1st_batch_subjs_slow_oscillation_ERP4_SOlocked_face_sceneAUC_lambda10.png" width="700" height="350" /></a>      <br />
 <a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_locked/1st_batch_subjs_slow_oscillation_ERP4_SOlockedPVAL_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_locked/1st_batch_subjs_slow_oscillation_ERP4_SOlockedPVAL_face_sceneAUC_lambda10.png" width="700" height="350" /></a>       </p>
 
-<h2 id="sleep-untransformed-loso-erp-slow-oscillation-bins">Sleep Untransformed LOSO ERP Slow Oscillation Bins</h2>
+<h2 id="sleep-untransformed-loso-erp-slow-oscillation-bins---fixed">Sleep Untransformed LOSO ERP Slow Oscillation Bins - FIXED</h2>
 <p><strong>2nd Batch Subjects - all trials</strong>
-<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_bins_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_bins_face_sceneAUC_lambda10.png" width="700" height="350" /></a>     <br />
-<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_binsPVAL_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_binsPVAL_face_sceneAUC_lambda10.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_ERP4_all_trials_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_ERP4_all_trials_face_sceneAUC_lambda10.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_ERP4_all_trialsPVAL_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_ERP4_all_trialsPVAL_face_sceneAUC_lambda10.png" width="700" height="350" /></a>     <br />
 <strong>2nd Batch Subjects - no spindleboost trials</strong>
 <a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_bins_NOSPINDLES_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_bins_NOSPINDLES_face_sceneAUC_lambda10.png" width="700" height="350" /></a>     <br />
 <a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_bins_NOSPINDLESPVAL_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_bins_NOSPINDLESPVAL_face_sceneAUC_lambda10.png" width="700" height="350" /></a>     <br />
 <strong>1st Batch Subjects</strong>   <br />
-<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/1st_batch_slow_oscillation_ERP4_by_bins_faceAUC_per_subj_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/1st_batch_slow_oscillation_ERP4_by_bins_faceAUC_per_subj_lambda10.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/1st_batch_slow_oscillation_ERP4_by_bins_faceAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/1st_batch_slow_oscillation_ERP4_by_bins_faceAUC_lambda10.png" width="700" height="350" /></a>     <br />
 <a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/1st_batch_slow_oscillation_ERP4_by_binsPVAL_face_sceneAUC_lambda10.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_BINS/1st_batch_slow_oscillation_ERP4_by_binsPVAL_face_sceneAUC_lambda10.png" width="700" height="350" /></a>       </p>
 
 <h2 id="sleep-untransformed-loso-erp-spindle-bins">Sleep Untransformed LOSO ERP Spindle Bins</h2>
@@ -1302,60 +1352,6 @@ allows for:<br />
 
 <p><a href="http://ElPiloto.github.io/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether_DOTPROD.jpg" target="_blank"><img src="http://ElPiloto.github.io/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether_DOTPROD.jpg" width="700" height="350" /></a></p>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sleep EEG: Boosting Classification Results]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/07/15/sleep-eeg-boosting-classification-results/"/>
-    <updated>2014-07-15T09:37:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/07/15/sleep-eeg-boosting-classification-results</id>
-    <content type="html"><![CDATA[<h2 id="the-results-below-ensemble-classification-results-round-1-are-all-useless">The results below “Ensemble Classification Results, Round 1” are all useless</h2>
-
-<p>I messed up the calculation of average pattern in wake classification (which is used in creating the mcduff importance map in the preprocessing below).</p>
-
-<h3 id="ensemble-classification-results-round-6---cross-validation-subject-1">Ensemble Classification Results, Round 6 - Cross-validation subject 1</h3>
-
-<p><a href="http://ElPiloto.github.io/images/research/ensemble_results_subj1_round6.jpg" target="_blank"><img src="http://ElPiloto.github.io/images/research/ensemble_results_subj1_round6.jpg" width="700" height="350" /></a></p>
-
-<p><a href="http://ElPiloto.github.io/images/research/ensemble_results_subj1_round6pt2.jpg" target="_blank"><img src="http://ElPiloto.github.io/images/research/ensemble_results_subj1_round6pt2.jpg" width="700" height="350" /></a></p>
-
-<p><a href="http://ElPiloto.github.io/images/research/ensemble_results_subj1_round6pt3.jpg" target="_blank"><img src="http://ElPiloto.github.io/images/research/ensemble_results_subj1_round6pt3.jpg" width="700" height="350" /></a></p>
-
-<h3 id="ensemble-classification-results-round-3">Ensemble Classification Results, Round 3</h3>
-
-<p>I used the following values to produce the plot below:
-10-fold cross validation, GentleBoost, 200 Learners, Wake Time = 152ms, Freq = 7 Hz, Importance Map for Face</p>
-
-<p><a href="http://ElPiloto.github.io/images/research/ensemble_results_subj1thru8_round3.jpg" target="_blank"><img src="http://ElPiloto.github.io/images/research/ensemble_results_subj1thru8_round3.jpg" width="700" height="350" /></a></p>
-
-<h3 id="ensemble-classification-results-round-1-incorrect">Ensemble Classification Results, Round 1 (INCORRECT)</h3>
-<p><strong>these results are wrong - leaving here for historical purposes only</strong></p>
-
-<p>Previously, I went through and tried various combinations of boosting algorithms (LogitBoost, GentleBoost, Adaboost.M1), number of learners, and number of folds for a single subject (subject 01) to try to determine what to run across all subjects to get the best tradeoff between accuracy and running time.  Below is a summary of those results.</p>
-
-<p><a href="http://ElPiloto.github.io/images/research/subj1_ensemble_params_testing.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/subj1_ensemble_params_testing.png" width="700" height="300" /></a></p>
-
-<p>Ultimately, I chose the following: <br />
-  <strong>GentleBoost:</strong> just as good accuracy as other algorithms <em>and</em> better running time than AdaBoost.M1 or LogitBoost for some parametrizations   <br />
-  <strong>50-fold cross-validation:</strong> it seemed to me like accuracy would increase with the number of folds   <br />
-  <strong>400 Learners:</strong> I was skeptical of AdaBoostM1’s results with 700 learners, that begin to overfit, so I aimed for something slightly higher than what I had tried (300 learners) that wouldn’t go too far in terms of overfitting.</p>
-
-<p>Below are the results for running <strong>GentleBoost</strong> using the aforementioned parameters, transforming the sleep data with a face minus scene McDuff importance map using wake data from time-bin = 230ms and freq = 11 Hz. <br />
-j  </p>
-
-<p>This is below what we’d like to get and is lower than I would have expected for the first subject.  Possible reasons this could be the case:<br />
-  - not enough data per fold<br />
-  - I (accidentally )probed boosting results on subject 1 with different parameters than used for the current results: <br />
-     - time bin = 152 ms<br />
-     - freq = 7 Hz <br />
-     - mcduff pattern = face   </p>
-
-<p><a href="http://ElPiloto.github.io/images/research/ensemble_results_subj1thru8_round1.jpg" target="_blank"><img src="http://ElPiloto.github.io/images/research/ensemble_results_subj1thru8_round1.jpg" width="700" height="350" /></a></p>
-
-<h3 id="next-steps">Next Steps</h3>
-
-<p>The easiest problem to check for is to see if we get better results with more data in each fold, so I’ve launched a batch of results that use 20 folds.  This should give new results relatively quickly and we can move from there.  If that doesn’t ameliorate the poor accuracy, I’ll move to using the wake parameters used to probe subject 1 to make sure that the results for subject 1 are consistent with the results I got during the probing phase.</p>
 ]]></content>
   </entry>
   
