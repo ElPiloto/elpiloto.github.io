@@ -4,7 +4,7 @@
   <title><![CDATA[Something Witty]]></title>
   <link href="http://ElPiloto.github.io/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-11-07T20:25:48-05:00</updated>
+  <updated>2014-11-09T23:40:33-05:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -21,20 +21,20 @@
     <content type="html"><![CDATA[<h2 id="sleep-untransformed-loso-erp-slow-oscillation-bins">Sleep Untransformed LOSO ERP Slow Oscillation Bins</h2>
 
 <p><strong>1st Batch Subjects</strong>   <br />
-<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_all_trials_lambda10_FACESCENE.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_all_trials_lambda10_FACESCENE.png" width="700" height="350" /></a>     <br />
-<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_all_trialsface_sceneAUC_lambda10PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_all_trialsface_sceneAUC_lambda10PVAL.png" width="700" height="350" /></a>       </p>
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_lambda10_FACESCENE.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4face_sceneAUC_lambda10PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350" /></a>       </p>
 
 <p><strong>2nd Batch Subjects - all trials</strong>
-<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_all_trials_lambda10_FACESCENE.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_all_trials_lambda10_FACESCENE.png" width="700" height="350" /></a>     <br />
-<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_all_trialsface_sceneAUC_lambda10PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_all_trialsface_sceneAUC_lambda10PVAL.png" width="700" height="350" /></a>       </p>
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_lambda10_FACESCENE.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350" /></a>       </p>
 
 <p><strong>2nd Batch Subjects - spindleboost trials only</strong>
-<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/SPINDLEONLY_2nd_batch_ERP4_all_trials_lambda10_FACESCENE.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/SPINDLEONLY_2nd_batch_ERP4_all_trials_lambda10_FACESCENE.png" width="700" height="350" /></a>     <br />
-<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/SPINDLEONLY_2nd_batch_ERP4_all_trialsface_sceneAUC_lambda10PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/SPINDLEONLY_2nd_batch_ERP4_all_trialsface_sceneAUC_lambda10PVAL.png" width="700" height="350" /></a>       </p>
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/SPINDLEONLY_2nd_batch_ERP4_lambda10_FACESCENE.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/SPINDLEONLY_2nd_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/SPINDLEONLY_2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/SPINDLEONLY_2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350" /></a>       </p>
 
 <p><strong>2nd Batch Subjects - NO spindleboost trials</strong>
-<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/NOSPINDLEBOOST_2nd_batch_ERP4_all_trials_lambda10_FACESCENE.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/NOSPINDLEBOOST_2nd_batch_ERP4_all_trials_lambda10_FACESCENE.png" width="700" height="350" /></a>     <br />
-<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/NOSPINDLEBOOST_2nd_batch_ERP4_all_trialsface_sceneAUC_lambda10PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/NOSPINDLEBOOST_2nd_batch_ERP4_all_trialsface_sceneAUC_lambda10PVAL.png" width="700" height="350" /></a>       </p>
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/NOSPINDLEBOOST_2nd_batch_ERP4_lambda10_FACESCENE.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/NOSPINDLEBOOST_2nd_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/NOSPINDLEBOOST_2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/NOSPINDLEBOOST_2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350" /></a>       </p>
 
 <h2 id="sleep-untransformed-loso-erp-locked-to-slow-oscillation-trough">Sleep Untransformed LOSO ERP LOCKED to Slow Oscillation Trough</h2>
 
@@ -71,6 +71,25 @@
 <p><strong>2nd Batch Subjects - NO spindleboost trials</strong>
 <a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/NOSPINDLEBOOST_2nd_batch_ERP4_lambda10_FACESCENE.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/NOSPINDLEBOOST_2nd_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350" /></a>     <br />
 <a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/NOSPINDLEBOOST_2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/NOSPINDLEBOOST_2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350" /></a>       </p>
+
+<h2 id="sleep-untransformed-loso-hilbert-locked-to-slow-oscillation-trough">Sleep Untransformed LOSO <em>HILBERT</em> LOCKED to Slow Oscillation trough</h2>
+
+<p><strong>1st Batch Subjects</strong>   <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/1st_batch_HILB_lambda10_FACESCENE.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/1st_batch_HILB_lambda10_FACESCENE.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/1st_batch_HILBface_sceneAUC_lambda10PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/1st_batch_HILBface_sceneAUC_lambda10PVAL.png" width="700" height="350" /></a>       </p>
+
+<p><strong>2nd Batch Subjects - all trials</strong>
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/2nd_batch_HILB_lambda10_FACESCENE.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/2nd_batch_HILB_lambda10_FACESCENE.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/2nd_batch_HILBface_sceneAUC_lambda10PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/2nd_batch_HILBface_sceneAUC_lambda10PVAL.png" width="700" height="350" /></a>       </p>
+
+<p><strong>2nd Batch Subjects - spindleboost trials only</strong>
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/SPINDLEONLY_2nd_batch_HILB_lambda10_FACESCENE.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/SPINDLEONLY_2nd_batch_HILB_lambda10_FACESCENE.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/SPINDLEONLY_2nd_batch_HILBface_sceneAUC_lambda10PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/SPINDLEONLY_2nd_batch_HILBface_sceneAUC_lambda10PVAL.png" width="700" height="350" /></a>       </p>
+
+<p><strong>2nd Batch Subjects - NO spindleboost trials</strong>
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/NOSPINDLEBOOST_2nd_batch_HILB_lambda10_FACESCENE.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/NOSPINDLEBOOST_2nd_batch_HILB_lambda10_FACESCENE.png" width="700" height="350" /></a>     <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/NOSPINDLEBOOST_2nd_batch_HILBface_sceneAUC_lambda10PVAL.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/NOSPINDLEBOOST_2nd_batch_HILBface_sceneAUC_lambda10PVAL.png" width="700" height="350" /></a>       </p>
+
 ]]></content>
   </entry>
   
