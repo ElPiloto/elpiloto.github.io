@@ -4,7 +4,7 @@
   <title><![CDATA[Something Witty]]></title>
   <link href="http://ElPiloto.github.io/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-11-13T15:33:52-05:00</updated>
+  <updated>2014-11-13T17:38:26-05:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -19,11 +19,19 @@
     <updated>2014-11-13T14:22:00-05:00</updated>
     <id>http://ElPiloto.github.io/blog/2014/11/13/sleep-eeg-pre-sfn-push-the-third</id>
     <content type="html"><![CDATA[<h2 id="hilbert-phase-binned---all-frequencies">Hilbert Phase-Binned - All Frequencies</h2>
-<p><strong>1st Batch Subjects</strong>   <br />
+<p><strong>$\lambda = 10$</strong><br />
+<strong>1st Batch Subjects</strong>   <br />
 <a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_HILB_LOSO/1st_batch_HILB8_ALL_FREQS_lambda10_AUC.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_HILB_LOSO/1st_batch_HILB8_ALL_FREQS_lambda10_AUC.png" width="700" height="350" /></a>       </p>
 
 <p><strong>2nd Batch Subjects - all trials</strong>
 <a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_HILB_LOSO/2nd_batch_HILB8_ALL_FREQS_lambda10_AUC.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_HILB_LOSO/2nd_batch_HILB8_ALL_FREQS_lambda10_AUC.png" width="700" height="350" /></a>       </p>
+
+<p><strong>$\lambda = 50$</strong><br />
+<strong>1st Batch Subjects</strong>   <br />
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_HILB_LOSO/1st_batch_HILB8_ALL_FREQS_lambda50_AUC.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_HILB_LOSO/1st_batch_HILB8_ALL_FREQS_lambda50_AUC.png" width="700" height="350" /></a>       </p>
+
+<p><strong>2nd Batch Subjects - all trials</strong>
+<a href="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_HILB_LOSO/2nd_batch_HILB8_ALL_FREQS_lambda50_AUC.png" target="_blank"><img src="http://ElPiloto.github.io/images/research/LOSO_POSTBUG/BIN_SO_HILB_LOSO/2nd_batch_HILB8_ALL_FREQS_lambda50_AUC.png" width="700" height="350" /></a>       </p>
 
 <h2 id="erp-phase-binned">ERP Phase-Binned</h2>
 <p><strong>1st Batch Subjects</strong>   <br />
