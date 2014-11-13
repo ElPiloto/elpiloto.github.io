@@ -4,7 +4,7 @@
   <title><![CDATA[Category: noarchive | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/noarchive/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-11-12T12:28:48-05:00</updated>
+  <updated>2014-11-13T14:42:21-05:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,42 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: Pre-SfN Push The Third]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/11/13/sleep-eeg-pre-sfn-push-the-third/"/>
+    <updated>2014-11-13T14:22:00-05:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/11/13/sleep-eeg-pre-sfn-push-the-third</id>
+    <content type="html"><![CDATA[<h2 id="hilbert-phase-binned---all-frequencies">Hilbert Phase-Binned - All Frequencies</h2>
+<p><strong>1st Batch Subjects</strong>   <br />
+<a href='/images/research/LOSO_POSTBUG/BIN_SO_HILB_LOSO/1st_batch_HILB8_ALL_FREQS_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_HILB_LOSO/1st_batch_HILB8_ALL_FREQS_lambda10_AUC.png" width="700" height="350"></a>       </p>
+
+<p><strong>2nd Batch Subjects - all trials</strong>
+<a href='/images/research/LOSO_POSTBUG/BIN_SO_HILB_LOSO/2nd_batch_HILB8_ALL_FREQS_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_HILB_LOSO/2nd_batch_HILB8_ALL_FREQS_lambda10_AUC.png" width="700" height="350"></a>       </p>
+
+<h2 id="erp-phase-binned">ERP Phase-Binned</h2>
+<p><strong>1st Batch Subjects</strong>   <br />
+<a href='/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_lambda10_AUC.png" width="700" height="350"></a>       </p>
+
+<p><strong>2nd Batch Subjects - all trials</strong>
+<a href='/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_lambda10_AUC.png" width="700" height="350"></a>       </p>
+
+<h2 id="hilb-spindle-filtered-phase-binned---all-frequencies">HILB Spindle-Filtered Phase-Binned - All Frequencies</h2>
+<p><strong>1st Batch Subjects</strong>   <br />
+<a href='/images/research/LOSO_POSTBUG/BIN_SO_HILB_SPINDLE_FILTERED/1st_batch_HILB8_ALL_FREQS_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_HILB_SPINDLE_FILTERED/1st_batch_HILB8_ALL_FREQS_lambda10_AUC.png" width="700" height="350"></a>       </p>
+
+<p><strong>2nd Batch Subjects - all trials</strong>
+<a href='/images/research/LOSO_POSTBUG/BIN_SO_HILB_SPINDLE_FILTERED/2nd_batch_HILB8_ALL_FREQS_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_HILB_SPINDLE_FILTERED/2nd_batch_HILB8_ALL_FREQS_lambda10_AUC.png" width="700" height="350"></a>       </p>
+
+<h2 id="erp-spindle-filtered-phase-binned">ERP Spindle-Filtered Phase-Binned</h2>
+<p><strong>1st Batch Subjects</strong>   <br />
+<a href='/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/1st_batch_ERP8_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/1st_batch_ERP8_lambda10_AUC.png" width="700" height="350"></a>       </p>
+
+<p><strong>2nd Batch Subjects - all trials</strong>
+<a href='/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/2nd_batch_ERP8_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/2nd_batch_ERP8_lambda10_AUC.png" width="700" height="350"></a>       </p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sleep EEG: Pre-SfN Push - the sequel]]></title>
@@ -436,90 +472,6 @@ test_samples=10</p>
 <strong>1st Batch Subjects</strong>   <br />
 <a href='/images/research/LOSO_POSTBUG/SPINDLE_BINS/1st_batch_subjs_ERP4_by_SPINDLE_bins_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SPINDLE_BINS/1st_batch_subjs_ERP4_by_SPINDLE_bins_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
 <a href='/images/research/LOSO_POSTBUG/SPINDLE_BINS/1st_batch_subjs_ERP4_by_SPINDLE_binsPVAL_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SPINDLE_BINS/1st_batch_subjs_ERP4_by_SPINDLE_binsPVAL_face_sceneAUC_lambda10.png" width="700" height="350"></a>       </p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Howard Eichenbaum]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/10/09/howard-eichenbaum/"/>
-    <updated>2014-10-09T16:34:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/10/09/howard-eichenbaum</id>
-    <content type="html"><![CDATA[<h1 id="the-hippocampus-in-space-and-time">The hippocampus in space and time</h1>
-
-<h2 id="lets-start-with-space">Let’s start with space</h2>
-<p>How the crap do we reconcile memory and location functions of hippocampus?   </p>
-
-<p>Two relevant pieces of evidence:  <br />
-1. hippocampus essential for episodic memory (Vargha-Khadem , Science 1997)    </p>
-
-<ol>
-  <li>episodic memories are organized in space and time  (Tulving, Organization of Memory, 1972)    </li>
-</ol>
-
-<p><strong>Hypothesis</strong> hippocampus organizes memories in space and time   </p>
-
-<p>context-guided object association:
-key point: forces animal to organize memories spatially   </p>
-
-<p>two connected rooms: <br />
-- same pair of compounds “A and B” in each room; one compound is positive in one room, negative in the other and vice versa      </p>
-
-<p>hippocampus neurons highly dimensional:   <br />
-- have firing selective to item (compound) AND location     </p>
-
-<h2 id="how-are-these-dimensions-organized-within-hippocampus">How are these dimensions organized within hippocampus?</h2>
-
-<p>to do so, upscaled task:
-some trials have same rooms, but different compounds “C and D” (with same positive/negative versions in each room)</p>
-
-<p>can look at:
-item identity (A v B v C v D) vs. valence (AC v BD) vs. pair (AB v CD)</p>
-
-<p>Also, recording from ensembles of neurons (instead of looking for individual cells that are responsive) and perform multivariate representational similarity analysis    </p>
-
-<p>position: same item, different item, change valence, change pair</p>
-
-<h4 id="punchline">Punchline</h4>
-<p>Look at RSA across different manipulations and find that representation is most sensitive in decreasing order to :context, position, valence, item     </p>
-
-<p>Also looked at this hierarchy in orbitofrontal cortex and found that the hierarchy is swapped (see that it cares more about valence which is consistent with what we expect from OFC)   </p>
-
-<h2 id="how-is-memory-space-managed">How is “memory space” managed?</h2>
-<p>Must be some activity between PFC and (dorsal) hippocampus:</p>
-
-<p><strong>Idea:</strong> record from hippocampus, inactivate PFC with muscimol, re-record from hippocampus  </p>
-
-<p><strong>Results:</strong> found that cell that fire to item A and context 2, would subsequently fire to both item A and context 2     – although it seems like maybe they’re talking baout recording from mPFC?   </p>
-
-<h3 id="what-is-the-origin-of-contextual-information-to-prefrontal-cortex">What is the origin of contextual information to prefrontal cortex?</h3>
-
-<p>Perhaps this is the flow of communication
-1. details –&gt; context generated from dorsal hippocampus –&gt; ventral
-2. ventral hippocampus –&gt; PFC carrying contextual information
-3. PFC –&gt; dorsal hippocampus to select relevant information</p>
-
-<p>look at J. Neuro 2010 phase lag at theta between areas to see if we can determine flow of information <br />
-found -103ms DHipp, -27ms VHipp, and mPFC 64ms    </p>
-
-<h2 id="what-about-time">What about time?</h2>
-
-<p>Do you need a hippocampus for memory for temporal order? (Fortin et al. Nature Neuro 2002)  <br />
-Experiment: learn sequence of 5 stimuli, test: which of two stimuli came earlier? <br />
-Look at behavior as a function of normal vs. hippocampal lesions
-Also tested for recognition and found lesion animals not deficient - seems like hippocampus must play an important role in memory for temporal order    </p>
-
-<h4 id="how-does-the-hippocampus-tell-time">How does the hippocampus tell time</h4>
-<p>Kraus et al. Neuron, 2013 - figure 8 task, but confounded with position, so how do we isolate time?   <br />
-Keep rat on treadmill, then find “time cells” which fire at a particular time point     </p>
-
-<p>but could potentially confound time elapsed and distance, so vary treadmill rate and found in fact both time cells and distance cells   <br />
-but actually found that there’s a distribution of cells which actually respond to some combination of time and distance, but the time-only and distance-only cells are at the tails of that distribution    </p>
-
-<h2 id="general-knowledge">General Knowledge:</h2>
-<p>ventral hippocampus: bigger place fields, generally take up whole context; develop a bit slower than dorsal hippocampus  <br />
-dorsal hippocampus: more specific, smaller place fields; develop place field selectivity perfectly correlated with learning    <br />
-monosynapse from ventral hippocampus to PFC   </p>
 
 ]]></content>
   </entry>

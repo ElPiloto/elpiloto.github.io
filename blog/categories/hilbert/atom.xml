@@ -4,7 +4,7 @@
   <title><![CDATA[Category: hilbert | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/hilbert/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-11-12T12:28:48-05:00</updated>
+  <updated>2014-11-13T14:42:21-05:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -12,6 +12,42 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: Pre-SfN Push The Third]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/11/13/sleep-eeg-pre-sfn-push-the-third/"/>
+    <updated>2014-11-13T14:22:00-05:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/11/13/sleep-eeg-pre-sfn-push-the-third</id>
+    <content type="html"><![CDATA[<h2 id="hilbert-phase-binned---all-frequencies">Hilbert Phase-Binned - All Frequencies</h2>
+<p><strong>1st Batch Subjects</strong>   <br />
+<a href='/images/research/LOSO_POSTBUG/BIN_SO_HILB_LOSO/1st_batch_HILB8_ALL_FREQS_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_HILB_LOSO/1st_batch_HILB8_ALL_FREQS_lambda10_AUC.png" width="700" height="350"></a>       </p>
+
+<p><strong>2nd Batch Subjects - all trials</strong>
+<a href='/images/research/LOSO_POSTBUG/BIN_SO_HILB_LOSO/2nd_batch_HILB8_ALL_FREQS_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_HILB_LOSO/2nd_batch_HILB8_ALL_FREQS_lambda10_AUC.png" width="700" height="350"></a>       </p>
+
+<h2 id="erp-phase-binned">ERP Phase-Binned</h2>
+<p><strong>1st Batch Subjects</strong>   <br />
+<a href='/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_lambda10_AUC.png" width="700" height="350"></a>       </p>
+
+<p><strong>2nd Batch Subjects - all trials</strong>
+<a href='/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_lambda10_AUC.png" width="700" height="350"></a>       </p>
+
+<h2 id="hilb-spindle-filtered-phase-binned---all-frequencies">HILB Spindle-Filtered Phase-Binned - All Frequencies</h2>
+<p><strong>1st Batch Subjects</strong>   <br />
+<a href='/images/research/LOSO_POSTBUG/BIN_SO_HILB_SPINDLE_FILTERED/1st_batch_HILB8_ALL_FREQS_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_HILB_SPINDLE_FILTERED/1st_batch_HILB8_ALL_FREQS_lambda10_AUC.png" width="700" height="350"></a>       </p>
+
+<p><strong>2nd Batch Subjects - all trials</strong>
+<a href='/images/research/LOSO_POSTBUG/BIN_SO_HILB_SPINDLE_FILTERED/2nd_batch_HILB8_ALL_FREQS_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_HILB_SPINDLE_FILTERED/2nd_batch_HILB8_ALL_FREQS_lambda10_AUC.png" width="700" height="350"></a>       </p>
+
+<h2 id="erp-spindle-filtered-phase-binned">ERP Spindle-Filtered Phase-Binned</h2>
+<p><strong>1st Batch Subjects</strong>   <br />
+<a href='/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/1st_batch_ERP8_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/1st_batch_ERP8_lambda10_AUC.png" width="700" height="350"></a>       </p>
+
+<p><strong>2nd Batch Subjects - all trials</strong>
+<a href='/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/2nd_batch_ERP8_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/2nd_batch_ERP8_lambda10_AUC.png" width="700" height="350"></a>       </p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sleep EEG: Pre-SfN Push - the sequel]]></title>
@@ -299,62 +335,6 @@
   <li>let’s look at RFE and ERP results, too and generate a template based on that as well!</li>
   <li>let’s do whatever we can to help James preprocess the validation subjects</li>
 </ul>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sleep EEG: Replicating best p-val results]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/09/25/sleep-eeg-replicating-best-p-val-results/"/>
-    <updated>2014-09-25T14:51:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/09/25/sleep-eeg-replicating-best-p-val-results</id>
-    <content type="html"><![CDATA[<h3 id="we-are-trying-to-replicate-these-results-below">We are trying to replicate these results below:</h3>
-
-<h4 id="so-far-ive-tried">So far I’ve tried:</h4>
-<ul>
-  <li>Running the same exact analysis (driver_LOSO_replicate_PVAL.m)   </li>
-  <li>Running the same exact analysis but only classifying between faces and scenes via:
-<code>preprocessing.type_specifics_args.classes = [1 2];</code>    <br />
-    <ul>
-      <li>this did not help   </li>
-    </ul>
-  </li>
-  <li>Try loading up results from Sept 09, and regenerating plots - will indicate whether or not something changed in plots or results. <br />
-    <ul>
-      <li>Doing this, I’ve found that the results of interest are specifically in this file:  <br />
-<code> 09-Sep-2014_14_04_44LOSO_WAKE_logreg_sweep.mat </code>   </li>
-      <li>I’ve found that it is in fact for $ \lambda = 10 $ (I was worried I might have accidentally documented the wrong value of $\lambda$)       </li>
-      <li>We were classifying against all 5 classes (validating our findings above that classifying only faces vs scenes did not reproduce the results)   </li>
-    </ul>
-  </li>
-  <li>Try duplicating exact time range used originally, perhaps there is some bug in my code <br />
-    <ul>
-      <li><strong>BAD NEWS:</strong> this reproduced the results, meaning there has to be some BUG in my code where I reshape the data, append subject data together, OR iterate through individual timebins and frequencies. This is why it would be nice to have the time to create some simulated data.</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="fixing-the-damn-bug">FIXING THE DAMN BUG</h3>
-<p>Relevant files:  </p>
-
-<p>So far, I’ve ensured that when I reshape and permute the subject’s data after loading it (<code>get_preprocessed_subj_data.m, Line: 128 </code>), that I have not messed up the ordering of the data.</p>
-
-<p>Next: when I filter timebins out, do I mess that process up?  This also checks out(<code>get_preprocessed_subj_data.m, Line: 60 </code>)   </p>
-
-<p>Next: what about when I call <code>iterate_over_data</code>?  The data was misordered here, so somewhere between <code>get_preprocessed_subj_data</code> and <code>iterate_over_data</code> we messed things up.</p>
-
-<p>Next: let’s check that the anonymous function that is used for reshaping the data (after it’s been flattened) is correct, this gets used in a few places.  YEP, this is the problem: someone please kindly shoot me in the face.   </p>
-
-<h3 id="bug-the-sequel-discrepancy-between-the-recursive-feature-elimination-results-and-logistic-regression-results">BUG, The Sequel: DISCREPANCY BETWEEN THE RECURSIVE FEATURE ELIMINATION RESULTS AND LOGISTIC REGRESSION RESULTS</h3>
-<p>I’ve verified that there is no discrepancy between the accumulated values and the plotted values, so it does not seem to be the case that the plotting function is messing things up.   </p>
-
-<p>Recursive feature elimination (RFE) analysis has a setting for the minimum number of features i.e. remove features until we hit some minimum number of features.  In general, this is set to 1, so that we can see the effect of removing 0 to all but one features (electrodes).  I have found that if I set that value to 60 (only removing 4 features), then the RFE results align with the logistic regression results, however, if I set that to 1 or even just 50, the results stop lining up.  Very, very perplexing.    </p>
-
-<p>Next, let’s look at the features used for the first and second iteration with different settings (60 and 50) of the minimum number of features.  If they differ in any way, then the code for removing features must be incorrect and we can delve into that.<br />
-   - So for the second iteration, the fourth frequency, the RFE results have different features they’ve removed.  WTF, mate?   A reasonable next step would be to look at the values passed into the <code>remove_unused_features</code> for both parameter settings and see if they are the same.</p>
-
-<p>Looking at the classifier weights for the first iteration of the fourth frequency for both parameter settings, we see that they have different values, so naturally removing features would produce different removed features for the second iteration.  Additionally, this implies there is something different being fed into the classifier for the first iteration that is producing different feature weights.</p>
-
-<p><strong>HERE IT IS:</strong>  Currently, we’ve been doing an RFE iteration (going from 64 features down to minimum num_features) for each frequency bin (2 Hz all the way up to 32 Hz).  To maintain the correct level of regularization, we take the max number of features (64) and look at the ratio of regularization (usually 10) to the number of features and keep this proportional as we remove more and more features.  The bug was that between RFE iterations (i.e. starting anew at 4 Hz, after doing 2 Hz), the regularization ratio was calculating using the previous iteration’s last number of features (not the max number of features) - so as we moved from 2 Hz to 32 Hz, our results got more and more skewed from the regular logistic regression results because we were using much smaller regularization.  This is fixed now!</p>
 ]]></content>
   </entry>
   
