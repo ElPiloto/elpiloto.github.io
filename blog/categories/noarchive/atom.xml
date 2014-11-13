@@ -4,7 +4,7 @@
   <title><![CDATA[Category: noarchive | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/noarchive/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-11-13T14:42:21-05:00</updated>
+  <updated>2014-11-13T15:33:52-05:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -27,10 +27,10 @@
 
 <h2 id="erp-phase-binned">ERP Phase-Binned</h2>
 <p><strong>1st Batch Subjects</strong>   <br />
-<a href='/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_lambda10_AUC.png" width="700" height="350"></a>       </p>
+<a href='/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_SO_PHASE_BIN_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_SO_PHASE_BIN_lambda10_AUC.png" width="700" height="350"></a>       </p>
 
 <p><strong>2nd Batch Subjects - all trials</strong>
-<a href='/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_lambda10_AUC.png" width="700" height="350"></a>       </p>
+<a href='/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_SO_PHASE_BIN_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_SO_PHASE_BIN_lambda10_AUC.png" width="700" height="350"></a>       </p>
 
 <h2 id="hilb-spindle-filtered-phase-binned---all-frequencies">HILB Spindle-Filtered Phase-Binned - All Frequencies</h2>
 <p><strong>1st Batch Subjects</strong>   <br />
