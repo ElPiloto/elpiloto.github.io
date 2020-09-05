@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mcmc | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/mcmc/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-11-13T17:38:26-05:00</updated>
+  <updated>2020-09-06T00:03:42+01:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Markov Chain Monte Carlo: A babytown easy introduction Pt. 1: Markov Chains]]></title>
     <link href="http://ElPiloto.github.io/blog/2014/03/23/markov-chain-monte-carlo-a-babytown-easy-introduction/"/>
-    <updated>2014-03-23T14:23:00-04:00</updated>
+    <updated>2014-03-23T14:23:00+00:00</updated>
     <id>http://ElPiloto.github.io/blog/2014/03/23/markov-chain-monte-carlo-a-babytown-easy-introduction</id>
     <content type="html"><![CDATA[<p>You know what’s great? Ice cream, bourbon, and babies riding (safely) on the backs of puppies are some obvious answers.  Here’s a subtler one: <em>Markov chains</em>! </p>
 

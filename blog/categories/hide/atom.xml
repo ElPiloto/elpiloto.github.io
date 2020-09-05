@@ -4,7 +4,7 @@
   <title><![CDATA[Category: hide | Something Witty]]></title>
   <link href="http://ElPiloto.github.io/blog/categories/hide/atom.xml" rel="self"/>
   <link href="http://ElPiloto.github.io/"/>
-  <updated>2014-11-13T17:38:26-05:00</updated>
+  <updated>2020-09-06T00:03:42+01:00</updated>
   <id>http://ElPiloto.github.io/</id>
   <author>
     <name><![CDATA[Luis R. Piloto]]></name>
@@ -14,473 +14,221 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Sleep EEG: Pre-SfN Push The Third]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/11/13/sleep-eeg-pre-sfn-push-the-third/"/>
-    <updated>2014-11-13T14:22:00-05:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/11/13/sleep-eeg-pre-sfn-push-the-third</id>
-    <content type="html"><![CDATA[<h2 id="hilbert-phase-binned---all-frequencies">Hilbert Phase-Binned - All Frequencies</h2>
-<p><strong>$\lambda = 10$</strong><br />
-<strong>1st Batch Subjects</strong>   <br />
-<a href='/images/research/LOSO_POSTBUG/BIN_SO_HILB_LOSO/1st_batch_HILB8_ALL_FREQS_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_HILB_LOSO/1st_batch_HILB8_ALL_FREQS_lambda10_AUC.png" width="700" height="350"></a>       </p>
+    <title type="html"><![CDATA[Probabilistic Logic Learning - Luc De Raedt and Kristian Kersting]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/08/05/probabilistic-logic-learning-luc-de-raedt-and-kristian-kersting/"/>
+    <updated>2014-08-05T12:51:00+01:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/08/05/probabilistic-logic-learning-luc-de-raedt-and-kristian-kersting</id>
+    <content type="html"><![CDATA[<h4 id="what-does-probabilistic-logic-learning-mean">What does probabilistic logic learning mean?</h4>
+<p><strong>probabilistic</strong> - probabilistic representations and reasoning mechanisms <br />
+<strong>logic</strong> - first order logical and relational representations (compared to propositional logic affords reasoning about objects)</p>
 
-<p><strong>2nd Batch Subjects - all trials</strong>
-<a href='/images/research/LOSO_POSTBUG/BIN_SO_HILB_LOSO/2nd_batch_HILB8_ALL_FREQS_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_HILB_LOSO/2nd_batch_HILB8_ALL_FREQS_lambda10_AUC.png" width="700" height="350"></a>       </p>
+<h3 id="logic-glossary">Logic Glossary</h3>
+<p>first-order logic $\leftrightarrow$ relational representation <br />
+allows for:<br />
+<strong>extensional</strong>: <code>ram(r1,c1)</code> – </p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: Varying regularization and simulated results]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/08/01/sleep-eeg-varying-regularization-and-simulated-results/"/>
+    <updated>2014-08-01T10:27:00+01:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/08/01/sleep-eeg-varying-regularization-and-simulated-results</id>
+    <content type="html"><![CDATA[<h3 id="logistic-regression-untransformed-sleep-data-varying-regularization-term">Logistic Regression Untransformed Sleep Data: Varying regularization term</h3>
+<p>The motivation for this line of inquiry is contained in <a href="/blog/2014/07/27/sleep-eeg-post-boosting-results/">this post</a> under the discussion section for figure 4.</p>
 
-<p><strong>$\lambda = 50$</strong><br />
-<strong>1st Batch Subjects</strong>   <br />
-<a href='/images/research/LOSO_POSTBUG/BIN_SO_HILB_LOSO/1st_batch_HILB8_ALL_FREQS_lambda50_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_HILB_LOSO/1st_batch_HILB8_ALL_FREQS_lambda50_AUC.png" width="700" height="350"></a>       </p>
+<p><img src="/images/research/untransformed_log_reg_lambda250and750.jpg" width="700" height="350"></p>
 
-<p><strong>2nd Batch Subjects - all trials</strong>
-<a href='/images/research/LOSO_POSTBUG/BIN_SO_HILB_LOSO/2nd_batch_HILB8_ALL_FREQS_lambda50_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_HILB_LOSO/2nd_batch_HILB8_ALL_FREQS_lambda50_AUC.png" width="700" height="350"></a>       </p>
+<p><strong>Figure 1:</strong> This shows the sleep classification accuracy for logistic regression using untransformed sleep data with <code>statmap_anova</code> feature selection (stat_thresh = 0.1).</p>
 
-<h2 id="erp-phase-binned">ERP Phase-Binned</h2>
-<p><strong>1st Batch Subjects</strong>   <br />
-<a href='/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_SO_PHASE_BIN_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_SO_PHASE_BIN_lambda10_AUC.png" width="700" height="350"></a>       </p>
+<p><strong>Thoughts</strong> Well this is interesting.  I had previously been using a regularization term of 1 for all the logistic regression analyses and to see this level of classification accuracy using a regularization penalty two orders of magnitude higher than previously suggests that I didn’t have much of a grasp on the role of the regularization term in this analysis.  The $\lambda = 750$ case is encouraging because it’s up there in terms of the highest average classification accuracy we’ve seen AND it includes that largest regularization term we’ve used thus far.  It’s worth investigating how far we can push regularization before it collapses, thus I’ve launched an additional analysis trying results with regularization = 1250 and 1750.  Will update this post when those results are in.  ALSO, this begs the question: should we re-run our sleep transformed analyses using stronger regularization for the wake classes?  <strong>YES</strong></p>
 
-<p><strong>2nd Batch Subjects - all trials</strong>
-<a href='/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_SO_PHASE_BIN_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_SO_PHASE_BIN_lambda10_AUC.png" width="700" height="350"></a>       </p>
+<p><img src="/images/research/untransformed_log_reg_lambda1250and1750.jpg" width="700" height="350"></p>
 
-<h2 id="hilb-spindle-filtered-phase-binned---all-frequencies">HILB Spindle-Filtered Phase-Binned - All Frequencies</h2>
-<p><strong>1st Batch Subjects</strong>   <br />
-<a href='/images/research/LOSO_POSTBUG/BIN_SO_HILB_SPINDLE_FILTERED/1st_batch_HILB8_ALL_FREQS_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_HILB_SPINDLE_FILTERED/1st_batch_HILB8_ALL_FREQS_lambda10_AUC.png" width="700" height="350"></a>       </p>
+<p><strong>Figure 2:</strong> This shows the sleep classification accuracy for logistic regression using untransformed sleep data with <code>statmap_anova</code> feature selection (stat_thresh = 0.1).</p>
 
-<p><strong>2nd Batch Subjects - all trials</strong>
-<a href='/images/research/LOSO_POSTBUG/BIN_SO_HILB_SPINDLE_FILTERED/2nd_batch_HILB8_ALL_FREQS_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_HILB_SPINDLE_FILTERED/2nd_batch_HILB8_ALL_FREQS_lambda10_AUC.png" width="700" height="350"></a>       </p>
+<p><strong>Thoughts:</strong> This still doesn’t make it seem like we’ve hit the upper bound on the regularization penalty. I’m not sure what to make of the fact that 750 = good regularzation, 1750 = good regularization, but 1250 gives pretty crappy results.  I guess I don’t have any strong theoretical justification to think classification accuracy would vary smoothly as we modify the regularization parameter.  I’m now launching sleep untransformed classification on <em>all</em> the subjects with a high regularization term.</p>
 
-<h2 id="erp-spindle-filtered-phase-binned">ERP Spindle-Filtered Phase-Binned</h2>
-<p><strong>1st Batch Subjects</strong>   <br />
-<a href='/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/1st_batch_ERP8_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/1st_batch_ERP8_lambda10_AUC.png" width="700" height="350"></a>       </p>
+<p><img src="/images/research/untransformed_log_reg_lambda12000_ALLSUBJS.jpg" width="700" height="350"></p>
 
-<p><strong>2nd Batch Subjects - all trials</strong>
-<a href='/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/2nd_batch_ERP8_lambda10_AUC.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/2nd_batch_ERP8_lambda10_AUC.png" width="700" height="350"></a>       </p>
+<p><strong>Figure 3:</strong> This shows the sleep classification accuracy for logistic regression using untransformed sleep data with <code>statmap_anova</code> feature selection (stat_thresh = 0.1).</p>
+
+<p><strong>Thoughts:</strong> This is clearly too high for most subjects. Although <strong>some</strong> of the subjects that have been doing well in our “best 8” analysis get pretty good classification with $\lambda = 2000$, which is unsurprising given their results for $\lambda = 1750$, some other subjects (e.g. subject 7) that did well are now getting below-chance accuracy.  The flop of some of the good “best 8” subjects from above to below chance accuracy makes a good case for reducing the regularization penalty.  Thus, I’m gunna try running all subjects with a smaller value for $\lambda$ because the infrastructure is in place to do that.</p>
+
+<h3 id="simulated-results">Simulated Results</h3>
+
+<p><del><strong>STILL CODING</strong></del> <strong>PUT ON HOLD, GOING TO TRY HILBERT TRANSFORMED DATA ANALYSIS FIRST</strong></p>
+
+<!--Ken is most interested in the hilbert-transformed data in the hopes that the Hilbert stuff will clean up (induce consistency across subjects) for wake.  Hopefully see good classification across subjects theta, 200-ish, also which electrodes are informative.-->
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sleep EEG: Group Meeting]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/07/28/sleep-eeg-group-meeting/"/>
+    <updated>2014-07-28T17:10:00+01:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/07/28/sleep-eeg-group-meeting</id>
+    <content type="html"><![CDATA[<h3 id="ken-succinctly-described-two-levels-of-complexity-in-our-sleep-analysis">Ken succinctly described two levels of complexity in our sleep analysis:</h3>
+<ol>
+  <li>How do we transform the sleep?  Recall this can be face or scene transformed, we can use correlation or the dot product, we can use data from different frequencies and different time bins in the wake data, etc.<br />
+    <ul>
+      <li>Perhaps we don’t need to sleep transform?</li>
+      <li>Perhaps we need to exclude electrodes explicitly? We thought the McDuff importance maps method implemented this, but correlation doesn’t care about the magnitude so we need to re-evaluate this (either use dot product OR filter out electrodes by some other measure)  <strong>(TODO ITEM: dot product)</strong></li>
+    </ul>
+  </li>
+  <li>When does reinstatement happen?  How should we score reinstatement?  If we do classification, do we just look at one time bin for the sleep?  Do we sum up classification across all time bins, etc.<br />
+    <ul>
+      <li>Maybe we want to use a simpler method than classification a la Staresina paper: sum correlation between template and sleep pattern and threshold to indicate replay event.   </li>
+      <li>We could and should look at trial-by-trial plots of correlation across time for both the incorrect and correct pattern - eyeball the crap out of this.  <strong>(TODO ITEM)</strong></li>
+    </ul>
+  </li>
+  <li>James also mentioned trial-by-trial variability: if cue during down phase, won’t expect reactivation in next 500 ms when all neurons are turned off.</li>
+</ol>
+
+<h3 id="behavioral-results-look-great">Behavioral Results Look great</h3>
+<ol>
+  <li>Spindles too rare to use to limit the sleep data   </li>
+</ol>
+
+<h3 id="additional-thoughts">Additional thoughts:</h3>
+<ol>
+  <li>We should leave open the option to look at ERPs for classification, although Ehren’s thoughts were that ERP winds up showing in theta band of power spectrum, plus see things in power spectrum that you don’t see in the ERPs.</li>
+  <li>We can theoretically get more classification juice if we exclude forgotten items from the sleep analysis.  </li>
+  <li>Waiting on James to get power spectrum for bands using Hilbert transform  </li>
+  <li>We have the data to look at wake classification during wake reactivation i.e. can we classify when they’re learning the associated locations?   </li>
+</ol>
+
+<h3 id="todo-items">TODO ITEMS:</h3>
+<p><strong>dot product:</strong><br />
+<del>currently running sleep log reg mcduff using both faces and scenes, results will be in <code>sleep_xform_mcduff_scene_face_8subjs_dotprod.mat</code></del>  Results in post: sleep-eeg-boosting-results
+<del>currently running boosting gentle log reg using both faces and scenes, results will be in <code>boosting_mcduff_best8_gentle_scene_face_dotprod.mat</code></del>Results in post: sleep-eeg-boosting-results, <strong>EXCEPT</strong> for some reason</p>
 
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Sleep EEG: Pre-SfN Push - the sequel]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/11/07/sleep-eeg-pre-sfn-push/"/>
-    <updated>2014-11-07T14:46:00-05:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/11/07/sleep-eeg-pre-sfn-push</id>
-    <content type="html"><![CDATA[<h2 id="sleep-untransformed-loso-erp-slow-oscillation-bins">Sleep Untransformed LOSO ERP Slow Oscillation Bins</h2>
+    <title type="html"><![CDATA[Sleep EEG: Post Boosting Results]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/07/27/sleep-eeg-post-boosting-results/"/>
+    <updated>2014-07-27T14:46:00+01:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/07/27/sleep-eeg-post-boosting-results</id>
+    <content type="html"><![CDATA[<h3 id="our-to-do-list-consists-of-the-following">Our to-do list consists of the following:</h3>
+<ol>
+  <li>logistic regression on sleep data using data from all time bins of the sleep data and compare this to existing results from boosting  </li>
+  <li>try boosting and logistic regression using <strong>untransformed</strong> sleep data (large volume of data)</li>
+  <li>look at various other parameterizations of boosting classification result (just because it’s easy to do)</li>
+  <li>Let’s look at what happens when the classifier gets fed in both face and scene transformed data   </li>
+  <li>Let’s look at when the classifier gets transformed using both face and scene transformed data using the DOT product (see post )  </li>
+</ol>
 
-<p><strong>1st Batch Subjects</strong>   <br />
-<a href='/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4face_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/1st_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+<h3 id="as-a-refresher-here-is-the-last-boosting-result">As a refresher, here is the last boosting result:</h3>
 
-<p><strong>2nd Batch Subjects - all trials</strong>
-<a href='/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+<p><img src="/images/research/ensemble_best<em>8_wake_subj</em>202ms_7hz_gentle.jpg" width="700" height="350"></p>
 
-<p><strong>2nd Batch Subjects - spindleboost trials only</strong>
-<a href='/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/SPINDLEONLY<em>2nd_batch_ERP4_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/SPINDLEONLY<em>2nd_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/SPINDLEONLY</em>2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/SPINDLEONLY</em>2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+<p><strong>Figure 1:</strong> The y-axis shows classification accuracy.  Subjects and parameters are shown along the x-axis (g = gentleboost algorithm, f = face mcduff importance sleep transform).</p>
 
-<p><strong>2nd Batch Subjects - NO spindleboost trials</strong>
-<a href='/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/NOSPINDLEBOOST<em>2nd_batch_ERP4_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/NOSPINDLEBOOST<em>2nd_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/NOSPINDLEBOOST</em>2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/BIN_SO_ERP_LOSO/NOSPINDLEBOOST</em>2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+<h2 id="logistic-regression-sleep-importance-map-transformed-results-to-do-item-1">Logistic Regression Sleep Importance Map Transformed Results (To-Do Item #1)</h2>
+<p><img src="/images/research/log_reg_best_8_subjects_mcduff_xform.jpg" width="700" height="350"></p>
 
-<h2 id="sleep-untransformed-loso-erp-locked-to-slow-oscillation-trough">Sleep Untransformed LOSO ERP LOCKED to Slow Oscillation Trough</h2>
+<p><strong>Figure 2a:</strong> Displayed above is the classifier accuracy for all subjects(x-axis).  The classification accuracy was generated for various sleep importance map transformations (face, scene, or face minus scene), which is indicated along the y-axis.  The classifier features consisted of transforming the sleep data at each timebin and concatenating the sleep transformed data at each timebin into a single data matrix.  The entries along the x and y axis labelled “Mean” simply show the mean along the x and y axis respectively.</p>
 
-<p><strong>1st Batch Subjects</strong>   <br />
-<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/1st_batch_ERP4_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/1st_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/1st_batch_ERP4face_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/1st_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+<p><strong>Thoughts</strong>: These results lend further credence to the notion that it may be beneficial to sleep transform data according to both face and scene classifiers and feed both of those into a single classifier.  This idea that perhaps there is information in the scene pattern that isn’t in the face pattern (and vice versa) can be further scrutinized by looking at MDS plots of the untransformed data, the face transformed data, and scene transformed data - this may be worth doing depending on how much free time I have.  If I don’t end up looking at that, I’m not too upset since item #2 on the to-do list will also give us information about the role of the sleep transformation.  Additionally: note that the average classification accuracy, across both subjects and sleep transformation types, is pretty similar to that achieved with boosting, but none of the individual sleep transformations really give the same classification accuracy profile across subjects as the boosting results (this is easier to see in the plot below where I plot the rows of Figure 2 as separate horizontal bar graphs to match the format of the boosting results.  Why does it matter that accuracy across subjects in the logistic regression case doesn’t look like the accuracy achieved with boosting?  If our sleep transformation method yielded enough signal, then it should yield similar classification accuracy across subjects for the different classifier types.</p>
 
-<p><strong>2nd Batch Subjects - all trials</strong>
-<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/2nd_batch_ERP4_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/2nd_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+<p><img src="/images/research/log_reg_best_8_subjects_mcduff_xform_supplement.jpg" width="700" height="350">
+<strong>Figure 2b:</strong> A different visualization of the logistic regression plots useful for direct visual comparison against the ensemble results (Figure 1).</p>
 
-<p><strong>2nd Batch Subjects - spindleboost trials only</strong>
-<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/SPINDLEONLY<em>2nd_batch_ERP4_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/SPINDLEONLY<em>2nd_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/SPINDLEONLY</em>2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/SPINDLEONLY</em>2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+<h2 id="to-do-item-3-boosting-classification-results-using-different-sleep-transforms-best-8-subjects">To-Do Item #3: Boosting Classification Results Using Different Sleep Transforms, Best 8 Subjects</h2>
+<p><img src="/images/research/ensemble_best<em>8_wake_subj</em>202ms_7hz_gentle_ALL_TRANSFORMS.jpg" width="700" height="350"></p>
 
-<p><strong>2nd Batch Subjects - NO spindleboost trials</strong>
-<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/NOSPINDLEBOOST<em>2nd_batch_ERP4_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/NOSPINDLEBOOST<em>2nd_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/NOSPINDLEBOOST</em>2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_ERP/NOSPINDLEBOOST</em>2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+<p><strong>Figure 3:</strong> This shows boosting classification accuracy using different sleep transforms.  The x-axis indicates which boosting algorithm (g for gentleboost) was used, the subject id (e.g. ‘15’ or ‘07’), and the wake pattern that was used for the sleep transformation (f = face, s = scene, M = face minus scene).</p>
 
-<h2 id="sleep-untransformed-loso-erp-locked-to-cue">Sleep Untransformed LOSO ERP LOCKED to CUE</h2>
+<p><strong>Thoughts:</strong> This is a clear example where the classification accuracy results would look totally different based on which analysis parameters we use.  I suspect that if we get around to doing boosting classification using both the scene and face transformation, that will look entirely different, too.</p>
 
-<p><strong>1st Batch Subjects</strong>   <br />
-<a href='/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/1st_batch_ERP4_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/1st_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/1st_batch_ERP4face_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/1st_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+<h2 id="to-do-item-2-logistic-regression-classification-results-sleep---untransformed-best-8-subjects">To-Do Item #2: Logistic Regression Classification Results Sleep - UNTRANSFORMED, Best 8 Subjects</h2>
+<p><del><strong>3/23 JOBS STILL RUNNING ON CLUSTER</strong>  This takes a relatively long time because the feature selection has to operate over ~100,000 features and that needs to run for each cross-validation fold for each subject.</del>  The results are displayed below</p>
 
-<p><strong>2nd Batch Subjects - all trials</strong>
-<a href='/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/2nd_batch_ERP4_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/2nd_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+<p><img src="/images/research/sleep_log_reg_raw_best8.jpg" width="700" height="350"></p>
 
-<p><strong>2nd Batch Subjects - spindleboost trials only</strong>
-<a href='/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/SPINDLEONLY<em>2nd_batch_ERP4_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/SPINDLEONLY<em>2nd_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/SPINDLEONLY</em>2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/SPINDLEONLY</em>2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+<p><strong>Figure 4:</strong> This shows the result of performing logistic regression on the raw sleep data using all frequencies, all time bins, and all electrodes on raw data.  This amounts to about 100,00 features (64 electrodes x ~47 frequencies x ~38 time bins ) so obviously I need to run this analysis with feature selection.  I really wanted to include as many features as I could (without exceeding my RAM limits), so I used a loose stat threshold for statmap_anova feature selection (p = 0.1) which yielded about 10,000 features.</p>
 
-<p><strong>2nd Batch Subjects - NO spindleboost trials</strong>
-<a href='/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/NOSPINDLEBOOST<em>2nd_batch_ERP4_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/NOSPINDLEBOOST<em>2nd_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/NOSPINDLEBOOST</em>2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/CUE_LOCKED_ERP/NOSPINDLEBOOST</em>2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+<p><strong>Thoughts:</strong> This tells us that this data is damn noisy, we need to be smarter about what features we’re putting into the data.  Straightforward logistic regression isn’t working particularly well on this - it might be worth explicitly using LASSO instead of ridge regression as we’re currently using.  Additionally, I found something in the documentation of the <code>logRegFun</code> that suggests I should be trying much higher regularization values than I have been.  I’m going to try this out since it’s easy to run and I want to explicitly rule out the penalty term as why we’re not getting poor results. I will also look into whether or not it’s easy to use LASSO.  <strong>Update</strong> There does seem to be L1 regression in the MVPA toolbox via the <code>SMLR</code> function, although it implements multinomial regression (as compared to the current method of training a single logistic regression classifier for each class), however, it seems like it’ll bw</p>
 
-<h2 id="sleep-untransformed-loso-hilbert-locked-to-slow-oscillation-trough-classify-all-frequencies">Sleep Untransformed LOSO <em>HILBERT</em> LOCKED to Slow Oscillation trough: Classify All Frequencies</h2>
+<p>I think the fact that these results are comparable to the sleep transformed data in terms of classification accuracy tells us something about the sleep data, not necessarily about the sleep transformation.  I have to double-check the linear algebra behind this interpretation of the sleep data, but I think that when we transform the sleep data, we’re essentially projecting each dimension of the sleep data onto a single vector defined by the average pattern.  Now: if there is some best subspace of the untransformed data where the classes are just barely separable (i.e. you could get 52% accuracy), then whether or not we transform the sleep data won’t really matter.  If we don’t project, we can build a classifier that goes along the subspace I mentioned.  If we do project, then that same subspace will manifest in a different basis, but with the same separability.  Obviously you won’t get this barely classifiable subspace if the vector onto which you project is orthogonal to the subspace, but if there are multiple, weakly classifiable subspaces in the data - which is not crazy to think if the data are in general weakly separable, then one of these subspaces will not be orthogonal to the vector you’re choosing yielding once again a weakly separable subspace.  In fact, I suspect that we should be able to project onto random vectors and get the same classification accuracy on average - this comes from some light reading into random subspace projection theory where given a random projection you can give a probabilistic bound on the dot product between two vectors in a random subspace as a function of their dot product in the original space i.e. with some probability the dot product in the transformed space will be within some range of the dot product in the original space.  This is all pretty loosey goosey linear algebra logic, but I think it’s a start in the right direction for understanding what’s up with the transform vs untransformed data.</p>
 
-<p><strong>1st Batch Subjects</strong>   <br />
-<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/1st_batch_HILB_ALL_FREQS_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/1st_batch_HILB_ALL_FREQS_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/1st_batch_HILB_ALL_FREQSface_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/1st_batch_HILB_ALL_FREQSface_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+<h2 id="to-do-item-4--feed-classifiers-face-and-scene-transformed-data-using-mcduff-importance-maps">To-Do Item #4:  Feed classifiers face AND scene transformed data using McDuff Importance Maps</h2>
 
-<p><strong>2nd Batch Subjects - all trials</strong>
-<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/2nd_batch_HILB_ALL_FREQS_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/2nd_batch_HILB_ALL_FREQS_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/2nd_batch_HILB_ALL_FREQSface_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/2nd_batch_HILB_ALL_FREQSface_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+<p><img src="/images/research/ensemble_best<em>8_wake_subj</em>202ms_7hz_gentle_face_AND_SCENE.jpg" width="700" height="350"></p>
 
-<p><strong>2nd Batch Subjects - spindleboost trials only</strong>
-<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/SPINDLEONLY<em>2nd_batch_HILB_ALL_FREQS_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/SPINDLEONLY<em>2nd_batch_HILB_ALL_FREQS_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/SPINDLEONLY</em>2nd_batch_HILB_ALL_FREQSface_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/SPINDLEONLY</em>2nd_batch_HILB_ALL_FREQSface_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+<p><strong>Figure 5a:</strong> Boosting classification exactly like the Figure 1) except that these incorporate a feature vector that consists of transforming all frequencies with the importance map for scene and concatenating those features onto the feature vector generated by transforming all frequencies in the sleep data with the importance map for faces.</p>
 
-<p><strong>2nd Batch Subjects - NO spindleboost trials</strong>
-<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/NOSPINDLEBOOST<em>2nd_batch_HILB_ALL_FREQS_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/NOSPINDLEBOOST<em>2nd_batch_HILB_ALL_FREQS_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/NOSPINDLEBOOST</em>2nd_batch_HILB_ALL_FREQSface_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/NOSPINDLEBOOST</em>2nd_batch_HILB_ALL_FREQSface_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+<p><img src="/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether.jpg" width="700" height="350"></p>
 
-<h2 id="sleep-untransformed-loso-hilbert-locked-to-slow-oscillation-trough-classify-frequencies-separately">Sleep Untransformed LOSO <em>HILBERT</em> LOCKED to Slow Oscillation trough: Classify Frequencies Separately</h2>
+<p><strong>Figure 5b:</strong> Exactly the same as figure 2a, recall we’re feeding in all the timepoints to logistic regression (no explicit feature selection in this version, although we still use regularization), except this time we used both face and scene transformed features in the data.</p>
 
-<p><strong>1st Batch Subjects</strong>   <br />
-<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/1st_batch_HILB_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/1st_batch_HILB_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/1st_batch_HILBface_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/1st_batch_HILBface_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+<p><strong>Thoughts:</strong> Well, not uniformly super awesome classification results for both methods, BUT I’m pretty happy to see that they have the same general profile: across both analyses subjects 11,13,15 and 5,7,8 both pop out whereas classification is poor for both subject 9 and subject 1 in both analyses.  Consistency across analyses is the only proxy we currently have for assessing whether our results are due to random chance so this is a relatively nice result in that context.  That’s a score for the veracity of our results, but the other key aspect of evaluating our results, how good the results actually are, is still lacking.  Barring success with modifying the regularization term, we’ll have to look into more explicit electrode filtering and using Hilbert transformed data to try to improve our results.  <strong>Importantly</strong> I’d like to run future analyses this same way: modifying features, but running them through both classifiers to make sure we’re getting consistent results.</p>
 
-<p><strong>2nd Batch Subjects - all trials</strong>
-<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/2nd_batch_HILB_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/2nd_batch_HILB_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/2nd_batch_HILBface_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/2nd_batch_HILBface_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+<h2 id="to-do-item-5--feed-classifiers-face-and-scene-transformed-data-using-mcduff-importance-maps-with-dot-product-instead-of-correlation-as-pattern-similarity-measure">To-Do Item #5:  Feed classifiers face AND scene transformed data using McDuff Importance Maps with DOT PRODUCT instead of correlation as pattern similarity measure</h2>
+<p><del><strong>IMPORTANT:</strong> For some reason, the boosting results look EXACTLY the same as the correlation-based boosting results.  This is strange because I explicitly verified the dot product and correlation calculations actually give different values. I’m investigating whether or not this is a bug as we speak, just gotta manually step through both the correlation and the dot product code which is a pain in the, as they say in the medical field, patootie.</del></p>
 
-<p><strong>2nd Batch Subjects - spindleboost trials only</strong>
-<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/SPINDLEONLY<em>2nd_batch_HILB_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/SPINDLEONLY<em>2nd_batch_HILB_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/SPINDLEONLY</em>2nd_batch_HILBface_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/SPINDLEONLY</em>2nd_batch_HILBface_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+<p><strong>UPDATE:</strong> Comparing the preprocessed data using the dot product and correlation, it looks like the data being processed is in fact different for the boosting classifier i.e. I don’t think that this is a bug.  Looking into it more, given that the correlation is the normalized dot product, it makes sense that we get different results for logistic regression but not the boosting ensemble.  Why? Well, logistic regression regularization term penalizes the magnitude of the weights, thus keeping the same regularization penalty but scaling the weights is effectively the same as keeping the same weights but modifying the regularization term.  However, boosting just creates decision stumps which will split the data regardless of whether or not the data are normalized.  Thus these results make sense: all is right with the world.  Kind of.</p>
 
-<p><strong>2nd Batch Subjects - NO spindleboost trials</strong>
-<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/NOSPINDLEBOOST<em>2nd_batch_HILB_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/NOSPINDLEBOOST<em>2nd_batch_HILB_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/NOSPINDLEBOOST</em>2nd_batch_HILBface_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_LOCKED_HILB/NOSPINDLEBOOST</em>2nd_batch_HILBface_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+<p><img src="/images/research/8<em>wake_subj</em>202ms_7hz_gentle_faceSCENE_DOTPROD.jpg" width="700" height="350"></p>
 
-<h2 id="sleep-untransformed-loso-erp-locked-to-slow-oscillation-trough-filtered-by-spindles">Sleep Untransformed LOSO ERP LOCKED to Slow Oscillation trough, filtered by spindles:</h2>
-
-<p><strong>1st Batch Subjects</strong>   <br />
-<a href='/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/1st_batch_ERP4_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/1st_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/1st_batch_ERP4face_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/1st_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
-
-<p><strong>2nd Batch Subjects - all trials</strong>
-<a href='/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/2nd_batch_ERP4_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/2nd_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
-
-<p><strong>2nd Batch Subjects - spindleboost trials only</strong>
-<a href='/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/SPINDLEONLY<em>2nd_batch_ERP4_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/SPINDLEONLY<em>2nd_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/SPINDLEONLY</em>2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/SPINDLEONLY</em>2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
-
-<p><strong>2nd Batch Subjects - NO spindleboost trials</strong>
-<a href='/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/NOSPINDLEBOOST<em>2nd_batch_ERP4_lambda10_FACESCENE.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/NOSPINDLEBOOST<em>2nd_batch_ERP4_lambda10_FACESCENE.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/NOSPINDLEBOOST</em>2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS_SPINDLE_FILTERED/NOSPINDLEBOOST</em>2nd_batch_ERP4face_sceneAUC_lambda10PVAL.png" width="700" height="350"></a>       </p>
+<p><img src="/images/research/log_reg_sleep_mcduff_best8_faceSCENEtogether_DOTPROD.jpg" width="700" height="350"></p>
 
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[State Representation in OFC]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/10/31/PDP-nico/"/>
-    <updated>2014-10-31T12:08:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/10/31/PDP-nico</id>
-    <content type="html"><![CDATA[<h1 id="where-and-how-is-state-represented">Where and how is state represented?</h1>
+    <title type="html"><![CDATA[Sleep EEG: Boosting Classification Results]]></title>
+    <link href="http://ElPiloto.github.io/blog/2014/07/15/sleep-eeg-boosting-classification-results/"/>
+    <updated>2014-07-15T09:37:00+01:00</updated>
+    <id>http://ElPiloto.github.io/blog/2014/07/15/sleep-eeg-boosting-classification-results</id>
+    <content type="html"><![CDATA[<h2 id="the-results-below-ensemble-classification-results-round-1-are-all-useless">The results below “Ensemble Classification Results, Round 1” are all useless</h2>
 
-<p>Perhaps OFC is a cognitive map of task space? as suggested in paper of similar title by Bob Wilson, … Yael Niv   </p>
+<p>I messed up the calculation of average pattern in wake classification (which is used in creating the mcduff importance map in the preprocessing below).</p>
 
-<p>Represents map of states in current task   </p>
+<h3 id="ensemble-classification-results-round-6---cross-validation-subject-1">Ensemble Classification Results, Round 6 - Cross-validation subject 1</h3>
 
-<h3 id="predicitons-of-current-study">Predicitons of current study:</h3>
+<p><img src="/images/research/ensemble_results_subj1_round6.jpg" width="700" height="350"></p>
 
-<p>activitiy patterns in OFC should allow us to discriminate between hidden states   </p>
+<p><img src="/images/research/ensemble_results_subj1_round6pt2.jpg" width="700" height="350"></p>
 
-<p>similarity of OFC state representations should represent distance in task space    </p>
+<p><img src="/images/research/ensemble_results_subj1_round6pt3.jpg" width="700" height="350"></p>
 
-<h3 id="stimuli">Stimuli</h3>
+<h3 id="ensemble-classification-results-round-3">Ensemble Classification Results, Round 3</h3>
 
-<p>Young/old faces overlaid on old/modern houses   </p>
+<p>I used the following values to produce the plot below:
+10-fold cross validation, GentleBoost, 200 Learners, Wake Time = 152ms, Freq = 7 Hz, Importance Map for Face</p>
 
-<h3 id="task">Task</h3>
-<p>Trial 1:  What is the age of the currently attended image?  Need to attend to faces or houses (this is latent state during task, because instructed at start of trial) <br />
-Trial 2:  If age of currently attended image changes, next trial will have to switch attention to opposite stimulus type (e.g. from faces to houses)   </p>
+<p><img src="/images/research/ensemble_results_subj1thru8_round3.jpg" width="700" height="350"></p>
 
-<h3 id="what-constitutes-a-state">What constitutes a state?</h3>
-<p><strong>Dimensions of State:</strong> <br />
-1. category of previous trial  <br />
-2. age of prev. trial  <br />
-3. category current trial  <br />
-4. age of current trial   </p>
+<h3 id="ensemble-classification-results-round-1-incorrect">Ensemble Classification Results, Round 1 (INCORRECT)</h3>
+<p><strong>these results are wrong - leaving here for historical purposes only</strong></p>
 
-<h3 id="behavioral-data">Behavioral Data</h3>
-<p>Rewarded if stay below error   </p>
+<p>Previously, I went through and tried various combinations of boosting algorithms (LogitBoost, GentleBoost, Adaboost.M1), number of learners, and number of folds for a single subject (subject 01) to try to determine what to run across all subjects to get the best tradeoff between accuracy and running time.  Below is a summary of those results.</p>
 
-<h3 id="classification-analsysis">Classification Analsysis</h3>
-<p>estimate activation pattern associated with each state <br />
-- train classifier to discriminate between states <br />
-- assess which dimensions classifier can distinguish   </p>
+<p><img src="/images/research/subj1_ensemble_params_testing.png" width="700" height="300"></p>
 
-<h4 id="ofc-encodes-most-dimensions-of-state-spate">OFC encodes most dimensions of state spate</h4>
-<p>prev category *
-prev age (p = 0.06) <br />
-current category * <br />
-current age  - doesn’t get encoded, for some reason   </p>
+<p>Ultimately, I chose the following: <br />
+  <strong>GentleBoost:</strong> just as good accuracy as other algorithms <em>and</em> better running time than AdaBoost.M1 or LogitBoost for some parametrizations   <br />
+  <strong>50-fold cross-validation:</strong> it seemed to me like accuracy would increase with the number of folds   <br />
+  <strong>400 Learners:</strong> I was skeptical of AdaBoostM1’s results with 700 learners, that begin to overfit, so I aimed for something slightly higher than what I had tried (300 learners) that wouldn’t go too far in terms of overfitting.</p>
 
-<p>DLPFC and Hippo: Less information than OFC   </p>
+<p>Below are the results for running <strong>GentleBoost</strong> using the aforementioned parameters, transforming the sleep data with a face minus scene McDuff importance map using wake data from time-bin = 230ms and freq = 11 Hz. <br />
+j  </p>
 
-<h3 id="relations-of-states">Relations of States:</h3>
-<p>Basically look at state transition matrix, cluster according to successor representation    </p>
+<p>This is below what we’d like to get and is lower than I would have expected for the first subject.  Possible reasons this could be the case:<br />
+  - not enough data per fold<br />
+  - I (accidentally )probed boosting results on subject 1 with different parameters than used for the current results: <br />
+     - time bin = 152 ms<br />
+     - freq = 7 Hz <br />
+     - mcduff pattern = face   </p>
 
-<p>See reliable difference in correlation between states with same successor representation minus correlation between states with different successor representation in OFC    </p>
+<p><img src="/images/research/ensemble_results_subj1thru8_round1.jpg" width="700" height="350"></p>
 
-<p>Size of effect in OFC has <strong>strong</strong> correlation with amount of errors   </p>
+<h3 id="next-steps">Next Steps</h3>
 
-<p>Also see: hippocampus, DLPFC, auditory cortex, and visual cortex   </p>
-
-<p>So then what does this mean? Perhaps multiple areas involved in this task?  That seems likely, but what is the role of OFC in this?     </p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[ZNN: Cpu-based Conv Nets]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/10/20/znn-cpu-based-conv-nets/"/>
-    <updated>2014-10-20T12:08:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/10/20/znn-cpu-based-conv-nets</id>
-    <content type="html"><![CDATA[<h1 id="znn">ZNN</h1>
-
-<h3 id="motivation">Motivation</h3>
-<ul>
-  <li>not that many neural network implementations utilize multi-cpu</li>
-  <li>o</li>
-</ul>
-
-<h2 id="convoluational-neural-net-training">Convoluational Neural Net Training</h2>
-
-<h4 id="forward-pass">Forward Pass:</h4>
-<p><em>Direct:</em>
-- each edge is a filter
-- convolve f &amp; w
-<em>FFT Method:</em>
-- FFT of image
-- FFT of filter
-- Multiple
-- inverse FFT</p>
-
-<h4 id="backward-pass">Backward Pass:</h4>
-<p><em>Direct:</em>   <br />
-calculate G   <br />
-convolve g and w   <br />
-<em>FFT Method:</em>   <br />
-- calculate FFT of G   <br />
-- FFT of W (already calculcated during forward pass)   <br />
-- inverse FFT     </p>
-
-<h4 id="updating-weights">Updating Weights</h4>
-<p><em>Direct:</em>   <br />
-- calculate $\frac{dE}{dB}$ and update the biases  <br />
-- convolve F(ilter) &amp; G’ and update W   <br />
-<em>FFT:</em>   <br />
-- calculate $\frac{dE}{dB}$ and update the biases   <br />
-- IFFT(FFT(F),FFT(G)), update W     </p>
-
-<h2 id="parallel-models--data-vs-thread-vs-task-model">Parallel Models:  Data vs. Thread vs. Task Model</h2>
-
-<p><strong>Data Model:</strong>
-- parallelize a single operation (convolution)  <br />
-- example: parallel loops   <br />
-<strong>Thread Model:</strong>  <br />
-- each thread has its own duties    <br />
-- thread communicate with signals/messages   <br />
-<strong>Task Model:</strong>  <br />
-- taks is an abstract concept - a function <br />
-- CPUs pick up tasks that are ready to be executed  <br />
-- global queue - can be prioritized  <br />
-- tasks can be stolen   </p>
-
-<h2 id="znns-task-model">ZNN’s Task Model</h2>
-<p><strong>Prioritized Task Model</strong>
-<strong>Scheduling strategy</strong>
-- priority based on the numbder of tasks depending on the current task’s completion
-<strong>Stealing tasks</strong>     </p>
-
-<h2 id="general-idea-for-parallelizing-forward-pass">General Idea for parallelizing forward pass:</h2>
-<p>Let’s look at dependencies (for instance, need to load a training example before you’ll need to FFT it, maybe even before you FFT individual filters, etc) and to grab job’s as needed.  <br />
-- Ultimately this leads to the only bottleneck being waiting for the output peceptron    </p>
-
-<h2 id="general-idea-for-parallelizing-backward-pass">General Idea for parallelizing backward pass:</h2>
-<ul>
-  <li>can update weights as you do backward pass   </li>
-</ul>
-
-<h1 id="how-to-znn">How to Znn?</h1>
-
-<p>Three input files:  <br />
-1.  Network spec  <br />
-2. Data spec  <br />
-3. Training Options     </p>
-
-<h4 id="network-spec">Network Spec:</h4>
-<p>Can be specified as a graph:  <br />
-	- node groups and edge groups  <br />
-[C1]    % unique name of node group
-size=5   % number of nodes
-activation=tanh
-act_params=1.712,0.666
-% mass pooling operation(only support max pooling, atm)
-filter=max
-filter_size=2,2,1
-filter_stride=2,2,1
-% weight/bias initialization
-init_type=Uniform
-init_params=0.05
-bias=0
-% learning
-eta=0.01
-mom=0.9
-wc=0
-% fft switch - unnecessary
-fft=0</p>
-
-<p>Edgegroup spec:
-[SOURCENODE_TARGETNODEGROUP] 
-size=4,4,1
-% more initialization
-init_type=Uniform
-init_params=0.05</p>
-
-<h4 id="data-spec">Data Spec:</h4>
-<p>[INPUT1]
-path=
-ext=image
-size=512,512,30
-pptype=standard2D %preprocessing -</p>
-
-<p>[LABEL1]</p>
-
-<h4 id="training-options">Training Options:</h4>
-<p>[PATH]
-config=./networks/N3.spec
-load= (can load previously saved network instances)
-data= DATA_SPEC_FILE
-save = SAVE_FILE
-[OPTIMIZE]
-n_threads=64
-force_fft=0 % force all edge groups to use FFT
-optimize_fft=1
-[TRAIN]
-train_range=1
-test_range=2
-outsz=100,100,1
-dp_type=volume % data provider types - only allows volume currently   <br />
-cost_fn=cross_entropy   <br />
-cost_fn_param=0    <br />
-data_aug=1 % randomly transform input data (random rotation, random flip - each data provider is responsible for implementing its own data augmentation logic)   <br />
-clas_thresh=0.5 % classification threshold   <br />
-softmax=1 % apply softmax at output layer  <br />
-[UPDATE]
-force_eta=0.01
-momentum=0.9
-wc=0
-anneal_factor=0.997
-anneal_freq
-[MONITOR] % saves current network instance
-n_iters=100000
-check_freq=10
-test_freq=100
-test_samples=10</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sleep EEG: Pre-SFN Push]]></title>
-    <link href="http://ElPiloto.github.io/blog/2014/10/13/sleep-eeg-pre-sfn-push/"/>
-    <updated>2014-10-13T17:17:00-04:00</updated>
-    <id>http://ElPiloto.github.io/blog/2014/10/13/sleep-eeg-pre-sfn-push</id>
-    <content type="html"><![CDATA[<p><a href='/images/research/LOSO_POSTBUG/WAKE_ERP_TRANSFORM_SLEEP_ERP_AVG.jpg' target='_blank'><img src="/images/research/LOSO_POSTBUG/WAKE_ERP_TRANSFORM_SLEEP_ERP_AVG.jpg" width="700" height="350"></a>    </p>
-
-<h3 id="with-rescaling">WITH rescaling</h3>
-<p><a href='/images/research/LOSO_POSTBUG/RESCALING_WAKE_LOSO_ERP_ZSCORE<em>175ms.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/RESCALING_WAKE_LOSO_ERP_ZSCORE<em>175ms.png" width="700" height="350"></a>  <br />
-<a href='/images/research/LOSO_POSTBUG/ERP_WAKE_LOSO_RESCALING_SPATIAL_TEMPLATES</em>175ms.jpg' target='_blank'><img src="/images/research/LOSO_POSTBUG/ERP_WAKE_LOSO_RESCALING_SPATIAL_TEMPLATES</em>175ms.jpg" width="700" height="350"></a>    </p>
-
-<h3 id="without-rescaling">WITHOUT rescaling</h3>
-<p><a href='/images/research/LOSO_POSTBUG/WITHOUT_RESCALING_WAKE_LOSO_ERP_ZSCORE<em>175ms.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/WITHOUT_RESCALING_WAKE_LOSO_ERP_ZSCORE<em>175ms.png" width="700" height="350"></a>  <br />
-<a href='/images/research/LOSO_POSTBUG/ERP_WAKE_LOSO_NORESCALING_SPATIAL_TEMPLATES</em>175ms.jpg' target='_blank'><img src="/images/research/LOSO_POSTBUG/ERP_WAKE_LOSO_NORESCALING_SPATIAL_TEMPLATES</em>175ms.jpg" width="700" height="350"></a>    </p>
-
-<h1 id="second-batch-of-subjects">Second Batch Of Subjects:</h1>
-
-<h2 id="things-that-are-the-same">Things that are the same:</h2>
-
-<h4 id="wake-loso-timebin-freq-sweep">Wake LOSO Timebin-Freq Sweep</h4>
-
-<p>These two guys seem pretty similar (the top is the 2nd batch of subjects) </p>
-
-<p><a href='/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUG_2nd_subjects_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUG_2nd_subjects_face_sceneAUC_lambda10.png" width="700" height="350"></a>    </p>
-
-<p><a href='/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUG_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_POST_BUG_face_sceneAUC_lambda10.png" width="700" height="350"></a>    </p>
-
-<h4 id="wake-loso-erp-classification">Wake LOSO ERP Classification</h4>
-
-<p><strong>2nd Batch Subjects</strong>
-<a href='/images/research/LOSO_POSTBUG/2nd_batch_LOSO_WAKE_LOGREG_ERP25_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/2nd_batch_LOSO_WAKE_LOGREG_ERP25_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
-<strong>1st Batch Subjects</strong>   <br />
-<a href='/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_ERP25_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/LOSO_WAKE_LOGREG_ERP25_face_sceneAUC_lambda10.png" width="700" height="350"></a>       </p>
-
-<h2 id="things-that-are-not-the-same">Things that are NOT the same:</h2>
-
-<h4 id="sleep-loso-timebin-freq-sweep">Sleep LOSO Timebin-Freq Sweep</h4>
-<p><strong>2nd Batch Subjects</strong>
-<a href='/images/research/LOSO_POSTBUG/SLEEP_LOSO_LOGREG_2nd_batch_subjects_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SLEEP_LOSO_LOGREG_2nd_batch_subjects_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
-<strong>1st Batch Subjects</strong>   <br />
-<a href='/images/research/LOSO_POSTBUG/SLEEP_LOSO_LOGREG_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SLEEP_LOSO_LOGREG_face_sceneAUC_lambda10.png" width="700" height="350"></a>       </p>
-
-<h4 id="sleep-loso-erp-classification">Sleep LOSO ERP Classification</h4>
-<p><strong>2nd Batch Subjects</strong>
-<a href='/images/research/LOSO_POSTBUG/2nd_batch_LOSO_SLEEP_LOGREG_ERP25_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/2nd_batch_LOSO_SLEEP_LOGREG_ERP25_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
-<strong>1st Batch Subjects</strong>   <br />
-<a href='/images/research/LOSO_POSTBUG/1st_batch_LOSO_SLEEP_LOGREG_ERP25_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/1st_batch_LOSO_SLEEP_LOGREG_ERP25_face_sceneAUC_lambda10.png" width="700" height="350"></a>       </p>
-
-<h2 id="sleep-classify-spindleboost-trials-only">Sleep Classify SpindleBoost Trials Only</h2>
-<p><strong>2nd Batch Subjects</strong>
-<a href='/images/research/LOSO_POSTBUG/SPINDLE_TRIALS_SLEEP_LOSO_LOGREG_2nd_batch_subjects_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SPINDLE_TRIALS_SLEEP_LOSO_LOGREG_2nd_batch_subjects_face_sceneAUC_lambda10.png" width="700" height="350"></a>       </p>
-
-<h2 id="classify-erp-4-ms">Classify ERP 4 ms</h2>
-
-<h4 id="wake">WAKE</h4>
-<p><strong>2nd Batch Subjects</strong>
-<a href='/images/research/LOSO_POSTBUG/2nd_batch_LOSO_WAKE_LOGREG_ERP4<em>2seconds_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/2nd_batch_LOSO_WAKE_LOGREG_ERP4<em>2seconds_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
-<strong>1st Batch Subjects</strong>   <br />
-<a href='/images/research/LOSO_POSTBUG/1st_batch_LOSO_WAKE_LOGREG_ERP4</em>2seconds_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/1st_batch_LOSO_WAKE_LOGREG_ERP4</em>2seconds_face_sceneAUC_lambda10.png" width="700" height="350"></a>       </p>
-
-<h4 id="sleep">SLEEP</h4>
-<p><strong>2nd Batch Subjects</strong>
-<a href='/images/research/LOSO_POSTBUG/2nd_batch_LOSO_SLEEP_LOGREG_ERP4<em>2seconds_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/2nd_batch_LOSO_SLEEP_LOGREG_ERP4<em>2seconds_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
-<strong>1st Batch Subjects</strong>   <br />
-<a href='/images/research/LOSO_POSTBUG/1st_batch_LOSO_SLEEP_LOGREG_ERP4</em>2seconds_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/1st_batch_LOSO_SLEEP_LOGREG_ERP4</em>2seconds_face_sceneAUC_lambda10.png" width="700" height="350"></a>       </p>
-
-<h2 id="sleep-untransformed-loso-erp-slow-oscillation-locked---fixed">Sleep Untransformed LOSO ERP Slow Oscillation Locked - FIXED</h2>
-<p><strong>2nd Batch Subjects - all trials</strong>
-<a href='/images/research/LOSO_POSTBUG/SO_locked/2nd_batch_subjs_slow_oscillation_ERP4_SOlocked_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_locked/2nd_batch_subjs_slow_oscillation_ERP4_SOlocked_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/SO_locked/2nd_batch_subjs_slow_oscillation_ERP4_SOlockedPVAL_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_locked/2nd_batch_subjs_slow_oscillation_ERP4_SOlockedPVAL_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
-<strong>2nd Batch Subjects - no spindleboost trials</strong>
-<a href='/images/research/LOSO_POSTBUG/SO_locked/2nd_batch_subjs_slow_oscillation_ERP4_SOlocked_NOSPINDLEBOOST_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_locked/2nd_batch_subjs_slow_oscillation_ERP4_SOlocked_NOSPINDLEBOOST_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/SO_locked/2nd_batch_subjs_slow_oscillation_ERP4_SOlocked_NOSPINDLEBOOSTPVAL_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_locked/2nd_batch_subjs_slow_oscillation_ERP4_SOlocked_NOSPINDLEBOOSTPVAL_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
-<strong>1st Batch Subjects</strong>   <br />
-<a href='/images/research/LOSO_POSTBUG/SO_locked/1st_batch_subjs_slow_oscillation_ERP4_SOlocked_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_locked/1st_batch_subjs_slow_oscillation_ERP4_SOlocked_face_sceneAUC_lambda10.png" width="700" height="350"></a>      <br />
-<a href='/images/research/LOSO_POSTBUG/SO_locked/1st_batch_subjs_slow_oscillation_ERP4_SOlockedPVAL_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_locked/1st_batch_subjs_slow_oscillation_ERP4_SOlockedPVAL_face_sceneAUC_lambda10.png" width="700" height="350"></a>       </p>
-
-<h2 id="sleep-untransformed-loso-erp-slow-oscillation-bins---fixed">Sleep Untransformed LOSO ERP Slow Oscillation Bins - FIXED</h2>
-<p><strong>2nd Batch Subjects - all trials</strong>
-<a href='/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_ERP4_all_trials_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_ERP4_all_trials_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_ERP4_all_trialsPVAL_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_ERP4_all_trialsPVAL_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
-<strong>2nd Batch Subjects - no spindleboost trials</strong>
-<a href='/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_bins_NOSPINDLES_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_bins_NOSPINDLES_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_bins_NOSPINDLESPVAL_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS/2nd_batch_slow_oscillation_ERP4_by_bins_NOSPINDLESPVAL_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
-<strong>1st Batch Subjects</strong>   <br />
-<a href='/images/research/LOSO_POSTBUG/SO_BINS/1st_batch_slow_oscillation_ERP4_by_bins_faceAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS/1st_batch_slow_oscillation_ERP4_by_bins_faceAUC_lambda10.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/SO_BINS/1st_batch_slow_oscillation_ERP4_by_binsPVAL_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SO_BINS/1st_batch_slow_oscillation_ERP4_by_binsPVAL_face_sceneAUC_lambda10.png" width="700" height="350"></a>       </p>
-
-<h2 id="sleep-untransformed-loso-erp-spindle-bins">Sleep Untransformed LOSO ERP Spindle Bins</h2>
-<p><strong>2nd Batch Subjects - all trials</strong>
-<a href='/images/research/LOSO_POSTBUG/SPINDLE_BINS/2nd_batch_subjs_ERP4_by_SPINDLE_bins_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SPINDLE_BINS/2nd_batch_subjs_ERP4_by_SPINDLE_bins_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/SPINDLE_BINS/2nd_batch_subjs_ERP4_by_SPINDLE_binsPVAL_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SPINDLE_BINS/2nd_batch_subjs_ERP4_by_SPINDLE_binsPVAL_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
-<strong>1st Batch Subjects</strong>   <br />
-<a href='/images/research/LOSO_POSTBUG/SPINDLE_BINS/1st_batch_subjs_ERP4_by_SPINDLE_bins_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SPINDLE_BINS/1st_batch_subjs_ERP4_by_SPINDLE_bins_face_sceneAUC_lambda10.png" width="700" height="350"></a>     <br />
-<a href='/images/research/LOSO_POSTBUG/SPINDLE_BINS/1st_batch_subjs_ERP4_by_SPINDLE_binsPVAL_face_sceneAUC_lambda10.png' target='_blank'><img src="/images/research/LOSO_POSTBUG/SPINDLE_BINS/1st_batch_subjs_ERP4_by_SPINDLE_binsPVAL_face_sceneAUC_lambda10.png" width="700" height="350"></a>       </p>
-
+<p>The easiest problem to check for is to see if we get better results with more data in each fold, so I’ve launched a batch of results that use 20 folds.  This should give new results relatively quickly and we can move from there.  If that doesn’t ameliorate the poor accuracy, I’ll move to using the wake parameters used to probe subject 1 to make sure that the results for subject 1 are consistent with the results I got during the probing phase.</p>
 ]]></content>
   </entry>
   
